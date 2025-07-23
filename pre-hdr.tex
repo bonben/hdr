@@ -9,7 +9,7 @@
 \usepackage{minitoc}
 \usepackage{fancyhdr}
 \usepackage{longtable}
-
+\usepackage{pdflscape}
 % \usepackage[T1]{fontenc}
 % \usepackage[french]{babel}
 % \hyphenation{é-chan-tillon-nage}
@@ -90,6 +90,11 @@ Je dépose mon dossier d'HDR à l'UBO en raison de mon rattachement au Lab-STICC
   pages=-,
   pagecommand={\thispagestyle{includepdfstyle}}
 ]{main_french.pdf}
+\includepdf[
+  pages=-,
+  pagecommand={\section{Activités d'enseignement}\thispagestyle{includepdfstyle}}
+]{enseignements.pdf}
+
 \section{Publications}
 \subsection{Publications dans des revues internationales}
 \printbibliography[keyword={JOURNAL}, heading=none]
@@ -108,6 +113,7 @@ Je dépose mon dossier d'HDR à l'UBO en raison de mon rattachement au Lab-STICC
 % \vspace{1cm}
 
 Ce chapitre présente un résumé des activités de recherche. J'ai réalisé une thèse de doctorat nommée \textit{Décodage de codes polaires sur des architectures programmables}. Poursuivis par un poste d'ATER, ces travaux ont également mené à la création du logiciel open source qui permet la simulation de chaînes complètes de communications numériques ainsi que leur implémentation dans le cadre de radio logicielle (SDR: Software Defined Radio). J'ai ensuite réorienté mes recherches sur la compression d'algorithmes d'apprentissage profond et leur déploiement sur cibles embarquées : FPGA, processeurs et microcontrôleurs embarqués, GPUs embarqués. Mes activités d'encadrement (3 thèses de doctorat soutenues, 4 en cours, 2 post-doctorants, 1 ingénieur de recherche) sont résumées dans la Section~\ref{sec:encadrement}. Enfin, la Section~\ref{sec:financement} liste les financements de recherche obtenus.
+
 
 \section{Algorithmes de communications numériques sur architectures programmables}
 \label{sec:chaines_communication}
@@ -199,18 +205,42 @@ Ce travail a conduit à une collaboration avec l'université de Tohoku et le pro
 
 \subsection{Encadrement de doctorants}
 Thèses soutenues :
+Here's your LaTeX code with the requested changes, avoiding "Je" or "J'" at the start of each item where possible, while maintaining clarity and grammatical correctness:
+
 \begin{itemize}
     \item Hugo Tessier, soutenue le 09/02/2023
+    \begin{itemize}
+      \item 25\% - La participation à la thèse de Hugo a porté sur l'ensemble des travaux de recherche, avec un accent particulier sur le déploiement sur cibles embarquées.
+    \end{itemize}
     \item Lucas Grativol Ribeiro, soutenue le 05/12/2024
+    \begin{itemize}
+      \item 25\% - Participation à la conception de cette thèse Futur et Ruptures avec les collègues de Telecom et Mines Saint Etienne. Expertise apportée sur le choix des modèles d'apprentissage et l'application de techniques de compression.
+    \end{itemize}
     \item Hugo Le Blevec, soutenue le 06/12/2024
+    \begin{itemize}
+      \item 50\% - Co-encadrement de la thèse de Hugo Le Blevec. Participation à l'ensemble des travaux de recherche, initiant en particulier les collaborations avec l'équipe d'AMD à Dublin (Thomas Preusser).
+    \end{itemize}
 \end{itemize}
 Thèses en cours :
 \begin{itemize}
     \item Timotée Ly-Manson, soutenance prévue en décembre 2025
+    \begin{itemize}
+      \item 50\% - Co-encadrement de la thèse de Timotée Ly-Manson, financée sur mes contrats de recherche et sujet conçu avec lui. Collaboration établie avec l'équipe de Sony Stuttgart, en particulier Lukas Mauch.
+    \end{itemize}
     \item Ismail Amessegher, soutenance prévue en décembre 2025
+    \begin{itemize}
+      \item 33\% - Co-encadrement de la thèse d'Ismail Amessegher, avec intervention pour le déploiement de modèles de détection d'objet sur FPGA.
+    \end{itemize}
     \item Jérémy Morlier, soutenance prévue en décembre 2026
+    \begin{itemize}
+      \item 50\% - Co-encadrement de la thèse de Jérémy Morlier, financée sur le projet JCJC ProPruNN.
+    \end{itemize}
     \item Elise Lagarde, depuis janvier 2025
+    \begin{itemize}
+      \item 50\% - Initiative de cette thèse CIFRE en collaboration avec Arkane et Telecom Paris, faisant suite à un précédent contrat de recherche.
+    \end{itemize}
 \end{itemize}
+
 \subsection{Encadrement de stages de master}
 \begin{itemize}
     \item Hugo Kermabon, de mai à août 2020
@@ -254,52 +284,54 @@ Thèses en cours :
 % Syst\'emes embarqu\'es - interaction hw \textbackslash{} sw & Membre & 132.50 & IMT Atlantique & 2020-2025 & M1-M2\\
 % Syst\'emes embarqu\'es : du capteur au traitement intelligent & Membre & 45.00 & IMT Atlantique & 2020-2025 & M1-M2\\
 % \end{longtable}
-
+\begin{landscape}
 \section{Financement de la recherche}
 \label{sec:financement}
 
 \subsection{Financements publics}
 {\small
-\begin{longtable}{|c|l|p{3cm}|p{1.cm}|p{1.5cm}|}
+\begin{longtable}{|c|l|p{3cm}|p{1.cm}|p{1.5cm}|p{6.5cm}|}
 \caption{Financements publics} \label{tab:financements_publics} \\
 \hline
-\textbf{Ann\'ee} & \textbf{Titre court} & \textbf{Organisme} & \textbf{R\^ole} & \textbf{Montant (k€)} \\
+\textbf{Ann\'ee} & \textbf{Titre court} & \textbf{Organisme} & \textbf{R\^ole} & \textbf{Montant (k€)} & \textbf{Détails}\\
 \hline
 \endfirsthead
 \endfoot
 \hline
 \endlastfoot
-2023-2027 & Autonomous Pack & ADEME Logistique 4.0& PI & 260 \\
-2024-2026 & GNSS Anti-Jamming w/ CRPA \& CNN/TCN & R\'egion Bretagne & co-PI & 140 \\
-2023-2026 & ProPruNN: Pruning Neural Networks & ANR JCJC& PI & 250 \\
-2023-2026 & Vortex: Drone Swarms for Exploration & ANR TSIA & co-PI & 200 \\
-2024-2025 & Deep-Learning-FPGA-Eco-conception & CNES & PI & 5 \\
-2021-2025 & GoodFloow & ADEME Perfecto & PI & 70 \\
-2022-2024 & Leasard: Low Energy DNN for Drones & Labex CominLabs & co-PI & 120 \\
-2022-2024 & FLCNNFPGA: Federated Learning & CNRS GDR ISIS & co-PI & 7 \\
-2021-2024 & FLCNNFPGA: Federated Learning \& FPGA & IMT Futur \& Ruptures & co-PI & 120 \\
+2023-2027 & Autonomous Pack & ADEME Logistique 4.0& PI & 260  & Porteur principal du projet. Expertise sur embarquement de réseaux de neurones sur données d'accéléromètres sur microcontrôleur\\
+2024-2026 & GNSS Anti-Jamming w/ CRPA \& CNN/TCN & R\'egion Bretagne & co-PI & 140  & Participation au projet dans l'encadrement d'un post-doctorant sur le portage de traitement d'apprentissage embarqué sur FPGA\\
+2023-2026 & ProPruNN: Pruning Neural Networks & ANR JCJC& PI & 250  & Porteur principal de mon projet JCJC sur la co-conception de modèles d'apprentissage profond et d'architectures matérielles\\
+2023-2026 & Vortex: Drone Swarms for Exploration & ANR TSIA & co-PI & 200  & Encadrement d'un doctorant, Ismail, sur l'implantation d'algorithmes de détection d'objet sur des données événementielles\\
+2024-2025 & Deep-Learning-FPGA-Eco-conception & CNES & PI & 5  & Responsable d'une formation sur la compression de réseaux de neurones pour l'entreprise Arkane\\
+2021-2025 & GoodFloow & ADEME Perfecto & PI & 70  & Porteur principal du projet côté IMT Atlantique, par l'encadrement d'un post-doctorant, Hamoud Younes\\
+2022-2024 & Leasard: Low Energy DNN for Drones & Labex CominLabs & co-PI & 120  & Encadrement d'un doctorant, Ismail, sur l'implantation d'algorithmes de détection d'objet sur des données événementielles\\
+2022-2024 & FLCNNFPGA: Federated Learning & CNRS GDR ISIS & PI & 7  & Financement d'un stage de master et de matériel dans le cadre de la thèse de Lucas Grativol\\
+2021-2024 & FLCNNFPGA: Federated Learning \& FPGA & IMT Futur \& Ruptures & co-PI & 120 & Encadrement de Lucas Grativol \\
 \end{longtable}
 }
 
 \subsection{Financements privés}
 {\small
-\begin{longtable}{|c|l|p{3cm}|p{1cm}|p{1.5cm}|}
+\begin{longtable}{|c|l|p{3cm}|p{1cm}|p{1.5cm}|p{6.5cm}|}
 \caption{Financements privés} \label{tab:financements_prives} \\
 \hline
-\textbf{Ann\'ee} & \textbf{Titre court} & \textbf{Organisme} & \textbf{R\^ole} & \textbf{Montant (k€)} \\
+\textbf{Ann\'ee} & \textbf{Titre court} & \textbf{Organisme} & \textbf{R\^ole} & \textbf{Montant (k€)} & \textbf{Détails} \\
 \hline
 \endhead
 \hline
 \endfoot
 \hline
 \endlastfoot
-2025-2028 & GNSS Anti-Jamming Opt. (CIFRE) & Arkane & co-PI & pvt \\
-2023-2025 & Few-Shot NAS in Metric-Driven Fmwk & Sony & co-PI & 180k€ \\
-2024-2025 & Embedded DL for Seg. \& LLMs & Schneider Electric & PI & 40k€ \\
-2020-2023 & CNN Pruning for Embedded Vision (CIFRE) & Stellantis & co-PI & pvt \\
-2022 & DeepGEMM: Low-Precision Inference & Deeplite & PI & 60k€\\
+2025-2028 & GNSS Anti-Jamming Opt. (CIFRE) & Arkane & co-PI & pvt &  A l'initiative de la thèse CIFRE d'Elise Lagarde, responsable de la partie implémentation sur cible FPGA\\
+2023-2025 & Few-Shot NAS in Metric-Driven Fmwk & Sony & co-PI & 180k€ & Projet avec Sony sur nombreux sujets dont few-shot learning et LLMs. Pour ma part j'ai participé à la rédaction d'un article sur NAS\\
+2024-2025 & Embedded DL for Seg. \& LLMs & Schneider Electric & PI & 40k€ & Porteur de ce projet qui a porté sur l'intégration de réseaux de segmentation sémantique sur cible embarqué d'une part, et l'implémentation de RAG (retrieval-augmented generation) sur cible embarquée d'autre part.\\
+2020-2023 & CNN Pruning for Embedded Vision (CIFRE) & Stellantis & co-PI & pvt & Participation à l'encadrement de Hugo Tessier lors de mon arrivée à IMT Atlantique \\
+2022 & DeepGEMM: Low-Precision Inference & Deeplite & PI & 60k€ &  Porteur et développeur principal d'une implémentation de version quantifiée de réseaux de neurones sur cible embarqué à l'aide de LUT et instructions SIMD.\\
 \end{longtable}
 }
+\end{landscape}
+
 % \minitoc
 % \vspace{1cm}
 \clearpage
