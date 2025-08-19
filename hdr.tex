@@ -1,0 +1,388 @@
+\documentclass[11pt]{report}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=numeric,sorting=custom,minnames=3, maxnames=6]{biblatex}
+\usepackage{minitoc}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{pdflscape}
+% \usepackage[T1]{fontenc}
+% \usepackage[french]{babel}
+% \hyphenation{é-chan-tillon-nage}
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{Habilitation à Diriger des Recherches}
+\author{ Mathieu Léonardon }
+\date{\today}
+
+% Mettre en pied de page le numéro de page comme ailleurs
+\fancypagestyle{includepdfstyle}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt} % Remove top rule
+  \renewcommand{\footrulewidth}{0pt} % Remove bottom rule
+}
+
+\addbibresource{all.bib}
+
+\DeclareSortingTemplate{custom}{
+  \sort{
+    \field{sortkey}
+  }
+}
+
+\begin{document}
+\dominitoc % Active les mini-tables des matières
+
+\renewcommand{\contentsname}{
+    \begin{center}
+    Habilitation à Diriger des Recherches \\ --- \\ Mathieu Léonardon
+    \end{center}
+    }
+\tableofcontents
+\vspace{1.5cm}
+
+\section{Proposed External HDR Experts}
+\begin{itemize}
+    \item Stefan Duffner - \texttt{stefan.duffner@insa-lyon.fr}
+    \item Frédéric Pétrot - \texttt{frederic.petrot@univ-grenoble-alpes.fr}
+    \item Olivier Sentieys - \texttt{olivier.sentieys@inria.fr}
+    \item Andrea Pinna - \texttt{andrea.pinna@lip6.fr}
+    \item Nicolas Gac - \texttt{nicolas.gac@universite-paris-saclay.fr}
+\end{itemize}
+
+\section{Declaration on Honour}
+
+I, the undersigned, Mathieu Léonardon, hereby declare on my honour that I have not submitted an application for Accreditation to Supervise Research (HDR) to any institution other than the University of Brittany Occidentale (UBO).
+\begin{flushright}
+    \includegraphics[width=0.3\textwidth]{signature.png}
+\end{flushright}
+\section{Reasons for Submission to UBO}
+
+I am submitting my HDR application to UBO due to my affiliation with Lab-STICC, some of whose members are affiliated with UBO, as well as the geographical proximity between UBO and IMT Atlantique, the latter not being accredited to award this diploma.
+
+
+
+
+\pagebreak
+\refstepcounter{chapter} % Increment counter and enable reference
+\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}Curriculum Vitæ}
+
+\refstepcounter{section} % Increment counter and enable reference
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Summary of Professional Career and Academic Activities}
+
+
+
+% Inclure pdf main-french.pdf
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{includepdfstyle}}
+]{main_french.pdf}
+\includepdf[
+  pages=-,
+  pagecommand={\section{Teaching Activities}\thispagestyle{includepdfstyle}}
+]{enseignements.pdf}
+
+\section{Publications}
+\subsection{Publications in International Journals}
+\printbibliography[keyword={JOURNAL}, heading=none]
+\subsection{Publications in International Conferences with Proceedings}
+\printbibliography[keyword={CONFERENCE}, heading=none]
+\subsection{Publications in National Conferences with Proceedings}
+\printbibliography[keyword={NATIONAL}, heading=none]
+\subsection{Communications without Proceedings}
+\printbibliography[keyword={WORKSHOP}, heading=none]
+
+
+\pagebreak
+
+\chapter{Summary of Research, Supervision, and Funding Activities}
+% \minitoc
+% \vspace{1cm}
+
+This chapter summarizes my research activities. I completed a doctoral thesis titled \textit{Decoding of Polar Codes on Programmable Architectures}. These works, continued during a temporary lecturer position (ATER), also led to the creation of open-source software for simulating complete digital communication chains and their implementation in software-defined radio (SDR). I then reoriented my research towards the compression of deep learning algorithms and their deployment on embedded targets: FPGAs, embedded processors and microcontrollers, and embedded GPUs. My supervision activities (3 completed doctoral theses, 4 ongoing, 2 post-doctoral researchers, 1 research engineer) are summarized in Section~\ref{sec:encadrement}. Finally, Section~\ref{sec:financement} lists the research funding obtained.
+
+
+\section{Digital Communication Algorithms on Programmable Architectures}
+\label{sec:chaines_communication}
+
+My doctoral thesis presents efficient implementation methods (throughput, latency, energy consumption) for polar code decoding algorithms on specific hardware architectures (ASIP: Application Specific Instruction-set Processor) but also on general-purpose processors (GPP: General Purpose Processor). This work, in collaboration with Adrien Cassagne from LIP6, led to the creation of the open-source software AFF3CT, a complete software toolbox for the simulation and implementation of digital communication chains.
+
+
+\subsection{Decoding of Polar Codes on General Purpose Processors}
+
+Software implementations of error-correcting code decoders play a crucial role in several areas of modern digital communications. Firstly, they are essential for Monte Carlo simulations, enabling the evaluation of communication system performance under various noise and interference scenarios. Secondly, in the context of Cloud-RAN (Cloud Radio Access Networks), software decoders offer the flexibility needed to virtualize physical layer functions, thereby facilitating cooperative multi-point processing. These decoders are indeed the most computationally intensive building blocks of the communication chain. Finally, for software-defined radios (SDR), they allow dynamic reconfiguration of communication parameters, adapting systems to different standards and channel conditions without requiring hardware modifications.
+
+Polar codes, introduced by Arıkan in 2009, are the first error-correcting codes proven to achieve Shannon capacity for infinite code lengths. The Successive Cancellation (SC) decoding algorithm was initially proposed for polar codes, but its performance in terms of bit error rate (BER) and frame error rate (FER) is insufficient for short code lengths. To address this, the Successive Cancellation List (SCL) algorithm was proposed in the literature, significantly improving decoding performance by maintaining a list of candidate paths. An optimized version, called Fast SCL, was subsequently developed to reduce computational complexity while maintaining good decoding performance. These algorithms allow for trade-offs between complexity, latency, and decoding performance, making polar codes suitable for modern communication standards like 5G.
+
+I proposed several major contributions for the software implementation of SCL decoders~\cite{leonardon:hal-01987848}. First, a new partial sorting algorithm is introduced to optimize the management of candidate paths in the decoder, thereby improving decoding speed. Then, a new memory management technique is proposed to reduce memory footprint and increase decoding efficiency. Finally, an automated method for constructing decoding nodes is developed, allowing for a more flexible and generic implementation of the decoders. These contributions enable the creation of a software decoder that is not only fast but also flexible, capable of adapting to different code parameters and channel conditions without requiring recompilation of the source code.
+
+The results presented in this article constituted the state-of-the-art for Adaptive SCL decoders on GPPs from the perspective of throughput and latency. Nearly ten years after its publication, the obtained results remain competitive. This work has been widely used and integrated into more complex systems, limiting the time and energy consumed by error-correcting code decoders. However, other algorithms have since been proposed, such as improvements to the Successive Cancellation Flip (SCF) algorithm, which could benefit from similar techniques to optimize their performance \cite{Sagitov2025}. It would therefore be interesting to explore these possibilities in future work to continue improving the efficiency and flexibility of polar code decoders.
+
+\subsection{The AFF3CT Software Suite}
+The research conducted during my thesis led to the creation of a comprehensive software suite called AFF3CT\footnote{\url{https://aff3ct.github.io/}}~\cite{cassagne:hal-02358306,cassagne:hal-01965633}. This suite was designed to meet several critical needs in the field of digital communications, particularly for Monte Carlo simulations, channel decoding, and the implementation of software-defined radio (SDR) systems.
+
+AFF3CT is a powerful tool for performing efficient and optimized Monte Carlo simulations. It effectively leverages multicore architectures and SIMD (Single Instruction Multiple Data) instructions. The main building blocks of the baseband communication chain, such as source, channel coding, modulation, multiple access~\cite{ghaffari:hal-01977885,ghaffari:hal-03762203}, demodulation, channel decoding, and error monitoring, are all available in AFF3CT. The software suite supports a large number of codes, modulations, and channels, accompanied by extensive and detailed documentation\footnote{\url{https://aff3ct.readthedocs.io}}. Continuous integration scripts are used so that with each new software evolution, a complete database of BER and FER curves is replayed to avoid any regression in the implemented modules.
+
+AFF3CT's channel decoders are designed to be state-of-the-art or close to it for polar codes, turbo codes, and LDPC codes. A "hall of fame" is available on the website for each code type, comparing the performance of implementations available in AFF3CT with those reported in the literature. This allows researchers and engineers to easily compare their results with the best-known performances, thus facilitating innovation and continuous improvement of decoding algorithms.
+
+Following these initial developments, during my ATER year, I participated in transforming AFF3CT to adapt it to an SDR implementation context using USRP modules. This transformation made AFF3CT compatible with software-defined radio systems, thus paving the way for practical and real-world applications in digital communications. The main results of this transformation include a significant improvement in system flexibility and portability, allowing easy integration with various hardware equipment~\cite{cassagne:hal-03336450}.
+
+Finally, we plan to participate, at the end of 2025, with the co-authors of the AFF3CT paper, in the ISTC conference's software implementation competition. Preliminary results are very promising and show that our software suite is competitive compared to other available solutions. This participation will allow us to further validate the performance and robustness of AFF3CT in an international competition and benchmarking context.
+
+
+\subsection{ASIP Architectures for Polar Codes}
+Following the work on software implementations of polar code decoding on general-purpose processors (GPP), two contributions explored performance optimization through specialized programmable processors (ASIP - Application Specific Instruction-set Processor). This paradigm shift is in line with the Cloud-RAN logic, where the virtualization of physical functions allows great flexibility in resource allocation. Nevertheless, to achieve high throughput and energy efficiency while maintaining a certain level of programmability, the use of ASIPs proves particularly relevant. Unlike GPPs, which are often oversized and energy-intensive, ASIPs allow for fine-tuning of hardware resources to the target algorithm, while integrating vector processing units or specific instructions to improve efficiency.
+
+The first work relied on the Cadence Tensilica ecosystem to design a processor based on the Xtensa LX7 core, adapted for SC and SCAN (Soft CANcellation) polar code decoding~\cite{leonardon:hal-03291077}. This processor was configured to include a VLIW pipeline, SIMD instructions on 512-bit registers, and a reduced set of general-purpose registers optimized for LLR and partial sum access. The approach combined architectural optimizations (custom instructions, adapted memory management, quantized arithmetic) and software optimizations (pseudo-unrolling of decoding, use of specialized functions like R0/R1/REP/SPC). The results showed that throughput was comparable to that obtained on an ARM Cortex-A57, with a 10-fold reduction in energy consumption, thus demonstrating the relevance of the approach for embedded applications or those deployed on Cloud-RAN servers requiring strong energy efficiency constraints.
+
+The second article proposes a significant evolution of this approach through the use of a Transport Triggered Architecture (TTA), in collaboration with the University of Tampere (which also led to the visit carried out as part of the project with Pekka Jääskeläinen via Maupertuis funding)~\cite{leonardon:hal-01978830}. Unlike the RISC architecture of the LX7, TTA explicitly exposes the datapath to the compiler, allowing direct transfers between functional units without systematically going through registers, which reduces bottlenecks related to memory access. Two processors were developed: one dedicated to SC, the other extended to SCAN decoding. The TTA architecture proved particularly flexible: the addition of custom functions (Unrolled SC decoder, LLR and PS vector units, FUs dedicated to SCAN) was done without questioning the compilation core. The results are particularly remarkable: a throughput of 352 Mbps for the (1024, 512) code, with energy consumption divided by 100 (14 nJ/bit) compared to an equivalent x86 implementation. Validation was carried out both on FPGA (Artix-7) and by ASIC synthesis in 28 nm. The gain in energy efficiency, combined with greater expressiveness for expressing optimizations related to polar decoding (in particular the efficient processing of specialized nodes), positions ASIP-TTAs as a particularly relevant compromise solution between the rigidity of dedicated hardware IPs and the generality of GPPs.
+
+
+
+
+\section{Deep Learning on Embedded Targets}
+\label{sec:deep_learning_embedded}
+
+My arrival at IMT Atlantique in 2020 marked the beginning of my work on deep learning for embedded targets, with a particular focus on optimizing models for resource-constrained environments.
+
+\subsection{Low-Cost Federated Learning}
+Federated Learning (FL) is a promising approach for distributed machine learning, particularly suited for privacy-sensitive applications, such as military and medical domains, where client data cannot be shared or transferred to a cloud computing server. In standard FL, a server sends a model to a group of clients, who train it on their local data, then send their updated parameters back to the server for aggregation. This process aims to better guarantee user data privacy, as data never leaves the client device.
+
+However, communication cost represents a major challenge in FL due to its intensive network usage. Client devices, such as smartphones or Internet of Things (IoT) nodes, have limited resources in terms of energy, computation, and memory. To overcome these hardware constraints, lightweight models and compression techniques such as pruning and quantization are commonly adopted in centralized paradigms.
+
+In a first contribution, we proposed a method to insert the pruning technique as an additional step before communicating training results~\cite{grativol:hal-04251969,grativol:emse-04217775}. This approach aims to make messages sparser and thus reduce message size. More precisely, the method uses unstructured magnitude-based pruning, where weights with the smallest absolute values are replaced by zeros according to a predetermined pruning rate. This process is performed by the server and clients before transmitting a message, ensuring an equivalent pruning level throughout each communication round.
+
+The results demonstrate that this method can compress messages by up to 50% while incurring a precision loss of less than 1%, outperforming state-of-the-art techniques. For example, with a 50% pruning rate, message size is reduced to 23.0 MB, with an accuracy of 83.85±0.65%, compared to 44.7 MB and 84.43±0.36% for the full model without pruning. An increase in the number of local iterations per client during training contributes to a more robust model, allowing for sparser data communications while maintaining similar precision.
+
+In a second contribution, we introduce FLoCoRA, a method that integrates LoRA techniques into the training of small vision models in a federated learning (FL) context~\cite{grativol:hal-04617632}. Unlike previous approaches focused on large models, FLoCoRA adopts an aggregation-agnostic strategy and keeps the base model frozen throughout training. Only the parameters of the much lighter LoRA adapters are updated and exchanged between clients. This design limits both data exchanges and memory usage, thanks to the absence of calculation and storage of the main model's gradients.
+
+Key contributions include: the integration of LoRA adapters into the FL framework, with an implementation compatible with any FL optimization method, thus establishing a solid foundation for communication and memory reduction; a reduction in message sizes of up to 4.8 times with a precision loss of less than 1% for a CIFAR-10 classification task using a ResNet-8; and the extension of the method with an affine quantization scheme, allowing for even higher compression rates, dividing the communication cost by 18.6 times, while maintaining a precision loss of less than 1% on a ResNet-18 model.
+
+Compared to conventional compression methods, FLoCoRA achieves less precision degradation for reduced message sizes. For example, for a pruning rate of 40% (27.1 MB) with the magnitude pruning method, the precision is 85.20±0.20%. In contrast, FLoCoRA with a rank of 64 and 8-bit quantization (2.4 MB) achieves 85.24±0.23%, representing an 18.6-fold reduction in communication cost compared to the full FedAvg model (44.7 MB). The integration of affine quantization allowed for a 64-fold reduction in communication cost with an approximately 4% precision loss.
+
+This work demonstrates that LoRA, while commonly used for fine-tuning, can serve as a solid basis for communication savings in FL, paving the way for the deployment of Federated Learning on edge devices where communication is a bottleneck and computational power is limited.
+
+
+\subsection{Compression by Pruning or Quantization and Embedded Deployment}
+
+Another set of contributions focused on neural network pruning and was carried out as part of Hugo Tessier's thesis, in collaboration with Matthieu Arzel and Vincent Gripon from IMT Atlantique, thanks to CIFRE funding from the company Stellantis, with Thomas Hannagan and David Bertrand as supervisors.
+A first notable contribution concerns the efficient pruning of neural networks through the targeted application of weight decay to a subset of weights. This method, named Selective Weight Decay (SWD) or Pénalisation Sélective des Pondérations (PSP), is described in articles~\cite{tessier:hal-03675138,tessier:hal-03695958}. Inspired by Lagrangian smoothing, SWD allows progressive and continuous pruning during training. It relies on adding a penalty term to the objective function, with a coefficient $a$ exponentially increasing between $a_{min}$ and $a_{max}$. This scheme ensures undisturbed initial training, followed by effective connection pruning when $a_{max}$ is sufficiently high.
+SWD applies to both unstructured pruning (reducing low-norm weights to zero) and structured pruning (removing entire channels via the multiplicative coefficients of normalization layers).
+
+The results show particular effectiveness for high pruning rates, where classical approaches significantly degrade performance. On datasets like CIFAR-10 and ImageNet ILSVRC2012, SWD outperforms reference methods. Its robustness and transferability are supported by an in-depth literature review. A high-impact blog post also popularized this approach\footnote{\url{https://towardsdatascience.com/neural-network-pruning-101-af816aaea61/}}.
+
+However, pruning more complex models, such as those dedicated to semantic segmentation, presents specific challenges in achieving tangible gains on embedded targets, notably due to dimensional inconsistencies between layers. Solutions have been proposed to leverage global structured pruning while evaluating its real impact on energy consumption on embedded GPUs.
+The proposed method solves these problems by first identifying all parts of the network that are disconnected when filters are removed, taking into account all architectural dependencies~\cite{tessier:hal-03706472}. It then automatically adapts addition operations to handle tensors of different dimensions, which ensures that all filters and kernels contribute to the network function, thus allowing a more reliable measurement of the actual pruning rate and the associated complexity of the pruned networks. In particular, additions at the end of each residual block in architectures like ResNet or HRNet require both input tensors to have the same dimensions, which can be resolved by replacing additions with a new "indexing-addition" operation.
+
+Experiments conducted with this approach on NVIDIA Jetson AGX Xavier embedded GPUs demonstrated that global structured pruning can reduce energy consumption. However, it was found that smaller, unpruned networks, such as HRNet-32 and HRNet-18, are more energy-efficient than pruned networks, even with the same number of operations. This is attributed to the unconventional nature of the insertion operations (ScatterND) used to manage dimensions, which can harm the optimization of the rest of the network~\cite{tessier:hal-03767634,tessier:hal-03767636}. These results highlight the need for a more efficient implementation of the operators necessary to exploit pruning and to further explore the biases of pruning criteria, as they can lead to energy-suboptimal sparsity distributions.
+
+In addition, other instances of performance improvement through pruning and quantization have been explored. An industrial project, carried out in collaboration with the company GoodFloow, allowed for the study of the interoperability of compression techniques (pruning, quantization, and coding) for the deployment of convolutional neural networks on microcontrollers with limited memory~\cite{younes:hal-03850858}. This work developed a methodology to optimize the trade-off between model accuracy and memory footprint, which is crucial for applications. Concurrently, research focused on the use of emerging memristor-based technologies for the development of binary neural networks~\cite{alhajali:hal-03659297}. These "in-memory computing" approaches aim to overcome the data bottleneck by performing calculations directly within memory, offering significant gains in speed and energy efficiency for binary neural networks, which are particularly well-suited for these technologies. Furthermore, developments of SIMD (Single Instruction Multiple Data) implementations for convolutional neural networks on general-purpose processors (GPP) were carried out in collaboration with the Canadian startup Deeplite~\cite{ganji:hal-04082069}. This project, called DeepGEMM, was based on the use of lookup tables (LUT) implemented using Intel AVX2 and Arm Neon instruction sets.
+
+\subsection{Deep Learning on FPGA Targets}
+Hugo Le Blevec's doctoral work focused on the co-design of deep neural networks and pipelined FPGA architectures for semantic segmentation in autonomous vehicles~\cite{leblevec:hal-04262138,leblevec:hal-04705594}. These systems require low latency and reduced consumption, making classic GPUs less suitable for embedded contexts. FPGAs offer a promising alternative due to their parallel processing and energy efficiency, although they pose challenges related to limited resources.
+
+The thesis highlighted the often-underestimated impact of training routines. By optimizing these on a lightweight model like ENet, gains of over 12% on Cityscapes and 26% on CamVid were obtained. This demonstrates that careful training allows simple architectures to compete with more complex models.
+The ENet architecture was then adapted for efficient FPGA mapping, relying on the open-source FINN framework. Notable contributions include the addition of streamlining transformations and the integration of transposed convolutions, essential for segmentation. The final model, P-ENet, achieves 70.3% mIoU in INT4, with 4.2 ms latency and 226 FPS on Cityscapes. It outperforms existing FPGA implementations and proves to be 1.15 times more energy-efficient than an NVIDIA Jetson AGX Xavier. This work is not currently presented in the manuscript but is under submission to ACM TRETS.
+
+In parallel, the PEFSL (Pipeline for Embedded Few-Shot Learning) project, originating from a student project I supervised, winner of the 2023 OpenHardware AMD Xilinx competition\footnote{https://www.openhw.eu/2023-results-gallery}, tackled few-shot learning on FPGA-SoC. The developed flow, based on Tensil, covers the entire training, design chain, and deployment on a PYNQ-Z1 board. The demonstrator achieves a latency of 30 ms for a consumption of 6.2 W on MiniImageNet~\cite{grativol:hal-04559365}.
+
+This work led to a collaboration with Tohoku University and Professor Naoya Onizawa, materialized by reciprocal visits and two publications~\cite{kanda:hal-04984380,kanda:hal-04984381}. These articles aim to ensure precision consistency throughout the design flow by applying fixed-point quantization via Brevitas, with QAT and PTQ methods. They show that near floating-point precision can be achieved with only 5 to 6 bits for both integer and fractional parts. These models were then integrated into the FINN suite within PEFSL.
+\section{Summary of Supervision Activities}
+\label{sec:encadrement}
+
+\subsection{Doctoral Student Supervision}
+Theses defended:
+\begin{itemize}
+    \item Hugo Tessier, defended on 09/02/2023
+    \begin{itemize}
+      \item 25\% - Participation in Hugo's thesis covered all research work, with a particular focus on deployment on embedded targets.
+    \end{itemize}
+    \item Lucas Grativol Ribeiro, defended on 05/12/2024
+    \begin{itemize}
+      \item 25\% - Participation in the design of this Futur et Ruptures thesis with colleagues from Telecom and Mines Saint Etienne. Provided expertise on the choice of learning models and the application of compression techniques.
+    \end{itemize}
+    \item Hugo Le Blevec, defended on 06/12/2024
+    \begin{itemize}
+      \item 50\% - Co-supervision of Hugo Le Blevec's thesis. Participation in all research work, particularly initiating collaborations with the AMD team in Dublin (Thomas Preusser).
+    \end{itemize}
+\end{itemize}
+Theses in progress:
+\begin{itemize}
+    \item Timotée Ly-Manson, defense scheduled for December 2025
+    \begin{itemize}
+      \item 50\% - Co-supervision of Timotée Ly-Manson's thesis, funded by my research contracts and subject designed with him. Collaboration established with the Sony Stuttgart team, particularly Lukas Mauch.
+    \end{itemize}
+    \item Ismail Amessegher, defense scheduled for December 2025
+    \begin{itemize}
+      \item 33\% - Co-supervision of Ismail Amessegher's thesis, with involvement in the deployment of object detection models on FPGA.
+    \end{itemize}
+    \item Jérémy Morlier, defense scheduled for December 2026
+    \begin{itemize}
+      \item 50\% - Co-supervision of Jérémy Morlier's thesis, funded by the JCJC ProPruNN project.
+    \end{itemize}
+    \item Elise Lagarde, since January 2025
+    \begin{itemize}
+      \item 50\% - Initiated this CIFRE thesis in collaboration with Arkane and Telecom Paris, following a previous research contract.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Master's Internship Supervision}
+\begin{itemize}
+    \item Hugo Kermabon, May to August 2020
+    \item Hugo Le Blevec, April to October 2020
+    \item Jérémy Morlier, June to July 2021
+    \item Lubin Gauthier, July to September 2023
+    \item Pedro Figueireido, May to August 2025
+    \item Mohammed El Houcine Ayoubi, April to August 2025
+\end{itemize}
+% \small % Réduit la taille de la police pour tout le tableau
+% \begin{longtable}{|p{0.25\linewidth}|p{0.13\linewidth}|c|p{0.18\linewidth}|c|p{0.15\linewidth}|}
+% \caption{Activités d'enseignement} \label{tab:activites_enseignement} \\
+% \hline
+% \textbf{Nom de l'enseignement} & \textbf{Membre ou Lead} & \textbf{HETD} & \textbf{\'Etablissement} & \textbf{Ann\'ee scolaire} & \textbf{Niveau} \\
+% \hline
+% \endfirsthead
+% \hline
+% \textbf{Nom de l'enseignement} & \textbf{Membre ou Lead} & \textbf{HETD} & \textbf{\'Etablissement} & \textbf{Ann\'ee scolaire} & \textbf{Niveau} \\
+% \hline
+% \endhead
+% \hline
+% \endfoot
+% \hline
+% \endlastfoot
+% Projet de conception en \'electronique & Lead & 50.00 & ENSEIRB-MATMECA & 2015-2020 & L3\\
+% Architecture reconfigurable & Lead & 20.00 & ENSEIRB-MATMECA & 2015-2020 & M1\\
+% \'Electronique Num\'erique & Lead & 25.00 & ENSEIRB-MATMECA & 2015-2020 & L3\\
+% Logique combinatoire et logique s\'equentielle & Membre & 32.00 & ENSEIRB-MATMECA & 2015-2020 & L3\\
+% Projet micro-processeur & Membre & 36.00 & ENSEIRB-MATMECA & 2015-2020 & L3\\
+% Architecture des ordinateurs & Membre & 16.00 & ENSEIRB-MATMECA & 2015-2020 & M1\\
+% Projet micro-informatique & Membre & 42.00 & ENSEIRB-MATMECA & 2015-2020 & M1\\
+% Programmation objet. Langage C++ & Membre & 15.00 & ENSEIRB-MATMECA & 2015-2020 & M1\\
+% Conception haut niveau de circuits & Membre & 46.25 & IMT Atlantique & 2020-2025 & M1-M2\\
+% Efficient Deep Learning & Lead & 300.00 & IMT Atlantique & 2020-2025 & M1-M2\\
+% Electronique & Membre & 88.75 & IMT Atlantique & 2020-2025 & L3\\
+% Architecture des ordinateurs & Lead & 31.25 & IMT Atlantique & 2020-2025 & L3\\
+% Fonctions electroniques logiques et analogiques & Membre & 13.75 & IMT Atlantique & 2020-2025 & L3\\
+% Calcul parall\'ele pour l'ing\'enieur & Lead & 137.50 & IMT Atlantique & 2020-2025 & M1-M2\\
+% Projets divers & Membre & 246.25 & IMT Atlantique & 2020-2025 & L3-M2\\
+% M\'ethodologies de conception & Membre & 11.25 & IMT Atlantique & 2020-2025 & M1-M2\\
+% Syst\'emes embarqu\'es - interaction hw \textbackslash{} sw & Membre & 132.50 & IMT Atlantique & 2020-2025 & M1-M2\\
+% Syst\'emes embarqu\'es : du capteur au traitement intelligent & Membre & 45.00 & IMT Atlantique & 2020-2025 & M1-M2\\
+% \end{longtable}
+\begin{landscape}
+\section{Research Funding}
+\label{sec:financement}
+
+\subsection{Public Funding}
+{\small
+\begin{longtable}{|c|l|p{3cm}|p{1.cm}|p{1.5cm}|p{6.5cm}|}
+\caption{Public Funding} \label{tab:financements_publics} \\
+\hline
+\textbf{Year} & \textbf{Short Title} & \textbf{Organization} & \textbf{Role} & \textbf{Amount (k€)} & \textbf{Details}\\
+\hline
+\endfirsthead
+\endfoot
+\hline
+\endlastfoot
+2023-2027 & Autonomous Pack & ADEME Logistique 4.0& PI & 260  & Principal investigator of the project. Expertise on embedding neural networks on accelerometer data on microcontrollers\\
+2024-2026 & GNSS Anti-Jamming w/ CRPA \& CNN/TCN & R\'egion Bretagne & co-PI & 140  & Participation in the project supervising a post-doctoral researcher on porting embedded learning processing to FPGA\\
+2023-2026 & ProPruNN: Pruning Neural Networks & ANR JCJC& PI & 250  & Principal investigator of my JCJC project on the co-design of deep learning models and hardware architectures\\
+2023-2026 & Vortex: Drone Swarms for Exploration & ANR TSIA & co-PI & 200  & Supervision of a doctoral student, Ismail, on the implementation of object detection algorithms on event data\\
+2024-2025 & Deep-Learning-FPGA-Eco-conception & CNES & PI & 5  & Responsible for a training course on neural network compression for the company Arkane\\
+2021-2025 & GoodFloow & ADEME Perfecto & PI & 70  & Principal investigator of the project for IMT Atlantique, by supervising a post-doctoral researcher, Hamoud Younes\\
+2022-2024 & Leasard: Low Energy DNN for Drones & Labex CominLabs & co-PI & 120  & Supervision of a doctoral student, Ismail, on the implementation of object detection algorithms on event data\\
+2022-2024 & FLCNNFPGA: Federated Learning & CNRS GDR ISIS & PI & 7  & Funding for a master's internship and equipment as part of Lucas Grativol's thesis\\
+2021-2024 & FLCNNFPGA: Federated Learning \& FPGA & IMT Futur \& Ruptures & co-PI & 120 & Supervision of Lucas Grativol \\
+\end{longtable}
+}
+
+\subsection{Private Funding}
+{\small
+\begin{longtable}{|c|l|p{3cm}|p{1cm}|p{1.5cm}|p{6.5cm}|}
+\caption{Private Funding} \label{tab:financements_prives} \\
+\hline
+\textbf{Year} & \textbf{Short Title} & \textbf{Organization} & \textbf{Role} & \textbf{Amount (k€)} & \textbf{Details} \\
+\hline
+\endhead
+\hline
+\endfoot
+\hline
+\endlastfoot
+2025-2028 & GNSS Anti-Jamming Opt. (CIFRE) & Arkane & co-PI & pvt & Initiator of Elise Lagarde's CIFRE thesis, responsible for the FPGA target implementation part\\
+2023-2025 & Few-Shot NAS in Metric-Driven Fmwk & Sony & co-PI & 180k€ & Project with Sony on many topics including few-shot learning and LLMs. For my part, I participated in the writing of an article on NAS\\
+2024-2025 & Embedded DL for Seg. \& LLMs & Schneider Electric & PI & 40k€ & Principal investigator of this project, which focused on the integration of semantic segmentation networks on embedded targets on the one hand, and the implementation of RAG (retrieval-augmented generation) on embedded targets on the other.\\
+2020-2023 & CNN Pruning for Embedded Vision (CIFRE) & Stellantis & co-PI & pvt & Participated in the supervision of Hugo Tessier upon my arrival at IMT Atlantique \\
+2022 & DeepGEMM: Low-Precision Inference & Deeplite & PI & 60k€ & Principal investigator and lead developer of a quantized neural network implementation on embedded targets using LUTs and SIMD instructions.\\
+\end{longtable}
+}
+\end{landscape}
+
+% \minitoc
+% \vspace{1cm}
+\clearpage
+\section{New Methods and Architectures for Channel Codes}
+\subsection{Interest in Short Codes, Relevance of Polar Codes}
+
+Currently, software implementations of error-correcting codes are highly sought after. They offer great flexibility and reduce development and deployment costs compared to dedicated hardware solutions. I am currently planning to collaborate with ETS Montreal to implement the \textit{Generalized Restart Mechanism} (GRM) algorithm \cite{Sagitov2025}. GRM reduces the average execution time of decoders by skipping identical calculations between decoding attempts. This technique, applicable to Successive-Cancellation Flip (SCF) and Fast-SCF, decreases execution time by 25% to 60% without degrading error correction, with only 4% additional memory. For its implementation, software optimization techniques such as unrolling and vectorization will be used. Preliminary results show that gains in throughput and especially in maximum latency, a weak point of the Adaptive SCL algorithm, are very significant.
+
+These developments could extend to quantum polar codes. The Successive Cancellation List (SCL) decoder is adaptable to quantum polar codes, offering high performance and low complexity \cite{Gong2024}. A new construction of quantum polar codes based on weight polarization (PW) eliminates the need for entanglement assistance. The SCL-C decoder is currently based on the list algorithm. It would be possible to adapt it to GRM-SCF, thereby greatly reducing complexity, down to a complete software implementation. We also have collaboration opportunities on the subject of constructing polar codes adapted to SCF decoding using deep learning, similar to work I presented at the ISTC 2023 conference~\cite{leonardon:hal-03291030}.
+
+\subsection{RISC-V Architectures for Channel Code Decoding}
+
+For the embedded domain, there are very good reasons to explore RISC-V architectures, an open and free instruction set architecture (ISA), which contrasts with proprietary architectures like ARM or x86. This openness allows chip designers and system developers to customize the architecture for specific applications without paying licensing fees, thus offering increased flexibility and innovation.
+One of the major advantages of RISC-V for embedded systems is its modularity. It allows for the addition of custom extensions, which is ideal for specialized workloads, such as error-correcting code decoding. This means it is possible to design a processor with specific instructions that directly accelerate decoding operations, leading to better performance and energy efficiency than what would be possible with a generic architecture.
+
+Furthermore, the RISC-V ecosystem is rapidly growing, with increasing support from industry and academia. This fosters the development of tools, software, and hardware that facilitate design and deployment. The open-source aspect of RISC-V also encourages transparency and security, crucial elements for critical embedded systems.
+
+With this in mind, I plan to collaborate with Adrien Cassagne from LIP6 (for software acceleration aspects) and Camille Leroux (hardware acceleration) from Bordeaux INP to set up a collaborative ANR (PRC) focused on the design of specialized RISC-V architectures for error-correcting code decoding. This initiative would aim to fully exploit the customization potential of RISC-V to create highly optimized and high-performance embedded solutions.
+
+\section{Network Specialization for Embedded Targets}
+
+As previously shown, numerous contributions have been made in the field of deep learning on embedded targets, particularly concerning model compression and their deployment on specific hardware architectures. This work motivates new developments. On the one hand, their application in specific domains, notably their use in the context of signal jamming in launchers or the processing of EEG signals. On the other hand, the need to take a step back and find more systematic approaches for designing deep learning models adapted to the constraints of embedded targets, particularly by using co-design techniques between models and hardware architectures based on NAS (Neural Architecture Search).
+
+\subsection{Application of Deep Learning for GNSS Denoising in a Spatial Context}
+Following several works carried out within the framework of previous research contracts with the company Arkane, a central issue emerged: the persistent vulnerability of Global Navigation Satellite Systems (GNSS) to interference, jamming, and other forms of signal degradation. These observations led to the definition of a CIFRE thesis project whose objective is to propose innovative solutions to improve the resilience of these systems, particularly in critical contexts such as space environments or embedded applications with strong constraints.
+
+The project is particularly interested in Controlled Reception Pattern Antennas (CRPA), capable of spatially processing signals to mitigate disturbances. However, classical beamforming methods, although theoretically powerful, remain computationally expensive and poorly suited to embedded constraints. To overcome these limitations, the proposed work explores the integration of Deep Learning, and notably convolutional models, to simplify and accelerate spatiotemporal processing performed by these antennas.
+
+One of the major challenges of the project lies in adapting these models to constrained hardware platforms, such as FPGAs, often used in embedded systems for their low energy consumption, reconfiguration capabilities, space qualification, and supply reliability. It will therefore be necessary to design neural network architectures that are efficient, compact, and interpretable, allowing real-time execution without compromising the quality of positioning, synchronization, or estimated speed. Particular efforts will also be devoted to model quantization, complexity reduction, and optimization of their deployment on the target hardware.
+
+The adopted approach will be resolutely interdisciplinary, relying on continuous exchanges between the company and another research team involved from Télecom Paris (Comelec). The project plans an alternation between algorithmic design phases, prototyping, hardware implementation, and experimental validation. Tests will be conducted both in simulation and on real test benches, in order to rigorously evaluate the robustness and performance of the proposed solutions in representative environments.
+
+Beyond the expected scientific advances, this work also aims to produce concrete and valuable results, whether in the form of embedded demonstrators, publications, or patent filings. One of the envisioned outlets concerns the improvement of autonomous navigation capabilities on board space launchers, an application domain already explored in previous works and for which technological transfer prospects are promising.
+
+\subsection{Attention Layers on Microcontroller Targets for EEG Data Processing}
+
+A project currently being structured within the BRAIN team focuses on the application of Transformers to real-time processing of electroencephalographic (EEG) signals in embedded environments. Transformer-type architectures have recently shown very good performance for analyzing EEG data, particularly due to their ability to capture long-range dependencies in multichannel signals~\cite{tegon2025}. This methodological orientation is increasingly present in the literature but remains little explored in the context of embedded deployment.
+
+A notable specificity of EEG work is the use of long time sequences, often necessary to capture brain rhythms or discrete events. This poses a major challenge for embedded systems, as the complexity of Transformers grows rapidly with sequence length. In contrast, unlike what is observed in language or image processing, EEG models use relatively compact architectures, which makes their execution on microcontrollers feasible, provided targeted optimization work.
+
+The project's objective is to design a real-time embedded processing demonstrator based on Transformers optimized for EEG. This involves rigorous hardware-software co-design: memory footprint control, operation vectorization to take advantage of microcontroller parallel architectures, and adaptation of model layers to hardware constraints. A collaboration is planned with Giulia Lioi, to ensure the relevance of the methods and tasks envisioned and to anchor the project in concrete use cases. This work could lead to lightweight, autonomous devices capable of localized EEG processing, with potential applications in neurotechnology, portable diagnostics, or brain-machine interfaces.
+
+\subsection{Co-design of Neural Networks and Embedded Hardware Architectures}
+
+Finally, a possible improvement to my current work lies in the fact that architecture design is performed manually. Neural Architecture Search (NAS) is a well-known and frequently cited approach for automating the design of neural network architectures. However, this field is often perceived as disconnected from practical realities, producing architectures that are not always optimized for real-world constraints.
+
+Zero-cost proxies (ZCPs), which enable low-cost NAS by avoiding full model training, present a fundamental limitation~\cite{lymanson:hal-04576139}. Although they show a strong correlation with model performance across the entire search space, this correlation drastically decreases when focusing on the best architectures. ZCPs tend to be biased towards architectures with a large number of parameters, which reduces their discriminatory power for high-performance models. This weakness is particularly notable when the search space is reduced to the top 1% of architectures, where the correlation between ZCPs and actual performance drops significantly.
+
+To overcome this problem, my objective is to develop more pragmatic techniques to automatically design lightweight neural network architectures, whether Transformers or CNNs. Preliminary work in this direction has already been carried out. We are currently focusing on sampling techniques on supernets, guided by zero-shot metrics, to automate this design more efficiently and adapted to implementation constraints. The number of model parameters is considered a simple but universal discriminant metric to constrain the search space, thus targeting regions more suitable for ZCP-guided exploration. This approach aims to improve the quality of discovered architectures, especially for ZCPs that struggle to find high-performing regions of the space on their own, and allows controlling the size of sampled models, thus avoiding over-parameterizing architectures.
+
+Similarly, an effective technique for designing neural network models by NAS is the Supernet paradigm. This involves training a neural network model encompassing a wide variety of possible architectures, thereby enabling the discovery of high-performing models without having to train each architecture individually. One of the problems is how to perform the training so that, in the end, sub-networks are capable of functioning autonomously. In most methods, a selection of sub-networks to be agglomerated with the loss is performed, but this selection is done randomly. We could instead focus on architectures that are known to be high-performing, for example by using zero-cost proxies. Or, by using expert models on the suitability of sub-networks for given hardware architectures. The Stream tool developed by the MICAS team at the University of Louvain allows for this modeling, for example~\cite{symons2022}. We have contacted this team, and Jérémy Morlier, a doctoral student as part of my JCJC ProPruNN project, has begun working on integrating Stream into the search for sub-networks for specific hardware architectures. A mobility period in autumn 2025 is planned to deepen this collaboration and explore the possibilities offered by Stream in the context of searching for sub-networks adapted to hardware constraints.
+
+\section{References}
+\printbibliography[keyword={REFERENCE}, heading=none]
+
+\end{document}
