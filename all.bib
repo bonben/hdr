@@ -1,3 +1,17 @@
+@phdthesis{leonardon:tel-01997553,
+  TITLE = {{D{\'e}codage de codes polaires sur des architectures programmables}},
+  AUTHOR = {\textbf{L{\'e}onardon}, \textbf{Mathieu}},
+  URL = {https://theses.hal.science/tel-01997553},
+  NUMBER = {2018BORD0399},
+  SCHOOL = {{Universit{\'e} de Bordeaux (France) ; Polytechnique Montr{\'e}al (Qu{\'e}bec, Canada)}},
+  YEAR = {2018},
+  MONTH = Dec,
+  KEYWORDS = {MANUSCRIPT},
+  TYPE = {Theses},
+  PDF = {https://theses.hal.science/tel-01997553v1/file/LEONARDON_MATHIEU_2018.pdf},
+  HAL_ID = {tel-01997553},
+  HAL_VERSION = {v1},
+}
 
 @article{tessier:hal-03675138,
   TITLE = {{Rethinking Weight Decay for Efficient Neural Network Pruning}},
@@ -432,6 +446,26 @@
   HAL_VERSION = {v1},
   sortkey = {26},
 }
+
+@Article{Arikan2009,
+  author   = {E. Ar{\i}kan},
+  journal  = {IEEE Transactions on Information Theory (TIT)},
+  title    = {Channel Polarization: A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels},
+  year     = {2009},
+  issn     = {0018-9448},
+  month    = jul,
+  number   = {7},
+  pages    = {3051--3073},
+  volume   = {55},
+  abstract = {A method is proposed, called channel polarization, to construct code sequences that achieve the symmetric capacity I(W) of any given binary-input discrete memoryless channel (B-DMC) W. The symmetric capacity is the highest rate achievable subject to using the input letters of the channel with equal probability. Channel polarization refers to the fact that it is possible to synthesize, out of N independent copies of a given B-DMC W, a second set of N binary-input channels {WN(i)1 les i les N} such that, as N becomes large, the fraction of indices i for which I(WN(i)) is near 1 approaches I(W) and the fraction for which I(WN(i)) is near 0 approaches 1-I(W). The polarized channels {WN(i)} are well-conditioned for channel coding: one need only send data at rate 1 through those with capacity near 1 and at rate 0 through the remaining. Codes constructed on the basis of this idea are called polar codes. The paper proves that, given any B-DMC W with I(W) $>$ 0 and any target rate R$<$ I(W) there exists a sequence of polar codes {Cfrn;nges1} such that Cfrn has block-length N=2n , rate ges R, and probability of block error under successive cancellation decoding bounded as Pe(N,R) les O(N-1/4) independently of the code rate. This performance is achievable by encoders and decoders with complexity O(N logN) for each.},
+  doi      = {10.1109/TIT.2009.2021379},
+  file     = {:pdf/Arikan2009 - Channel Polarization A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords = {REFERENCE},
+  sortkey = {27}
+}
+
+
 @article{Sagitov2025,
   author = {Sagitov, Ilshat and Pillet, Charles and Balatsoukas-Stimming, Alexios and Giard, Pascal},
   title = {Generalized Restart Mechanism for Successive-Cancellation Flip Decoding of Polar Codes},
@@ -443,7 +477,7 @@
   KEYWORDS = {REFERENCE},
   url = {https://doi.org/10.1007/s11265-025-01949-8},
   doi = {10.1007/s11265-025-01949-8},
-  sortkey = {27},
+  sortkey = {28},
 }
 @INPROCEEDINGS{Gong2024,
   author={Gong, Anqi and Renes, Joseph M.},
@@ -454,7 +488,7 @@
   number={},
   pages={2496-2501},
   KEYWORDS = {REFERENCE},
-  sortkey = {28},
+  sortkey = {29},
   doi={10.1109/ISIT57864.2024.10619465}}
 
 @misc{symons2022,
@@ -466,7 +500,7 @@
   primaryClass={cs.AR},
   url={https://arxiv.org/abs/2212.10612},
   KEYWORDS = {REFERENCE},
-  sortkey = {29},
+  sortkey = {30},
 }
 
 @misc{tegon2025,
@@ -477,6 +511,369 @@
       archivePrefix={arXiv},
       primaryClass={cs.LG},
   KEYWORDS = {REFERENCE},
-  sortkey = {30},
+  sortkey = {31},
       url={https://arxiv.org/abs/2502.06438},
+}
+
+
+@Article{Tal2015,
+  author   = {I. Tal and A. Vardy},
+  journal  = {IEEE Transactions on Information Theory (TIT)},
+  title    = {List Decoding of Polar Codes},
+  year     = {2015},
+  issn     = {0018-9448},
+  month    = may,
+  number   = {5},
+  pages    = {2213--2226},
+  volume   = {61},
+  abstract = {We describe a successive-cancellation list decoder for polar codes, which is a generalization of the classic successive-cancellation decoder of Ar{\i}kan. In the proposed list decoder, L decoding paths are considered concurrently at each decoding stage, where L is an integer parameter. At the end of the decoding process, the most likely among the L paths is selected as the single codeword at the decoder output. Simulations show that the resulting performance is very close to that of maximum-likelihood decoding, even for moderate values of L. Alternatively, if a genie is allowed to pick the transmitted codeword from the list, the results are comparable with the performance of current state-of-the-art LDPC codes. We show that such a genie can be easily implemented using simple CRC precoding. The specific list-decoding algorithm that achieves this performance doubles the number of decoding paths for each information bit, and then uses a pruning procedure to discard all but the L most likely paths. However, straightforward implementation of this algorithm requires {{$\Omega$}}(Ln\textsuperscript{2}) time, which is in stark contrast with the O(n log n) complexity of the original successive-cancellation decoder. In this paper, we utilize the structure of polar codes along with certain algorithmic transformations in order to overcome this problem: we devise an efficient, numerically stable, implementation of the proposed list decoder that takes only O(Ln logn) time and O(Ln) space.},
+  doi      = {10.1109/TIT.2015.2410251},
+  file     = {:pdf/Tal2015 - List Decoding of Polar Codes.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords = {REFERENCE},
+  sortkey  = {32}
+}
+
+
+@Article{Tal2013,
+  author   = {I. Tal and A. Vardy},
+  journal  = {IEEE Transactions on Information Theory (TIT)},
+  title    = {How to Construct Polar Codes},
+  year     = {2013},
+  issn     = {0018-9448},
+  month    = oct,
+  number   = {10},
+  pages    = {6562--6582},
+  volume   = {59},
+  abstract = {A method for efficiently constructing polar codes is presented and analyzed. Although polar codes are explicitly defined, straightforward construction is intractable since the resulting polar bit-channels have an output alphabet that grows exponentially with the code length. Thus, the core problem that needs to be solved is that of faithfully approximating a bit-channel with an intractably large alphabet by another channel having a manageable alphabet size. We devise two approximation methods which {\textquotedblleft}sandwich{\textquotedblright} the original bit-channel between a degraded and an upgraded version thereof. Both approximations can be efficiently computed and turn out to be extremely close in practice. We also provide theoretical analysis of our construction algorithms, proving that for any fixed $\epsilon$ $>$ 0 and all sufficiently large code lengths n, polar codes whose rate is within $\epsilon$ of channel capacity can be constructed in time and space that are both linear in n.},
+  doi      = {10.1109/TIT.2013.2272694},
+  file     = {:pdf/Tal2013 - How to Construct Polar Codes.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords = {REFERENCE},
+  sortkey  = {33}
+}
+
+@Article{Li2012,
+  author   = {B. Li and H. Shen and D. Tse},
+  journal  = {IEEE Communications Letters (COMML)},
+  title    = {An Adaptive Successive Cancellation List Decoder for Polar Codes with Cyclic Redundancy Check},
+  year     = {2012},
+  issn     = {1089-7798},
+  month    = dec,
+  number   = {12},
+  pages    = {2044--2047},
+  volume   = {16},
+  abstract = {In this letter, we propose an adaptive SC (Successive Cancellation)-List decoder for polar codes with CRC. This adaptive SC-List decoder iteratively increases the list size until at least one survival path can pass CRC. Simulation shows that the adaptive SC-List decoder provides significant complexity reduction. We also demonstrate that polar code (2048, 1024) with 24-bit CRC decoded by our proposed adaptive SC-List decoder with very large maximum list size can achieve a frame error rate FER $\leq$ 10\textsuperscript{-3}{-3} at E\textsubscript{b}/N\textsubscript{o} = 1.1dB, which is about 0.25dB from the information theoretic limit at this block length.},
+  doi      = {10.1109/LCOMM.2012.111612.121898},
+  file     = {:pdf/Li2012 - An Adaptive Successive Cancellation List Decoder for Polar Codes with Cyclic Redundancy Check.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords = {REFERENCE},
+  sortkey  = {34}
+}
+
+
+@Article{Sarkis2016,
+  author   = {G. Sarkis and P. Giard and A. Vardy and C. Thibeault and W. J. Gross},
+  journal  = {IEEE Journal on Selected Areas in Communications (JSAC)},
+  title    = {Fast List Decoders for Polar Codes},
+  year     = {2016},
+  issn     = {0733-8716},
+  month    = feb,
+  number   = {2},
+  pages    = {318--328},
+  volume   = {34},
+  abstract = {Polar codes asymptotically achieve the symmetric capacity of memoryless channels, yet their error-correcting performance under successive-cancellation (SC) decoding for short and moderate length codes is worse than that of other modern codes such as low-density parity-check (LDPC) codes. Of the many methods to improve the error-correction performance of polar codes, list decoding yields the best results, especially when the polar code is concatenated with a cyclic redundancy check (CRC). List decoding involves exploring several decoding paths with SC decoding, and therefore tends to be slower than SC decoding itself, by an order of magnitude in practical implementations. In this paper, we present a new algorithm based on unrolling the decoding tree of the code that improves the speed of list decoding by an order of magnitude when implemented in software. Furthermore, we show that for software-defined radio applications, our proposed algorithm is faster than the fastest software implementations of LDPC decoders in the literature while offering comparable error-correction performance at similar or shorter code lengths.},
+  doi      = {10.1109/JSAC.2015.2504299},
+  file     = {:pdf/Sarkis2016 - Fast List Decoders for Polar Codes.pdf:PDF},
+  groups   = {Polar Codes, Software Decoders, HoF Polar - SCL},
+  keywords = {REFERENCE},
+  sortkey  = {35}
+}
+@Article{Alamdar-Yazdi2011,
+  author   = {A. Alamdar-Yazdi and F. R. Kschischang},
+  title    = {A Simplified Successive-Cancellation Decoder for Polar Codes},
+  journal  = {IEEE Communications Letters (COMML)},
+  year     = {2011},
+  volume   = {15},
+  number   = {12},
+  pages    = {1378--1380},
+  month    = dec,
+  issn     = {1089-7798},
+  abstract = {A modification is introduced of the successive-cancellation decoder for polar codes, in which local decoders for rate-one constituent codes are simplified. This modification reduces the decoding latency and algorithmic complexity of the conventional decoder, while preserving the bit and block error rate. Significant latency and complexity reductions are achieved over a wide range of code rates.},
+  doi      = {10.1109/LCOMM.2011.101811.111480},
+  file     = {:pdf/Alamdar-Yazdi2011 - A Simplified Successive-Cancellation Decoder for Polar Codes.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords = {REFERENCE},
+  sortkey  = {36}
+}
+@Article{Sarkis2014a,
+  author   = {G. Sarkis and P. Giard and A. Vardy and C. Thibeault and W. J. Gross},
+  journal  = {IEEE Journal on Selected Areas in Communications (JSAC)},
+  title    = {Fast Polar Decoders: Algorithm and Implementation},
+  year     = {2014},
+  issn     = {0733-8716},
+  month    = may,
+  number   = {5},
+  pages    = {946--957},
+  volume   = {32},
+  abstract = {Polar codes provably achieve the symmetric capacity of a memoryless channel while having an explicit construction. The adoption of polar codes however, has been hampered by the low throughput of their decoding algorithm. This work aims to increase the throughput of polar decoding hardware by an order of magnitude relative to successive-cancellation decoders and is more than 8 times faster than the current fastest polar decoder. We present an algorithm, architecture, and FPGA implementation of a flexible, gigabit-per-second polar decoder.},
+  doi      = {10.1109/JSAC.2014.140514},
+  file     = {:pdf/Sarkis2014a - Fast Polar Decoders Algorithm and Implementation.pdf:PDF;},
+  groups   = {Polar Codes, Hardware Decoders},
+  keywords = {REFERENCE},
+  sortkey  = {37}
+}
+
+@Article{Schreier1932,
+  author  = {J. Schreier},
+  title   = {On Tournament Elimination Systems},
+  journal = {Mathesis Polska},
+  year    = {1932},
+  volume  = {7},
+  pages   = {154--160},
+  url     = {https://ci.nii.ac.jp/naid/10027928626/en/},
+  keywords = {REFERENCE},
+  sortkey  = {38}
+}
+
+@InProceedings{Shen2016,
+  author    = {Y. Shen and C. Zhang and J. Yang and S. Zhang and X. You},
+  booktitle = {International Conference on Digital Signal Processing (DSP)},
+  title     = {Low-Latency Software Successive Cancellation List Polar Decoder using Stage-Located Copy},
+  year      = {2016},
+  month     = oct,
+  pages     = {84--88},
+  publisher = {IEEE},
+  abstract  = {Successive cancellation list (SCL) decoding for polar codes is promising in data communication. However, in addition to L times complexity of conventional SC, both path selecting and updating result in extra complexity. In detail, the copy of intermediate values suffers from a long latency, especially when list size L is large. In this paper, a stage-located copy algorithm is proposed to avoid copying the same contents in candidate paths, which significantly reduces the processing latency. Furthermore, the resulting data processing speedup increases with code length. For (2048, 1723) polar codes, experimental results have shown that by employing the proposed stage-located copy, throughput of software-based SCL decoder with L = 32 achieves up to 1.1 Mbps throughput with 45\% increase compared to the state-of-the-art software SCL decoders.},
+  doi       = {10.1109/ICDSP.2016.7868521},
+  file      = {:pdf/Shen2016 - Low-Latency Software Successive Cancellation List Polar Decoder using Stage-Located Copy.pdf:PDF},
+  groups    = {Polar Codes, Software Decoders, HoF Polar - SCL},
+  keywords  = {REFERENCE},
+  sortkey   = {39}
+}
+@Article{Trifonov2012,
+  author   = {P. Trifonov},
+  journal  = {IEEE Transactions on Communications (TCOM)},
+  title    = {Efficient Design and Decoding of Polar Codes},
+  year     = {2012},
+  issn     = {0090-6778},
+  month    = nov,
+  number   = {11},
+  pages    = {3221--3227},
+  volume   = {60},
+  abstract = {Polar codes are shown to be instances of both generalized concatenated codes and multilevel codes. It is shown that the performance of a polar code can be improved by representing it as a multilevel code and applying the multistage decoding algorithm with maximum likelihood decoding of outer codes. Additional performance improvement is obtained by replacing polar outer codes with other ones with better error correction performance. In some cases this also results in complexity reduction. It is shown that Gaussian approximation for density evolution enables one to accurately predict the performance of polar codes and concatenated codes based on them.},
+  doi      = {10.1109/TCOMM.2012.081512.110872},
+  file     = {:pdf/Trifonov2012 - Efficient Design and Decoding of Polar Codes.pdf:PDF},
+  groups   = {Polar Codes},
+  keywords  = {REFERENCE},
+  sortkey   = {40}
+}
+
+@Misc{ETSI2018,
+  author = {ETSI},
+  title  = {{3GPP} - {TS} 38.212 - {Multiplexing} and Channel Coding ({R.} 15)},
+  month  = aug,
+  year   = {2018},
+  file   = {:pdf/ETSI2018 - 3GPP - TS 38.212 - Multiplexing and Channel Coding (R. 15).pdf:PDF},
+  groups = {5G},
+  url    = {https://www.etsi.org/deliver/etsi_ts/138200_138299/138212/15.02.00_60/ts_138212v150200p.pdf},
+  keywords  = {REFERENCE},
+  sortkey   = {41}
+}
+
+
+@InProceedings{Tonnellier2016,
+  author    = {T. Tonnellier and C. Leroux and B. {Le Gal} and C. J\'ego and B. Gadat and N. Van Wambeke},
+  booktitle = {Design and Architectures for Signal and Image Processing Conference (DASIP)},
+  title     = {Hardware Architecture for Lowering the Error Floor of {LTE} Turbo Codes},
+  year      = {2016},
+  month     = oct,
+  pages     = {107--112},
+  publisher = {IEEE},
+  abstract  = {Turbo codes are well known error-correcting codes used in many communication standards. However, they suffer from error floors. Recently, a method - denoted as the flip and check algorithm - that lowers the error floor of turbo codes was proposed. This method relies on the identification of the least reliable bits during the turbo decoding process. Gains of about one order of magnitude were reached in terms of error rate performance. In this article, the first hardware implementation of the method is presented. The feasibility and hardware complexity are addressed by studying the impact of the algorithmic parameters of the technique. Synthesis results for FPGA implementations are reported and compared to turbo decoders implementations.},
+  doi       = {10.1109/DASIP.2016.7853805},
+  file      = {:pdf/Tonnellier2016 - Hardware Architecture for Lowering the Error Floor of LTE Turbo Codes.pdf:PDF},
+  groups    = {Turbo Codes},
+  keywords  = {REFERENCE},
+  sortkey   = {42}
+}
+
+@InProceedings{Tonnellier2016a,
+  author    = {T. Tonnellier and C. Leroux and B. {Le Gal} and C. J\'ego and B. Gadat and N. Van Wambeke},
+  booktitle = {International Symposium on Turbo Codes and Iterative Information Processing (ISTC)},
+  title     = {Lowering the Error Floor of Double-Binary Turbo Codes: The Flip and Check Algorithm},
+  year      = {2016},
+  month     = sep,
+  pages     = {156--160},
+  publisher = {IEEE},
+  abstract  = {This article addresses the error floor reduction of double-binary turbo codes. The proposed approach is an extension of a low complexity method originally proposed for decoding binary turbo codes. This method's interest is that it does not need to modify the turbo coding scheme as long as an error detection code is serially concatenated with the turbo code. Simulation results showed that error rate performance gains can reach one order of magnitude in the cases of the DVB-RCS and DVB-RCS2 standards, while keeping a well-handled computational complexity.},
+  doi       = {10.1109/ISTC.2016.7593096},
+  file      = {:pdf/Tonnellier2016a - Lowering the Error Floor of Double-Binary Turbo Codes The Flip and Check Algorithm.pdf:PDF},
+  groups    = {Turbo Codes, AFF3CT},
+    keywords  = {REFERENCE},
+  sortkey   = {43}
+}
+
+@Article{Tonnellier2016b,
+  author   = {T. Tonnellier and C. Leroux and B. {Le Gal} and B. Gadat and C. J\'ego and N. Van Wambeke},
+  journal  = {IEEE Wireless Communications Letters (WCL)},
+  title    = {Lowering the Error Floor of Turbo Codes With {CRC} Verification},
+  year     = {2016},
+  issn     = {2162-2337},
+  month    = aug,
+  number   = {4},
+  pages    = {404--407},
+  volume   = {5},
+  abstract = {Decoding performance of turbo codes can flatten at moderately high signal-to-noise ratio. This letter proposes a low complexity method for lowering this error floor. This method rests on the observation of the extrinsic information during the iterative decoding process. A set of q most unreliable bits are identified based on their associated extrinsic information. A total of 2\textsuperscript{q} test patterns are then built by inverting the most unreliable bits. The decoded codeword is identified thanks to a cyclic redundancy check detector. This method keeps the turbo coding scheme unchanged as long as an error detection code is serially concatenated with the turbo code. Simulations were performed on a rate-1/3 Long-Term Evolution turbo code and show an improvement of at least one decade in terms of frame error rate in the error floor region. This low complexity method paves the way for further improvements in lowering the error floor of turbo codes.},
+  doi      = {10.1109/LWC.2016.2571283},
+  file     = {:pdf/Tonnellier2016b - Lowering the Error Floor of Turbo Codes With CRC Verification.pdf:PDF},
+  groups   = {Turbo Codes, AFF3CT},
+    keywords  = {REFERENCE},
+  sortkey   = {44}
+}
+
+@Article{LeGal2015a,
+  author   = {B. {Le Gal} and C. Leroux and C. J\'ego},
+  title    = {Multi-{G}b/s Software Decoding of Polar Codes},
+  journal  = {IEEE Transactions on Signal Processing (TSP)},
+  year     = {2015},
+  volume   = {63},
+  number   = {2},
+  pages    = {349--359},
+  month    = jan,
+  issn     = {1053-587X},
+  abstract = {This paper presents an optimized software implementation of a Successive Cancellation (SC) decoder for polar codes. Despite the strong data dependencies in SC decoding, a highly parallel software polar decoder is devised for x86 processor target. A high level of performance is achieved by exploiting the parallelism inherent in today's processor architectures (SIMD, multicore, etc.). Some optimizations that were originally thought for hardware implementation (memory reduction techniques and algorithmic simplifications) were also applied to enhance the throughput of the software implementation. Finally, some low level optimizations such as explicit assembly description or data packing are used to improve the throughput even more. The resulting decoder description is implemented on different x86 processor targets. An analysis of the decoder in terms of latency and throughput is proposed. The influence of several parameters on the throughput and the latency is investigated: the selected target, the code rate, the code length, the SIMD mode (SSE/AVX), the multithreading mode, etc. The energy per decoded bit is also estimated. The proposed software decoder compares favorably with state of the art software polar decoders. Extensive experimentations demonstrate that the proposed software polar decoder exceeds 1 Gb/s for code lengths N $\leq$ 2\textsuperscript{17} on a single core and reaches multi-Gb/s throughputs when using four cores in parallel in AVX mode.},
+  doi      = {10.1109/TSP.2014.2371781},
+  file     = {:pdf/LeGal2015a - Multi-Gbps Software Decoding of Polar Codes.pdf:PDF},
+  groups   = {Polar Codes, Software Decoders, HoF Polar - SC, AFF3CT},
+    keywords  = {REFERENCE},
+  sortkey   = {45}
+  }
+
+@InProceedings{Cassagne2015c,
+  author    = {A. Cassagne and B. {Le Gal} and C. Leroux and O. Aumage and D. Barthou},
+  title     = {An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes},
+  booktitle = {International Workshop on Languages and Compilers for Parallel Computing (LCPC)},
+  year      = {2015},
+  month     = sep,
+  publisher = {Springer},
+  abstract  = {Error Correction Code decoding algorithms for consumer products such as Internet of Things (IoT) devices are usually implemented as dedicated hardware circuits. As processors are becoming increasingly powerful and energy efficient, there is now a strong desire to perform this processing in software to reduce production costs and time to market. The recently introduced family of Successive Cancellation decoders for Polar codes has been shown in several research works to efficiently leverage the ubiquitous SIMD units in modern CPUs, while offering strong potentials for a wide range of optimizations. The P-EDGE environment introduced in this paper, combines a specialized skeleton generator and a building blocks library routines to provide a generic, extensible Polar code exploration workbench. It enables ECC code designers to easily experiments with combinations of existing and new optimizations, while delivering performance close to state-of-art decoders.},
+  date      = {2015-11-01},
+  doi       = {10.1007/978-3-319-29778-1_19},
+  file      = {:pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes.pdf:PDF;:pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes [slides].pdf:PDF;:pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes [poster].pdf:PDF},
+  groups    = {Polar Codes, Software Decoders, HoF Polar - SC, AFF3CT},
+  journal   = {Languages and Compilers for Parallel Computing},
+    keywords  = {REFERENCE},
+  sortkey   = {46}
+  }
+
+@InProceedings{Cassagne2016b,
+  author    = {A. Cassagne and O. Aumage and C. Leroux and D. Barthou and B. {Le Gal}},
+  title     = {Energy Consumption Analysis of Software Polar Decoders on Low Power Processors},
+  booktitle = {European Signal Processing Conference (EUSIPCO)},
+  year      = {2016},
+  pages     = {642--646},
+  month     = aug,
+  publisher = {IEEE},
+  abstract  = {This paper presents a new dynamic and fully generic implementation of a Successive Cancellation (SC) decoder (multi-precision support and intra-/inter-frame strategy support). This fully generic SC decoder is used to perform comparisons of the different configurations in terms of throughput, latency and energy consumption. A special emphasis is given on the energy consumption on low power embedded processors for software defined radio (SDR) systems. A N=4096 code length, rate 1/2 software SC decoder consumes only 14 nJ per bit on an ARM Cortex-A57 core, while achieving 65 Mbps. Some design guidelines are given in order to adapt the configuration to the application context.},
+  doi       = {10.1109/EUSIPCO.2016.7760327},
+  file      = {:pdf/Cassagne2016b - Energy Consumption Analysis of Software Polar Decoders on Low Power Processors.pdf:PDF;:pdf/Cassagne2016b - Energy Consumption Analysis of Software Polar Decoders on Low Power Processors [poster].pdf:PDF},
+  groups    = {Polar Codes, Software Decoders, HoF Polar - SC, AFF3CT},
+    keywords  = {REFERENCE},
+  sortkey   = {47}
+  }
+
+@InProceedings{Cassagne2016a,
+  author    = {A. Cassagne and T. Tonnellier and C. Leroux and B. {Le Gal} and O. Aumage and D. Barthou},
+  booktitle = {International Symposium on Turbo Codes and Iterative Information Processing (ISTC)},
+  title     = {Beyond {G}bps Turbo decoder on multi-core {CPUs}},
+  year      = {2016},
+  month     = sep,
+  pages     = {136--140},
+  publisher = {IEEE},
+  abstract  = {This paper presents a high-throughput implementation of a portable software turbo decoder. The code is optimized for traditional multi-core CPUs (like x86) and it is based on the Enhanced max-log-MAP turbo decoding variant. The code follows the LTE-Advanced specification. The key of the high performance comes from an inter-frame SIMD strategy combined with a fixed-point representation. Our results show that proposed multi-core CPU implementation of turbo-decoders is a challenging alternative to GPU implementation in terms of throughput and energy efficiency. On a high-end processor, our software turbo-decoder exceeds 1 Gbps information throughput for all rate-1/3 LTE codes with K $<$; 4096.},
+  doi       = {10.1109/ISTC.2016.7593092},
+  file      = {:pdf/Cassagne2016a - Beyond Gbps Turbo Decoder on Multi-Core CPUs.pdf:PDF;:pdf/Cassagne2016a - Beyond Gbps Turbo Decoder on Multi-Core CPUs [poster].pdf:PDF},
+  groups    = {Turbo Codes, Software Decoders, HoF Turbo - MAP, AFF3CT},
+    keywords  = {REFERENCE},
+  sortkey   = {48}
+  }
+
+
+@Article{Giard2017,
+  author    = {P. Giard and A. Balatsoukas-Stimming and T. C. Müller and A. Bonetti and C. Thibeault and W. J. Gross and P. Flatresse and A. Burg},
+  title     = {PolarBear: A 28-nm {FD-SOI} {ASIC} for Decoding of Polar Codes},
+  journal   = {Journal on Emerging and Selected Topics in Circuits and Systems},
+  year      = {2017},
+  volume    = {7},
+  number    = {4},
+  pages     = {616--629},
+  month     = {Dec},
+  issn      = {2156-3357},
+  abstract  = {Polar codes are a recently proposed class of block codes that provably achieve the capacity of various communication channels. They received a lot of attention as they can do so with low-complexity encoding and decoding algorithms, and they have an explicit construction. Their recent inclusion in a 5G communication standard will only spur more research. However, only a couple of ASICs featuring decoders for polar codes were fabricated, and none of them implements a list-based decoding algorithm. In this paper, we present ASIC measurement results for a fabricated 28-nm CMOS chip that implements two different decoders: the first decoder is tailored toward error-correction performance and flexibility. It supports any code rate as well as three different decoding algorithms: successive cancellation (SC), SC flip, and SC list (SCL). The flexible decoder can also decode both non-systematic and systematic polar codes. The second decoder targets speed and energy efficiency. We present measurement results for the first silicon-proven SCL decoder, where its coded throughput is shown to be of 306.8 Mbps with a latency of 3.34 us and an energy per bit of 418.3 pJ/b at a clock frequency of 721 MHz for a supply of 1.3 V. The energy per bit drops down to 178.1 pJ/b with a more modest clock frequency of 308 MHz, lower throughput of 130.9 Mbps and a reduced supply voltage of 0.9 V. For the other two operating modes, the energy per bit is shown to be of approximately 95 pJ/b. The less flexible high-throughput unrolled decoder can achieve a coded throughput of 9.2 Gbps and a latency of 628 ns for a measured energy per bit of 1.15 pJ/b at 451 MHz.},
+  doi       = {10.1109/JETCAS.2017.2745704},
+  file      = {:pdf/Giard2017 - PolarBear A 28-nm FD-SOI ASIC for Decoding of Polar Codes.pdf:PDF},
+  groups    = {Hardware Decoders, Polar Codes},
+  publisher = {IEEE},
+    keywords  = {REFERENCE},
+  sortkey   = {49}
+}
+
+
+@book{corporaal_microprocessor_1997,
+  address = {New York, NY, USA},
+  title = {Microprocessor {Architectures}: {From} {VLIW} to {TTA}},
+  isbn = {978-0-471-97157-3},
+  shorttitle = {Microprocessor {Architectures}},
+  abstract = {From the Publisher:The market for single chip microprocessors is huge and their performance continues to increase, driven by the on-going demand for more powerful applications, particularly in the control and signal processing domains. This work introduces a new type of computer architecture, the transport triggered architecture (TTA), designed to alleviate delay problems in existing instruction-level parallel architectures.},
+  publisher = {John Wiley \& Sons, Inc.},
+  author = {Corporaal, Henk},
+  year = {1997},
+  keywords  = {REFERENCE},
+  sortkey   = {50}
+}
+
+@inproceedings{Esko:2010:CED:1933303.1933795,
+ author = {Esko, Otto and J\"a\"askel\"ainen, Pekka and Huerta, Pablo and de La Lama,
+           Carlos S. and Takala, Jarmo and Martinez, Jose Ignacio},
+ title = {{Customized Exposed Datapath Soft-Core Design Flow with Compiler Support}},
+ booktitle = {IEEE FPL},
+ year = {2010},
+  keywords  = {REFERENCE},
+  sortkey   = {51}
+}
+
+@ARTICLE{1051344,
+author={D. Tabak and G. J. Lipovski},
+journal={IEEE Journal of Solid-State Circuits},
+title={{MOVE Architecture in Digital Controllers}},
+keywords={Digital control;Computer numerical control;Digital control;Digital filters;Industrial control;Lighting control;Logic;Microcomputers;Pi control;Process control;Proportional control},
+year={1980},
+  keywords  = {REFERENCE},
+  sortkey   = {52}
+}
+
+
+@inproceedings{lattner_llvm:_2004,
+  title = {{{LLVM}: A Compilation Framework for Lifelong Program Analysis \& Transformation}},
+  isbn = {978-0-7695-2102-2},
+  shorttitle = {{LLVM}},
+  booktitle = {{CGO}},
+  author = {Lattner, Chris and Adve, Vikram},
+  year = {2004},
+  keywords  = {REFERENCE},
+  sortkey   = {53}
+}
+
+@inproceedings{mishra_successive_2012,
+  title = {{A Successive Cancellation Decoder {ASIC} for a 1024-bit Polar Code in 180nm {CMOS}}},
+  doi = {10.1109/IPEC.2012.6522661},
+  abstract = {This paper presents the first ASIC implementation of a successive cancellation (SC) decoder for polar codes. The implemented ASIC relies on a semi-parallel architecture where processing resources are reused to achieve good hardware efficiency. A speculative decoding technique is employed to increase the throughput by 25\% at the cost of very limited added complexity. The resulting architecture is implemented in a 180nm technology. The fabricated chip can be clocked at 150 MHz and uses 183k gates. It was verified using an FPGA testing setup and provides reference for the true silicon complexity of SC decoders for polar codes.},
+  booktitle = {{IEEE} {A}-{SSCC}},
+  author = {Mishra, A. and Raymond, A. J. and Amaru, L. G. and Sarkis, G. and Leroux, C. and Meinerzhagen, P. and Burg, A. and Gross, W. J.},
+  month = nov,
+  year = {2012},
+  keywords  = {REFERENCE},
+  file = {IEEE Xplore Abstract Record:/home/bonben/Zotero/storage/5TW36RTD/6522661.html:text/html},
+  sortkey   = {54}
 }
