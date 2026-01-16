@@ -1,0 +1,334 @@
+\documentclass[../hdr.tex]{subfiles}
+\begin{document}
+\resizebox{0.75\textwidth}{!}{
+\begin{tikzpicture}
+
+
+\node[draw, rectangle, minimum height=4cm, minimum width=4cm,anchor=center,rounded corners] (conv1) at (0,0)  {};
+
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter1) at ($(conv1.west)+(0.5,0)$)  {};
+
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners,fill=gray] (filter2) at ($(filter1.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter3) at ($(filter2.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners,fill=lightgray] (filter4) at ($(filter3.center)+(1,0)$)  {};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-1) at ($(filter1.north)+(0,-0.4)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel1-2) at ($(kernel1-1.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-3) at ($(kernel1-2.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel1-4) at ($(kernel1-3.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-1) at ($(filter2.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel2-2) at ($(kernel2-1.center)+(0,-1)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-3) at ($(kernel2-2.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel2-4) at ($(kernel2-3.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-1) at ($(filter3.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel3-2) at ($(kernel3-1.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-3) at ($(kernel3-2.center)+(0,-1)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel3-4) at ($(kernel3-3.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel4-1) at ($(filter4.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel4-2) at ($(kernel4-1.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel4-3) at ($(kernel4-2.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel4-4) at ($(kernel4-3.center)+(0,-1)$)  {1};
+
+
+
+\path [<-] ($(conv1.west)+(0,1.5)$) edge ++(-1,0);
+\path [<-,dotted] ($(conv1.west)+(0,0.5)$) edge ++(-1,0);
+\path [<-] ($(conv1.west)+(0,-0.5)$) edge ++(-1,0);
+\path [<-,dotted] ($(conv1.west)+(0,-1.5)$) edge ++(-1,0);
+
+\path [-] ($(conv1.west)+(-1.,-1.5)$) edge ++(0,4);
+\node [align=center] (input1_label) at ($(conv1.west)+(-1,3.5)$)  {Input 1 \\ \tiny 2 non-pruned channels \\ \tiny 2 pruned channels};
+
+
+
+
+
+
+
+
+
+
+
+
+\node[draw, rectangle, minimum height=4cm, minimum width=4cm,anchor=center,rounded corners] (conv2) at (8,0)  {};
+
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners,fill=lightgray] (filter1_bis) at ($(conv2.west)+(0.5,0)$)  {};
+
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners,fill=gray] (filter2_bis) at ($(filter1_bis.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter3_bis) at ($(filter2_bis.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=3.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter4_bis) at ($(filter3_bis.center)+(1,0)$)  {};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel1-1_bis) at ($(filter1_bis.north)+(0,-0.4)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel1-2_bis) at ($(kernel1-1_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-3_bis) at ($(kernel1-2_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-4_bis) at ($(kernel1-3_bis.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel2-1_bis) at ($(filter2_bis.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel2-2_bis) at ($(kernel2-1_bis.center)+(0,-1)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-3_bis) at ($(kernel2-2_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-4_bis) at ($(kernel2-3_bis.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel3-1_bis) at ($(filter3_bis.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel3-2_bis) at ($(kernel3-1_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-3_bis) at ($(kernel3-2_bis.center)+(0,-1)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-4_bis) at ($(kernel3-3_bis.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel4-1_bis) at ($(filter4_bis.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners,fill=gray] (kernel4-2_bis) at ($(kernel4-1_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel4-3_bis) at ($(kernel4-2_bis.center)+(0,-1)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel4-4_bis) at ($(kernel4-3_bis.center)+(0,-1)$)  {1};
+
+
+
+\path [<-,dotted] ($(conv2.east)+(0,1.5)$) edge ++(1,0);
+\path [<-,dotted] ($(conv2.east)+(0,0.5)$) edge ++(1,0);
+\path [<-] ($(conv2.east)+(0,-0.5)$) edge ++(1,0);
+\path [<-] ($(conv2.east)+(0,-1.5)$) edge ++(1,0);
+
+\path [-] ($(conv2.east)+(1.,-1.5)$) edge ++(0,4);
+\node [align=center] (input1_label) at ($(conv2.east)+(1,3.5)$)  {Input 2 \\ \tiny 2 non-pruned channels \\ \tiny 2 pruned channels};
+
+
+
+
+
+
+
+
+
+
+
+
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation1) at (2.5,-3)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation2) at ($(operation1)+(1,-1)$)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation3) at ($(operation2)+(1,-1)$)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation4) at ($(operation3)+(1,-1)$)  {+};
+
+\draw [->] ($(conv1.south)+(-1.5,0)$) -- ($(conv1.south |- operation1.west)+(-1.5,0)$) -- (operation1.west);
+
+\draw [->,dotted] ($(conv1.south)+(-0.5,0)$) -- ($(conv1.south |- operation2.west)+(-0.5,0)$) -- (operation2.west);
+
+\draw [->] ($(conv1.south)+(0.5,0)$) -- ($(conv1.south |- operation3.west)+(0.5,0)$) -- (operation3.west);
+
+\draw [->,dotted] ($(conv1.south)+(1.5,0)$) -- ($(conv1.south |- operation4.west)+(1.5,0)$) -- (operation4.west);
+
+
+
+\draw [->,dotted] ($(conv2.south)+(-1.5,0)$) -- ($(conv2.south |- operation1.east)+(-1.5,0)$) -- (operation1.east);
+
+\draw [->,dotted] ($(conv2.south)+(-0.5,0)$) -- ($(conv2.south |- operation2.east)+(-0.5,0)$) -- (operation2.east);
+
+\draw [->] ($(conv2.south)+(0.5,0)$) -- ($(conv2.south |- operation3.east)+(0.5,0)$) -- (operation3.east);
+
+\draw [->] ($(conv2.south)+(1.5,0)$) -- ($(conv2.south |- operation4.east)+(1.5,0)$) -- (operation4.east);
+
+
+
+\path [->] (operation1.south) edge ++(0,-3.5);
+\path [->,dotted] (operation2.south) edge ++(0,-2.5);
+\path [->] (operation3.south) edge ++(0,-1.5);
+\path [->] (operation4.south) edge ++(0,-0.5);
+
+
+\node [align=center] (input1_label) at (4,-8)  {Output \\ \tiny 3 non-pruned channels \\ \tiny 1 pruned channels};
+
+\node (input1_label) at ($(conv1.north)+(0,0.25)$)  {\footnotesize Convolution 1};
+\node (input1_label) at ($(conv2.north)+(0,0.25)$)  {\footnotesize Convolution 2};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\node[draw, rectangle, minimum height=2cm, minimum width=3cm,anchor=center,rounded corners] (conv3) at (0,-13)  {};
+
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter1) at ($(conv3.west)+(0.5,0)$)  {};
+
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter2) at ($(filter1.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter3) at ($(filter2.center)+(1,0)$)  {};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-1) at ($(filter1.north)+(0,-0.4)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-2) at ($(kernel1-1.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-1) at ($(filter2.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-2) at ($(kernel2-1.center)+(0,-1)$)  {1};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-1) at ($(filter3.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-2) at ($(kernel3-1.center)+(0,-1)$)  {0};
+
+
+
+
+
+\path [<-] ($(conv3.west)+(0,0.5)$) edge ++(-1,0);
+\path [<-] ($(conv3.west)+(0,-0.5)$) edge ++(-1,0);
+
+\path [-] ($(conv3.west)+(-1.,-0.5)$) edge ++(0,2);
+\node [align=center] (input1_label) at ($(conv3.west)+(-1,2.5)$)  {Input 1 \\ \tiny 2 channels };
+
+
+
+\node[draw, rectangle, minimum height=2cm, minimum width=3cm,anchor=center,rounded corners] (conv4) at (8,-13)  {};
+
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter1) at ($(conv4.west)+(0.5,0)$)  {};
+
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter2) at ($(filter1.center)+(1,0)$)  {};
+\node[draw, rectangle, minimum height=1.8cm, minimum width=0.8cm,anchor=center,rounded corners] (filter3) at ($(filter2.center)+(1,0)$)  {};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-1) at ($(filter1.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel1-2) at ($(kernel1-1.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-1) at ($(filter2.north)+(0,-0.4)$)  {1};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel2-2) at ($(kernel2-1.center)+(0,-1)$)  {0};
+
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-1) at ($(filter3.north)+(0,-0.4)$)  {0};
+\node[draw, rectangle, minimum height=0.6cm, minimum width=0.6cm,anchor=center,rounded corners] (kernel3-2) at ($(kernel3-1.center)+(0,-1)$)  {1};
+
+
+\path [<-] ($(conv4.east)+(0,0.5)$) edge ++(1,0);
+\path [<-] ($(conv4.east)+(0,-0.5)$) edge ++(1,0);
+
+\path [-] ($(conv4.east)+(1,-0.5)$) edge ++(0,2);
+\node [align=center] (input1_label) at ($(conv4.east)+(1,2.5)$)  {Input 2 \\ \tiny 2 channels };
+
+
+
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation5) at (2.5,-15)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation6) at ($(operation5)+(1.5,-1)$)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation7) at ($(operation6)+(1.5,-1)$)  {+};
+
+
+\draw [->] ($(conv3.south)+(-1,0)$) -- ($(conv3.south |- operation5.west)+(-1,0)$) -- (operation5.west);
+
+\draw [->] (conv3.south) -- ($(conv3.south |- operation6.west)$) -- (operation6.west);
+
+\draw [->,dotted] ($(conv3.south)+(1,0)$) -- ($(conv3.south |- operation7.west)+(1,0)$) -- (operation7.west);
+
+
+\draw [->,dotted] ($(conv4.south)+(-1,0)$) -- ($(conv4.south |- operation5.east)+(-1,0)$) -- (operation5.east);
+
+\draw [->] (conv4.south) -- ($(conv4.south |- operation6.east)$) -- (operation6.east);
+
+\draw [->] ($(conv4.south)+(1,0)$) -- ($(conv4.south |- operation7.east)+(1,0)$) -- (operation7.east);
+
+
+
+\path [->] (operation5.south) edge ++(0,-2.5);
+\path [->] (operation6.south) edge ++(0,-1.5);
+\path [->] (operation7.south) edge ++(0,-0.5);
+
+\node [align=center] (input1_label) at ($(operation6.south)+(0,-2)$)  {Output \\ \tiny 3 channels};
+
+
+\path [dotted] (-4.5,-9) edge (12.5,-9);
+\path [dotted] (-4.5,-19.5) edge (12.5,-19.5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\node[draw, rectangle, minimum height=2cm, minimum width=3cm,anchor=center,rounded corners,align=center] (conv3) at (0,-23)  {Indexation \\ $\mathbf{i}^a=\left\{1,2,0\right\}$};
+
+
+
+
+
+\path [<-] ($(conv3.west)+(0,0.5)$) edge ++(-1,0);
+\path [<-] ($(conv3.west)+(0,-0.5)$) edge ++(-1,0);
+
+\path [-] ($(conv3.west)+(-1.,-0.5)$) edge ++(0,2);
+\node [align=center] (input1_label) at ($(conv3.west)+(-1,2.5)$)  {Input 1 \\ \tiny 2 channels };
+
+
+
+\node[draw, rectangle, minimum height=2cm, minimum width=3cm,anchor=center,rounded corners,align=center] (conv4) at (8,-23)  {Indexation \\ $\mathbf{i}^b=\left\{0,1,2\right\}$};
+
+
+\path [<-] ($(conv4.east)+(0,0.5)$) edge ++(1,0);
+\path [<-] ($(conv4.east)+(0,-0.5)$) edge ++(1,0);
+
+\path [-] ($(conv4.east)+(1,-0.5)$) edge ++(0,2);
+\node [align=center] (input1_label) at ($(conv4.east)+(1,2.5)$)  {Input 2 \\ \tiny 2 channels };
+
+
+
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation5) at (2.5,-25)  {C};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation6) at ($(operation5)+(1.5,-1)$)  {+};
+\node[draw, circle, minimum width=1cm,anchor=center,rounded corners] (operation7) at ($(operation6)+(1.5,-1)$)  {C};
+
+
+\draw [->] ($(conv3.south)+(-1,0)$) -- ($(conv3.south |- operation5.west)+(-1,0)$) -- (operation5.west);
+
+\draw [->] (conv3.south) -- ($(conv3.south |- operation6.west)$) -- (operation6.west);
+
+
+
+
+
+\draw [->] (conv4.south) -- ($(conv4.south |- operation6.east)$) -- (operation6.east);
+
+\draw [->] ($(conv4.south)+(1,0)$) -- ($(conv4.south |- operation7.east)+(1,0)$) -- (operation7.east);
+
+
+
+\path [->] (operation5.south) edge ++(0,-2.5);
+\path [->] (operation6.south) edge ++(0,-1.5);
+\path [->] (operation7.south) edge ++(0,-0.5);
+
+\node [align=center] (input1_label) at ($(operation6.south)+(0,-2)$)  {Output \\ \tiny 3 channels};
+
+
+
+
+
+\node (input1_label) at (4,3.5)  {\Huge I};
+\node (input1_label) at (4,-10.5)  {\Huge II};
+\node (input1_label) at (4,-20.5)  {\Huge III};
+
+
+
+
+
+\end{tikzpicture}
+}
+\end{document}

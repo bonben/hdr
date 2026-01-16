@@ -12,6 +12,7 @@
 \usepackage{pdflscape}
 \usepackage{varwidth}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{multirow}
 \usepackage{parnotes}
@@ -21,6 +22,10 @@
 \usepackage{pifont}
 \usepackage{subcaption}
 \usepackage{colortbl}
+\usepackage{subfiles}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{makecell}
 % \usepackage[T1]{fontenc}
 % \usepackage[french]{babel}
 % \hyphenation{é-chan-tillon-nage}
@@ -29,6 +34,7 @@
 \newcommand{\Cxx}{\texttt{C++}\xspace}
 \newcommand{\cmark}{\textcolor{btfGreen}{\large\ding{51}}}
 \newcommand{\xmark}{\textcolor{btfRed}{\footnotesize\ding{55}}}
+\usetikzlibrary{calc}
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -155,7 +161,7 @@ These works and experiences consistently allow for the acquisition of experience
 However, while it is necessary to compare ourselves on objective, measurable criteria within controlled frameworks, I am of the opinion that my research activities have focused a little too much on this type of contribution, to the detriment of a more long-term vision aimed at a positive impact on society. The objective of this document is, after summarizing my past activities, to propose perspectives that allow for the application of the knowledge acquired toward a more ambitious goal than winning a competition or being state-of-the-art on a benchmark.
 \pagebreak
 
-\chapter{Summary of Research, Supervision, and Funding Activities}
+% \chapter{Summary of Research, Supervision, and Funding Activities}
 \minitoc
 \vspace{1cm}
 
@@ -163,7 +169,7 @@ This chapter summarizes my research activities. I completed a doctoral thesis ti
 I then reoriented my research towards the compression of deep learning algorithms and their deployment on embedded targets: FPGAs, embedded processors and microcontrollers, and embedded GPUs. Section~\ref{sec:deep_learning_embedded} presents the main contributions in this area.
 
 
-\section{Digital Communication Algorithms on Programmable Architectures}
+\chapter{Digital Communication Algorithms on Programmable Architectures}
 \label{sec:chaines_communication}
 
 
@@ -171,12 +177,12 @@ Software implementations of error-correcting code decoders play a crucial role i
 
 My PhD thesis presents efficient implementation methods (throughput, latency, energy consumption) for polar code decoding algorithms on specific hardware architectures (ASIP: Application Specific Instruction-set Processor) but also on general-purpose processors (GPP: General Purpose Processor). This work, in collaboration with Adrien Cassagne from LIP6, led to the creation of the open-source software AFF3CT, a complete software toolbox for the simulation and implementation of digital communication chains.
 
-\subsection{Decoding of Polar Codes on General Purpose Processors}
+\section{Decoding of Polar Codes on General Purpose Processors}
 \label{sec:decoding_polar_codes_gpp}
 
 In the present manuscript, I will focus the discussion on my key contributions in the field of polar code decoding. I will therefore skip everything concerning code construction and decoding techniques that fall outside the scope of my contributions. I invite the reader to refer to my PhD manuscript for these topics \cite{leonardon:tel-01997553}. I will, however, attempt to clearly explain the structure of the SCL and SCAN decoding algorithms, their scheduling, and their potential for parallelization using diagrams. I will also describe their refinements (FAST-SCL and Adaptive simplification) in Section~\ref{sec:sc_list_scan} before clearly presenting the contributions I proposed and the results obtained in Section~\ref{sec:fast_flexible_polar_decoders}. More recent developments and new results, obtained during my participation in the ISTC 2025 (International Symposium on Topics in Coding) conference, are presented in Section~\ref{sec:istc25_challenge}.
 
-\subsubsection{SC-List and SCAN decoding algorithms}
+\subsection{SC-List and SCAN decoding algorithms}
 \label{sec:sc_list_scan}
 
 Polar codes, introduced by Arıkan in 2009, are the first error-correcting codes proven to achieve Shannon capacity for infinite code lengths~\cite{Arikan2009}. The Successive Cancellation (SC) decoding algorithm was initially proposed for polar codes, but its performance in terms of bit error rate (BER) and frame error rate (FER) is insufficient for short code lengths. To address this, the Successive Cancellation List (SCL) algorithm was proposed in the literature, significantly improving decoding performance by maintaining a list of candidate paths. An optimized version, called Fast SCL, was subsequently developed to reduce computational complexity while maintaining good decoding performance. These algorithms allow for trade-offs between complexity, latency, and decoding performance, making polar codes suitable for modern communication standards like 5G.
@@ -282,7 +288,7 @@ The advantage of such pruning, often referred to as Fast-SC, is a drastic reduct
   \label{fig:sc_pruned}
 \end{figure}
 
-\subsubsection{A Fast and Flexible Software Implementation of Polar Code Decoders}
+\subsection{A Fast and Flexible Software Implementation of Polar Code Decoders}
 \label{sec:fast_flexible_polar_decoders}
 
 Software implementation of channel codes has emerged as a compelling alternative to dedicated hardware. It enables rapid prototyping and validation of new algorithms, while offering high flexibility to support a wide variety of codes and decoding strategies. Unlike hardware, software decoders can be easily configured to trade off correction capability, latency, and throughput, making them well suited for adaptive schemes. They also facilitate reproducibility and portability across platforms. At the network level, software implementations align with the trend toward Cloud-RAN, where virtualized signal processing allows dynamic allocation of resources, improved inter-cell cooperation, reduced energy consumption, and lower communication latency.
@@ -481,7 +487,7 @@ Our work demonstrates a significant advantage over fully unrolled decoders from 
 Importantly, Table~\ref{tab:port} presents the first software implementations on ARM architectures, demonstrating excellent energy efficiency. ARM cores such as the Cortex-A73 achieve competitive cycle counts compared to desktop CPUs while consuming only around 2 W versus 15 W, resulting in a 3-4x improvement in energy efficiency. Lower-power cores like the Cortex-A7 and A53 maintain good energy efficiency, whereas the Cortex-A15 shows slightly lower performance per watt. These results highlight the flexibility, portability, and energy-performance benefits of our implementations, making them suitable for both high-performance x86 workstations and embedded ARM platforms.
 
 
-\subsubsection{ISTC'25 Challenge}
+\subsection{ISTC'25 Challenge}
 \label{sec:istc25_challenge}
 
 
@@ -557,12 +563,12 @@ Table~\ref{tab:stats} summarizes the proposed Polar code configurations submitte
 The results obtained in the ISTC 2025 contest were very promising, with our submission achieving 1st place in the software implementation category. This success highlights the effectiveness of our approach and the optimizations implemented in the AFF3CT software suite.
 The next section is about AFF3CT, its features, and its impact on the field of digital communications. In the end I will also develop our plan to participate in the organization for the next edition of the ISTC contest.
 
-\subsection{The AFF3CT Software Suite}
-During my PhD years, followed by a year as an ATER at the University of Bordeaux in the IMS laboratory, a dynamic emerged around the development of a complete software simulation chain, initiated in particular by Adrien Cassagne, then a PhD student in the team. This momentum led to the creation of a software suite named AFF3CT\footnote{https://aff3ct.github.io}\cite{...}. This long-term project (soon to celebrate its 10th anniversary!) has had a strong impact both nationally and internationally, resulting in numerous publications ranging from contributions to software decoders, to the definition of a dedicated programming language for software design, and its use in a variety of application contexts.
+\section{The AFF3CT Project}
+During my PhD years, followed by a year as an ATER at the University of Bordeaux in the IMS laboratory, a dynamic emerged around the development of a complete software simulation chain, initiated in particular by Adrien Cassagne, then a PhD student in the team. This momentum led to the creation of a software suite named AFF3CT\footnote{https://aff3ct.github.io}\cite{cassagne:hal-02358306}. This long-term project (soon to celebrate its 10th anniversary!) has had a strong impact both nationally and internationally, resulting in numerous publications ranging from contributions to software decoders, to the definition of a dedicated programming language for software design, and its use in a variety of application contexts.
 
 For my part, in this document I will focus on the projects in which I was most involved, namely the creation of the chain itself, followed by the implementation of a software radio chain based on the DVB-S2 standard.
 
-\subsubsection{AFF3CT: A Software Suite for Digital Communications}
+\subsection{AFF3CT: A Software Suite for Digital Communications}
 
 AFF3CT is an open source software suite designed for the simulation and implementation of communication systems. At the time of its creation, it focused on Monte Carlo simulations of the whole communication chain: some data is generated, encoded, modulated, noised, decoded, and the performance is then estimated by measuring the Bit Error Rate (BER) and the Frame Error Rate (FER). This process led to 3 problems that are addressed by the tool:
 
@@ -869,8 +875,7 @@ purpose. Table~\ref{tab:modems} lists all the supported modems.
 
 \AFFECT supports several coded modulation/demodulation schemes like the
 Continuous Phase Modulation (CPM)~\cite{Aulin1981a,Aulin1981b} and the Sparse
-Code Multiple Access (SCMA) modulation~\cite{Nikopour2013,Ghaffari2017,Ghaffari2019}
-(many codebooks are supported~\cite{Altera,Wu2015,Cheng2015,Zhang2016,Klimentyev2016,SongWC2016,Klimentyev2017}).
+Code Multiple Access (SCMA) modulation~\cite{Nikopour2013,ghaffari:hal-01977885,ghaffari:hal-03762203}.
 It allows to easily combine and evaluate the channel codes with several types
 of modulations. In the case of the CPM, analogical wave shapes are also
 simulated. The other modulation schemes are at the digital level.
@@ -931,7 +936,7 @@ the code review time by the core development team low-enough to swiftly
 integrate such contributions into the master branch.
 
 
-\subsubsection{A Flexible and Portable Real-time DVB-S2 Transceiver using Multicore and SIMD CPUs}
+\subsection{A Real-time DVB-S2 Transceiver using Multicore and SIMD CPUs}
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.90\textwidth]{fig/transmitter}
@@ -1147,7 +1152,7 @@ strategies.
 
 
 
-\subsubsection{AFF3CT: Next Steps and ISTC 2027 Challenge}
+\subsection{AFF3CT: Next Steps and ISTC 2027 Challenge}
 
 
 
@@ -1160,12 +1165,12 @@ Following these initial developments, during my ATER year, I participated in tra
 Finally, we plan to participate, at the end of 2025, with the co-authors of the AFF3CT paper, in the ISTC conference's software implementation competition. Preliminary results are very promising and show that our software suite is competitive compared to other available solutions. This participation will allow us to further validate the performance and robustness of AFF3CT in an international competition and benchmarking context.
 
 
-\subsection{ASIP Architectures for Polar Codes}
+\section{ASIP Architectures for Polar Codes}
 Following the work on software implementations of polar code decoding on general-purpose processors (GPP), two contributions explored performance optimization through specialized programmable processors (ASIP - Application Specific Instruction-set Processor). This paradigm shift is in line with the Cloud-RAN logic, where the virtualization of physical functions allows great flexibility in resource allocation. Nevertheless, to achieve high throughput and energy efficiency while maintaining a certain level of programmability, the use of ASIPs proves particularly relevant. Unlike GPPs, which are often oversized and energy-intensive, ASIPs allow for fine-tuning of hardware resources to the target algorithm, while integrating vector processing units or specific instructions to improve efficiency.
 
-\paragraph{Tensilica} The first work relied on the Cadence Tensilica ecosystem to design a processor based on the Xtensa LX7 core, adapted for SC and SCAN (Soft CANcellation) polar code decoding~\cite{leonardon:hal-03291077}. This processor was configured to include a VLIW pipeline, SIMD instructions on 512-bit registers, and a reduced set of general-purpose registers optimized for LLR and partial sum access. The approach combined architectural optimizations (custom instructions, adapted memory management, quantized arithmetic) and software optimizations (pseudo-unrolling of decoding, use of specialized functions like R0/R1/REP/SPC). The results showed that throughput was comparable to that obtained on an ARM Cortex-A57, with a 10-fold reduction in energy consumption, thus demonstrating the relevance of the approach for embedded applications or those deployed on Cloud-RAN servers requiring strong energy efficiency constraints.
+\subsection{Tensilica} The first work relied on the Cadence Tensilica ecosystem to design a processor based on the Xtensa LX7 core, adapted for SC and SCAN (Soft CANcellation) polar code decoding~\cite{leonardon:hal-03291077}. This processor was configured to include a VLIW pipeline, SIMD instructions on 512-bit registers, and a reduced set of general-purpose registers optimized for LLR and partial sum access. The approach combined architectural optimizations (custom instructions, adapted memory management, quantized arithmetic) and software optimizations (pseudo-unrolling of decoding, use of specialized functions like R0/R1/REP/SPC). The results showed that throughput was comparable to that obtained on an ARM Cortex-A57, with a 10-fold reduction in energy consumption, thus demonstrating the relevance of the approach for embedded applications or those deployed on Cloud-RAN servers requiring strong energy efficiency constraints.
 
-\paragraph{Transport Triggered Architecture}The second article proposes a significant evolution of ASIP-based polar decoding through the use of a \textit{Transport Triggered Architecture} (TTA), developed in collaboration with the University of Tampere, which also motivated the project visit with Pekka Jääskeläinen via Maupertuis funding~\cite{leonardon:hal-01978830}.
+\subsection{Transport Triggered Architecture}The second article proposes a significant evolution of ASIP-based polar decoding through the use of a \textit{Transport Triggered Architecture} (TTA), developed in collaboration with the University of Tampere, which also motivated the project visit with Pekka Jääskeläinen via Maupertuis funding~\cite{leonardon:hal-01978830}.
 The Transport Triggered Architecture (TTA) is a modular processor architecture template \cite{corporaal_microprocessor_1997}, inspired by the MOVE architecture \cite{1051344}. To facilitate the design and implementation of TTA-based systems, a dedicated hardware/software development toolchain, known as the TTA Co-Design Environment (TCE), has been developed \cite{Esko:2010:CED:1933303.1933795}.
 
 A TTA consists of elementary components, called function units (FUs), interconnected through a configurable number of buses. A Base TTA comprises a control unit (GCU) handling fetch and decode operations, an arithmetic logic unit (ALU), a load/store unit (LSU), and a register file (RF). The modularity of the architecture allows designers to add custom FUs and to expand the interconnection network with additional buses.
@@ -1241,64 +1246,812 @@ A fully customized TTA processor, including its bespoke function units, can be a
   \parnotes
 \end{table}
 
-\paragraph{Transport Triggered Polar Decoders} The proposed architecture, illustrated in Figure \ref{fig:prode}, builds upon a Base TTA and extends it with vector custom function units (FUs) to enable highly parallel processing. A vector size of $P=64$ was selected, allowing the FUs to process up to 64 data elements (LLRs or PSs) simultaneously. LLRs are represented as $Q=8$-bit values, ensuring negligible decoding performance loss. Core components of the architecture include parallel Load/Store Units (LSUs) for efficient memory access, Polar Processing Units (PPUs) that implement the specific $f$ and $g$ polar functions, and an unrolled SC decoder designed to accelerate the most sequential parts of polar decoding. A Vector Register File is included to buffer vector data and facilitate smooth data transfers between FUs.
+\subsubsection{Transport Triggered Polar Decoders} The proposed architecture, illustrated in Figure \ref{fig:prode}, builds upon a Base TTA and extends it with vector custom function units (FUs) to enable highly parallel processing. A vector size of $P=64$ was selected, allowing the FUs to process up to 64 data elements (LLRs or PSs) simultaneously. LLRs are represented as $Q=8$-bit values, ensuring negligible decoding performance loss. Core components of the architecture include parallel Load/Store Units (LSUs) for efficient memory access, Polar Processing Units (PPUs) that implement the specific $f$ and $g$ polar functions, and an unrolled SC decoder designed to accelerate the most sequential parts of polar decoding. A Vector Register File is included to buffer vector data and facilitate smooth data transfers between FUs.
 
 The LSUs are tailored for high throughput, supporting the maximum polar code length of $N_\text{max}=1024$ as defined in the 5G standard \cite{ETSI2018}. PS memory is organized as 32x64 bits to allow parallel access to $P=64$ data, while LLR memory is mapped into a 64x512-bit RAM. The LSUs are optimized to reduce load/store latency from three to one clock cycle by removing internal registers, and they also support unaligned memory accesses without affecting the critical path, which remains in the 32-bit scalar ALU.
 
 The PPUs, comprising the PS PU and LLR PU, act as SIMD units specialized for polar decoding, allowing multiple $f$ and $g$ operations to be performed in parallel. To further accelerate computation, unrolled subtree decoders are integrated as FUs for the lower stages of the decoding tree. These unrolled SC decoders can process 8 LLRs in 6 clock cycles, using a multi-cycle timing strategy instead of additional registers. This approach removes unnecessary hardware, keeps the critical path in the general-purpose ALU, and maintains full flexibility for varying frozen bit patterns. Overall, the architecture leverages vectorized FUs, efficient memory access, and unrolled subtree processing to achieve high-performance polar decoding while preserving the programmability and modularity of the Base TTA.
 
-\paragraph{Results} A fine-grain comparison of polar decoders is challenging due to differences in technology, algorithms, pruning strategies, quantization, and frozen bit locations. Nevertheless, the Transport Triggered Polar Decoder (TT-SC), customized for SC decoding, demonstrates that TTA provides a natural compromise between programmable and dedicated architectures. Compared to previous work, the proposed TT-SC processor achieves significantly higher throughput and energy efficiency.
+\subsubsection{Results} A fine-grain comparison of polar decoders is challenging due to differences in technology, algorithms, pruning strategies, quantization, and frozen bit locations. Nevertheless, the Transport Triggered Polar Decoder (TT-SC), customized for SC decoding, demonstrates that TTA provides a natural compromise between programmable and dedicated architectures. Compared to previous work, the proposed TT-SC processor achieves significantly higher throughput and energy efficiency.
 
 The TT-SC decoder was implemented using a 28 nm FD-SOI library, with memories realized in SRAM blocks. For a (1024, 512) polar code, it achieves a throughput of 352 Mb/s, which is 37\% higher than an Intel i7 CPU implementation, while consuming only 0.14 nJ/bit, two orders of magnitude lower than the general-purpose solution. Although more clock cycles are required than in dedicated architectures due to pipeline registration and more complete tree pruning, the TT-SC maintains comparable logic utilization and competitive hardware complexity while preserving programmability. Overall, the TT-SC processor illustrates that a TTA-based approach can deliver high-performance polar decoding while retaining flexibility.
 
 \newpage
 
 
-\section{Deep Learning on Embedded Targets}
+\chapter{Deep Learning on Embedded Targets}
 \label{sec:deep_learning_embedded}
 
-My arrival at IMT Atlantique in 2020 marked the beginning of my work on deep learning for embedded targets, with a particular focus on optimizing models for resource-constrained environments.
 
-\subsection{Low-Cost Federated Learning}
-Federated Learning (FL) is a promising approach for distributed machine learning, particularly suited for privacy-sensitive applications, such as military and medical domains, where client data cannot be shared or transferred to a cloud computing server. In standard FL, a server sends a model to a group of clients, who train it on their local data, then send their updated parameters back to the server for aggregation. This process aims to better guarantee user data privacy, as data never leaves the client device.
+My work in deep learning, which began with my arrival at IMT Atlantique in 2020, has been shaped by a focus on optimizing models for resource-constrained environments, drawing parallels with my previous experience in error-correcting codes. This research has been structured around three main axes: federated learning, algorithmic compression, and hardware implementation on FPGAs.
 
-However, communication cost represents a major challenge in FL due to its intensive network usage. Client devices, such as smartphones or Internet of Things (IoT) nodes, have limited resources in terms of energy, computation, and memory. To overcome these hardware constraints, lightweight models and compression techniques such as pruning and quantization are commonly adopted in centralized paradigms.
+The study on federated learning in Section~\ref{sec:federated_learning} was initiated through an IMT "Futur et Ruptures" project, a collaboration between IMT Atlantique and Telecom Saint-Étienne and Mines Saint-Étienne. The partnership was a natural fit, combining the expertise in federated learning from Saint-Étienne with our skills in embedded systems at IMT Atlantique. This project allowed us to address the classic challenges of federated learning—privacy and communication overhead—from the perspective of algorithmic complexity and communication cost. Our goal was to explore the feasibility of deploying federated learning on low-cost embedded targets, such as embedded GPUs or FPGAs.
 
-In a first contribution, we proposed a method to insert the pruning technique as an additional step before communicating training results~\cite{grativol:hal-04251969,grativol:emse-04217775}. This approach aims to make messages sparser and thus reduce message size. More precisely, the method uses unstructured magnitude-based pruning, where weights with the smallest absolute values are replaced by zeros according to a predetermined pruning rate. This process is performed by the server and clients before transmitting a message, ensuring an equivalent pruning level throughout each communication round.
+Then a whole line of work concerns Deep Learning Compression, detailed in Section~\ref{sec:compression}. My approach to deep learning mirrors the lessons learned from working with error-correcting codes, emphasizing the principle of achieving more with less. This led to a focus on algorithmic compression, specifically through methodological contributions to pruning and the exploration of neural network architecture search spaces. This work included an industrial project with GoodFloow, addressing the crucial trade-off between model accuracy and memory footprint for microcontrollers. We also developed highly optimized CPU implementations using SIMD instructions in collaboration with the company Deeplite.
 
-The results demonstrate that this method can compress messages by up to 50\% while incurring a precision loss of less than 1\%, outperforming state-of-the-art techniques. For example, with a 50\% pruning rate, message size is reduced to 23.0 MB, with an accuracy of 83.85±0.65\%, compared to 44.7 MB and 84.43±0.36\% for the full model without pruning. An increase in the number of local iterations per client during training contributes to a more robust model, allowing for sparser data communications while maintaining similar precision.
+The third major axis, detailed in Section~\ref{sec:deep_learning_fpga}, focuses on the implementation of deep learning systems on FPGAs. This work was notably advanced through the PEFSL project, which began as a student initiative and won the 2023 OpenHardware AMD Xilinx competition. Hugo Le Blevec's doctoral thesis further enabled us to achieve state-of-the-art results for semantic segmentation networks on FPGAs. A key insight from this thesis is that, contrary to much of the literature which emphasizes complex and exotic network architectures, the training routine and data preprocessing often have a greater impact on performance than the network's complexity or the specific operations employed.
 
-In a second contribution, we introduce FLoCoRA, a method that integrates LoRA techniques into the training of small vision models in a federated learning (FL) context~\cite{grativol:hal-04617632}. Unlike previous approaches focused on large models, FLoCoRA adopts an aggregation-agnostic strategy and keeps the base model frozen throughout training. Only the parameters of the much lighter LoRA adapters are updated and exchanged between clients. This design limits both data exchanges and memory usage, thanks to the absence of calculation and storage of the main model's gradients.
+\textcolor{red}{Ajouter intro sur les réseaux et la compression ?}
 
-Key contributions include: the integration of LoRA adapters into the FL framework, with an implementation compatible with any FL optimization method, thus establishing a solid foundation for communication and memory reduction; a reduction in message sizes of up to 4.8 times with a precision loss of less than 1\% for a CIFAR-10 classification task using a ResNet-8; and the extension of the method with an affine quantization scheme, allowing for even higher compression rates, dividing the communication cost by 18.6 times, while maintaining a precision loss of less than 1\% on a ResNet-18 model.
-
-Compared to conventional compression methods, FLoCoRA achieves less precision degradation for reduced message sizes. For example, for a pruning rate of 40\% (27.1 MB) with the magnitude pruning method, the precision is 85.20±0.20\%. In contrast, FLoCoRA with a rank of 64 and 8-bit quantization (2.4 MB) achieves 85.24±0.23\%, representing an 18.6-fold reduction in communication cost compared to the full FedAvg model (44.7 MB). The integration of affine quantization allowed for a 64-fold reduction in communication cost with an approximately 4\% precision loss.
-
-This work demonstrates that LoRA, while commonly used for fine-tuning, can serve as a solid basis for communication savings in FL, paving the way for the deployment of Federated Learning on edge devices where communication is a bottleneck and computational power is limited.
+\section{Low-Cost Federated Learning}
+\label{sec:federated_learning}
+\subsection{Federated Learning Overview}
 
 
-\subsection{Compression by Pruning or Quantization and Embedded Deployment}
+Data privacy has become a critical concern in domains like high-frequency trading, marketing, and machine learning. Centralized data collection can expose sensitive information to interception or unauthorized access. Federated learning (FL)~\cite{konevcny2015federated} addresses these concerns by enabling machine learning models to be trained on decentralized data stored across multiple participant devices, called \textbf{clients}, without sharing raw data. The main objective is to mitigate privacy violations while leveraging distributed data.
+
+In a typical FL setup, a central server orchestrates training by selecting clients, sending them the current model, and aggregating their local updates. This process, repeated in multiple \textbf{communication rounds}, involves client selection, local training, model update uploads, and aggregation. The aggregation fuses knowledge from all participating clients into a global model.
+
+
+Federated learning can be characterized along several dimensions~\cite{kairouz2021advances}:
+
+\begin{itemize}
+    \item \textbf{Orchestration:} Centralized (server coordinates updates) or decentralized (peer-to-peer).
+    \item \textbf{Synchronization:} Synchronous (waits for all clients) or asynchronous (updates as received).
+    \item \textbf{Client type:} Cross-device (many mobile/edge clients, limited resources) or cross-silo (few institutions, reliable and resourceful).
+    \item \textbf{Client statefulness:} Stateful (retains inter-round information) or stateless (no retained info).
+    \item \textbf{Data distribution:} IID (similar across clients) or non-IID (highly heterogeneous). Non-IID distributions create challenges like client drift.
+    \item \textbf{Data partition:} Horizontal (same features, different samples) or vertical (different features, same samples).
+\end{itemize}
+
+This work focuses on deep learning image classification using CNNs, with centralized orchestration, synchronous updates, stateless cross-device clients, IID and non-IID data, and horizontal partitions.
+
+\subsubsection{Training Loop and Federated Averaging}
+
+A federated learning round consists of multiple coordinated steps involving the server and a set of participating clients. The overall loop is illustrated in Figure~\ref{fig:chap2:loop}. The key steps are as follows:
+
+\begin{enumerate}
+    \item \textbf{Client Sampling:}
+    At the start of each round $t$, the server selects a subset $M \subset U$ of clients from the total pool $U$ to participate. This sampling is critical for scalability, especially in cross-device settings with thousands or millions of potential clients, and also reduces the likelihood of stragglers slowing down the round.
+
+    \item \textbf{Model Broadcast:}
+    The server sends the current global model $\mathcal{W}^{(t)}$ to each selected client. This model can include weights, biases, or other relevant parameters depending on the architecture.
+
+    \item \textbf{Local Training:}
+    Each client $m \in M$ trains the received model locally on its private dataset $d_m$. The objective is to minimize the client-specific loss function:
+    \begin{equation}
+        \mathcal{L}_m(\mathcal{W}_m) = \mathbb{E}_{(x,y)\sim d_m}[\mathcal{L}(x,y,\mathcal{W}_m)].
+    \end{equation}
+    Clients perform training over multiple local epochs with a specified batch size. This local training allows each client to adapt the global model to its specific data distribution while keeping raw data private.
+
+    \item \textbf{Update Upload:}
+    After local training, clients compute their model updates, which can be the updated weights $\Delta \mathcal{W}_m$, gradients, or other proxy information. These updates are sent back to the server, not the raw data. This ensures that sensitive information remains local.
+
+    \item \textbf{Aggregation:}
+    The server aggregates all client updates to produce the next global model. The most widely used method is \textbf{Federated Averaging (FedAvg)}~\cite{mcmahan2017communication}, which computes a weighted average based on dataset sizes:
+    \begin{equation}
+        \mathcal{W}^{(t+1)} = \sum_{m=1}^{M} \frac{|d_m|}{|D|} \Delta \mathcal{W}_m,
+    \end{equation}
+    where $|D| = \sum_{m=1}^{M} |d_m|$. This aggregation fuses knowledge from heterogeneous client distributions into a coherent global model.
+
+    \item \textbf{Iteration:}
+    The updated global model is then used in the next round. This process repeats for $R$ rounds until the global model converges to a desired performance level.
+\end{enumerate}
+
+\begin{equation}
+    \underset{\mathcal{W}}{\mathrm{min}}~V(\mathcal{W}) = \sum\limits_{m=1}^{M} \frac{|d_m|}{|D|} \mathcal{L}_{m}(\mathcal{W}_m)
+\end{equation}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/fl_loop.pdf}
+    \caption{Training loop for one round of federated learning.}
+    \label{fig:chap2:loop}
+\end{figure}
+
+Experiments with 20 clients training ResNet-20 on CIFAR-10 over 100 rounds demonstrate that IID distributions achieve $\sim 92\%$ accuracy, whereas non-IID achieve $\sim 81\%$.
+
+\subsubsection{Challenges in Cross-Device Federated Learning}
+
+Cross-device FL introduces challenges in computation and communication. Devices often have limited processing power, memory, and energy, making deep learning training resource-intensive. Frequent model exchanges increase network load and energy consumption. Reducing communication rounds improves convergence and mitigates straggling clients but may increase local computation.
+
+A study~\cite{qiu2023first} evaluated energy costs for CIFAR-10 and ImageNet using ResNet-18:
+
+\begin{itemize}
+    \item \textbf{CIFAR-10:} Centralized training consumed 2.7 Wh; federated training across 500 clients totaled 30.4 Wh (3.04 Wh per client). Communication accounted for 96\% of energy.
+    \item \textbf{ImageNet:} Centralized 971 Wh; federated across 100 clients totaled 2697.5 Wh (269.5 Wh per client). Communication was only 0.7\% due to larger dataset size.
+\end{itemize}
+
+This highlights that dataset size and task complexity significantly affect communication costs in federated learning. Model compression and convergence optimization are potential strategies to reduce energy and communication overhead.
+
+
+\subsection{A first contribution: Pruning messages}
+
+
+In a first work, we investigate how model compression through quantization and pruning can reduce communication costs in Federated Learning while maintaining high accuracy~\cite{grativol:hal-04251969}. Our experimental pipeline, illustrated in Fig.~\ref{fig:framework}, applies quantization-aware training on clients and pruning on both clients and server to ensure coherent aggregation. This setup allows us to study different compression levels and local training epochs, measuring their effects on message size and accuracy under non-IID data distributions.
+
+\begin{figure*}
+    \centering
+    \includegraphics[scale=0.78]{fig/framework.pdf}
+    \caption{The pipeline of our study. Quantization is applied on the client side (left), while pruning is applied on both clients and server (right).}
+    \label{fig:framework}
+\end{figure*}
+
+\begin{table}[h]
+\centering
+\caption{Summary of message size and accuracy for the CIFAR-10 dataset}
+\label{tab1}
+{\small\resizebox{0.5\linewidth}{!}{
+\begin{tabular}{cccc}
+\hline
+\multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Compression\\ Technique\end{tabular}}} &
+  \multicolumn{2}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Accuracy \\ (\%)\end{tabular}}} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Message Size \\ (MiB)\end{tabular}} \\ \hline
+\multicolumn{1}{l}{} &
+  \begin{tabular}[c]{@{}c@{}}1 Local \\ Epoch\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}10 Local \\ Epochs\end{tabular} &
+  \multicolumn{1}{l}{} \\ \hline
+Baseline  & 78.94 & 78.18 & 2.97 \\ \hline
+Pruning &
+  \multicolumn{1}{l}{} &
+  \multicolumn{1}{l}{} &
+  \multicolumn{1}{l}{} \\ \hline
+10 \%     & 74.79 & 78.18 & 2.57 \\
+20 \%     & 76.01 & 78.12 & 2.34 \\
+30 \%     & 78.20 & 77.83 & 2.10 \\
+40 \%     & 77.50 & 77.81 & 1.85 \\
+50 \%     & 72.74 & 77.65 & 1.57 \\
+60 \%     & 76.00 & 77.65 & 1.29 \\
+70 \%     & 73.43 & 78.11 & 1.01 \\
+80 \%     & 75.18 & 77.89 & 0.70 \\
+90 \%     & 73.37 & 76.63 & 0.37 \\
+95 \%     & 71.05 & 74.81 & 0.19 \\
+99 \%     & 52.77 & 66.82 & 0.04 \\ \hline
+\multicolumn{4}{l}{Quantization} \\ \hline
+8-bits    & 78.80 & 78.58 & 0.75 \\
+4-bits    & 79.74 & 77.04 & 0.38 \\
+1-bit     & 48.93 & 70.89 & 0.10 \\ \hline
+\end{tabular}
+}}
+\end{table}
+
+Compared to uncompressed training or approaches like ZeroFL, our compression techniques provide substantial reductions in communication overhead—up to $32\times$ with 1-bit quantization—without a significant loss in accuracy. Table~\ref{tab1} summarizes results for CIFAR-10, showing that moderate pruning (30-60\%) achieves 2-4$\times$ bandwidth savings while maintaining accuracy close to baseline FP32 models. In contrast, ZeroFL methods often require complex optimization or introduce higher training instability. Our approach is straightforward, compatible with standard aggregation methods, and provides a practical trade-off between communication efficiency and computational cost on embedded devices.
+
+
+\subsection{FLOCORA: Federated Learning Compression with LORA}
+\paragraph{Low-Rank Adaptation (LoRA)}
+
+A recent approach to reduce training and compression costs relies on \textit{Low-Rank Adaptation} (LoRA). The main idea is to avoid updating all parameters of a neural network during training, and instead restrict updates to \textit{low-rank matrices} that approximate the necessary parameter changes.
+
+Consider a weight matrix of a layer:
+\[
+W \in \mathbb{R}^{d_1 \times d_2}.
+\]
+In standard training, this matrix is updated directly via gradient descent. In LoRA, however, the matrix $W$ is \textit{frozen}, and the update is represented as a low-rank decomposition:
+\[
+W^{*} = W + \frac{\alpha}{r} BA,
+\]
+where
+\[
+A \in \mathbb{R}^{d_1 \times r}, \quad B \in \mathbb{R}^{r \times d_2},
+\]
+are trainable matrices with rank at most $r$, and $\alpha$ is a scaling factor. Since $r \ll \min(d_1, d_2)$, the number of additional parameters to train is drastically reduced.
+
+This approach was originally motivated by \textit{transfer learning} on very large models, in particular \textit{large language models} (LLMs) with hundreds of billions of parameters. Rather than fine-tuning the entire model, LoRA allows adapting a pretrained backbone to new tasks with a fraction of the memory and compute cost. An additional advantage is that the low-rank updates can be merged back into the original weights without adding inference latency.
+
+In summary, LoRA addresses several key challenges:
+\begin{itemize}
+    \item \textbf{Training efficiency}: only the low-rank matrices are optimized, reducing memory and computation requirements.
+    \item \textbf{Parameter efficiency}: the pretrained backbone can be reused, while task-specific information is stored in lightweight adapters.
+    \item \textbf{Communication efficiency}: since the backbone remains frozen, only low-rank updates need to be transmitted, which is especially relevant in distributed or federated settings.
+\end{itemize}
+
+Although originally developed for \textit{natural language processing (NLP)} and \textit{foundation models}, LoRA has rapidly become a standard tool in efficient deep learning, and its extension to other domains (computer vision, multimodal learning, federated learning) is an active area of research.
+
+\paragraph{Our Method: FLoCoRA}
+
+In this work, we propose \textbf{FLoCoRA} (\textbf{F}ederated \textbf{L}earning \textbf{Co}mpression with \textbf{Lo}w-\textbf{R}ank \textbf{A}daptation), a method that integrates LoRA into the federated learning (FL) framework to reduce both communication and memory requirements.
+
+The key idea of FLoCoRA is to \textit{never update the original neural network weights} shared across clients at the start of training. Instead, only the LoRA adapter parameters, $A$ and $B$, are trained, exchanged, and aggregated. Because the original weights remain frozen, communicating only the low-rank adapters is sufficient to represent each client's updates. This design allows FLoCoRA to be seamlessly integrated with any FL optimization algorithm.
+
+Figure~\ref{fedavglora} illustrates the FLoCoRA training loop. All clients start with identical weights $W_{\text{initial}}$, which remain fixed throughout training. During a communication round, the server first sends the global LoRA adapter parameters $\bar{\Delta}_t L$ to the selected subset of clients. Each client then trains its LoRA adapters locally and computes the updates $\Delta^k_{t+1} L$, which are uploaded back to the server. The server aggregates the updates using a weighted average, as in FedAvg, to obtain the new global adapters $\bar{\Delta}_{t+1} L$ for the next round.
+
+\begin{figure}[ht]
+    \centerline{
+    \includegraphics[width=0.45\textwidth]{fig/fedavglora.pdf}}
+    \caption{FLoCoRA training loop.}
+    \label{fedavglora}
+\end{figure}
+
+By training only the low-rank adapters, FLoCoRA reduces memory usage since fewer gradients need to be stored during backpropagation. Communication costs are lowered because only the adapter parameters are transmitted between clients and the server, and computational cost per round is reduced because the majority of the model weights remain frozen. FLoCoRA can also be combined with quantization techniques to further decrease communication overhead without significant loss in accuracy.
+
+\paragraph{Experiments and Results}
+
+
+We evaluated FLoCoRA on image classification tasks using small vision models in a federated learning setting. The basic setup consists of 100 clients, with 10\% sampled in each communication round. Models are trained for 100 rounds with a local batch size of 32, learning rate of 0.01, 5 local epochs, and momentum of 0.9. Stochastic Gradient Descent with momentum is used as the client optimizer, and FedAvg is used as the aggregation algorithm. All experiments are repeated three times with different seeds.
+
+
+To determine which layers should be trained with LoRA adapters, we conducted an ablation study using a ResNet-8 model on the CIFAR-10 dataset, with LoRA hyperparameters $r=32$ and $\alpha=512$. The results are summarized in Table~\ref{tab:lora_ablation}.
+
+\begin{table}[h]
+\centering
+\caption{Effect of training different layers with or without LoRA adapters on ResNet-8 for CIFAR-10.}
+\label{tab:lora_ablation}
+{\small\resizebox{0.9\linewidth}{!}{
+\begin{tabular}{rcc}
+\hline
+\textbf{Method} & \textbf{Number of Parameters to Update} & \textbf{Accuracy (\%)} \\ \hline
+FedAvg & 1.23 M & 76.14 $\pm$ 0.74 \\ \hline
+FLoCoRA Vanilla & 0.26 M & 22.14 $\pm$ 3.99 \\
++ Normalization Layers & 0.26 M & 39.80 $\pm$ 12.05 \\
++ Final FC Layer & 0.26 M & 75.51 $\pm$ 1.34 \\ \hline
+\end{tabular}
+}}
+\end{table}
+
+From Table~\ref{tab:lora_ablation}, several conclusions can be drawn. Freezing all model weights and training only LoRA adapters for convolution layers ("FLoCoRA Vanilla") results in very low accuracy. Including normalization layers improves performance but remains insufficient. Training the final fully connected layer in addition to LoRA adapters and normalization layers recovers almost all the accuracy of FedAvg, demonstrating that some layers (especially highly specialized or normalization layers) cannot be fully approximated by low-rank adapters. This informs the FLoCoRA configuration used in all subsequent experiments.
+
+
+We compared FLoCoRA, including quantized versions, with standard compression techniques such as ZeroFL~\cite{qiu2022zerofl} and magnitude pruning~\cite{grativol:hal-04251969}. Experiments used a ResNet-18 model, 100 clients, and 700 communication rounds. Results are summarized in Table~\ref{tab:lora_vs_all}.
+
+\begin{table}[h]
+\centering
+\caption{Comparing FLoCoRA and its quantized versions with ZeroFL and magnitude pruning. Communication cost is measured in total message size and TCC.}
+\label{tab:lora_vs_all}
+{\small\resizebox{0.9\linewidth}{!}{
+\begin{tabular}{ccccc}
+\hline
+\textbf{Method} & \textbf{Configuration} & \textbf{Message Size (MB)} & \textbf{TCC (GB)} & \textbf{Accuracy (\%)} \\ \hline
+FedAvg & Full Model & 44.7 ($\div 1.0$) & 62.6 & 84.43 $\pm$ 0.36 \\ \hline
+\multirow{2}{*}{ZeroFL~\cite{qiu2022zerofl}} & 90\% SP + 0.2 MR & 27.3 ($\div 1.6$) & 38.2 & 81.04 $\pm$ 0.28 \\
+ & 90\% SP + 0.0 MR & 10.1 ($\div 4.4$) & 14.1 & 73.87 $\pm$ 0.50 \\ \hline
+\multirow{2}{*}{Magnitude Pruning~\cite{grativol:hal-04251969}} & 40\% prune & 27.1 ($\div 1.6$) & 38.0 & 85.20 $\pm$ 0.20 \\
+ & 80\% prune & 9.8 ($\div 4.6$) & 13.7 & 80.70 $\pm$ 0.24 \\ \hline
+\multirow{6}{*}{FLoCoRA} & r=64 & 9.2 ($\div 4.9$) & 12.9 & 85.17 $\pm$ 0.44 \\
+ & r=32 & 4.6 ($\div 9.7$) & 6.5 & 83.90 $\pm$ 0.20 \\
+ & r=16 & 2.4 ($\div 18.6$) & 3.3 & 82.33 $\pm$ 0.35 \\
+ & r=64, Q=8 & 2.4 ($\div 18.6$) & 3.3 & 85.24 $\pm$ 0.23 \\
+ & r=32, Q=8 & 1.2 ($\div 37.3$) & 1.7 & 83.95 $\pm$ 0.32 \\
+ & r=16, Q=8 & 0.7 ($\div 63.9$) & 1.0 & 81.89 $\pm$ 1.01 \\ \hline
+\end{tabular}
+}}
+\end{table}
+
+Table~\ref{tab:lora_vs_all} shows that FLoCoRA alone already achieves strong compression ratios with minimal loss of accuracy. For instance, using $r=16$ reduces the communication cost by 18.6 times with only a 2\% drop in accuracy. Combining FLoCoRA with quantization further reduces message sizes, achieving reductions up to 63.9 times while maintaining reasonable accuracy. In comparison, ZeroFL and magnitude pruning either achieve smaller compression ratios or suffer larger accuracy degradation. These results highlight the effectiveness of LoRA-based low-rank updates as a strong baseline for communication-efficient federated learning.
+
+\section{Compression by Pruning or Quantization and Embedded Deployment}
+\label{sec:compression}
+
+
 
 Another set of contributions focused on neural network pruning and was carried out as part of Hugo Tessier's thesis, in collaboration with Matthieu Arzel and Vincent Gripon from IMT Atlantique, thanks to CIFRE funding from the company Stellantis, with Thomas Hannagan and David Bertrand as supervisors.
-A first notable contribution concerns the efficient pruning of neural networks through the targeted application of weight decay to a subset of weights. This method, named Selective Weight Decay (SWD) or Pénalisation Sélective des Pondérations (PSP), is described in articles~\cite{tessier:hal-03675138,tessier:hal-03695958}. Inspired by Lagrangian smoothing, SWD allows progressive and continuous pruning during training. It relies on adding a penalty term to the objective function, with a coefficient $a$ exponentially increasing between $a_{min}$ and $a_{max}$. This scheme ensures undisturbed initial training, followed by effective connection pruning when $a_{max}$ is sufficiently high.
-SWD applies to both unstructured pruning (reducing low-norm weights to zero) and structured pruning (removing entire channels via the multiplicative coefficients of normalization layers).
 
-The results show particular effectiveness for high pruning rates, where classical approaches significantly degrade performance. On datasets like CIFAR-10 and ImageNet ILSVRC2012, SWD outperforms reference methods. Its robustness and transferability are supported by an in-depth literature review. A high-impact blog post also popularized this approach\footnote{\url{https://towardsdatascience.com/neural-network-pruning-101-af816aaea61/}}.
+\subsection{Pruning Neural Networks and Hardware Acceleration}
 
-However, pruning more complex models, such as those dedicated to semantic segmentation, presents specific challenges in achieving tangible gains on embedded targets, notably due to dimensional inconsistencies between layers. Solutions have been proposed to leverage global structured pruning while evaluating its real impact on energy consumption on embedded GPUs.
-The proposed method solves these problems by first identifying all parts of the network that are disconnected when filters are removed, taking into account all architectural dependencies~\cite{tessier:hal-03706472}. It then automatically adapts addition operations to handle tensors of different dimensions, which ensures that all filters and kernels contribute to the network function, thus allowing a more reliable measurement of the actual pruning rate and the associated complexity of the pruned networks. In particular, additions at the end of each residual block in architectures like ResNet or HRNet require both input tensors to have the same dimensions, which can be resolved by replacing additions with a new "indexing-addition" operation.
+\paragraph{Principle}
 
-Experiments conducted with this approach on NVIDIA Jetson AGX Xavier embedded GPUs demonstrated that global structured pruning can reduce energy consumption. However, it was found that smaller, unpruned networks, such as HRNet-32 and HRNet-18, are more energy-efficient than pruned networks, even with the same number of operations. This is attributed to the unconventional nature of the insertion operations (ScatterND) used to manage dimensions, which can harm the optimization of the rest of the network~\cite{tessier:hal-03767634,tessier:hal-03767636}. These results highlight the need for a more efficient implementation of the operators necessary to exploit pruning and to further explore the biases of pruning criteria, as they can lead to energy-suboptimal sparsity distributions.
+The basic idea of pruning is to reduce the cost of a neural network by removing part of its structure. Hugo has introduced in a popular blog post a comprehensive overview of this technique\footnote{\url{https://towardsdatascience.com/neural-network-pruning-101-af816aaea61/}}. The intuitive principle of pruning naturally raises three questions:
+\begin{itemize}
+    \item Which elements of the network can be removed, and what impact does this removal have on its cost?
+    \item How can one identify the elements whose removal affects performance the least?
+    \item What is the most effective way to remove these elements?
+\end{itemize}
+These questions respectively define three complementary dimensions of pruning: the pruning structure, the pruning criterion, and the pruning method.
 
-In addition, other instances of performance improvement through pruning and quantization have been explored. An industrial project, carried out in collaboration with the company GoodFloow, allowed for the study of the interoperability of compression techniques (pruning, quantization, and coding) for the deployment of convolutional neural networks on microcontrollers with limited memory~\cite{younes:hal-03850858}. This work developed a methodology to optimize the trade-off between model accuracy and memory footprint, which is crucial for applications. Concurrently, research focused on the use of emerging memristor-based technologies for the development of binary neural networks~\cite{alhajali:hal-03659297}. These "in-memory computing" approaches aim to overcome the data bottleneck by performing calculations directly within memory, offering significant gains in speed and energy efficiency for binary neural networks, which are particularly well-suited for these technologies. Furthermore, developments of SIMD (Single Instruction Multiple Data) implementations for convolutional neural networks on general-purpose processors (GPP) were carried out in collaboration with the Canadian startup Deeplite~\cite{ganji:hal-04082069}. This project, called DeepGEMM, was based on the use of lookup tables (LUT) implemented using Intel AVX2 and Arm Neon instruction sets.
+\paragraph{Structures}
 
-\subsection{Deep Learning on FPGA Targets}
-Hugo Le Blevec's doctoral work focused on the co-design of deep neural networks and pipelined FPGA architectures for semantic segmentation in autonomous vehicles~\cite{leblevec:hal-04262138,leblevec:hal-04705594}. These systems require low latency and reduced consumption, making classic GPUs less suitable for embedded contexts. FPGAs offer a promising alternative due to their parallel processing and energy efficiency, although they pose challenges related to limited resources.
+The pruning structure determines:
+\begin{itemize}
+    \item which type of cost pruning will reduce;
+    \item how easily pruning can be exploited in practice;
+    \item the granularity of pruning, and thus the ability to prune significantly without degrading performance.
+\end{itemize}
 
-The thesis highlighted the often-underestimated impact of training routines. By optimizing these on a lightweight model like ENet, gains of over 12\% on Cityscapes and 26\% on CamVid were obtained. This demonstrates that careful training allows simple architectures to compete with more complex models.
-The ENet architecture was then adapted for efficient FPGA mapping, relying on the open-source FINN framework. Notable contributions include the addition of streamlining transformations and the integration of transposed convolutions, essential for segmentation. The final model, P-ENet, achieves 70.3\% mIoU in INT4, with 4.2 ms latency and 226 FPS on Cityscapes. It outperforms existing FPGA implementations and proves to be 1.15 times more energy-efficient than an NVIDIA Jetson AGX Xavier. This work is not currently presented in the manuscript but is under submission to ACM TRETS.
+The most basic form of pruning is non-structured pruning, where individual weights are removed according to a given rule. This approach provides an excellent trade-off between performance and number of parameters, and is relatively simple to implement. However, it also presents two major drawbacks: it generates sparse tensors that are difficult to leverage efficiently on hardware, and it does not reduce tensor sizes, so intermediate representations remain unaffected.
 
-In parallel, the PEFSL (Pipeline for Embedded Few-Shot Learning) project, originating from a student project I supervised, winner of the 2023 OpenHardware AMD Xilinx competition\footnote{https://www.openhw.eu/2023-results-gallery}, tackled few-shot learning on FPGA-SoC. The developed flow, based on Tensil, covers the entire training, design chain, and deployment on a PYNQ-Z1 board. The demonstrator achieves a latency of 30 ms for a consumption of 6.2 W on MiniImageNet~\cite{grativol:hal-04559365}.
+To address these limitations, many approaches prune entire convolutional filters, a strategy usually referred to as structured pruning. Although this coarser granularity leads to a less favorable performance-to-parameters trade-off, it has two significant advantages: it actually reduces the size of weight tensors (making it compatible with most hardware and frameworks), and it decreases the size of intermediate representations, thereby lowering runtime memory requirements.
+
+\paragraph{Criteria}
+
+Once the pruning structure is chosen, the pruning criterion determines which elements are most relevant to remove. The guiding principle is to discard those elements that contribute the least to the accuracy of the model. Since direct evaluation of each parameter’s importance is infeasible in large networks, surrogate metrics are employed. The two most common types are magnitude-based criteria (absolute value of weights) and gradient-based criteria.
+
+When criteria are applied to groups of weights, two main tactics are used: either computing the norm of the metric across the group, or relying on proxies such as batch-normalization scaling factors, which are assumed to reflect the relative importance of upstream filters.
+
+Another important dimension concerns how pruning is distributed across layers. Strategies include uniform pruning across all layers, manually defined layer-wise pruning rates, or a global target applied to the network as a whole. Moreover, since layers differ in size, the definition of the pruning rate may vary: some works consider the fraction of pruned filters, while others focus on the resulting number of remaining parameters.
+
+\paragraph{Methods}
+
+The pruning method specifies how elements selected by the criterion are actually removed. Two intertwined aspects are considered: (i) the removal strategy and (ii) the pruning schedule.
+
+The removal strategy can be definitive (setting weights permanently to zero) or dynamic (allowing regrowth, reparameterization via masks, or continuous penalization).
+The schedule defines when pruning occurs relative to training: after training with alternating fine-tuning, progressively during training, or through re-training strategies with or without weight reinitialization.
+
+\paragraph{Contributions}
+
+This manuscript introduces several contributions in the field of pruning. Since they are sometimes combined, we briefly summarize them here before detailing them later.
+\begin{itemize}
+    \item \textbf{Selective Weight Decay (SWD)}: a method that prunes weights continuously during training, using an increasing penalty until their values reach zero. SWD is compatible with any pruning structure and criterion, and its adaptive nature allows efficient pruning even at very high compression rates.
+    \item \textbf{Dimensional Clear-Out (DCO)}: a framework addressing the structural inconsistencies induced by structured pruning. DCO identifies dependencies between layers and operations, removes disconnected weights, and adapts broken operations (e.g., mismatched tensor dimensions in residual connections), ensuring that inference remains possible under arbitrary structured pruning distributions.
+    \item \textbf{Evaluation of structured pruning on GPU}: a study showing how cost metrics influence the perceived efficiency of pruning and highlighting the risks of imbalance in pruning criteria when deployed on hardware.
+\end{itemize}
+
+\paragraph{Selective Weight Decay (SWD)}
+
+
+SWD aims at pruning as smoothly as possible by applying an additional $\mathcal{L}_2$ penalty on the subset $\mathbf{W}^*$ of weights to prune from $\mathbf{W}$.
+The standard optimization problem with weight decay can be written as:
+\begin{equation}\label{eq:loss}
+    \min_{\mathbf{W}} \; \mathcal{L}(\mathcal{N}(\mathbf{X}), \mathbf{y})
+    \quad \text{with} \quad
+    \mathcal{L}(\mathcal{N}(\mathbf{X}), \mathbf{y}) = \mathcal{F}(\mathcal{N}(\mathbf{X}), \mathbf{y}) + \mu \left\| \mathbf{W} \right\|_2,
+\end{equation}
+where $\mathcal{F}$ is the supervised training loss and $\mu$ the weight decay factor.
+
+We extend this formulation by introducing Selective Weight Decay in Equation~\ref{eq:swd_loss}:
+\begin{equation}\label{eq:swd_loss}
+    \min_{\mathbf{W}} \; \mathcal{L}(\mathcal{N}(\mathbf{X}), \mathbf{y})
+    \quad \text{with} \quad
+    \mathcal{L}(\mathcal{N}(\mathbf{X}), \mathbf{y}) = \mathcal{F}(\mathcal{N}(\mathbf{X}), \mathbf{y}) + \mu \left\| \mathbf{W} \right\|_2 + a \mu \left\| \mathbf{W}^* \right\|_2.
+\end{equation}
+
+This additional $\mathcal{L}_2$ penalty, weighted by the multiplier $a$, can be seen as a relaxation of an $\mathcal{L}_0$ constraint, progressively forcing the targeted weights toward zero. This principle is directly inspired by Lagrangian smoothing~\cite{murray2010algorithm}. Figure~\ref{fig:swd_illustration} illustrates the landscape of the combined penalty of weight decay and SWD.
+
+The subset $\mathbf{W}^*$ represents the weights to prune. Its definition depends on the chosen pruning structure and criterion, which are orthogonal to SWD itself, as SWD is only a removal method. A key property is that $\mathbf{W}^*$ can be updated dynamically during training. In practice, we chose to update $\mathbf{W}^*$ at each training step, although less frequent updates are theoretically possible.
+
+\begin{figure}[t]
+      \centering
+      \subfile{fig/swd_illustration}
+      \caption{In the case of non-structured magnitude pruning, SWD behaves as such: all weights $w$ of $\mathbf{W}$ are applied a penalty $P$, that combines weight decay and SWD. Since SWD is only applied to weights below a given threshold $t$, it is like $P$ applies a stronger penalty on weights below $t$ and a smaller one above $t$. Another way to present this is to consider SWD as a trap that progressively subjects weights below a certain threshold to an increasingly strong penalty, that drives them to zero, thus pruning them.}
+      \label{fig:swd_illustration}
+  \end{figure}
+The multiplier $a$ controls the strength of the selective penalty. Its value must grow during training so that the targeted weights are eventually forced toward zero, while avoiding divergence of the optimization dynamics. We interpolate $a$ between a starting value $a_{min}$ and a final value $a_{max}$ using an exponential schedule:
+\begin{equation}
+	a(s) = a_{min} \left( \frac{a_{max}}{a_{min}} \right)^{\frac{s}{s_{final}}},
+	\label{eq:a_definition}
+\end{equation}
+with $s$ the current training step and $s_{final}$ the total number of pruning steps. Ablation studies on the influence of $a$ have been conducted in our previous work~\cite{tessier:hal-03675138}, and we therefore do not reproduce them in detail here.
+
+In this manuscript I focus on the most significant results which are on ImageNet, but further results on CIFAR10, City Scapes on various network architectures are available in Hugo's thesis~\cite{tessier:tel-04064137}. CIFAR-10 allows finer-grained exploration: it shows extensive trade-off curves on two variants of ResNet-20, one over-parameterized and easy to prune (initial width of 64 channels) and one much more parsimonious and sensitive to pruning (initial width of 16 channels). Finally, Cora serves to evaluate SWD on a graph-based task, namely node classification. Indeed, a great advantage of SWD is that it applies easily on any network architecture, pruning method, pruning structure.
+
+
+\begin{table}[htp]
+    \centering
+    \subfile{fig/imagenet_table}
+    \caption{Non-structured and structured pruning on ResNet-50 with ImageNet ILSVRC2012. Comparison between a baseline method (Han \textit{et al.}~\cite{han2015learning} or Liu \textit{et al.}~\cite{liu2017learning}), its LRR variant~\cite{tanaka2020pruning}, and SWD.}
+    \label{tab:imagenet_table}
+\end{table}
+
+ImageNet provides large-scale evaluation, albeit at high computational cost. Table~\ref{tab:imagenet_table} reports top-1 accuracy for both non-structured and structured pruning. SWD consistently achieves the best performance, particularly under aggressive pruning. For example, at 80\% non-structured sparsity, SWD reaches 72.4\% top-1 accuracy, compared to 68.7\% for the baseline and 70.1\% for LRR; at 90\% sparsity, SWD maintains 68.2\%, while the baseline drops to 60.5\% and LRR to 63.0\%. For structured pruning of filters, removing 50\% of filters results in 75.1\% accuracy for SWD, versus 73.2\% for the baseline and 74.0\% for LRR.
+
+Two main tendencies are observed. First, SWD preserves substantial accuracy under high pruning rates where other methods fail. Second, the LRR variant~\cite{renda2020comparing} occasionally degrades the baseline’s performance while improving SWD, a behavior not seen in other experiments. The cause of this discrepancy remains unclear, suggesting that SWD and the baseline produce pruned architectures with differing retraining dynamics, although this does not fully explain why pruned and fine-tuned networks outperform warm-restarted counterparts.
+
+
+
+\paragraph{Dimensional Clear-Out (DCO)}
+
+From an implementation perspective, it is clear that structured pruning techniques can be effectively applied to reduce the dimensionality of neural networks and therefore increase their throughput, decrease their latency, improve their power efficiency. Removing filters reduces the size of layers, which any framework can leverage. Even though it is perfectly true, there are some problems that we did not mention and that have a significant impact on how to perform structured pruning.
+
+
+
+Filter pruning is complicated by interdependencies between layers. In a network, each filter produces a feature map, and the filters of subsequent layers must match these input dimensions. Pruning a filter therefore requires removing the corresponding kernels in downstream layers. This explains why filter pruning is often referred to as ``channel pruning''. Residual connections further complicate pruning, since tensors to be summed must have matching dimensions. In ResNet-like architectures, these dimensions depend on complex combinations of upstream layers, making it difficult to predict the exact size of intermediate representations.
+
+\begin{figure}[ht]
+     \centering
+     \subfile{fig/pruning_problems}
+     \caption{Example of problems introduced by pruning in the presence of residual connections.}
+     \label{fig:pruning_problems}
+\end{figure}
+
+Figure~\ref{fig:pruning_problems} illustrates typical issues: pruned filters alter output dimensions, requiring adjustments in subsequent layers. Residual additions may need to be replaced by concatenations to maintain correct tensor shapes. The input dimensions of layers, and thus the number of parameters, depend on the global pruning pattern. Ignoring these dependencies may cause runtime errors or force pruning to be simulated by zeroing weights rather than actually removing them.
+
+A related issue is \emph{orphan biases}. When a filter is removed but its bias remains, it produces a constant output. This can prevent downstream kernels from being removed, reducing the effective compression and potentially altering performance if fine-tuning is not applied. Biases are often stored in batch-normalization layers, so pruning only the convolution layer may leave the bias intact. Furthermore, secondary removals (following layers’ kernels) can be overlooked, leading to incomplete pruning.
+
+Together, layer interdependencies and orphan biases make proper filter pruning subtle and challenging. In complex networks such as HRNet, these issues motivate the need for automatic, generic methods to identify dependencies and adjust operators, ensuring correct and effective pruning.
+
+        \begin{figure}[htp]
+             \centering
+             \subfile{fig/crossbar_trick}
+             \caption{Creation of the indexation-addition operation. I) Identity convolutions are applied to each input. Grey-out parameters can be removed; the light-grey filters would be removed by DCO, but we keep them to for the next step (because the same filter in the other layer is not pruned). Dotted arrows represent the empty feature maps. II) The shrunken convolutions now are able to insert each of the two inputs into larger tensors that can be properly summed together. III) The indices $\mathbf{i}^a$ and $\mathbf{i}^b$ can be directly deduced from the reduced convolutions from step II.}
+             \label{fig:crossbar_trick}
+         \end{figure}
+
+We developed a method to automatically identify all dependencies, remove disconnected parameters, and adapt operators so that unconstrained filter-pruned networks can be leveraged on embedded devices. This method is generic, tested on various network types, implemented in PyTorch, and freely available (\url{https://github.com/HugoTessier-lab/Neural-Network-Shrinking}). Pruned networks can also be converted to ONNX for multi-hardware deployment.
+
+To reliably identify disconnected weights while avoiding issues such as orphan biases and complex non-linear interactions, we introduced \textit{Dimensional Clear-Out} (DCO). DCO operates on a modified copy of the network in which biases and non-linearities are removed and weights replaced by pruning masks. In this linearized network, any weight with a zero gradient is structurally disconnected due to pruning, allowing identification of all pruned parameters with a single input.
+
+Residual block additions still pose a challenge when tensors have different channel dimensions. To address this, we define an \textit{indexation-addition} operation, which sums only the matching channels from two tensors using configurable index lists. Identity $1\times1$ convolutions are inserted before each addition to automatically generate these indices from the DCO masks. Figure~\ref{fig:crossbar_trick} illustrates this crossbar trick.
+
+In combination, DCO, indexation-addition, and automatic index generation enable any distribution of unconstrained filter pruning to be functional, guaranteeing consistent input/output dimensions and correct residual additions. This framework provides a practical way to study and deploy aggressively pruned networks on hardware.
+
+
+
+        The existence of dependencies between layers and the necessity of acknowledging them for a reliable measurement of the compression rate is something that is often left ambiguous in many papers. Blalock \textit{et al.}~\cite{blalock2020state} even cited this lack of consistency, in the metrics reported to characterize the compression of a pruned network, among a large proportion of papers in the field.
+
+
+
+        \begin{figure}[ht]
+             \centering
+             \subfile{fig/sips_accuracy}
+             \caption{Trade-off between the pruning rate and the accuracy of ResNet-50 on ImageNet (left) or the mIoU of HRNet-48 on Cityscapes (right), depending on three different ways of estimating the pruning rate: 1) the proportion of pruned filters, 2) the remaining parameters after pruning the filters and 3) the remaining parameters once the pruned network is applied DCO.}
+             \label{fig:sips_accuracy}
+        \end{figure}
+
+
+
+
+
+
+        This is why, when presenting our work on DCO~\cite{tessier:hal-03767634}, we illustrated its purpose with a comparison of the effect of different ways of calculating the pruning rate on the apparent trade-off between accuracy and pruning rate. We compare three different calculation methods:
+        \begin{itemize}
+            \item A very naive method, that only counts the proportion of pruned filters.
+            \item A more relevant method, that counts the remaining parameters after pruning, but without taking into account any dependencies between networks.
+            \item The actual proportion of remaining parameters after DCO.
+        \end{itemize}
+
+
+
+
+
+        Figure~\ref{fig:sips_accuracy} shows precisely this comparison. These experiments did not use LR-rewinding~\cite{renda2020comparing} and networks post-DCO were not fine-tuned, so some of them encountered a small drop in accuracy because of the perturbation of the distribution of data in intermediate representations, due to the removal of orphan biases. Also, the pruning target, for each pruning iteration, was each time defined according to the proportion of pruned filters.
+
+        This figure allows to make some interesting observations:
+        \begin{itemize}
+            \item For low pruning rate, the proportion of filters overestimates the actual count of parameters; but for high pruning rates it underestimates it.
+            \item The relationship between the proportion of filters and the pre-DCO parameters count are completely different between ResNet and HRNet.
+            \item The gap between before and after DCO is significant, but fairly less for HRNet than for ResNet.
+        \end{itemize}
+
+
+\paragraph{Evaluation of structured pruning on GPU}
+
+This contribution~\cite{tessier:hal-03767636} focuses on a detailed analysis of the energy consumption of HRNet segmentation networks compressed by filter pruning using DCO, compared to smaller non-pruned networks (HRNet-18 and HRNet-32). The goal was to assess to what extent pruning effectively reduces energy consumption, and to identify the methodological and practical limitations of this approach.
+
+The results highlight that energy consumption is primarily correlated with the number of operations rather than the number of parameters. Two pruned networks with the same number of parameters can exhibit significantly different energy profiles, since the distribution of sparsity directly influences the density of operations. Consequently, the pruning methods tested (Slimming~\cite{liu2017learning}, SWD~\cite{tessier:hal-03675138}, LR-Rewinding~\cite{renda2020comparing}) yield architectures that do not all lie on the same efficiency–energy trade-off curve, even when they achieve similar compression rates. This finding underlines the complexity of the relationship between pruning criteria, the distribution of retained weights, and the final energy efficiency.
+
+Another key observation is that smaller non-pruned networks often appear more energy-efficient than pruned versions of HRNet-48 with a comparable number of parameters or operations. This is largely due to the overhead introduced by indexation-addition operations, and in particular by the \textit{ScatterND} operator. Although conceptually simple, this operator is poorly optimized in TensorRT: it is treated as a ``Foreign Node,'' executed by Myelin (cuBLAS) rather than cuDNN, leading to disproportionately high latency relative to its theoretical complexity. As a result, even when the number of convolution operations decreases, the overall latency of pruned networks remains higher than that of smaller compact models.
+
+These results lead to several general conclusions. First, the benefits of pruning in terms of energy efficiency are not guaranteed: when compared to native lightweight architectures, compressing a large model does not necessarily bring an advantage. Second, the actual efficiency of a network depends not only on its theoretical architecture but also on the implementation of its operators within inference frameworks. An operator that seems optimal in theory may in practice become a bottleneck if not efficiently supported by the runtime library. Finally, the choice of pruning criterion and method plays a central role, as they determine not only the accuracy (mIoU) but also the distribution of sparsity, which directly affects the number of operations and, consequently, energy consumption.
+
+
+\begin{figure}[htp]
+      \centering
+      \subfile{fig/sysint_accuracy}
+      \caption{Comparison between accuracy (mIoU), energy consumption, number of operations, and number of parameters for pruned and non-pruned HRNet models. The tested pruning methods show very different behaviors depending on whether the comparison is made in terms of parameters or operations.}
+      \label{fig:sysint_accuracy}
+\end{figure}
+
+
+In summary, this study emphasizes the need to jointly consider architecture, pruning criteria, and software implementation when assessing the energy relevance of compressed networks. It also opens up research perspectives, particularly on the design of pruning criteria better suited to energy optimization, and on the exploration of alternative implementations for critical operators such as \textit{ScatterND}.
+
+
+\subsection{A practical compression case: GoodFloow}
+
+
+In the era of Industry 4.0, efficient management and tracking of industrial packages has become a key concern for many companies. GoodFloow, a company specializing in sustainable logistics solutions, focuses on replacing disposable cardboard packaging with Reusable Plastic Crates (RPCs) to reduce environmental impact and enhance operational efficiency. Ensuring the real-time monitoring of these packages is essential to prevent loss, damage, or theft, and to guarantee accountability throughout the supply chain.
+
+Traditional methods for tracking packages, such as GPS, Time Difference of Arrival (TDoA), or Bluetooth Low Energy (BLE), suffer from limitations in industrial environments. GPS loses accuracy indoors, TDoA requires dense IoT deployments with high interference risk, and BLE-based solutions are constrained to short ranges and costly infrastructure. These limitations make continuous, reliable monitoring difficult, particularly when packages move across multiple sites or logistics partners. Human-based monitoring is an alternative but is both time-consuming and expensive. These challenges highlight the need for IoT systems capable of detecting critical events in a package's lifecycle rather than continuously tracking its exact location.
+
+To address this need, our study leverages accelerometer data combined with deep learning techniques to detect key events, such as a package being handled by a forklift or transported in a truck. By identifying state changes from sensor data, the system can selectively trigger communication or processing, optimizing energy consumption and extending the lifetime of battery-powered IoT devices. Deploying such models directly on constrained hardware introduces additional challenges due to limited memory and computational capabilities. Tiny Machine Learning (TinyML) provides a solution by enabling low-power, low-latency, and secure inference on embedded devices, eliminating the need for continuous data transfer to servers. TinyML has already shown promise in various domains, including agriculture, healthcare, and industrial automation, but its application to package monitoring remains largely unexplored.
+
+The contributions of this work are twofold. First, we demonstrate that embedded deep learning can accurately detect package handling events in an industrial context using accelerometer signals. Second, we provide a methodology that balances high prediction precision and recall with low energy consumption, ensuring IoT devices can remain in sleep mode for extended periods while responding efficiently to relevant events. This methodology is not only applicable to the GoodFloow use case but can also be generalized to other embedded systems dealing with imbalanced time-series data.
+
+Specifically, our approach includes three main aspects: data augmentation adapted to time-coherent, imbalanced datasets; the design of a convolutional neural network (CNN) with a threshold-based prediction mechanism to enhance robustness and reduce unnecessary processing; and efficient model compression to deploy the CNN on ESP32 microcontrollers commonly used in IoT devices. Experimental validation demonstrates that our system can reliably differentiate between key package events while maintaining low energy usage, illustrating the practical feasibility of embedded deep learning for industrial monitoring applications.
+
+\paragraph{Thresholding soft decisions}
+
+Battery lifespan is a critical concern in embedded devices, which have inherently limited energy capacity. In this context, defining a classification threshold for neural network predictions is a key strategy to optimize both performance and energy consumption. By selecting a threshold, the system can prioritize precision over recall, ensuring that predictions are highly reliable even in the presence of imbalanced datasets. Low-confidence predictions that do not surpass the threshold are automatically assigned to a "Dummy" class, which can subsequently trigger energy-efficient verification or correction methods.
+
+The choice of the threshold is guided by the trade-off between precision and recall for each class, as shown in Figure~\ref{fig:data_augmentation}. A higher threshold increases prediction precision, minimizing misclassifications that would otherwise require additional computational operations and thus consume more energy. Conversely, a lower threshold would classify more samples directly but at the cost of reduced confidence. For the use case considered here, it is crucial that predictions are correct when made, even if this allows some instances to fall into the "Dummy" class, as errors would otherwise lead to expensive reprocessing.
+
+Threshold values are therefore determined based on model performance metrics, balancing the need for high precision with acceptable recall levels for each class. These thresholds can also be adapted depending on the configuration being tested or the class-specific characteristics of the dataset. By applying this thresholding approach, the embedded system is able to maintain high predictive reliability while reducing unnecessary computation, thereby extending the operational lifetime of the IoT device.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\linewidth]{fig/precision_recall_da.pdf}
+    \caption{Precision-recall curves with data augmentation techniques. Different curves for each technique are generated by varying the classification thresholds.}
+    \label{fig:data_augmentation}
+\end{figure}
+
+\paragraph{Data augmentation for time series}
+
+As mentioned earlier, we faced in this project the issue of imbalanced datasets that we tackled with data augmentation.
+
+\subsubsection*{Data Augmentation for Imbalanced Time Series}
+
+Imbalanced datasets are common in time-series applications, as data collection often faces practical constraints. These imbalances can lead to misclassifications because the model has fewer examples from minority classes to learn from. A common solution is dataset re-sampling, which increases the representation of minority classes. In this study, we test two interpolation-based augmentation techniques: the Synthetic Minority Oversampling Technique (SMOTE)~\cite{chawla_smote_2002} and the ADAptive SYNthetic sampling method (ADASYN)~\cite{adasyn}.
+
+For the SMOTE algorithm, we adapt it to preserve temporal continuity in accelerometer data. A new synthetic vector \(x_{new}\) is generated by randomly selecting a sample from the minority class, \(x_{selected}\), identifying its nearest neighbors using Euclidean distance, and linearly interpolating with a randomly chosen neighbor \(x_{neighbor}\) using a coefficient \(\alpha \in [0,1]\):
+\[
+x_{new} = x_{selected} + \alpha \cdot (x_{neighbor} - x_{selected})
+\]
+This process is repeated to generate the desired number of synthetic samples, ensuring that the augmented data maintain realistic temporal structure.
+
+ADASYN differs from SMOTE by adaptively determining how many samples to generate for each minority instance, focusing on examples that are close to the decision boundary and harder to classify. For each minority sample, a ratio \(r_i\) is computed based on the number of majority-class neighbors among the \(K\) nearest neighbors:
+\[
+r_i = \frac{\Delta}{K}
+\]
+This ratio is normalized to form a density distribution \(\hat{r_i}\), and the number of synthetic samples \(g_i\) generated for each instance is given by:
+\[
+g_i = \hat{r_i} \cdot G \quad \text{with} \quad G = (m_l - m_s) \cdot \beta
+\]
+where \(m_l\) and \(m_s\) are the sizes of the majority and minority classes, respectively, and \(\beta \in [0,1]\) is a coefficient controlling the balance level. In our experiments, we use \(K=5\) nearest neighbors and set \(\beta=0.4\) for ADASYN. For fairness, the number of synthetic samples generated by SMOTE was matched to the total generated by ADASYN.
+
+Comparing the two approaches, ADASYN demonstrates superior performance. This is because it concentrates synthetic samples near class boundaries, enhancing the model's ability to distinguish challenging cases, whereas SMOTE distributes samples uniformly across the feature space. When using the selected classification threshold, the model trained with ADASYN achieves a precision of 98.05\% for Forklift and 95.75\% for Truck events. Consequently, ADASYN was selected for subsequent implementations.
+
+Figure~\ref{fig:data_augmentation} illustrates the effect of varying classification thresholds on precision and recall for each data augmentation technique. The curves clearly show that thresholding combined with ADASYN yields high precision while maintaining adequate recall, supporting both robust classification and energy-efficient embedded deployment.
+
+\paragraph{Model compression and embedded deployment}
+To deploy the CNN on resource-constrained IoT devices, we apply deep compression techniques combining weight pruning, quantization, and Huffman coding. Using the weight rewinding technique, the model is first trained with all its weights, and then after pruning, unpruned weights are fine-tuned to recover performance. A pruning ratio of 50\% was selected as an optimal trade-off between model size reduction and accuracy~\cite{younes:hal-03850858}. Pruning is applied to convolutional and linear layers to reduce the non-volatile memory footprint, which is often a limiting factor in embedded environments. Huffman coding is then applied to further compress the TFLite model, while dynamic quantization reduces the model size to 14~kB, achieving a compression factor of over four compared to the original model. Importantly, this compression preserves high precision and recall for both Forklift and Truck events, as summarized in Table~\ref{tab:deep_compression_results}.
+
+\begin{table}[h]
+\centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{>{\centering\arraybackslash}p{0.35\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.1\linewidth} p{0.1\linewidth} p{0.1\linewidth} p{0.1\linewidth}}
+            \textbf{Configuration} & \textbf{Compressed model size}  &
+            \multicolumn{2}{c}{\textbf{Forklift}} & \multicolumn{2}{c}{\textbf{Truck}}  \\
+             &  &  Precision & Recall & Precision & Recall  \\
+            \hline
+            Original &  51~kB & 98.05 & 91.17 & 95.75 & 96.62 \\
+            Pruning & 33~kB   & 93.61 & 96.12 & 95.72 & 93.85 \\
+            Pruning + Quantization & 14~kB  & 94.54 & 92.59 & 95.83 & 88.66\\
+        \end{tabular}
+    }
+    \caption{Effect of deep compression on model size, precision, and recall for embedded deployment.}
+    \label{tab:deep_compression_results}
+\end{table}
+
+For deployment, the compressed and quantized TFLite model is converted into a C++ source file, which is then flashed onto the ESP32 microcontroller using the Espressif IoT Development Framework (ESP-IDF). Although the ESP32 module has 16~MB of flash memory, it is typically shared with other modules such as WiFi and Bluetooth. The small size of the compressed model allows it to be fully loaded into SRAM, enabling faster access and minimizing memory latency during inference.
+
+Reducing energy consumption is critical to extend the operational lifespan of the IoT device. During typical usage, the device wakes only when motion is detected and performs an inference to determine a state change. The pruned and quantized model consumes approximately 316~mW during inference, with an execution time of 27~ms, while the baseline power consumption of the device is 300~mW when idle. This incremental energy cost is minimal, ensuring that frequent inferences have a limited impact on battery life. The combination of efficient model compression and fast, selective inference allows the IoT device to operate sustainably over extended periods.
+
+\subsection{CNN acceleration with SIMD on ARM and x86 architectures}
+
+I worked through a research contract in 2021-22 with the canadian startup DeepLite, which specializes in optimizing deep learning models for edge devices. My role involved developing techniques to accelerate convolutional neural networks (CNNs) using Single Instruction Multiple Data (SIMD) instructions on ARM and x86 architectures. The core idea was to use SIMD registers as look-up tables (LUTs) to replace computationally intensive operations with simple memory accesses, thereby speeding up inference. This was targetting low-bit quantized models (e.g., INT2, INT4) where the number of possible values is small enough to fit in SIMD registers.
+
+Deep learning models achieve high accuracy but often require a lot of memory and computing power, which makes it difficult to run them efficiently on regular CPUs, especially on small devices. One way to reduce memory and computation is to use ultra low-bit numbers, such as 2-bit values, for storing weights and activations. However, most CPUs are optimized for 8-bit or larger operations, so directly computing with sub-byte numbers is inefficient.
+
+To overcome this limitation, we propose DeepGEMM, which replaces expensive multiplications with a lookup table (LUT) approach. All possible products of the 2-bit weights and activations are precomputed and stored in a small table. At inference time, the CPU simply retrieves the result from the LUT instead of performing a multiplication. This process is illustrated in Figure~\ref{fig:fp lookup}. The algorithm first packs multiple low-bit values into larger data types, then unpacks them to form indices for the table, and finally sums the retrieved values to compute the layer outputs.
+
+Using this method, DeepGEMM achieves both faster computation and lower memory usage. On multiple convolutional neural networks, end-to-end inference shows speedups of up to 1.68$\times$ compared to optimized 8-bit kernels, as shown in Figure~\ref{fig:end-to-end speedups}. While the unpacking step is currently the main bottleneck, future improvements such as better packing schemes and operator fusion are expected to further enhance performance. DeepGEMM is also flexible, supporting different number representations, including signed and non-uniform quantization.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{fig/lut_principle.pdf}
+    \caption{Lookup table accessed to retrieve precomputed products of ultra low-bit activation and weight values that are represented by the corresponding indices.}
+    \label{fig:fp lookup}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.60\linewidth]{fig/QNN_SU_E2E.pdf}
+    \caption{End-to-end speedups over QNNPACK INT8.}
+    \label{fig:end-to-end speedups}
+\end{figure}
+
+
+\subsection{Emerging technologies for deep learning}
+
+Concurrently, research focused on the use of emerging memristor-based technologies for the development of binary neural networks~\cite{alhajali:hal-03659297}. These "in-memory computing" approaches aim to overcome the data bottleneck by performing calculations directly within memory, offering significant gains in speed and energy efficiency for binary neural networks, which are particularly well-suited for these technologies.
+
+
+\section{Deep Learning on FPGA Targets}
+\label{sec:deep_learning_fpga}
+
+\subsection{Semantic Segmentation on FPGA for Autonomous Vehicles}
+
+Hugo Le Blevec's doctoral work focused on the co-design of deep neural networks and pipelined FPGA architectures for semantic segmentation in autonomous vehicles~\cite{leblevec:hal-04262138,leblevec:hal-04705594}. These systems require low latency and reduced consumption, making classic GPUs less suitable for embedded contexts. FPGAs offer a promising alternative due to their parallel processing and energy efficiency, although they pose challenges related to limited resources. This work is not currently published but is under submission to ACM TRETS.
+
+Over the past decade, the rapid progress of deep learning has been driven not only by algorithmic advances but also by the availability of large datasets and the computing platforms capable of handling them. Our work fits into this trajectory by focusing on the question of how to bring high-performance inference to environments where efficiency, latency, and energy consumption are critical. In this context, FPGAs emerged as a natural candidate: they offer a fine balance between flexibility and efficiency, while enabling custom hardware designs that can be adapted to the specific demands of neural network workloads.
+
+Our research has been anchored in the study of representative datasets that reflect real-world application domains, ranging from image classification to more complex tasks requiring low-latency inference. The choice of these datasets was not incidental: they provided a benchmark against which we could measure the relevance of our contributions, both in terms of raw accuracy and in the broader perspective of system-level efficiency.
+
+The central objective has been to establish new state-of-the-art performance for neural network inference on FPGA platforms. This ambition was made possible thanks to a close collaboration with the FINN team at AMD Dublin, whose toolchain offered both a foundation and a playground for innovative design strategies. Our long-term investment in the FINN ecosystem not only consolidated our methodological framework but also opened doors to industrial collaborations, such as with the company ARKANE, and to participation in larger initiatives like the VORTEX project. These partnerships have illustrated the dual impact of our work: academic recognition through the advancement of methods, and industrial relevance through real-world deployments.
+
+\paragraph{Task and dataset}
+
+
+The task addressed in this work is \textit{semantic segmentation}, which consists in assigning a class label to every pixel of an image. Compared to classical image classification, where a single label is predicted for the entire image, semantic segmentation provides a fine-grained understanding of the scene and is therefore particularly relevant for autonomous driving, where distinguishing between road, vehicles, pedestrians, and other objects is essential for safety.
+
+Our interest in this task originates from the work of Hugo Le Blevec during his PhD thesis at Stellantis, which first introduced us to the challenges of deploying deep learning for road scene understanding. While image classification was a natural entry point, semantic segmentation appeared both more challenging and more rewarding. It poses a significant implementation difficulty on FPGA devices, as models for semantic segmentation typically rely on non-standard network components (e.g., dilated convolutions, encoder-decoder structures, multi-scale features), and are considerably heavier than classification networks. Achieving competitive accuracy while still fitting the stringent resource and latency constraints of embedded FPGAs thus represents a major research challenge.
+
+The performance of semantic segmentation models is generally measured with the mean Intersection over Union (mIoU). This metric evaluates, for each class, the ratio between the correctly predicted pixels (true positives) and the union of predicted and ground-truth pixels (true positives, false positives, and false negatives). Averaging this score across classes provides a robust measure that accounts for class imbalance and is widely adopted as the main benchmark in the field.
+
+In this work, we focus on two widely used datasets for road scene segmentation:
+
+\begin{itemize}
+    \item \textbf{CamVid} (Cambridge-driving Labeled Video Database) contains 701 images extracted from driving video sequences, at an original resolution of $960\times720$ pixels. The dataset defines 11 semantic classes. For efficiency, especially during inference, the images are often downsampled to $480\times360$ pixels, which is the resolution adopted in our experiments. While relatively small, CamVid provides a useful benchmark for comparing approaches and validating embedded implementations.
+
+    \item \textbf{Cityscapes} is a much larger dataset with 5000 finely annotated urban street images, originally at $2048\times1024$ resolution. It defines 30 semantic classes, of which 19 are commonly used for evaluation. Due to its higher resolution and greater class diversity, Cityscapes represents a far more challenging benchmark than CamVid and has become the de facto standard for autonomous driving research. In practice, lower resolutions (e.g., $1024\times512$ or $512\times256$) are often used during inference to reduce memory and computation costs. In this work, we primarily focus on Cityscapes due to its difficulty and relevance, while still reporting results on CamVid for broader comparison.
+\end{itemize}
+
+In summary, semantic segmentation of road scenes is both a crucial and demanding task. It provides the right level of difficulty to study FPGA implementations of neural networks, forcing a careful balance between accuracy and hardware efficiency, and motivating the exploration carried out in this work.
+
+
+\paragraph{Choosing and training a deep learning model for embedded semantic segmentation}
+
+Several lightweight encoder–decoder architectures have been proposed for real-time semantic segmentation. Table~\ref{tab:retrain} lists some of the most representative models and their reported results on Cityscapes, along with the improved results we obtained after retraining. A brief description of each model follows:
+
+\begin{itemize}
+    \item \textbf{ENet}~\cite{paszke2016enet} (2016): one of the earliest real-time segmentation networks, with only 0.37M parameters. It employs a compact encoder–decoder design with bottleneck modules and dilated convolutions to balance accuracy and efficiency.
+    \item \textbf{ESPNet}~\cite{mehta2018espnetefficientspatialpyramid} (2018): designed for efficiency through a spatial pyramid of dilated convolutions, which allows capturing multi-scale context while keeping the parameter count low (0.4M).
+    \item \textbf{DABNet}~\cite{li2019dabnetdepthwiseasymmetricbottleneck} (2019): uses depthwise separable and asymmetric convolutions inside bottleneck blocks, yielding a lightweight (0.76M parameters) yet accurate design.
+    \item \textbf{EDANet}~\cite{lo2019efficientdensemodulesasymmetric} (2019): an efficient dense architecture that combines dense connections with asymmetric convolutions, reaching good trade-offs at 0.68M parameters.
+    \item \textbf{Fast-SCNN}~\cite{poudel2019fastscnnfastsemanticsegmentation} (2019): explicitly designed for embedded systems, it combines a shallow network for downsampling and a lightweight context path with depthwise separable convolutions (1.1M parameters).
+    \item \textbf{ESNet}~\cite{wang2019esnetefficientsymmetricnetwork} (2019): builds on an efficient symmetric encoder–decoder structure with channel shuffle operations, leading to competitive results at 1.66M parameters.
+\end{itemize}
+
+Despite being the oldest of the group, ENet is by far the most compact model and was long considered obsolete due to its lower accuracy. However, as highlighted in the image classification domain by the ``ResNet Strikes Back'' paper~\cite{wightman2021resnet}, performance comparisons are often biased because training routines differ substantially between studies. When properly retrained with modern techniques, ENet can achieve competitive performance without increasing complexity.
+
+We evaluated this hypothesis through an ablation study of training settings, summarized in Table~\ref{tab:ablation}. Starting from the original ENet (58.3\% mIoU), we progressively introduced a longer training schedule, optimized hyperparameters, stronger data augmentation, and revised cropping and resizing strategies. Each factor contributes, but their combination is crucial: only with the full setup do we reach 70.5\% mIoU on Cityscapes. This demonstrates that the training pipeline can have a larger impact on performance than the choice of architecture itself.
+
+\begin{table}[h]
+    \centering
+    \caption{Influence of the number of epochs (NE), training parameters (TP), data augmentation (AUG) and cropping/resizing parameters (CR) of the new training procedure on the performance of ENet on Cityscapes.}
+    \begin{tabular}{c|c}
+    \textbf{Procedure}  & \textbf{Cityscapes mIoU} \\\hline
+    ENet  & 58.3\%\\\hline
+    ENet + NE + TP + AUG + CR & \textbf{70.5\%} \\\hline
+    - NE & 65.1\% \\ \hline
+    - TP & 59.1\% \\\hline
+    - AUG & 64.6\% \\\hline
+    - CR & 51.2\% \\
+    \end{tabular}
+    \label{tab:ablation}
+\end{table}
+
+We then retrained a set of alternative lightweight encoder–decoder models with the same methodology, as reported in Table~\ref{tab:retrain}. All models improved, confirming the central role of training. However, ENet remains the best compromise in terms of parameter count and accuracy: its retrained performance (70.5\% mIoU on Cityscapes, 77.6\% on CamVid) makes it competitive with more recent models, at a fraction of their size.
+
+\begin{table}[h]
+    \centering
+    \caption{Original mIoU on Cityscapes as reported by the authors of several real-time encoder–decoder semantic segmentation networks and the obtained mIoU after retraining, noted mIoU*.}
+    \begin{tabular}{c|c|c|c|c}
+              \textbf{Model} & \textbf{Year} & \textbf{Param. (M)} & \textbf{mIoU} & \textbf{mIoU*} \\
+              ENet~\cite{paszke2016enet} & 2016 & 0.37 & 58.3\% & 70.5\% \\\hline
+              ESPNet~\cite{mehta2018espnetefficientspatialpyramid} & 2018 & 0.4 & 60.3\% & 69.6\% \\\hline
+              DABNet~\cite{li2019dabnetdepthwiseasymmetricbottleneck} & 2019 & 0.76 & 70.1\% & 72.9\% \\\hline
+              EDANet~\cite{lo2019efficientdensemodulesasymmetric} & 2019 & 0.68 & 67.3\% & 69.8\% \\\hline
+              Fast-SCNN~\cite{poudel2019fastscnnfastsemanticsegmentation} & 2019 & 1.1 & 69.2\% & 70.3\% \\\hline
+              ESNet~\cite{wang2019esnetefficientsymmetricnetwork} & 2019 & 1.66 & 70.7\% & 73.8\% \\
+    \end{tabular}
+    \label{tab:retrain}
+\end{table}
+
+In conclusion, while the literature tends to emphasize architectural innovations, our experiments show that training routines and data processing are often far more impactful, especially from an embedded perspective. This suggests a pragmatic strategy: rather than adopting increasingly complex networks, one can select a simple and hardware-friendly architecture such as ENet, and invest in carefully optimized training to achieve competitive accuracy while ensuring efficient FPGA implementation.
+
+
+\paragraph{Hardware architecture and design space exploration}
+
+
+We implement ENet as a fully pipelined dataflow architecture, where every layer of the network is mapped to a dedicated hardware block on the FPGA and processed in a streaming manner. This approach, unlike DPU-based sequential execution, avoids external memory transfers and allows much higher throughput, which is crucial under real-time constraints. The design is carried out with the FINN framework~\cite{blott2018finnr, Umuroglu_2017}, which requires adapting the network to comply with HLS limitations. Several modifications were therefore introduced to make ENet compatible with this flow, in particular replacing PReLU activations with ReLUs, reshaping transposed convolutions to avoid output padding, replacing MaxUnpool operations with equivalent ConvTranspose layers, substituting MaxPool+Concat in downsampling branches by strided convolutions, simplifying the InitialBlock, and adjusting the placement of ReLU activations around skip connections. These changes ensure compatibility with FINN and quantization while limiting accuracy degradation.
+
+Quantization-aware training was performed using Brevitas~\cite{brevitas}, with INT4 weights and activations and INT8 in the first and last layers. This choice provides a good trade-off between accuracy and hardware efficiency, significantly reducing resource usage and power consumption while keeping segmentation performance close to the floating-point baseline. Interestingly, some structural modifications even slightly improved accuracy, while the most detrimental was the change in ReLU placement within skip connections. Overall, the adapted network shows less than 1\% drop in mIoU compared to the original model, at the cost of an increase in parameters from 354K to 513K, which remains very small compared to other real-time models.
+
+We deployed the modified ENet on an AMD ZU19EG FPGA, clocked at 300 MHz. Two configurations were implemented: a smaller, power-efficient version ($\text{P-ENet}_S$) and a more parallelized version targeting maximum throughput ($\text{P-ENet}_M$). In addition, a CamVid-trained version ($\text{P-ENet}_C$) was produced. Resource utilization of these designs is summarized in Table~\ref{tab:impl}. None of the designs required DSP blocks, as INT4 arithmetic could be efficiently implemented using LUTs.
+
+\begin{table}[]
+    \centering
+    \caption{Resources utilization of the different versions of the design on AMD ZU19EG.}
+    \begin{tabular}{l|c|c|c|c|c}
+        Model & Dataset & Inp. Size & LUT & \makecell[c]{BRAM \\ (18K)} & FF\\\hline
+
+         $\text{P-ENet}_{S}$& Cityscapes & 512x256 & \makecell{232,930\\(44.56\%)} & \makecell{929\\
+         (47.21\%)} & \makecell{186,646\\(17.85\%)}\\\hline
+         $\text{P-ENet}_{M}$ &  Cityscapes & 512x256 & \makecell{256,992\\(49.16\%)} & \makecell{914\\(46.44\%)} & \makecell{205,756 \\(19.68\%)}\\ \hline\hline
+          $\text{P-ENet}_{C}$ & CamVid & 480x360 & \makecell{254,486\\(48.68\%)} & \makecell{1290\\(65.55\%)} & \makecell{201,328\\(19.26\%)}\\ \hline
+    \end{tabular}
+    \label{tab:impl}
+\end{table}
+
+Beyond these adaptations, we explored variations of the architecture to optimize the trade-off between accuracy and resource usage. Increasing the projection ratio in bottleneck modules reduces computations but severely harms accuracy, while reintroducing shortcuts between encoder and decoder only marginally improves accuracy at a high resource cost. In contrast, replacing transposed convolutions with nearest-neighbor upsampling proved the most effective modification, reducing computations from 1.47G to 1.11G MACs on Cityscapes while preserving accuracy. After fine-tuning, this model achieved 70.3\% mIoU, less than 0.2\% below the floating-point baseline.
+
+The final implementations demonstrate that lightweight models such as ENet, when properly adapted and quantized, can reach state-of-the-art efficiency on embedded FPGAs. On Cityscapes, $\text{P-ENet}_S$ achieves 126 FPS with 8 ms latency per frame, while $\text{P-ENet}_M$ reaches 226 FPS with 4.4 ms latency. On CamVid, $\text{P-ENet}_C$ achieves 76.3\% mIoU with 171 FPS and 5.8 ms latency. These results highlight that a careful combination of architectural simplification, quantization, and pipelined hardware design allows real-time semantic segmentation within tight resource constraints.
+
+
+\paragraph{Comparison with previous works}
+
+We compare our FPGA implementations with previous works in Table~\ref{tab:comp}. On Cityscapes, our designs reach 70.33\% mIoU, which is at least 5\% higher than all previously reported FPGA implementations. The gain is particularly significant compared to the compressed ENetHQ~\cite{ghielmetti2022realtime}, where our models improve accuracy by more than 34\% while keeping latency in the same range. In terms of throughput, $\text{P-ENet}_{M}$ achieves the highest performance at 226 FPS with a latency of 4.2 ms, while $\text{P-ENet}_{S}$ offers 126 FPS with 8 ms latency and lower resource usage. Both designs avoid the use of DSP blocks thanks to INT4 quantization, relying entirely on LUT-based arithmetic.
+
+\begin{table*}[h]
+    \centering
+    \caption{Comparison between different FPGA implementations of semantic segmentation models trained on Cityscapes and CamVid.}
+    \renewcommand{\arraystretch}{1.5}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c}
+              & Model & \makecell{Arch. \\ HW} & \makecell{mIoU \\ (\%)} & Target & Res. & \makecell{Lat. \\ (ms)} & FPS & \makecell{Clock \\ Freq. \\ (MHz)} & \makecell{LUT\\(K)}  & \makecell{BRAMs\\18K} & \makecell{FFs \\ (K)} & DSPs  \\ \hline
+             \parbox[t]{2mm}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Cityscapes}}} & \textbf{$\text{P-ENet}_{S}$ [Ours]} & Pip. & \textbf{70.33}  & ZU19EG & 512x256 & 8  & 126 & 300  & 232.9 & 929 & 186.6 & 0\\ \cline{2-13}
+             & \textbf{$\text{P-ENet}_{M}$ [Ours]} & Pip. & \textbf{70.33}  & ZU19EG & 512x256 & 4.2  & \textbf{226} & 300  & 257 & 914 & 205.8 & 0\\ \cline{2-13}
+              & EnetHQ~\cite{ghielmetti2022realtime} & Pip. & 36.8  & ZU9EG & 240x152 & \textbf{3 } & - & 140  & 76.7 & 499 & 87.1 & 450 \\ \cline{2-13}
+              & ENet~\cite{jia} & DPU & 63.1  & Zynq 7035 & 1024x512 & 720  & 32.9 & - & 62.6 & 514 & 192.2 & 689 \\ \cline{2-13}
+              & DeepLabV3+~\cite{deeplab_fpga} & DPU & 65.29  & Arria 10 GX 1150 & 960x960 & 670  & - & 200  & - & - & - & 1,362\\ \cline{2-13}
+              & FPN~\cite{fpn-realtime} & DPU & 57.6  & ZU9EG & 512x256 & - &  128 & 333  & 150 & 1,120 & 292 & - \\ \cline{2-13}
+              & ResNet18-UNet~\cite{leblevec:hal-04262138} & Pip. & 62.9 & Alveo U250 & 256x256 & 44  & 22.65 & 152  & 490.3 & 4,260 & 569.5 & 1,043 \\\cline{2-13}
+              & MobileNet-PSPNet~\cite{mobilenet-pspnet} & Pip. & 64.2 & ZU9EG & 1024x512 & 9.1  & 139 & 300  & 182 & 1,831 & 137 & 1,831\\ \hline \hline
+              \parbox[t]{2mm}{\multirow{5}{*}{\rotatebox[origin=c]{90}{CamVid}}} &\textbf{$\text{P-ENet}_{C}$ [Ours]} & Pip. & \textbf{76.26}  & ZU19EG &  480x360 &\textbf{ 5.8 } & \textbf{171} & 300 & 254.6 & 1290 & 201.3 & 0\\ \cline{2-13}
+              & UNet~\cite{Miyama_2021} & DPU & 67.8 & Alveo U200 & 480x352 & - & 123 & 300  & 453.8 & 1,206 & 685.6 & 882 \\ \cline{2-13}
+              & AlexNet-SFCN~\cite{filter-wise} & Pip. & 44.90 & ZU9EG & 480x360 & - & 165 & 100  & 105.1 & 561.5 & 100.5 & 390 \\ \cline{2-13}
+              & SegNet~\cite{mengqi} & DPU & 41 & Arria 10 GX 1150 & 480x360 & 2891  & - & - & - & - & - & 1,451 \\ \cline{2-13}
+              & BEDN~\cite{BEDN} & Pip. & 59.9 & ZU7EV & 480x360 & - & 25.89 & - & 160.1 & 312 & 124.6 & 92 \\ \hline
+        \end{tabular}}
+    \label{tab:comp}
+\end{table*}
+
+On CamVid, $\text{P-ENet}_{C}$ achieves 76.26\% mIoU and 171 FPS with 5.8 ms latency, clearly outperforming previous works in both accuracy and throughput by a wide margin. Compared to the UNet implementation of~\cite{Miyama_2021}, our design improves accuracy by over 8\% and throughput by nearly 40\%, while consuming fewer DSPs. These results show that careful retraining, architectural adaptations for compatibility with a pipelined dataflow framework, and quantization-aware design enable ENet to achieve state-of-the-art accuracy and efficiency on FPGAs, highlighting the importance of hardware–algorithm co-design.
+
+
+\subsection{PEFSL: Few-Shot Learning on FPGA-SoC}
+
+In parallel, the PEFSL (Pipeline for Embedded Few-Shot Learning) project, originating from a student project I supervised with Lucas Grativol, winner of the 2023 OpenHardware AMD Xilinx competition\footnote{https://www.openhw.eu/2023-results-gallery}, tackled few-shot learning on FPGA-SoC. The developed flow, based on Tensil, covers the entire training, design chain, and deployment on a PYNQ-Z1 board. The demonstrator achieves a latency of 30 ms for a consumption of 6.2 W on MiniImageNet~\cite{grativol:hal-04559365}.
+
+\paragraph{Embedded Few Shot Learning}
+
+Conventional object classification relies on training deep neural networks (DNNs) with large labeled datasets, which are often costly to obtain~\cite{fredriksson2020data}. Few-shot learning (FSL) addresses this limitation by enabling robust classification with only a few labeled examples per class, leveraging knowledge from pre-trained networks through transfer learning or fine-tuning~\cite{weiss2016survey,b2}.
+
+Implementing FSL on embedded systems remains challenging due to the computational and memory demands of DNNs. FPGA SoCs have emerged as promising candidates for low-power and low-latency deployment~\cite{b10,b9,zhang2021low}, but literature examples are scarce. Key challenges include adapting training routines, designing lightweight backbones, and integrating deployment frameworks for real-time inference on embedded hardware.
+
+In this paper, we address these challenges with the following contributions:
+\begin{itemize}
+    \item One of the first platforms for real-time few-shot object classification on FPGA SoCs.
+    \item An open-source pipeline\footnote{\url{https://github.com/brain-bzh/PEFSL}} based on the Tensil framework\footnote{\url{https://www.tensil.ai/}} for backbone design, training, evaluation, and deployment on FPGA.
+    \item Demonstration on the MiniImageNet dataset of a low-power, low-latency few-shot model deployed on FPGA hardware.
+\end{itemize}
+
+These contributions enable applications in robotics, drones, and autonomous vehicles where responsiveness and energy efficiency are critical.
+
+\begin{figure}[t]
+  \centering
+\includegraphics[width=0.53\textwidth]{fig/FewShotLearning_Lucas.pdf}
+\caption{Overview of our few-shot learning method.}
+\label{few_shot_learning}
+\end{figure}
+
+Few-shot learning aims to classify examples of unseen classes with only a few labeled samples. State-of-the-art methods rely on DNN backbones~\cite{b2}, trained first on a large base dataset with a pretext loss~\cite{gidaris2019boosting} to extract feature embeddings.
+
+Evaluation occurs on a novel dataset split into episodes. Each episode has a number of \emph{ways} (classes), \emph{shots} (labeled examples per class), and \emph{queries} (unlabeled examples). Model performance is measured by accuracy on queries averaged over episodes~\cite{laenen2021episodes}. Our work focuses on the inductive setting~\cite{scott2018adapted}, where queries are not known beforehand.
+
+Designing efficient backbones is essential for embedded deployment, enabling rapid adaptation to new tasks with limited computational resources, particularly for real-time object recognition in drones and robots.
+
+\paragraph{Design space exploration of the backbone}
+
+Our experiments rely on small ResNet architectures~\cite{he2016deep}, using residual blocks with skip connections to enable deeper and more accurate networks than traditional CNNs~\cite{li2021survey}. We focus on ResNet-9 and ResNet-12, which offer a good trade-off between performance, number of parameters, and computational complexity (Fig.~\ref{resnet9}). Key hyperparameters include network depth, training and test image size, downsampling strategy (strided convolutions or max pooling), and number of feature maps, which together balance accuracy and latency.
+
+We train these networks on MiniImageNet~\cite{vinyals2016matching}, consisting of 64 base, 16 validation, and 20 novel classes with $84\times84$ images, focusing on a 5-way, 1-shot setup. Data augmentation (multiple crops) improves feature generalization for few-shot learning.
+
+A design space exploration was conducted to identify configurations that optimize both accuracy and real-time performance. Networks were compiled with the Tensil framework to estimate inference cycles. For $32\times32$ images, ResNet-9 outperforms ResNet-12, likely because deeper networks produce last-layer feature maps that are too small for effective few-shot classification. Matching training and test image sizes ($32\times32$) yields better results than training on larger images. Strided convolutions reduce latency without impacting accuracy, and adjusting the number of feature maps allows tuning the trade-off between speed and performance (Fig.~\ref{result_implem}).
+
+For our embedded application on the PYNQ-Z1, prioritizing real-time inference, the optimal configuration is a strided ResNet-9 with 16 feature maps, trained and tested on $32\times32$ images, providing an excellent compromise between latency and accuracy.
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.47\textwidth]{fig/ResNet-9.pdf}}
+\caption{ResNet-9 structure: initial layers have 16 output feature maps, and subsequent layers scale accordingly.}
+\label{resnet9}
+\end{figure}
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.45\textwidth]{fig/ImplemResults.pdf}}
+\caption{Accuracy and latency trade-off for different ResNet configurations, image sizes, and downsampling strategies. Empty markers: ResNet-9, filled: ResNet-12; circles: $32\times32$, squares: $84\times84$ images.}
+\label{result_implem}
+\end{figure}
+
+
+\paragraph{Compraison with other hardware implementations}
+
+We set the array size of our systolic array to 12, which corresponds to the maximum possible array size for our setup. The FPGA frequency has been set to 125\,MHz. Under this configuration, the latency of the backbone inference is 30\,ms. Few articles have specifically addressed few-shot learning on FPGAs or in embedded systems. An example of few-shot pest recognition on an FPGA has been proposed in~\cite{b3}, reaching 2 frames per second on a PYNQ-Z1.
+
+To demonstrate that the hardware resources and latency obtained using Tensil's framework, based on the computational complexity of our backbone, are within the standards of the literature, we conducted a benchmark and present the results in Table~\ref{tab:implem}. We decided to compare with implementations of DNNs proposed for classification on the CIFAR-10 dataset~\cite{krizhevsky2009learning}, as these images are $32\times32$ pixels—well-suited to our ResNet-9 backbone with 16 feature maps, supplemented by a downstream linear layer. We restricted our comparison to implementations on the same chip, the Zynq-7020 (z7020). Table~\ref{tab:implem} shows that Tensil's implementation offers comparable latency and accuracy for equivalent resources, validating our backbone choice. It is important to notice that each work implements a different DNN. For this benchmark, we used array size 12 at 50\,MHz.
+
+\begin{table}[]
+\centering
+\caption{CIFAR-10 inference on Zynq-7020 FPGA}
+\label{tab:implem}
+\begin{tabular}{lccccccc}
+\hline
+\multicolumn{1}{c}{\textbf{Work}} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Prec.\\ {[}bits{]}\end{tabular}} &
+  \textbf{LUT} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}BRAM \\ {[}36 kb{]}\end{tabular}} &
+  \textbf{FF} &
+  \textbf{DSP} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Latency \\ {[}ms{]}\end{tabular}} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Acc. \\ {[}\%{]}\end{tabular}} \\ \hline
+\cite{borras2022open} hls4ml & 8-12 & 28544 & 42  & 49215 & 4   & 27.3 & 87 \\
+\cite{borras2022open} FINN   & 1    & 24502 & 100 & 34354 & 0   & 1.5  & 87 \\
+\cite{yang2018fully} (custom) & 1-2  & 23436 & 135 & -     & 53  & 1.1  & 86 \\
+\cite{b5} (custom)           & 16   & 15200 & 523 & 41     & 167  & 109  & - \\\\
+\textbf{Ours}                & 16   & 15667 & 59  & 9819  & 159 & 35.9 & 92 \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Collaboration with Tohoku University}
 
 This work led to a collaboration with Tohoku University and Professor Naoya Onizawa, materialized by reciprocal visits and two publications~\cite{kanda:hal-04984380,kanda:hal-04984381}. These articles aim to ensure precision consistency throughout the design flow by applying fixed-point quantization via Brevitas, with QAT and PTQ methods. They show that near floating-point precision can be achieved with only 5 to 6 bits for both integer and fractional parts. These models were then integrated into the FINN suite within PEFSL.
 
@@ -1307,35 +2060,82 @@ This work led to a collaboration with Tohoku University and Professor Naoya Oniz
 % \vspace{1cm}
 \clearpage
 \section{New Methods and Architectures for Channel Codes}
-\subsection{Interest in Short Codes, Relevance of Polar Codes}
+\subsection{The Agentic Paradigm in Channel Coding Research}
 
-Currently, software implementations of error-correcting codes are highly sought after. They offer great flexibility and reduce development and deployment costs compared to dedicated hardware solutions. I am currently planning to collaborate with ETS Montreal to implement the \textit{Generalized Restart Mechanism} (GRM) algorithm \cite{Sagitov2025}. GRM reduces the average execution time of decoders by skipping identical calculations between decoding attempts. This technique, applicable to Successive-Cancellation Flip (SCF) and Fast-SCF, decreases execution time by 25\% to 60\% without degrading error correction, with only 4\% additional memory. For its implementation, software optimization techniques such as unrolling and vectorization will be used. Preliminary results show that gains in throughput and especially in maximum latency, a weak point of the Adaptive SCL algorithm, are very significant.
+The development and maintenance of large-scale open-source scientific software, such as AFF3CT, successfully aggregated the knowledge of a community but faced a structural bottleneck inherent to academic research: the scarcity of human resources. Unlike industrial tech giants, academic labs operate with a limited number of permanent staff and a turnover of PhD students. Maintaining a highly optimized, vectorized, and multi-threaded C++ codebase required a level of expertise and time investment that often competed with the primary goal of publishing new research. This resource constraint limited the pace of innovation and the ability to maintain a "production-grade" infrastructure over time.
 
-These developments could extend to quantum polar codes. The Successive Cancellation List (SCL) decoder is adaptable to quantum polar codes, offering high performance and low complexity \cite{Gong2024}. A new construction of quantum polar codes based on weight polarization (PW) eliminates the need for entanglement assistance. The SCL-C decoder is currently based on the list algorithm. It would be possible to adapt it to GRM-SCF, thereby greatly reducing complexity, down to a complete software implementation. We also have collaboration opportunities on the subject of constructing polar codes adapted to SCF decoding using deep learning, similar to work I presented at the ISTC 2023 conference~\cite{leonardon:hal-03291030}.
+However, the recent emergence of Large Language Models (LLMs) and autonomous software engineering agents significantly shifts this paradigm. We are moving from a model where the limiting factor was the sustainable human effort to \textit{produce} and \textit{maintain} code, to a model where agents can act as force multipliers. In this new era, legacy open-source projects like AFF3CT gain a strategic value: they provide the robust, automated verification environment—or "Ground Truth"—that enables agents to work safely and effectively.
 
-\subsection{RISC-V Architectures for Channel Code Decoding}
+\subsection{AFF3CT in the Era of Autonomous Software Engineering}
 
-For the embedded domain, there are very good reasons to explore RISC-V architectures, an open and free instruction set architecture (ISA), which contrasts with proprietary architectures like ARM or x86. This openness allows chip designers and system developers to customize the architecture for specific applications without paying licensing fees, thus offering increased flexibility and innovation.
-One of the major advantages of RISC-V for embedded systems is its modularity. It allows for the addition of custom extensions, which is ideal for specialized workloads, such as error-correcting code decoding. This means it is possible to design a processor with specific instructions that directly accelerate decoding operations, leading to better performance and energy efficiency than what would be possible with a generic architecture.
+The rise of AI software engineers offers an unprecedented opportunity to revitalize scientific libraries by handling the "heavy lifting" of software engineering. Beyond simply writing algorithms, agents can address the most tedious aspects of our CI/CD pipelines which previously consumed disproportionate human time.
+Specifically, implementing and maintaining rigorous test cases in AFF3CT is a task requiring high domain expertise. It is not sufficient to simply "run simulations"; one must ensure the scientific relevance of the parameters (e.g., adhering to 3GPP or DVB-S2 standards), foresee pathological cases, and maintain strict consistency across architectures. We envision an agentic workflow where these critical maintenance tasks are delegated to autonomous systems:
+\begin{itemize}
+    \item \textbf{Automated Test Curation and Strategy}: Beyond simple load balancing, agents can actively scan the state of the art and standardization documents to define the most relevant test scenarios. They can identify "gold standard" configurations (e.g., specific code rates $R=1/2$ or $R=5/6$ used in benchmarks) and prioritize test cases that reveal known weaknesses, such as error floors or specific trapping sets. This moves the test design from a manual, ad-hoc process to a systematic, literature-driven exploration.
+    \item \textbf{Robust Reference Generation}: Generating "Golden Reference" files requires covering a massive combinatorial space of simulation parameters (channel model, modulation, code family, rate, blocked length, decoding algorithm, etc.). Agents can do more than passively maintain this database; they can make \textit{rational decisions} on which simulations to execute via the Command Line Interface (CLI). By prioritizing scenarios that maximize information gain or regression coverage within a fixed computational budget, they effectively orchestrate the Continuous Integration pipeline.
+    \item \textbf{Verification as the Bottleneck}: With agents capable of generating C++ implementations of new algorithms (like the GRM-SCF~\cite{Sagitov2025}), the role of the human researcher shifts to defining the \textit{validation criteria}. The AFF3CT infrastructure becomes the automated "Oracle". The agent doesn't just write the code; it designs the adversarial validation harness intended to break it, ensuring that innovations are robust before they ever reach human review.
+\end{itemize}
 
-Furthermore, the RISC-V ecosystem is rapidly growing, with increasing support from industry and academia. This fosters the development of tools, software, and hardware that facilitate design and deployment. The open-source aspect of RISC-V also encourages transparency and security, crucial elements for critical embedded systems.
+A concrete application is the implementation of the \textit{Generalized Restart Mechanism} (GRM)~\cite{Sagitov2025}. Instead of a PhD student spending months ensuring memory alignment and vectorization for a complex restart-based decoder, an agent could extract the logic from the paper, generate the C++ module, and—crucially—use the agentic-enhanced AFF3CT harness to verify it against thousands of test vectors, ensuring it meets the strict latency and accuracy requirements before a human ever reviews the code.
 
-With this in mind, I plan to collaborate with Adrien Cassagne from LIP6 (for software acceleration aspects) and Camille Leroux (hardware acceleration) from Bordeaux INP to set up a collaborative ANR (PRC) focused on the design of specialized RISC-V architectures for error-correcting code decoding. This initiative would aim to fully exploit the customization potential of RISC-V to create highly optimized and high-performance embedded solutions.
+\subsection{Hardware Exploration Facilitated by Evolutionary Algorithms}
+
+\subsubsection{State of the Art and Limitations}
+The customization of RISC-V architectures for domain-specific applications is currently a thriving field. Industrial tools like Andes \textit{ACE}~\cite{AndesACE} or academic frameworks like \textit{CIDRE}~\cite{CIDRE2024} and \textit{MARVEL}~\cite{MARVEL2024} allow designers to map existing hot-spots of C code to custom instructions. These tools excel at automating the \textit{implementation} phase: generating the RTL and toolchain support for instructions defined by the user. However, they remain limited by human intuition: they optimize what the engineer explicitly expresses in the software algorithm. They do not \textit{invent} new algorithmic primitives or discover non-intuitive bit-level manipulations that could drastically reduce the critical path of a decoder. The next leap in performance requires shifting from automated implementation to automated \textit{invention}.
+
+\subsubsection{Methodology: The Evolutionary Exploration Loop}
+Inspired by DeepMind's \textit{AlphaEvolve}~\cite{AlphaEvolve2025}, which utilizes evolutionary strategies to discover novel learning algorithms, I propose to apply a "genetic exploration" methodology to the design of Domain-Specific Architectures (DSA) for channel coding. This approach closes the loop between an LLM-based generative agent and the rigorous simulation environment of AFF3CT:
+\begin{itemize}
+    \item \textbf{Genotype (Proposal)}: An LLM acts as the mutation operator. It takes a baseline decoding kernel (e.g., a Polar SC node update) and proposes variations of RISC-V custom instructions, represented as behavioral C++ models or Domain Specific Language (DSL) snippets.
+    \item \textbf{Phenotype (Simulation)}: The AFF3CT simulator, instrumented to emulate these custom instructions at the cycle level, executes the full decoding chain.
+    \item \textbf{Fitness Function (Evaluation)}: The simulator returns a composite score reflecting Decoding Throughput (Mbps), Latency (cycles), and an area estimate (gate equivalent).
+    \item \textbf{Evolution}: This feedback is fed back to the agent, which iterates to refined instruction candidates, effectively navigating the non-convex design space of hardware acceleration.
+\end{itemize}
+
+\subsubsection{Risks and Challenges}
+This ambitious approach entails significant scientific risks.
+\begin{itemize}
+    \item \textbf{Verification Explosion}: Validating the correctness of randomly evolved hardware instructions is critical. An instruction might speed up nominal decoding but fail in corner cases (e.g., specific noise patterns or overflows). AFF3CT's role as a "Ground Truth" oracle is paramount here, but formal verification methods might also be needed.
+    \item \textbf{Physical Feasibility}: An LLM might propose an instruction that is logically correct but physically unimplementable within a reasonable clock cycle (creating a prohibitively long critical path). The fitness function must therefore rely on accurate hardware cost models, potentially involving synthesis-in-the-loop.
+    \item \textbf{Convergence}: Evolutionary search in such a vast space can easily get stuck in local optima. Balancing exploration (trying radically new instructions) and exploitation (refining existing ones) will be a key algorithmic challenge.
+\end{itemize}
+
+\subsubsection{Long Term Goal}
+The ultimate vision is effectively a "Self-Optimizing Modem" for 6G. We aim to demonstrate a system where, upon the release of a new coding standard or a change in channel conditions, the system can autonomously explore and synthesize the optimal hardware/software partition, updating its own RISC-V micro-architecture (on an FPGA fabric) to deliver maximum energy efficiency.
 
 \section{Network Specialization for Embedded Targets}
 
 As previously shown, numerous contributions have been made in the field of deep learning on embedded targets, particularly concerning model compression and their deployment on specific hardware architectures. This work motivates new developments. On the one hand, their application in specific domains, notably their use in the context of signal jamming in launchers or the processing of EEG signals. On the other hand, the need to take a step back and find more systematic approaches for designing deep learning models adapted to the constraints of embedded targets, particularly by using co-design techniques between models and hardware architectures based on NAS (Neural Architecture Search).
 
 \subsection{Application of Deep Learning for GNSS Denoising in a Spatial Context}
-Following several works carried out within the framework of previous research contracts with the company Arkane, a central issue emerged: the persistent vulnerability of Global Navigation Satellite Systems (GNSS) to interference, jamming, and other forms of signal degradation. These observations led to the definition of a CIFRE thesis project whose objective is to propose innovative solutions to improve the resilience of these systems, particularly in critical contexts such as space environments or embedded applications with strong constraints.
 
-The project is particularly interested in Controlled Reception Pattern Antennas (CRPA), capable of spatially processing signals to mitigate disturbances. However, classical beamforming methods, although theoretically powerful, remain computationally expensive and poorly suited to embedded constraints. To overcome these limitations, the proposed work explores the integration of Deep Learning, and notably convolutional models, to simplify and accelerate spatiotemporal processing performed by these antennas.
+\subsubsection{Context: The Anti-Jamming Challenge}
+Following several works carried out within the framework of research contracts with the company Arkane, a central issue emerged: the persistent vulnerability of Global Navigation Satellite Systems (GNSS) to interference and intentional jamming. This vulnerability is critical for autonomous systems, specifically in space environments (launchers, satellites) where signal integrity ensures mission success.
 
-One of the major challenges of the project lies in adapting these models to constrained hardware platforms, such as FPGAs, often used in embedded systems for their low energy consumption, reconfiguration capabilities, space qualification, and supply reliability. It will therefore be necessary to design neural network architectures that are efficient, compact, and interpretable, allowing real-time execution without compromising the quality of positioning, synchronization, or estimated speed. Particular efforts will also be devoted to model quantization, complexity reduction, and optimization of their deployment on the target hardware.
+\subsubsection{State of the Art: The Complexity of Matrix Inversion}
+The project focuses on \textbf{Controlled Reception Pattern Antennas (CRPA)}, which use an antenna array to spatially filter the signal. The classical gold standard for such processing is \textbf{Space-Time Adaptive Processing (STAP)}.
+\begin{itemize}
+    \item \textbf{Mechanism}: STAP involves estimating the covariance matrix of the incoming noise and inverting it to compute optimal beamforming weights.
+    \item \textbf{FPGA Implementation Challenges}: Matrix inversion is computationally expensive ($O(N^3)$ complexity). State-of-the-art FPGA implementations, such as the work by \textbf{Zhang et al.}~\cite{Zhang2021}, employ advanced techniques like \textbf{LDL factorization based on Cholesky decomposition} and deeply pipelined triangular matrix inversion to achieve high throughput.
+    \item \textbf{Limitation}: Despite these optimizations, the resource consumption (DSP slices) scales rapidly with the antenna array size ($N$). For highly dynamic environments (e.g., spinning launchers) requiring ultra-low latency updates, even optimized matrix inversions become prohibitive on constrained avionics FPGAs.
+\end{itemize}
 
-The adopted approach will be resolutely interdisciplinary, relying on continuous exchanges between the company and another research team involved from Télecom Paris (Comelec). The project plans an alternation between algorithmic design phases, prototyping, hardware implementation, and experimental validation. Tests will be conducted both in simulation and on real test benches, in order to rigorously evaluate the robustness and performance of the proposed solutions in representative environments.
+\subsubsection{Methodology: Deep Learning as an Alternative}
+To overcome these limitations, the proposed Ph.D. work (Elise Lagarde) explores the integration of Deep Learning to replace or augment the classical processing chain.
+\begin{itemize}
+    \item \textbf{The Trend}: Recent literature confirms the potential of Deep Learning for interference mitigation. Models like \textbf{LcxNet}~\cite{LcxNet2024} or LSTM-based approaches~\cite{Munina2020} demonstrate robust detection and classification of jamming signatures.
+    \item \textbf{Algorithmic Shift}: We propose to replace the iterative matrix inversion with a \textbf{quantized CNN}. The network learns the mapping between antenna inputs and optimal weights (or clean signal), transforming an optimization problem ($O(N^3)$) into a fixed-latency inference problem ($O(1)$).
+    \item \textbf{FPGA Co-design}: Unlike generic software models, our focus is on \textbf{Hardware-Aware Training}. We constrain the neural network design (power-of-two quantization, structured pruning) specifically to fit within the DSP limits of radiation-hardened FPGAs, bridging the gap between academic DL models and space-grade hardware.
+\end{itemize}
 
-Beyond the expected scientific advances, this work also aims to produce concrete and valuable results, whether in the form of embedded demonstrators, publications, or patent filings. One of the envisioned outlets concerns the improvement of autonomous navigation capabilities on board space launchers, an application domain already explored in previous works and for which technological transfer prospects are promising.
+\subsubsection{Risks and Challenges}
+\begin{itemize}
+    \item \textbf{Generalization to Unknown Jammers}: A fundamental risk is the behavior of the neural network when facing a jamming signature widely different from its training set. Unlike analytical STAP, which relies on physics, a CNN might hallucinate a solution outside its distribution.
+    \item \textbf{Data Scarcity}: Real-world jammed GNSS data is rare and often classified. We must rely heavily on high-fidelity simulators, introducing a "Sim-to-Real" gap that must be bridged.
+\end{itemize}
+
+\subsubsection{Long Term Goal}
+The ultimate objective is to produce a hardened, autonomous anti-jamming IP block for space launchers. This module would be capable of self-reconfiguration to adapt to evolving threat landscapes, directly contributing to the sovereignty of navigation solutions.
 
 \subsection{Attention Layers on Microcontroller Targets for EEG Data Processing}
 

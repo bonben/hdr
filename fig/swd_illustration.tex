@@ -1,0 +1,33 @@
+\documentclass[../hdr.tex]{subfiles}
+
+\begin{document}
+\resizebox{0.5\textwidth}{!}{
+\begin{tikzpicture}
+
+		\draw[scale=10, domain=-0.45:0.45, smooth, very thin, dash pattern=on 1pt off 4pt,variable=\x, red] plot ({\x}, {0.75*\x*\x});
+		\draw[scale=10, domain=-0.45:0.45, smooth, thin, dash pattern=on 1pt off 3pt, variable=\x, red] plot ({\x}, {1.5*\x*\x});
+		\draw[scale=10, domain=-0.45:0.45, smooth, thick, dash pattern=on 1pt off 2pt, variable=\x, red] plot ({\x}, {3*\x*\x});
+		\draw[scale=10, domain=-0.45:0.45, smooth, thick, variable=\x, red] plot ({\x}, {6*\x*\x});
+
+
+
+		\draw[scale=10, domain=-0.45:0.45, smooth,  thin, dash pattern=on 1pt off 4pt, variable=\x, green] plot ({\x}, {0.5*\x*\x});
+		\draw[scale=10, domain=0.45:1, smooth, thick, variable=\x, green] plot ({\x}, {0.5*\x*\x});
+		\draw[scale=10, domain=-1:-0.45, smooth, thick, variable=\x, green] plot ({\x}, {0.5*\x*\x});
+
+		\draw[scale=10, domain=0:1.5, smooth, dashed, variable=\y, black] plot ({0.45}, {\y});
+		\draw[scale=10, domain=0:1.5, smooth, dashed, variable=\y, black] plot ({-0.45}, {\y});
+
+
+		\node[green] at (8,2) {\Large WD};
+		\node[red] at (2.5,7) {\Large SWD};
+
+		\node at (-4.5,-1) {\Huge $-t$};
+		\node at (4.5,-1) {\Huge $t$};
+
+        \draw[->, ultra thick] (0, 0) -- (0, 15) node[above] {\Huge $P$};
+        \draw[->, ultra thick] (-10, 0) -- (10,0) node[above] {\Huge $w$};
+
+\end{tikzpicture}
+}
+\end{document}

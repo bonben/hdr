@@ -1,0 +1,50 @@
+\documentclass[../hdr.tex]{subfiles}
+
+\begin{document}
+\resizebox{0.8\textwidth}{!}{
+
+\begin{tabular}{m{2cm}<{\centering}m{2cm}<{\centering} cm{2.1cm}<{\centering} cm{2.1cm}<{\centering}c}
+
+	\toprule
+
+	\multicolumn{7}{c}{\textbf{Experiments on ImageNet ILSVRC2012}}\\
+
+
+	\multicolumn{7}{c}{\textbf{Non-structured pruning}}\\
+
+	\multirow{2}{*}{Target (\%)} & \multicolumn{2}{c}{Han et al.~\cite{han2015learning}}& \multicolumn{2}{c}{+LRR \cite{renda2020comparing}} & \multicolumn{2}{c}{SWD}\\
+
+	\cmidrule{2-7}
+
+	& Top-1& Top-5 & Top-1& Top-5 & Top-1& Top-5\\
+
+	\midrule
+
+	50 &74.9&92.2& 58.4&82.1&  \textbf{75.0}  &    \textbf{92.2}\\
+	10 &71.1&90.5& 54.6&79.6&    \textbf{73.1}&     \textbf{91.3}\\
+	2.5 &47.2&73.2& 34.8&61.54&     \textbf{67.8}&       \textbf{88.4}\\
+
+	\midrule
+
+	\multicolumn{7}{c}{\textbf{Structured pruning}}\\
+
+	\multirow{2}{*}{Target (\%)} & \multicolumn{2}{c}{Liu et al.~\cite{liu2017learning}}& \multicolumn{2}{c}{+LRR \cite{renda2020comparing}} & \multicolumn{2}{c}{SWD (+LRR)}\\
+
+	\cmidrule{2-7}
+
+	& Top-1& Top-5 & Top-1& Top-5 & Top-1& Top-5\\
+
+	\midrule
+
+
+	90 &\textbf{74.7}&\textbf{92.2}& 56.1&80.7&  74.2  &    91.9\\
+	75 &73.4&91.6& 51.1&77.1&    \textbf{73.5}&     \textbf{91.5}\\
+	50 &63.6&85.7& 40.0&66.2&     \textbf{69.0}&       \textbf{88.8}\\
+	20 &0.1&0.5& 0.1&0.5&     \textbf{69.0}&       \textbf{88.7}\\
+
+	\bottomrule
+
+\end{tabular}
+
+			}
+\end{document}

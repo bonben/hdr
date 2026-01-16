@@ -1,0 +1,134 @@
+\documentclass[../hdr.tex]{subfiles}
+
+% \tikzexternalize
+\begin{document}
+\resizebox{1\textwidth}{!}{
+
+\begin{tikzpicture}
+			\begin{axis}[
+				ylabel=Top-1 accuracy (\%),
+				mark size = 1pt,
+				xlabel=Pruning Rate (\%),
+				ylabel shift = -6 pt,
+				width=0.5\textwidth,
+				height=0.5\textwidth,
+				legend entries={Pruned Filters, Parameters before DCO,Parameters after DCO},
+				legend to name=sips_accuracy_legend,
+				legend columns=-1,
+				legend style = {draw=none},
+				% legend columns=2,
+				% legend style = {at={(0.5,-0.2)}, anchor=north},
+				xtick pos=left,
+                ytick pos=left
+				]
+
+				\addplot coordinates
+				{
+				    (0,75.7)
+				    (10,74.642)
+				    (20,74.672)
+				    (30,73.972)
+				    (40,73.188)
+				    (50,70.57)
+				    (60,66.05)
+				    (70,53.022)
+				    (80,33.142)
+				    (90,1.188)
+				};
+				\addplot coordinates
+				{
+				    (0,75.7)
+				    (1.59,74.642)
+				    (3.83,74.672)
+				    (7.18,73.972)
+				    (14.40,73.188)
+				    (23.74,70.57)
+				    (36.55,66.05)
+				    (52.99,53.022)
+				    (66.64,33.142)
+				    (75.94,1.188)
+				};
+				\addplot coordinates
+				{
+				 	(0,75.7)
+				    (2.82, 74.642)
+				    (5.76, 74.672)
+				    (12.07, 73.972)
+				    (25.53, 73.188)
+				    (41.88, 70.57)
+				    (61.12, 63.478)
+				    (78.16, 53.068)
+				    (88.64, 33.156)
+				    (92.14, 1.152)
+
+				};
+
+
+
+			\end{axis}
+	\end{tikzpicture}
+    	\begin{tikzpicture}
+			\begin{axis}[
+				ylabel=mIoU (\%),
+				mark size = 1pt,
+				xlabel=Pruning Rate (\%),
+				ylabel shift = -6 pt,
+				width=0.5\textwidth,
+				height=0.5\textwidth,
+				xtick pos=left,
+                ytick pos=left
+				]
+
+				\addplot coordinates
+				{
+				    (0 , 77.0)
+				    (10, 77.07639)
+				    (20, 76.5922)
+					(30, 74.786)
+					(40, 71.558)
+					(50, 62.1228)
+					(60, 37.29596)
+					(70, 16.37308)
+					(80, 7.749)
+					(90, 5.96049)
+				};
+				\addplot coordinates
+				{
+				    (0 , 77.0)
+				    (5.81, 77.07639)
+				    (14.69, 76.5922)
+					(25.55, 74.786)
+					(37.33, 71.558)
+					(49.26, 62.1228)
+					(61.33, 37.29596)
+					(72.86, 16.37308)
+					(84.16, 7.749)
+					(93.76, 5.96049)
+				};
+				\addplot coordinates
+				{
+				 	(0 , 77.0)
+				    (6.26, 77.07639)
+				    (16.16, 76.5922)
+					(28.94, 74.786)
+					(43.06, 71.558)
+					(57.26, 62.1228)
+					(70.9, 37.29596)
+					(82.67, 16.37308)
+					(92.15, 7.793)
+					(97.67, 6.24168)
+
+
+				};
+
+
+
+			\end{axis}
+	\end{tikzpicture}
+
+
+}
+
+\ref*{sips_accuracy_legend}
+
+\end{document}

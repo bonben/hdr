@@ -1,0 +1,476 @@
+\documentclass[../../../main.tex]{subfiles}
+
+% \tikzexternalize
+\begin{document}
+
+
+
+\tikzstyle{none}=[fill=none, draw=none]
+\tikzstyle{circle}=[fill=none, draw=black, shape=circle]
+\tikzstyle{dashed_circle}=[dashed, fill=none, draw=black, shape=circle, text opacity=0]
+
+% Edge styles
+\tikzstyle{red_line}=[-, draw=red, line width=0.4mm]
+\tikzstyle{green_line}=[-, draw=green, line width=0.4mm]
+\tikzstyle{blue_line}=[-, draw=blue, line width=0.4mm]
+\tikzstyle{red_arrow}=[draw=red, ->, line width=0.4mm]
+\tikzstyle{green_arrow}=[draw=green, ->, line width=0.4mm]
+\tikzstyle{blue_arrow}=[draw=blue, ->, line width=0.4mm]
+\tikzstyle{red_dashed}=[-, draw=red, dashed]
+\tikzstyle{green_dashed}=[-, draw=green, dashed]
+\tikzstyle{blue_dashed}=[-, draw=blue, dashed]
+\tikzstyle{red_dashed_arrow}=[draw=red, ->, dashed]
+\tikzstyle{green_dashed_arrow}=[draw=green, ->, dashed]
+\tikzstyle{blue_dashed_arrow}=[->, draw=blue, dashed]
+\tikzstyle{pruned}=[-, fill={rgb,255: red,150; green,150; blue,150}, opacity=0.3, draw=none]
+\tikzstyle{black_dashed}=[-, densely dotted]
+
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{nodelayer, edgelayer}
+
+\resizebox{1\textwidth}{!}{
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+	
+		\node [style=none] (71) at (0, 2.5) {};
+		\node [style=none] (72) at (-1, 2.5) {};
+		\node [style=none] (73) at (-1, 0) {};
+		\node [style=none] (74) at (0, 0) {};
+		\node [style=none] (75) at (-1.25, 2.5) {};
+		\node [style=none] (76) at (-2.25, 2.5) {};
+		\node [style=none] (77) at (-1.25, 0) {};
+		\node [style=none] (78) at (-2.25, 0) {};
+		\node [style=none] (79) at (-2.5, 0) {};
+		\node [style=none] (80) at (-3.5, 0) {};
+		\node [style=none] (81) at (-3.5, 2.5) {};
+		\node [style=none] (82) at (-2.5, 2.5) {};
+		\node [style=none] (83) at (-3.25, 2.25) {};
+		\node [style=none] (84) at (-2.75, 2.25) {};
+		\node [style=none] (85) at (-2.75, 1.75) {};
+		\node [style=none] (86) at (-3.25, 1.75) {};
+		\node [style=none] (87) at (-3.25, 1.5) {};
+		\node [style=none] (88) at (-2.75, 1.5) {};
+		\node [style=none] (89) at (-2.75, 1) {};
+		\node [style=none] (90) at (-3.25, 1) {};
+		\node [style=none] (91) at (-3.25, 0.75) {};
+		\node [style=none] (92) at (-2.75, 0.75) {};
+		\node [style=none] (93) at (-2.75, 0.25) {};
+		\node [style=none] (94) at (-3.25, 0.25) {};
+		\node [style=none] (191) at (-2, 2.25) {};
+		\node [style=none] (192) at (-1.5, 2.25) {};
+		\node [style=none] (193) at (-1.5, 1.75) {};
+		\node [style=none] (194) at (-2, 1.75) {};
+		\node [style=none] (195) at (-2, 1.5) {};
+		\node [style=none] (196) at (-1.5, 1.5) {};
+		\node [style=none] (197) at (-1.5, 1) {};
+		\node [style=none] (198) at (-2, 1) {};
+		\node [style=none] (199) at (-2, 0.75) {};
+		\node [style=none] (200) at (-1.5, 0.75) {};
+		\node [style=none] (201) at (-1.5, 0.25) {};
+		\node [style=none] (202) at (-2, 0.25) {};
+		\node [style=none] (203) at (-0.75, 2.25) {};
+		\node [style=none] (204) at (-0.25, 2.25) {};
+		\node [style=none] (205) at (-0.25, 1.75) {};
+		\node [style=none] (206) at (-0.75, 1.75) {};
+		\node [style=none] (207) at (-0.75, 1.5) {};
+		\node [style=none] (208) at (-0.25, 1.5) {};
+		\node [style=none] (209) at (-0.25, 1) {};
+		\node [style=none] (210) at (-0.75, 1) {};
+		\node [style=none] (211) at (-0.75, 0.75) {};
+		\node [style=none] (212) at (-0.25, 0.75) {};
+		\node [style=none] (213) at (-0.25, 0.25) {};
+		\node [style=none] (214) at (-0.75, 0.25) {};
+		\node [style=none] (215) at (-3.5, 2) {};
+		\node [style=none] (216) at (-3.5, 1.25) {};
+		\node [style=none] (217) at (-3.5, 0.5) {};
+		\node [style=none] (218) at (-3, 0) {};
+		\node [style=none] (219) at (-1.75, 0) {};
+		\node [style=none] (220) at (-0.5, 0) {};
+		\node [style=none] (221) at (15, 2.5) {};
+		\node [style=none] (222) at (14, 2.5) {};
+		\node [style=none] (223) at (14, 0) {};
+		\node [style=none] (224) at (15, 0) {};
+		\node [style=none] (225) at (13.75, 2.5) {};
+		\node [style=none] (226) at (12.75, 2.5) {};
+		\node [style=none] (227) at (13.75, 0) {};
+		\node [style=none] (228) at (12.75, 0) {};
+		\node [style=none] (229) at (12.5, 0) {};
+		\node [style=none] (230) at (11.5, 0) {};
+		\node [style=none] (231) at (11.5, 2.5) {};
+		\node [style=none] (232) at (12.5, 2.5) {};
+		\node [style=none] (233) at (11.75, 2.25) {};
+		\node [style=none] (234) at (12.25, 2.25) {};
+		\node [style=none] (235) at (12.25, 1.75) {};
+		\node [style=none] (236) at (11.75, 1.75) {};
+		\node [style=none] (237) at (11.75, 1.5) {};
+		\node [style=none] (238) at (12.25, 1.5) {};
+		\node [style=none] (239) at (12.25, 1) {};
+		\node [style=none] (240) at (11.75, 1) {};
+		\node [style=none] (241) at (11.75, 0.75) {};
+		\node [style=none] (242) at (12.25, 0.75) {};
+		\node [style=none] (243) at (12.25, 0.25) {};
+		\node [style=none] (244) at (11.75, 0.25) {};
+		\node [style=none] (245) at (13, 2.25) {};
+		\node [style=none] (246) at (13.5, 2.25) {};
+		\node [style=none] (247) at (13.5, 1.75) {};
+		\node [style=none] (248) at (13, 1.75) {};
+		\node [style=none] (249) at (13, 1.5) {};
+		\node [style=none] (250) at (13.5, 1.5) {};
+		\node [style=none] (251) at (13.5, 1) {};
+		\node [style=none] (252) at (13, 1) {};
+		\node [style=none] (253) at (13, 0.75) {};
+		\node [style=none] (254) at (13.5, 0.75) {};
+		\node [style=none] (255) at (13.5, 0.25) {};
+		\node [style=none] (256) at (13, 0.25) {};
+		\node [style=none] (257) at (14.25, 2.25) {};
+		\node [style=none] (258) at (14.75, 2.25) {};
+		\node [style=none] (259) at (14.75, 1.75) {};
+		\node [style=none] (260) at (14.25, 1.75) {};
+		\node [style=none] (261) at (14.25, 1.5) {};
+		\node [style=none] (262) at (14.75, 1.5) {};
+		\node [style=none] (263) at (14.75, 1) {};
+		\node [style=none] (264) at (14.25, 1) {};
+		\node [style=none] (265) at (14.25, 0.75) {};
+		\node [style=none] (266) at (14.75, 0.75) {};
+		\node [style=none] (267) at (14.75, 0.25) {};
+		\node [style=none] (268) at (14.25, 0.25) {};
+		\node [style=none] (269) at (11.5, 2) {};
+		\node [style=none] (270) at (11.5, 1.25) {};
+		\node [style=none] (271) at (11.5, 0.5) {};
+		\node [style=none] (272) at (12, 0) {};
+		\node [style=none] (273) at (13.25, 0) {};
+		\node [style=none] (274) at (14.5, 0) {};
+		\node [style=none] (275) at (12, 0) {};
+		\node [style=none] (276) at (13, 0) {};
+		\node [style=none] (277) at (7.5, 2.5) {};
+		\node [style=none] (278) at (6.5, 2.5) {};
+		\node [style=none] (279) at (6.5, 0) {};
+		\node [style=none] (280) at (7.5, 0) {};
+		\node [style=none] (281) at (6.25, 2.5) {};
+		\node [style=none] (282) at (5.25, 2.5) {};
+		\node [style=none] (283) at (6.25, 0) {};
+		\node [style=none] (284) at (5.25, 0) {};
+		\node [style=none] (285) at (5, 0) {};
+		\node [style=none] (286) at (4, 0) {};
+		\node [style=none] (287) at (4, 2.5) {};
+		\node [style=none] (288) at (5, 2.5) {};
+		\node [style=none] (289) at (4.25, 2.25) {};
+		\node [style=none] (290) at (4.75, 2.25) {};
+		\node [style=none] (291) at (4.75, 1.75) {};
+		\node [style=none] (292) at (4.25, 1.75) {};
+		\node [style=none] (293) at (4.25, 1.5) {};
+		\node [style=none] (294) at (4.75, 1.5) {};
+		\node [style=none] (295) at (4.75, 1) {};
+		\node [style=none] (296) at (4.25, 1) {};
+		\node [style=none] (297) at (4.25, 0.75) {};
+		\node [style=none] (298) at (4.75, 0.75) {};
+		\node [style=none] (299) at (4.75, 0.25) {};
+		\node [style=none] (300) at (4.25, 0.25) {};
+		\node [style=none] (301) at (5.5, 2.25) {};
+		\node [style=none] (302) at (6, 2.25) {};
+		\node [style=none] (303) at (6, 1.75) {};
+		\node [style=none] (304) at (5.5, 1.75) {};
+		\node [style=none] (305) at (5.5, 1.5) {};
+		\node [style=none] (306) at (6, 1.5) {};
+		\node [style=none] (307) at (6, 1) {};
+		\node [style=none] (308) at (5.5, 1) {};
+		\node [style=none] (309) at (5.5, 0.75) {};
+		\node [style=none] (310) at (6, 0.75) {};
+		\node [style=none] (311) at (6, 0.25) {};
+		\node [style=none] (312) at (5.5, 0.25) {};
+		\node [style=none] (313) at (6.75, 2.25) {};
+		\node [style=none] (314) at (7.25, 2.25) {};
+		\node [style=none] (315) at (7.25, 1.75) {};
+		\node [style=none] (316) at (6.75, 1.75) {};
+		\node [style=none] (317) at (6.75, 1.5) {};
+		\node [style=none] (318) at (7.25, 1.5) {};
+		\node [style=none] (319) at (7.25, 1) {};
+		\node [style=none] (320) at (6.75, 1) {};
+		\node [style=none] (321) at (6.75, 0.75) {};
+		\node [style=none] (322) at (7.25, 0.75) {};
+		\node [style=none] (323) at (7.25, 0.25) {};
+		\node [style=none] (324) at (6.75, 0.25) {};
+		\node [style=none] (325) at (4, 2) {};
+		\node [style=none] (326) at (4, 1.25) {};
+		\node [style=none] (327) at (4, 0.5) {};
+		\node [style=none] (328) at (4.5, 0) {};
+		\node [style=none] (329) at (5.75, 0) {};
+		\node [style=none] (330) at (7, 0) {};
+		\node [style=none] (331) at (-6, 2) {};
+		\node [style=none] (332) at (-6, 1.25) {};
+		\node [style=none] (333) at (-6, 0.5) {};
+		\node [style=none] (337) at (-3, -1.5) {};
+		\node [style=none] (338) at (-1.75, -2.25) {};
+		\node [style=none] (339) at (-0.5, -3) {};
+		\node [style=none] (340) at (1.5, -1.5) {};
+		\node [style=none] (341) at (2, -2.25) {};
+		\node [style=none] (342) at (2.5, -3) {};
+		\node [style=circle] (343) at (4.5, -1.5) {C};
+		\node [style=circle] (344) at (5.75, -2.25) {C};
+		\node [style=none] (346) at (1.5, 2) {};
+		\node [style=none] (347) at (2, 1.25) {};
+		\node [style=none] (348) at (2.5, 0.5) {};
+		\node [style=circle] (349) at (12, -1.5) {C};
+		\node [style=circle] (350) at (13.25, -2.25) {+};
+		\node [style=circle] (351) at (14.5, -3) {C};
+		\node [style=none] (352) at (9, -1.5) {};
+		\node [style=none] (353) at (9.5, -2.25) {};
+		\node [style=none] (354) at (10, -3) {};
+		\node [style=none] (355) at (9, 2) {};
+		\node [style=none] (356) at (9.5, 1.25) {};
+		\node [style=none] (357) at (10, 0.5) {};
+		\node [style=none] (358) at (17, -1.5) {};
+		\node [style=none] (359) at (17, -2.25) {};
+		\node [style=none] (360) at (17, -3) {};
+		\node [style=none] (361) at (4, -1) {};
+		\node [style=none] (362) at (7.5, -1) {};
+		\node [style=none] (363) at (7.5, -3.5) {};
+		\node [style=none] (364) at (4, -3.5) {};
+		\node [style=none] (365) at (11.5, -1) {};
+		\node [style=none] (366) at (15, -3.5) {};
+		\node [style=none] (367) at (15, -1) {};
+		\node [style=none] (368) at (11.5, -3.5) {};
+		\node [style={dashed_circle}] (369) at (7, -3) {R};
+		\node [style=none] (370) at (5.75, -3.75) {Addition};
+		\node [style=none] (370) at (13.25, -3.75) {Addition};
+		\node [style=none] (370) at (5.75, 2.75) {Convolution Layer};
+		\node [style=none] (370) at (13.25, 2.75) {Convolution Layer};
+		\node [style=none] (370) at (-1.75, 2.75) {Convolution Layer};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style={red_line}] (81.center) to (80.center);
+		\draw [style={red_line}] (80.center) to (79.center);
+		\draw [style={red_line}] (79.center) to (82.center);
+		\draw [style={red_line}] (82.center) to (81.center);
+		\draw [style={green_line}] (76.center) to (75.center);
+		\draw [style={green_line}] (75.center) to (77.center);
+		\draw [style={green_line}] (77.center) to (78.center);
+		\draw [style={green_line}] (78.center) to (76.center);
+		\draw [style={blue_line}] (73.center) to (74.center);
+		\draw [style={blue_line}] (74.center) to (71.center);
+		\draw [style={blue_line}] (71.center) to (72.center);
+		\draw [style={blue_line}] (72.center) to (73.center);
+		\draw [style={red_line}] (83.center) to (84.center);
+		\draw [style={red_line}] (85.center) to (84.center);
+		\draw [style={red_line}] (85.center) to (86.center);
+		\draw [style={red_line}] (86.center) to (83.center);
+		\draw [style={green_line}] (87.center) to (88.center);
+		\draw [style={green_line}] (88.center) to (89.center);
+		\draw [style={green_line}] (89.center) to (90.center);
+		\draw [style={green_line}] (90.center) to (87.center);
+		\draw [style={blue_line}] (92.center) to (93.center);
+		\draw [style={blue_line}] (93.center) to (94.center);
+		\draw [style={blue_line}] (94.center) to (91.center);
+		\draw [style={blue_line}] (91.center) to (92.center);
+		\draw [style={red_line}] (191.center) to (192.center);
+		\draw [style={red_line}] (193.center) to (192.center);
+		\draw [style={red_line}] (193.center) to (194.center);
+		\draw [style={red_line}] (194.center) to (191.center);
+		\draw [style={green_line}] (195.center) to (196.center);
+		\draw [style={green_line}] (196.center) to (197.center);
+		\draw [style={green_line}] (197.center) to (198.center);
+		\draw [style={green_line}] (198.center) to (195.center);
+		\draw [style={blue_line}] (200.center) to (201.center);
+		\draw [style={blue_line}] (201.center) to (202.center);
+		\draw [style={blue_line}] (202.center) to (199.center);
+		\draw [style={blue_line}] (199.center) to (200.center);
+		\draw [style={red_line}] (203.center) to (204.center);
+		\draw [style={red_line}] (205.center) to (204.center);
+		\draw [style={red_line}] (205.center) to (206.center);
+		\draw [style={red_line}] (206.center) to (203.center);
+		\draw [style={green_line}] (207.center) to (208.center);
+		\draw [style={green_line}] (208.center) to (209.center);
+		\draw [style={green_line}] (209.center) to (210.center);
+		\draw [style={green_line}] (210.center) to (207.center);
+		\draw [style={blue_line}] (212.center) to (213.center);
+		\draw [style={blue_line}] (213.center) to (214.center);
+		\draw [style={blue_line}] (214.center) to (211.center);
+		\draw [style={blue_line}] (211.center) to (212.center);
+		\draw [style={red_line}] (231.center) to (230.center);
+		\draw [style={red_line}] (230.center) to (229.center);
+		\draw [style={red_line}] (229.center) to (232.center);
+		\draw [style={red_line}] (232.center) to (231.center);
+		\draw [style={green_line}] (226.center) to (225.center);
+		\draw [style={green_line}] (225.center) to (227.center);
+		\draw [style={green_line}] (227.center) to (228.center);
+		\draw [style={green_line}] (228.center) to (226.center);
+		\draw [style={blue_line}] (223.center) to (224.center);
+		\draw [style={blue_line}] (224.center) to (221.center);
+		\draw [style={blue_line}] (221.center) to (222.center);
+		\draw [style={blue_line}] (222.center) to (223.center);
+		\draw [style={red_line}] (233.center) to (234.center);
+		\draw [style={red_line}] (235.center) to (234.center);
+		\draw [style={red_line}] (235.center) to (236.center);
+		\draw [style={red_line}] (236.center) to (233.center);
+		\draw [style={green_line}] (237.center) to (238.center);
+		\draw [style={green_line}] (238.center) to (239.center);
+		\draw [style={green_line}] (239.center) to (240.center);
+		\draw [style={green_line}] (240.center) to (237.center);
+		\draw [style={blue_line}] (242.center) to (243.center);
+		\draw [style={blue_line}] (243.center) to (244.center);
+		\draw [style={blue_line}] (244.center) to (241.center);
+		\draw [style={blue_line}] (241.center) to (242.center);
+		\draw [style={red_line}] (245.center) to (246.center);
+		\draw [style={red_line}] (247.center) to (246.center);
+		\draw [style={red_line}] (247.center) to (248.center);
+		\draw [style={red_line}] (248.center) to (245.center);
+		\draw [style={green_line}] (249.center) to (250.center);
+		\draw [style={green_line}] (250.center) to (251.center);
+		\draw [style={green_line}] (251.center) to (252.center);
+		\draw [style={green_line}] (252.center) to (249.center);
+		\draw [style={blue_line}] (254.center) to (255.center);
+		\draw [style={blue_line}] (255.center) to (256.center);
+		\draw [style={blue_line}] (256.center) to (253.center);
+		\draw [style={blue_line}] (253.center) to (254.center);
+		\draw [style={red_line}] (257.center) to (258.center);
+		\draw [style={red_line}] (259.center) to (258.center);
+		\draw [style={red_line}] (259.center) to (260.center);
+		\draw [style={red_line}] (260.center) to (257.center);
+		\draw [style={green_line}] (261.center) to (262.center);
+		\draw [style={green_line}] (262.center) to (263.center);
+		\draw [style={green_line}] (263.center) to (264.center);
+		\draw [style={green_line}] (264.center) to (261.center);
+		\draw [style={blue_line}] (266.center) to (267.center);
+		\draw [style={blue_line}] (267.center) to (268.center);
+		\draw [style={blue_line}] (268.center) to (265.center);
+		\draw [style={blue_line}] (265.center) to (266.center);
+		\draw [style={red_line}] (287.center) to (286.center);
+		\draw [style={red_line}] (286.center) to (285.center);
+		\draw [style={red_line}] (285.center) to (288.center);
+		\draw [style={red_line}] (288.center) to (287.center);
+		\draw [style={green_line}] (282.center) to (281.center);
+		\draw [style={green_line}] (281.center) to (283.center);
+		\draw [style={green_line}] (283.center) to (284.center);
+		\draw [style={green_line}] (284.center) to (282.center);
+		\draw [style={blue_line}] (279.center) to (280.center);
+		\draw [style={blue_line}] (280.center) to (277.center);
+		\draw [style={blue_line}] (277.center) to (278.center);
+		\draw [style={blue_line}] (278.center) to (279.center);
+		\draw [style={red_line}] (289.center) to (290.center);
+		\draw [style={red_line}] (291.center) to (290.center);
+		\draw [style={red_line}] (291.center) to (292.center);
+		\draw [style={red_line}] (292.center) to (289.center);
+		\draw [style={green_line}] (293.center) to (294.center);
+		\draw [style={green_line}] (294.center) to (295.center);
+		\draw [style={green_line}] (295.center) to (296.center);
+		\draw [style={green_line}] (296.center) to (293.center);
+		\draw [style={blue_line}] (298.center) to (299.center);
+		\draw [style={blue_line}] (299.center) to (300.center);
+		\draw [style={blue_line}] (300.center) to (297.center);
+		\draw [style={blue_line}] (297.center) to (298.center);
+		\draw [style={red_line}] (301.center) to (302.center);
+		\draw [style={red_line}] (303.center) to (302.center);
+		\draw [style={red_line}] (303.center) to (304.center);
+		\draw [style={red_line}] (304.center) to (301.center);
+		\draw [style={green_line}] (305.center) to (306.center);
+		\draw [style={green_line}] (306.center) to (307.center);
+		\draw [style={green_line}] (307.center) to (308.center);
+		\draw [style={green_line}] (308.center) to (305.center);
+		\draw [style={blue_line}] (310.center) to (311.center);
+		\draw [style={blue_line}] (311.center) to (312.center);
+		\draw [style={blue_line}] (312.center) to (309.center);
+		\draw [style={blue_line}] (309.center) to (310.center);
+		\draw [style={red_line}] (313.center) to (314.center);
+		\draw [style={red_line}] (315.center) to (314.center);
+		\draw [style={red_line}] (315.center) to (316.center);
+		\draw [style={red_line}] (316.center) to (313.center);
+		\draw [style={green_line}] (317.center) to (318.center);
+		\draw [style={green_line}] (318.center) to (319.center);
+		\draw [style={green_line}] (319.center) to (320.center);
+		\draw [style={green_line}] (320.center) to (317.center);
+		\draw [style={blue_line}] (322.center) to (323.center);
+		\draw [style={blue_line}] (323.center) to (324.center);
+		\draw [style={blue_line}] (324.center) to (321.center);
+		\draw [style={blue_line}] (321.center) to (322.center);
+		\draw [style={red_arrow}] (331.center) to (215.center);
+		\draw [style={blue_arrow}] (333.center) to (217.center);
+		\draw [style={green_arrow}] (332.center) to (216.center);
+		\draw [style={red_line}] (218.center) to (337.center);
+		\draw [style={red_arrow}] (337.center) to (343);
+		\draw [style={green_dashed}] (219.center) to (338.center);
+		\draw [style={blue_dashed}] (220.center) to (339.center);
+		\draw [style={red_line}] (340.center) to (346.center);
+		\draw [style={red_arrow}] (346.center) to (325.center);
+		\draw [style={green_dashed}] (341.center) to (347.center);
+		\draw [style={blue_dashed}] (342.center) to (348.center);
+		\draw [style={green_dashed_arrow}] (347.center) to (326.center);
+		\draw [style={blue_dashed_arrow}] (348.center) to (327.center);
+		\draw [style={red_dashed_arrow}] (328.center) to (343);
+		\draw [style={green_arrow}] (329.center) to (344);
+		\draw [style={red_arrow}] (343) to (349);
+		\draw [style={green_arrow}] (344) to (350);
+		\draw [style={green_dashed_arrow}] (338.center) to (344);
+		\draw [style={red_line}] (352.center) to (355.center);
+		\draw [style={green_line}] (353.center) to (356.center);
+		\draw [style={blue_dashed}] (354.center) to (357.center);
+		\draw [style={red_arrow}] (355.center) to (269.center);
+		\draw [style={green_arrow}] (356.center) to (270.center);
+		\draw [style={blue_dashed_arrow}] (357.center) to (271.center);
+		\draw [style={red_dashed_arrow}] (275.center) to (349);
+		\draw [style={green_arrow}] (273.center) to (350);
+		\draw [style={blue_arrow}] (274.center) to (351);
+		\draw [style={red_arrow}] (349) to (358.center);
+		\draw [style={green_arrow}] (350) to (359.center);
+		\draw [style={blue_arrow}] (351) to (360.center);
+		\draw [style=pruned] (76.center)
+			 to (75.center)
+			 to (77.center)
+			 to (78.center)
+			 to cycle;
+		\draw [style=pruned] (73.center)
+			 to (72.center)
+			 to (71.center)
+			 to (74.center)
+			 to cycle;
+		\draw [style=pruned] (285.center)
+			 to (286.center)
+			 to (287.center)
+			 to (288.center)
+			 to cycle;
+		\draw [style=pruned] (277.center)
+			 to (280.center)
+			 to (279.center)
+			 to (278.center)
+			 to cycle;
+		\draw [style=pruned] (230.center)
+			 to (231.center)
+			 to (232.center)
+			 to (229.center)
+			 to cycle;
+		\draw [style=pruned] (308.center)
+			 to (305.center)
+			 to (306.center)
+			 to (307.center)
+			 to cycle;
+		\draw [style=pruned] (310.center)
+			 to (311.center)
+			 to (312.center)
+			 to (309.center)
+			 to cycle;
+		\draw [style=pruned] (255.center)
+			 to (256.center)
+			 to (253.center)
+			 to (254.center)
+			 to cycle;
+		\draw [style=pruned] (268.center)
+			 to (265.center)
+			 to (266.center)
+			 to (267.center)
+			 to cycle;
+		\draw [style={black_dashed}] (362.center) to (361.center);
+		\draw [style={black_dashed}] (361.center) to (364.center);
+		\draw [style={black_dashed}] (364.center) to (363.center);
+		\draw [style={black_dashed}] (363.center) to (362.center);
+		\draw [style={black_dashed}] (366.center) to (367.center);
+		\draw [style={black_dashed}] (367.center) to (365.center);
+		\draw [style={black_dashed}] (365.center) to (368.center);
+		\draw [style={black_dashed}] (368.center) to (366.center);
+		\draw [style={blue_dashed_arrow}] (339.center) to (369);
+		\draw [style={blue_dashed_arrow}] (369) to (351);
+		\draw [style={blue_dashed_arrow}] (330.center) to (369);
+	\end{pgfonlayer}
+\end{tikzpicture}
+}
+
+\end{document}
