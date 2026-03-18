@@ -13,7 +13,7 @@ LATEXMK_OPT := -pdf -interaction=nonstopmode -use-make -f
 
 all: $(PROJNAME).pdf
 
-$(PROJNAME).pdf: $(MAIN_FILE) all.bib
+$(PROJNAME).pdf: $(MAIN_FILE) hdr.bib
 	$(LATEXMK) $(LATEXMK_OPT) $(MAIN_FILE)
 
 clean:
