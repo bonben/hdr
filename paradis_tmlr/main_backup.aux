@@ -1,0 +1,223 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{zoph2017neural,liu2018progressive}
+\citation{white2021bananas,schrodi2023construction}
+\citation{pham2018efficient,guo2020single,chu2021fairnas,liu2018darts}
+\citation{mellor2021neural,abdelfattah2021zero}
+\citation{jiang2023meco,peng2024swap}
+\citation{kadlecova2024surprisingly,krishnakumar2022bench}
+\citation{dong2020bench}
+\citation{krizhevsky2009learning}
+\citation{jiang2023meco}
+\citation{he2015deep,orhan2017skip}
+\citation{dong2020bench}
+\citation{siems2020bench}
+\citation{duan2021transnas}
+\citation{colin2022adeeperlook,javaheripi2022litetransformersearch}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{duan2021transnas}
+\citation{mellor2021neural,abdelfattah2021zero}
+\citation{mellor2021neural}
+\citation{abdelfattah2021zero}
+\citation{chen2021neural}
+\citation{xiao2019disentangling}
+\citation{raghu2017expressive}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Our ParaDis method is based on the classic genetic zero-cost framework. Any ZCP can be used in the role of the explorer and select architectures that go on to reproduction. The ParaDis discriminator discards architectures based on parameter count distribution statistics over the population, with the size of architectures sampled at each generation controlled by $\tau $. }}{2}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig_main_method}{{1}{2}{Our ParaDis method is based on the classic genetic zero-cost framework. Any ZCP can be used in the role of the explorer and select architectures that go on to reproduction. The ParaDis discriminator discards architectures based on parameter count distribution statistics over the population, with the size of architectures sampled at each generation controlled by $\tau $}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related works}{2}{section.2}\protected@file@percent }
+\newlabel{related}{{2}{2}{Related works}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Zero-cost proxies}{2}{section*.2}\protected@file@percent }
+\citation{lin2021zen}
+\citation{li2023zico}
+\citation{jiang2023meco}
+\citation{peng2024swap}
+\citation{mellor2021neural}
+\citation{abdelfattah2021zero}
+\citation{chen2021neural}
+\citation{jiang2023meco}
+\citation{lin2021zen,li2023zico,peng2024swap}
+\citation{real2018regularized,ericsson2024einspace}
+\citation{chen2021neural}
+\citation{he2024robustifying}
+\citation{kadlecova2024surprisingly}
+\citation{colin2022adeeperlook,javaheripi2022litetransformersearch}
+\citation{he2015deep,orhan2017skip}
+\citation{peng2024swap}
+\@writefile{toc}{\contentsline {paragraph}{Zero-shot NAS}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ZCP ensembling}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Parameter count}{3}{section*.5}\protected@file@percent }
+\citation{krishnakumar2022bench}
+\citation{ying2019bench,dong2020bench,siems2020bench,duan2021transnas}
+\citation{dong2020bench}
+\citation{siems2020bench}
+\citation{liu2018darts}
+\citation{duan2021transnas}
+\citation{zamir2018taskonomy}
+\citation{krishnakumar2022bench}
+\citation{duan2021transnas}
+\citation{krizhevsky2009learning,deng2009imagenet,chrabaszcz2017downsampled}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \centering  Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space.}}{4}{figure.caption.6}\protected@file@percent }
+\newlabel{fig_bench_corr_full}{{2}{4}{\centering Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Investigating the limitations of ZCPs}{4}{section.3}\protected@file@percent }
+\newlabel{investigation}{{3}{4}{Investigating the limitations of ZCPs}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Context and benchmark description}{4}{subsection.3.1}\protected@file@percent }
+\newlabel{investigation_context}{{3.1}{4}{Context and benchmark description}{subsection.3.1}{}}
+\citation{krishnakumar2022bench}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \centering  Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space.}}{5}{figure.caption.7}\protected@file@percent }
+\newlabel{fig_bench_corr_top}{{3}{5}{\centering Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Benchmarking: changing the perspective}{5}{subsection.3.2}\protected@file@percent }
+\newlabel{investigation_pov}{{3.2}{5}{Benchmarking: changing the perspective}{subsection.3.2}{}}
+\citation{peng2024swap}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces In the ParaDis genetic setup, architectures from the population are sampled into 3 groups. In each group, the explorer ZCP selects parents for reproduction, while the discriminator $\Phi $ removes ill-suited architectures. At each evolution step, 3 new architectures are created and 3 are discarded. }}{6}{figure.caption.8}\protected@file@percent }
+\newlabel{fig_details_method}{{4}{6}{In the ParaDis genetic setup, architectures from the population are sampled into 3 groups. In each group, the explorer ZCP selects parents for reproduction, while the discriminator $\Phi $ removes ill-suited architectures. At each evolution step, 3 new architectures are created and 3 are discarded}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}ParaDis: Parameter Distribution Shifted NAS}{6}{section.4}\protected@file@percent }
+\newlabel{method}{{4}{6}{ParaDis: Parameter Distribution Shifted NAS}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Genetic algorithm design}{6}{subsection.4.1}\protected@file@percent }
+\newlabel{method_genetic}{{4.1}{6}{Genetic algorithm design}{subsection.4.1}{}}
+\citation{colin2022adeeperlook,javaheripi2022litetransformersearch}
+\citation{kadlecova2024surprisingly,krishnakumar2022bench}
+\citation{peng2024swap}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Parameter Distribution Shift}{7}{subsection.4.2}\protected@file@percent }
+\newlabel{method_parameter}{{4.2}{7}{Parameter Distribution Shift}{subsection.4.2}{}}
+\citation{hu2022generalizing,li2018hyperband,jamieson2016non}
+\citation{ly2024analyzing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Architecture selection}{8}{subsection.4.3}\protected@file@percent }
+\newlabel{method_selection}{{4.3}{8}{Architecture selection}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{8}{section.5}\protected@file@percent }
+\newlabel{experiments}{{5}{8}{Experiments}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Rank of best architecture in genetically evolved populations, on 8 different benchmark tasks and 10 ZCPs. We observe significant gains with a carefully designed discriminator.}}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig_genetic_same}{{5a}{8}{\centering Genetic algorithm with a single ZCP}{figure.caption.9}{}}
+\newlabel{sub@fig_genetic_same}{{a}{8}{\centering Genetic algorithm with a single ZCP}{figure.caption.9}{}}
+\newlabel{fig_genetic_regparams}{{5b}{8}{\centering Genetic algorithm with ZCP explorer \\ and parameter-based discriminator}{figure.caption.9}{}}
+\newlabel{sub@fig_genetic_regparams}{{b}{8}{\centering Genetic algorithm with ZCP explorer \\ and parameter-based discriminator}{figure.caption.9}{}}
+\newlabel{fig_genetic}{{5}{8}{Rank of best architecture in genetically evolved populations, on 8 different benchmark tasks and 10 ZCPs. We observe significant gains with a carefully designed discriminator}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Benchmark}{8}{subsection.5.1}\protected@file@percent }
+\newlabel{experiments_nbsz}{{5.1}{8}{Benchmark}{subsection.5.1}{}}
+\newlabel{fig_params_meco_cifar10}{{6a}{9}{CIFAR10}{figure.caption.10}{}}
+\newlabel{sub@fig_params_meco_cifar10}{{a}{9}{CIFAR10}{figure.caption.10}{}}
+\newlabel{fig_params_meco_cifar100}{{6b}{9}{CIFAR100}{figure.caption.10}{}}
+\newlabel{sub@fig_params_meco_cifar100}{{b}{9}{CIFAR100}{figure.caption.10}{}}
+\newlabel{fig_params_meco_ImageNet16120}{{6c}{9}{ImageNet16-120}{figure.caption.10}{}}
+\newlabel{sub@fig_params_meco_ImageNet16120}{{c}{9}{ImageNet16-120}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \centering  Evolution of sampled architectures' parameter counts during genetic search with a parameter-based discriminator. The paired ZCP guiding the search is \texttt  {meco}, which is usually biased towards overparameterized models. The average parameter count and its std error (in green) are constrained by the linear $\tau $ schedule during the search.}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig_params_meco}{{6}{9}{\centering Evolution of sampled architectures' parameter counts during genetic search with a parameter-based discriminator. The paired ZCP guiding the search is \texttt {meco}, which is usually biased towards overparameterized models. The average parameter count and its std error (in green) are constrained by the linear $\tau $ schedule during the search}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Model size control}{9}{subsection.5.2}\protected@file@percent }
+\newlabel{experiments_params}{{5.2}{9}{Model size control}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations and perspectives}{9}{section.6}\protected@file@percent }
+\newlabel{limitations}{{6}{9}{Limitations and perspectives}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}\protected@file@percent }
+\newlabel{conclusion}{{7}{10}{Conclusion}{section.7}{}}
+\bibdata{bibliography}
+\bibcite{abdelfattah2021zero}{{1}{2021}{{Abdelfattah et~al.}}{{Abdelfattah, Mehrotra, Dudziak, and Lane}}}
+\bibcite{chen2021neural}{{2}{2021}{{Chen et~al.}}{{Chen, Gong, and Wang}}}
+\bibcite{chrabaszcz2017downsampled}{{3}{2017}{{Chrabaszcz et~al.}}{{Chrabaszcz, Loshchilov, and Hutter}}}
+\bibcite{chu2021fairnas}{{4}{2021}{{Chu et~al.}}{{Chu, Zhang, and Xu}}}
+\bibcite{deng2009imagenet}{{5}{2009}{{Deng et~al.}}{{Deng, Dong, Socher, Li, Li, and Fei-Fei}}}
+\bibcite{dong2020bench}{{6}{2020}{{Dong \& Yang}}{{Dong and Yang}}}
+\bibcite{duan2021transnas}{{7}{2021}{{Duan et~al.}}{{Duan, Chen, Xu, Chen, Liang, Zhang, and Li}}}
+\bibcite{ericsson2024einspace}{{8}{2024}{{Ericsson et~al.}}{{Ericsson, Espinosa~Minano, Yang, Antoniou, Storkey, Cohen, McDonagh, and Crowley}}}
+\bibcite{guo2020single}{{9}{2020}{{Guo et~al.}}{{Guo, Zhang, Mu, Heng, Liu, Wei, and Sun}}}
+\bibcite{he2015deep}{{10}{2015}{{He et~al.}}{{He, Zhang, Ren, and Sun}}}
+\bibcite{he2024robustifying}{{11}{2024}{{He et~al.}}{{He, Shu, Dai, and Low}}}
+\bibcite{hu2022generalizing}{{12}{2022}{{Hu et~al.}}{{Hu, Wang, Hong, Li, Hsieh, and Feng}}}
+\bibcite{jacot2018neural}{{13}{2018}{{Jacot et~al.}}{{Jacot, Gabriel, and Hongler}}}
+\bibcite{jamieson2016non}{{14}{2016}{{Jamieson \& Talwalkar}}{{Jamieson and Talwalkar}}}
+\bibcite{javaheripi2022litetransformersearch}{{15}{2022}{{Javaheripi et~al.}}{{Javaheripi, de~Rosa, Mukherjee, Shah, Religa, Teodoro~Mendes, Bubeck, Koushanfar, and Dey}}}
+\bibcite{jiang2023meco}{{16}{2023}{{Jiang et~al.}}{{Jiang, Wang, and Bie}}}
+\bibcite{kadlecova2024surprisingly}{{17}{2024}{{Kadlecov{\'a} et~al.}}{{Kadlecov{\'a}, Lukasik, Pil{\'a}t, Vidnerov{\'a}, Safari, Neruda, and Hutter}}}
+\bibcite{keskar2016large}{{18}{2016}{{Keskar et~al.}}{{Keskar, Mudigere, Nocedal, Smelyanskiy, and Tang}}}
+\bibcite{krishnakumar2022bench}{{19}{2022}{{Krishnakumar et~al.}}{{Krishnakumar, White, Zela, Tu, Safari, and Hutter}}}
+\bibcite{krizhevsky2009learning}{{20}{2009}{{Krizhevsky et~al.}}{{Krizhevsky, Hinton, et~al.}}}
+\bibcite{lee2019wide}{{21}{2019}{{Lee et~al.}}{{Lee, Xiao, Schoenholz, Bahri, Novak, Sohl-Dickstein, and Pennington}}}
+\bibcite{lee2018snip}{{22}{2018}{{Lee et~al.}}{{Lee, Ajanthan, and Torr}}}
+\bibcite{li2023zico}{{23}{2023}{{Li et~al.}}{{Li, Yang, Bhardwaj, and Marculescu}}}
+\bibcite{li2018hyperband}{{24}{2018}{{Li et~al.}}{{Li, Jamieson, DeSalvo, Rostamizadeh, and Talwalkar}}}
+\bibcite{liang2017fisher}{{25}{2017}{{Liang et~al.}}{{Liang, Poggio, Rakhlin, and Stokes}}}
+\bibcite{lin2021zen}{{26}{2021}{{Lin et~al.}}{{Lin, Wang, Sun, Chen, Sun, Qian, Li, and Jin}}}
+\bibcite{liu2018progressive}{{27}{2018{a}}{{Liu et~al.}}{{Liu, Zoph, Neumann, Shlens, Hua, Li, Fei-Fei, Yuille, Huang, and Murphy}}}
+\bibcite{liu2018darts}{{28}{2018{b}}{{Liu et~al.}}{{Liu, Simonyan, and Yang}}}
+\bibcite{ly2024analyzing}{{29}{2024}{{Ly-Manson et~al.}}{{Ly-Manson, Leonardon, El~Bey, Hacene, and Mauch}}}
+\bibcite{mellor2021neural}{{30}{2021}{{Mellor et~al.}}{{Mellor, Turner, Storkey, and Crowley}}}
+\bibcite{orhan2017skip}{{31}{2017}{{Orhan \& Pitkow}}{{Orhan and Pitkow}}}
+\bibcite{pearlmutter1994fast}{{32}{1994}{{Pearlmutter}}{{}}}
+\bibcite{peng2024swap}{{33}{2024}{{Peng et~al.}}{{Peng, Song, Fayek, Ciesielski, and Chang}}}
+\bibcite{pham2018efficient}{{34}{2018}{{Pham et~al.}}{{Pham, Guan, Zoph, Le, and Dean}}}
+\bibcite{raghu2017expressive}{{35}{2017}{{Raghu et~al.}}{{Raghu, Poole, Kleinberg, Ganguli, and Sohl-Dickstein}}}
+\bibcite{real2018regularized}{{36}{2018}{{Real et~al.}}{{Real, Aggarwal, Huang, and Le}}}
+\bibcite{schrodi2023construction}{{37}{2023}{{Schrodi et~al.}}{{Schrodi, Stoll, Ru, Sukthanker, Brox, and Hutter}}}
+\bibcite{siems2020bench}{{38}{2020}{{Siems et~al.}}{{Siems, Zimmer, Zela, Lukasik, Keuper, and Hutter}}}
+\bibcite{tanaka2020pruning}{{39}{2020}{{Tanaka et~al.}}{{Tanaka, Kunin, Yamins, and Ganguli}}}
+\bibcite{theis2018faster}{{40}{2018}{{Theis et~al.}}{{Theis, Korshunova, Tejani, and Husz{\'a}r}}}
+\bibcite{turner2019blockswap}{{41}{2019}{{Turner et~al.}}{{Turner, Crowley, O'Boyle, Storkey, and Gray}}}
+\bibcite{wang2020picking}{{42}{2020}{{Wang et~al.}}{{Wang, Zhang, and Grosse}}}
+\bibcite{white2021bananas}{{43}{2021}{{White et~al.}}{{White, Neiswanger, and Savani}}}
+\bibcite{colin2022adeeperlook}{{44}{2022}{{White et~al.}}{{White, Khodak, Tu, Shah, Bubeck, and Dey}}}
+\bibcite{xiao2019disentangling}{{45}{2019}{{Xiao et~al.}}{{Xiao, Pennington, and Schoenholz}}}
+\bibcite{xiong2020number}{{46}{2020}{{Xiong et~al.}}{{Xiong, Huang, Yu, Liu, Zhu, and Shao}}}
+\bibcite{ying2019bench}{{47}{2019}{{Ying et~al.}}{{Ying, Klein, Christiansen, Real, Murphy, and Hutter}}}
+\bibcite{zamir2018taskonomy}{{48}{2018}{{Zamir et~al.}}{{Zamir, Sax, Shen, Guibas, Malik, and Savarese}}}
+\bibcite{zoph2017neural}{{49}{2017}{{Zoph \& Le}}{{Zoph and Le}}}
+\bibstyle{tmlr}
+\citation{krishnakumar2022bench}
+\citation{dong2020bench}
+\citation{duan2021transnas}
+\citation{duan2021transnas}
+\citation{krishnakumar2022bench}
+\citation{dong2020bench}
+\citation{duan2021transnas}
+\citation{duan2021transnas}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Search space encodings}{14}{appendix.A}\protected@file@percent }
+\newlabel{apx_encodings}{{A}{14}{Search space encodings}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}NAS-Bench-201}{14}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}TransNAS-Bench-101 Micro}{14}{subsection.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}TransNAS-Bench-101 Macro}{14}{subsection.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Search space encodings}{14}{appendix.B}\protected@file@percent }
+\newlabel{apx_encodings}{{B}{14}{Search space encodings}{appendix.B}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}NAS-Bench-201}{14}{subsection.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}TransNAS-Bench-101 Micro}{14}{subsection.B.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}TransNAS-Bench-101 Macro}{14}{subsection.B.3}\protected@file@percent }
+\citation{mellor2021neural}
+\citation{abdelfattah2021zero}
+\citation{abdelfattah2021zero}
+\citation{lee2018snip}
+\citation{wang2020picking}
+\citation{tanaka2020pruning}
+\citation{pearlmutter1994fast}
+\citation{abdelfattah2021zero}
+\citation{theis2018faster,turner2019blockswap}
+\@writefile{toc}{\contentsline {section}{\numberline {C}ZCP details}{15}{appendix.C}\protected@file@percent }
+\newlabel{apx_zcp}{{C}{15}{ZCP details}{appendix.C}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}\texttt  {\#params}}{15}{subsection.C.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}\texttt  {jacov}}{15}{subsection.C.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}\texttt  {grad\_norm}}{15}{subsection.C.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.4}\texttt  {snip}, \texttt  {grasp}, \texttt  {synflow}}{15}{subsection.C.4}\protected@file@percent }
+\citation{chen2021neural}
+\citation{jacot2018neural,lee2019wide,xiao2019disentangling}
+\citation{lin2021zen}
+\citation{li2023zico}
+\citation{keskar2016large,liang2017fisher}
+\citation{jiang2023meco}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.5}\texttt  {fisher}}{16}{subsection.C.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.6}\texttt  {ntk}}{16}{subsection.C.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.7}\texttt  {zen}}{16}{subsection.C.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.8}\texttt  {zico}}{16}{subsection.C.8}\protected@file@percent }
+\citation{peng2024swap}
+\citation{raghu2017expressive,xiong2020number,chen2021neural}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.9}\texttt  {meco}}{17}{subsection.C.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.10}\texttt  {swap}}{17}{subsection.C.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {D}More details about the Spearman correlation benchmarks}{17}{appendix.D}\protected@file@percent }
+\newlabel{apx_benchmark_details}{{D}{17}{More details about the Spearman correlation benchmarks}{appendix.D}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \centering  Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space.}}{17}{figure.caption.12}\protected@file@percent }
+\newlabel{fig_bench_corr_full}{{7}{17}{\centering Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \centering  Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space.}}{18}{figure.caption.13}\protected@file@percent }
+\newlabel{fig_bench_corr_full}{{8}{18}{\centering Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Full ParaDis algorithm}{19}{appendix.E}\protected@file@percent }
+\newlabel{apx_algorithm}{{E}{19}{Full ParaDis algorithm}{appendix.E}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \underline  {\textbf  {Para}}meter \underline  {\textbf  {Dis}}tribution Shift NAS (\textbf  {ParaDis})}}{19}{algorithm.1}\protected@file@percent }
+\newlabel{alg_paradis}{{1}{19}{\underline {\textbf {Para}}meter \underline {\textbf {Dis}}tribution Shift NAS (\textbf {ParaDis})}{algorithm.1}{}}
+\gdef \@abspage@last{19}

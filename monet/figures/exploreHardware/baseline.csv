@@ -1,0 +1,2 @@
+index,f_energy,fb_energy,f_latency,fb_latency,simd,complane,pe_mem,regfile, PEs,totalComp,totalCompln,random,localComp,localCompln
+270,2934885006.59201,37816978862.4239,10562499,35688919.6666667,64,4,16777216,65536,16,4096,3.61235994796777,0.364921148178915,256,2.40823996531185

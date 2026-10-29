@@ -1,0 +1,33 @@
+
+    
+    \begin{tikzpicture}
+    \begin{axis}[
+        ybar stacked,
+        bar width=25pt,
+        nodes near coords,
+        width=0.8\columnwidth,
+        nodes near coords style={text=black, font=\footnotesize},
+        % enlargelimits=0.25,
+        xmin=0,
+        xmax=14,
+        % ymin=0,
+        enlarge y limits={lower=0},
+        enlarge x limits=0.15,
+        ymax=1050,
+        % ymax=0.4,
+        legend style={at={(0.5,-0.10)},
+        anchor=north,legend columns=-1},
+        ylabel={Memory Consumed (MBs)},
+        grid=major,
+        grid style={dashed, gray!30},
+        xtick={1, 5, 9, 13},
+        xticklabels={Adam, Adam8, SGD, SGD8},
+        % symbolic x coords={Adam, SGD},
+        ]
+    \addplot+[ybar, fill=Paired-2, draw=Paired-1] plot coordinates {(1, 94) (5, 94) (9, 94) (13, 94)};
+    \addplot+[ybar, fill=Paired-8, draw=Paired-7] plot coordinates {(1, 94) (5, 94) (9, 94) (13, 94)};
+    \addplot+[ybar, fill=Paired-6, draw=Paired-5] plot coordinates {(1, 80) (5, 640) (9, 80) (13, 640)};
+     \addplot+[ybar, fill=Paired-4, draw=Paired-3] plot coordinates {(1, 200) (5, 200) (9, 100) (13, 100)};
+    \legend{Parameters, Gradient,  Activations, Optimizer}
+    \end{axis}
+    \end{tikzpicture}

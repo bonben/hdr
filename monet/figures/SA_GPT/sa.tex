@@ -1,0 +1,105 @@
+\def\colormap{viridis}      % Horizontal offset between networks:
+\def\colorData{buffer_bandwidth}
+\def\legend{Total Computational Capacity}
+\def\colorName{Buffer Bandwidth}
+\begin{tikzpicture}
+\begin{scope}[ xshift=-.5\linewidth]
+\pgfplotsset{%
+    width=.45\linewidth,
+    height=0.3\linewidth
+}
+        \begin{axis}[
+        legend cell align={left},
+        legend style={
+          fill opacity=0.8,
+          draw=black,
+          draw opacity=1,
+          text opacity=1,
+          at={(0.01,0.98)},
+          anchor=north west,
+          draw=lightgray204
+        },
+        tick align=outside,
+        tick pos=left,
+        title=Inference,
+        x grid style={darkgray176},
+        ylabel={Latency (Cycles)},
+        xmajorgrids,
+        xtick style={color=black},
+        y grid style={darkgray176},
+        xlabel={Energy (pJ)},
+        grid=major,
+        grid style={dashed, gray!30},
+        ytick style={color=black},
+        ylabel near ticks,
+        colormap/\colormap, % Choose a colormap (e.g., jet, hot, viridis)
+        point meta=explicit, % Use y values for color mapping
+        ]
+
+    % \addplot [thick,
+    %     only marks,
+    %     mark=*,
+    %     mark size=1.5,
+    %     % scatter,
+    %     % color=blue,
+    %     % mark options={solid}] table [x=totalCompln, y=fb_latency,col sep=comma]   {figures/SA_GPT/resultSA.csv};
+    %     mark options={solid, fill=Paired-8, draw=Paired-7}] table [y=f_latency, x=f_energy, col sep=comma] {figures/SA_GPT/resultSA.csv};
+        \addplot [thick,
+            only marks,
+            mark=*,
+            mark size=1.5,
+            scatter,
+            ] table [y=f_latency, x=f_energy, meta=\colorData,col sep=comma] {figures/SA_GPT/resultSA.csv};   
+
+\end{axis}
+\end{scope}
+\begin{scope}
+\pgfplotsset{%
+    width=.45\linewidth,
+    height=0.3\linewidth
+}
+        \begin{axis}[
+        legend cell align={left},
+        legend style={
+          fill opacity=0.8,
+          draw=black,
+          draw opacity=1,
+          text opacity=1,
+          at={(0.01,0.98)},
+          anchor=north west,
+          draw=lightgray204
+        },
+        tick align=outside,
+        tick pos=left,
+        x grid style={darkgray176},
+        ylabel={Latency (Cycles)},
+        title=Training,
+        % ymax=2.3e8,
+        xmajorgrids,
+        xtick style={color=black},
+        y grid style={darkgray176},
+        xlabel={Energy (pJ)},
+        grid=major,
+        grid style={dashed, gray!30},
+        ytick style={color=black},
+        ylabel near ticks,
+        colormap/\colormap, % Choose a colormap (e.g., jet, hot, viridis)
+        colorbar,
+        point meta=explicit, % Use y values for color mapping
+            colorbar style={
+                title=\colorName, 
+                % ytick={1.20411998265592, 1.80617997398389, 2.40823996531185, 3.01029995663981},
+                % yticklabels={16, 64, 256, 1024},
+                },
+        ]
+        \addplot [thick,
+            only marks,
+            mark=*,
+            mark size=1.5,
+            scatter,
+            ] table [y=fb_latency, x=fb_energy, meta=\colorData,col sep=comma] {figures/SA_GPT/resultSA.csv};   
+        \end{axis}
+
+
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,136 @@
+% ===== Data variables =====
+
+% ===== Plot =====
+\begin{tikzpicture}
+\pgfmathsetmacro{\LatencyBase}{133757402}
+\pgfmathsetmacro{\LatencyFused}{129734084}
+\pgfmathsetmacro{\LatencyFusedAC}{131201518.0}
+\pgfmathsetmacro{\LatencyBaseAC}{136962323}
+
+\pgfmathsetmacro{\EnergyBase}{104434630576}
+\pgfmathsetmacro{\EnergyFused}{101649085679}
+\pgfmathsetmacro{\EnergyFusedAC}{102865036810.29411}
+\pgfmathsetmacro{\EnergyBaseAC}{107420850544}
+
+\pgfmathsetmacro{\LatencyHO}{136213559.0}
+\pgfmathsetmacro{\EnergyHO}{93059684567.98256}
+\pgfmathsetmacro{\shift}{-8pt}
+\begin{axis}[
+    width=1\columnwidth,
+    scale only axis,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.15,
+    symbolic x coords={Base, BaseAC, FusedAC, Fused, gap, HO},
+    xtick={Base, BaseAC, FusedAC, Fused,HO},
+    xticklabels={Base, BaseAC, FusedAC, Fused,Hardware Search},
+    scaled y ticks=base 10:-8,
+    ytick scale label code/.code={},
+    ylabel={Latency ($\times 10^{8}$ Cycles)},
+    axis y line*=left,
+    legend style={at={(0.02,0.02)}, anchor=south west, font=\footnotesize},
+    grid=major,
+    grid style={dashed, gray!30},
+    legend image code/.code={\draw[fill=Set2-8, draw=Set1-10] (0cm,0cm) rectangle (0.4cm,0.4cm);}
+]
+
+\addplot[fill=Paired-2, draw=Paired-1, ybar, bar shift=-8pt]
+coordinates {(Base, \LatencyBase)};
+\addplot[fill=Paired-6, draw=Paired-5, ybar, bar shift=-8pt]
+coordinates {(Fused, \LatencyFused)};
+\addplot[fill=Paired-4, draw=Paired-3, ybar, bar shift=-8pt]
+coordinates {(FusedAC, \LatencyFusedAC)};
+\addplot[fill=Paired-8, draw=Paired-7, ybar, bar shift=-8pt]
+coordinates {(BaseAC, \LatencyBaseAC)};
+
+\addplot[fill=Paired-10, draw=Paired-9, ybar, bar shift=-8pt]
+coordinates {(HO, \LatencyHO)};
+
+\draw[dotted, thick, line width=1.5pt, black!80]
+(axis cs:gap,0) -- (axis cs:gap,\pgfkeysvalueof{/pgfplots/ymax});
+
+% --- top-right annotation ---
+% \node[
+%     anchor=north east,
+%     font=\footnotesize,
+%     align=center,
+%     text=black!90
+% ] at (rel axis cs:0.975,0.5) {Hardware\\Optimized};
+
+
+\end{axis}
+
+\begin{axis}[
+    ybar,
+    width=1\columnwidth,
+    scale only axis,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.15,
+    symbolic x coords={Base, BaseAC, FusedAC, Fused, gap,HO},
+    xtick={Base, BaseAC, FusedAC, Fused,HO},
+    xticklabels={},
+    scaled y ticks=base 10:-11,
+    ytick scale label code/.code={},
+    ylabel={Energy ($\times 10^{11}$ pJ)},
+    axis y line*=right,
+    legend columns=2,
+    legend style={
+        at={(0.98,0.98)},
+        anchor=north east,
+        font=\footnotesize,
+    },
+]
+
+\addlegendimage{
+    legend image code/.code={
+        \draw[fill=Set2-8, draw=Set1-10]
+        (0cm,-0.15cm) rectangle (0.4cm,0.25cm);
+    }
+}
+\addlegendentry{Latency}
+
+\addlegendimage{
+    legend image code/.code={
+        \draw[fill=Set2-8, draw=Set1-10, postaction={pattern=north west lines}]
+        (0cm,-0.15cm) rectangle (0.4cm,0.25cm);
+    }
+}
+\addlegendentry{Energy}
+
+\addplot[
+    fill=Paired-2,
+    draw=Paired-1,
+    bar shift=17pt + \shift,
+    postaction={pattern=north west lines}
+] coordinates {(Base, \EnergyBase)};
+
+\addplot[
+    fill=Paired-6,
+    draw=Paired-5,
+    bar shift=17pt + \shift,
+    postaction={pattern=north west lines}
+] coordinates {(Fused, \EnergyFused)};
+
+\addplot[
+    fill=Paired-4,
+    draw=Paired-3,
+    bar shift=17pt + \shift,
+    postaction={pattern=north west lines}
+] coordinates {(FusedAC, \EnergyFusedAC)};
+
+\addplot[
+    fill=Paired-8, 
+    draw=Paired-7,
+    bar shift=17pt + \shift,
+    postaction={pattern=north west lines}
+] coordinates {(BaseAC, \EnergyBaseAC)};
+
+\addplot[
+    fill=Paired-10, 
+    draw=Paired-9,
+    bar shift=17pt + \shift,
+    postaction={pattern=north west lines}
+] coordinates {(HO, \EnergyHO)};
+\end{axis}
+\end{tikzpicture}

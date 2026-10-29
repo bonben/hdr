@@ -1,0 +1,674 @@
+
+\documentclass[10pt]{article} % For LaTeX2e
+\usepackage{tmlr}
+% If accepted, instead use the following line for the camera-ready submission:
+%\usepackage[accepted]{tmlr}
+% To de-anonymize and remove mentions to TMLR (for example for posting to preprint servers), instead use the following:
+%\usepackage[preprint]{tmlr}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{pifont}
+\usepackage{placeins}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\pgfplotsset{compat=newest}
+
+\usepackage{pgf}
+
+\title{Insights From a Data- and Space-Agnostic Approach to Zero-Cost Proxies}
+
+% Authors must not appear in the submitted version. They should be hidden
+% as long as the tmlr package is used without the [accepted] or [preprint] options.
+% Non-anonymous submissions will be rejected without review.
+
+\author{\name Timotée Ly-Manson \email timotee.ly-manson@imt-atlantique.fr \\
+        \addr IMT Atlantique\\
+        UMR CNRS 6285 Lab-STICC\\
+      \AND
+      \name Mathieu Léonardon \email mathieu.leonardon@imt-atlantique.fr \\
+      \addr IMT Atlantique\\
+        UMR CNRS 6285 Lab-STICC\\
+      \AND
+      \name Abdeldjalil Aissa El Bey \email abdeldjalil.aissaelbey@imt-atlantique.fr\\
+      \addr IMT Atlantique\\
+        UMR CNRS 6285 Lab-STICC\\
+}
+
+% The \author macro works with any number of authors. Use \AND 
+% to separate the names and addresses of multiple authors.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\def\month{MM}  % Insert correct month for camera-ready version
+\def\year{YYYY} % Insert correct year for camera-ready version
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}} % Insert correct link to OpenReview for camera-ready version
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+Zero-cost proxies (ZCPs) have enabled low-cost Neural Architecture Search (NAS) by removing the computational overhead from model training. However, important drawbacks of currently designed ZCPs remain unaddressed. While there is a strong correlation between ZCPs and model performance at the scale of entire search spaces, this does not necessarily translate to guiding the search to top-performing architectures. In this paper, we conduct extensive benchmarking over state-of-the-art proxies in the NAS-Bench-Suite-Zero setting and observe that the correlation decreases dramatically when reducing the space to the best architectures, demonstrating the presence of a top-rank gap. Moreover, embedded priors on search space and data make ZCPs unreliable across diverse tasks. We leverage adaptive parameter distribution statistics as a discriminator metric in the genetic framework and introduce ParaDis, a low-cost NAS algorithm that remains orthogonal to ZCP design, with potential to define a fully data- and space-agnostic search when paired with the right metric. Experiments on multiple benchmarks confirm that ParaDis reduces the top-rank gap across diverse tasks and remains competitive against methods with heavier priors.
+\end{abstract}
+
+\section{Introduction}
+\label{intro}
+
+Neural Architecture Search (NAS) has received increasing attention as it enables the design of neural network architectures without a human expert, but has long struggled to reduce its computational cost. Various methods introduced in the early days of NAS \citep{zoph2017neural, liu2018progressive} treat the performance of the candidate architectures as a label to train a predictor. These remain the gold standard for finding the best architectures \citep{white2021bananas, schrodi2023construction}, but are impractical in real-world applications due to the large computational overhead of training each candidate from scratch.
+
+Several lines of work related to reducing the computational cost of NAS have emerged, such as one-shot NAS \citep{pham2018efficient, guo2020single, chu2021fairnas, liu2018darts} and zero-shot NAS \citep{mellor2021neural, abdelfattah2021zero}. In the latter, the training of candidate architectures is entirely foregone in favor of ad-hoc metrics --- so-called zero-cost proxies (ZCPs) --- that estimate the performance of the model in its freshly initialized state. Methods that incorporate these proxies have achieved competitive results \citep{jiang2023meco, peng2024swap} while reducing the computational load by several orders of magnitude.
+
+Since ZCPs are integrated into various search routines (such as pruning-based or evolutionary algorithms), direct comparisons of final accuracy can be misleading. Consequently, Spearman correlation benchmarking on diverse tasks has become the standard to unify ZCP research and evaluate new metrics. In this work, we begin by conducting thorough supplementary experiments within the common NAS-Bench-Suite-Zero benchmark \citep{krishnakumar2022bench}. By considering the benchmarks through the lens of the top ranks, we find that most ZCPs collapse at the most critical point of the NAS process: finding the best architecture in the space.
+
+On the other hand, zero-cost proxies are often computed using limited amounts of forward and backward passes, creating a dependency on data despite the aim to quantify inherent properties of the models. Prior work \citep{kadlecova2024surprisingly,krishnakumar2022bench} suggests that proxies are highly correlated with simpler metrics such as parameter count. A concrete example can be found by conducting an exhaustive search of the NAS-Bench-201 search space \citep{dong2020bench} on the CIFAR10 task \citep{krizhevsky2009learning} using state-of-the-art ZCP MeCo \citep{jiang2023meco}. The top ranked architecture is composed solely of convolutions, indicating a strong link with parameter count at the top level, while gains of the method may originate from better ordering of mid-range performance architectures.
+
+In this work, we explore the potential of regularizing ZCP-driven exploration with parameter distribution statistics, building upon literature that identifies parameter count as a robust performance baseline \citep{colin2022adeeperlook,javaheripi2022litetransformersearch}. Specifically, we introduce \underline{\textbf{Para}}meter \underline{\textbf{Dis}}tribution Shift NAS (\textbf{ParaDis}), an evolutionary-based framework that assigns ZCPs with a role of exploration while applying parameter-based space constriction in a fully search space-agnostic way. Through thorough evaluation of our method under the NAS-Bench-Suite-Zero \citep{krishnakumar2022bench} and DARTS \citep{liu2018darts} settings, we find that our method boosts the ability of all ZCPs to find better architectures among the top ranks despite the simplicity of the framework. Furthermore, the robustness of the ParaDis framework allows for a fully data-agnostic search configuration. By pairing ParaDis with a data-agnostic ZCP like \texttt{synflow}, we demonstrate that structural priors alone, when properly constrained, can yield results competitive with methods that rely on access to labeled data.
+
+Our contributions are as follows:
+\begin{enumerate}
+\item We benchmark existing zero-cost proxies using the NAS-Bench-Suite-Zero \citep{krishnakumar2022bench} to test the limits of ZCP performance. Specifically, we demonstrate that while state-of-the-art proxies correlate well globally, their performance collapses when ranking high-performing architectures. We identify this phenomenon as the \textbf{top rank gap}.
+\item We introduce ParaDis, a genetic-based neural architecture search method that couples ZCP-guided exploration with a dynamic parameter distribution shift, effectively constraining the search to high-potential regions of the space. ParaDis is orthogonal to ZCP design, making no assumption about the search space.
+\item We demonstrate through rank experiments on NAS-Bench-Suite-Zero that ParaDis can enhance the quality of architectures found by ZCPs, thus bridging the top rank gap.
+\item We conduct experiments on the standard DARTS \citep{liu2018darts} search space and find that even under fully data- and space-agnostic constraints, ParaDis remains competitive with state-of-the-art ZCP-based methods.
+\end{enumerate}
+
+\begin{figure}[t]
+\begin{adjustbox}{width=\linewidth}
+\includegraphics[width=\textwidth]{fig/paradis.pdf}
+
+\end{adjustbox}
+\caption{Our ParaDis method is based on the classic genetic zero-cost framework. Any ZCP can be used in the role of the explorer and select architectures that go on to reproduction. The ParaDis discriminator discards architectures based on parameter count distribution statistics over the population, with the size of architectures sampled at each generation controlled by $\tau$.
+}
+\label{fig_main_method}
+\end{figure}
+
+\section{Related works}
+\label{related}
+
+\paragraph{Zero-cost proxies} Zero-cost proxies (ZCPs) \citep{mellor2021neural, abdelfattah2021zero} hold the potential to conduct neural architecture search without the need to train architectures. ZCPs are generally derived from mathematical properties of neural networks computed from their parameters or gradients, which can be obtained during a single forward or backward pass. While most ZCPs rely on actual data from the task, metrics such as \texttt{synflow} operate in a data-agnostic regime, and quantifiable properties of the networks such as parameter count (\texttt{\#params}) can also be considered data-agnostic ZCPs. Compared to data-reliant ZCPs, data agnosticity yields better robustness when confronted with diverse tasks, and ease of implementation as a data loading pipeline is not required.
+
+Various ZCPs have been introduced for the purpose of architecture search. Initially, \citet{mellor2021neural} proposed to use the Hamming distance of the binary codes of the activations, a proxy which was later renamed \texttt{jacov}.~\citet{abdelfattah2021zero} brought metrics from the network pruning literature into the NAS space and coined the term ZCP. ZCPs tend to fall into two categories based on whether they aim to quantify the trainability of the candidate --- that is, how easily it can converge to its optimal weights --- or its generalization capabilities. Thus, the metrics \texttt{gradnorm}, \texttt{snip}, \texttt{grasp} and \texttt{synflow} are of the trainability type, while \texttt{fisher} is of the generalization type. This observation was further explored in \citet{chen2021neural}, who paired the trainability measure \texttt{ntk}, based on the NTK condition number \citep{xiao2019disentangling}, and the expressivity measure \texttt{\#lr}, a count of the number of linear regions of the input space partitioned by the network \citep{raghu2017expressive}.
+
+Recently, more advanced ZCPs have emerged and demonstrated competitive results on vision tasks. \texttt{zen} \citep{lin2021zen} leverages the statistics of the batch norm layers. \texttt{zico} \citep{li2023zico} exploits the link between the statistics of the gradient norms and network generalization ability. \texttt{meco} \citep{jiang2023meco} estimates the convergence rate via the minimum eigenvalue of the correlation matrix. \texttt{swap} \citep{peng2024swap} reframes the question of linear regions to create a more insightful metric.
+
+\paragraph{Zero-shot NAS} Since ZCPs are essentially performance estimators, they must be paired with a search strategy to explore the search space. Several possibilities have been explored in previous work. \citet{mellor2021neural} proposed the naive random search solution, and warm-started other traditional NAS methods with the ZCP. Similarly, \citet{abdelfattah2021zero} envisioned ZCPs as a warmup for other algorithms. \citet{chen2021neural} and \citet{jiang2023meco} implemented a pruning-like strategy where a directed acyclic graph containing all possible architectural choices is pruned down to only the most desirable operation on each edge. 
+
+However, the most popular search strategy in conjunction with ZCPs remains by far the genetic approach \citep{lin2021zen, li2023zico, peng2024swap}. It is also a very common strategy for NAS in general \citep{real2018regularized, ericsson2024einspace}. In this work, we also adopt the evolutionary framework. While other NAS methods keep the algorithmic design to a bare minimum, choosing to instead focus on the proxies' capabilities, we directly improve on the classic genetic algorithm to cover the limits of ZCPs. Importantly, this allows us to remain orthogonal to ZCP design.
+
+\paragraph{ZCP ensembling} Intuitively, using more than one proxy should be beneficial, since metrics that evaluate different aspects of a network might cover each other's blind spots.~\citet{chen2021neural} first introduced this idea by summing their \texttt{ntk} and \texttt{\#lr} metrics. \citet{he2024robustifying} generalized the idea by ensembling 6 ZCPs through weighted linear combination and learning the weights through Bayesian optimization. However, direct summation of ZCPs is impractical as the statistics of individual proxies are task-dependent and largely unknown. Without robust normalization, such sums are highly sensitive to outliers.~\citet{kadlecova2024surprisingly} instead ensemble proxies by treating them as features of the candidate architectures and applying random forest regression. Differently, we assign roles to ZCPs within the genetic framework such that they guide exploration of the search space or discriminate architectures to constrain the space.
+
+\paragraph{Parameter count} Simply counting the parameters of a candidate architecture is a naive, yet effective proxy for accuracy. Indeed, network complexity and generalization abilities grow with network size. Notably, the surprising effectiveness of the parameter count proxy \texttt{\#params} often challenges ZCPs \citep{colin2022adeeperlook, javaheripi2022litetransformersearch}, which are shown to be inferior to merely counting the parameters on various tasks. While this metric lacks the nuance to discern common architectural choices such as skip connections, a staple of architecture design shown to improve trainability \citep{he2015deep, orhan2017skip}, complex ZCPs might identify these intricacies while failing to describe the bigger picture.
+
+We propose that the parameter count may serve as a prerequisite metric and adopt it as a regularizer of the search.~\citet{peng2024swap} also used parameter count to regularize the score of their metric \texttt{swap} and focus the search around a desired model size. However, this requires prior knowledge of the search space's statistics, which is impractical for unseen spaces where the location of good architectures in the distribution is unknown. We instead design our method in a space-agnostic way by estimating parameter count statistics directly from available sampled architectures, removing the need for priors over the space. This allows the method to continue performing in real-world spaces with unknown structures.
+
+\begin{figure}[t]
+\begin{adjustbox}{width=\linewidth}
+    \input{fig/benchmarks/zcp_corr.pgf}
+\end{adjustbox}
+\caption{\centering Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space.}
+\label{fig_bench_corr_full}
+\end{figure}
+
+\section{Investigating the limitations of ZCPs}
+\label{investigation}
+
+\subsection{Context and benchmark description}
+\label{investigation_context}
+
+Intuitively, zero-cost proxies perform better the more correlated with actual network performance they are. In the situation of a head-to-head between several candidate architectures --- the most commonplace situation for both the genetic and pruning approach in zero-shot NAS --- a well-correlated metric is able to correctly choose the winner, which progresses the search in the direction of the more favorable architectures. Therefore it is without surprise that the literature has turned to benchmarking ZCPs based on their correlation to the most common search objective, validation accuracy.
+
+A number of classic ZCPs have been benchmarked by \citet{krishnakumar2022bench} on a collection of 5 search spaces \citep{ying2019bench, dong2020bench, siems2020bench, duan2021transnas}. In this work, we consider only 4 of these search spaces:
+\begin{itemize}
+\item NAS-Bench-201 \citep{dong2020bench} (NB201), a cell-based space of 15625 architectures for image classification trained on CIFAR-10, CIFAR-100 and ImageNet16-120.
+\item NAS-Bench-301 \citep{siems2020bench} (NB301), a search space based on DARTS \citep{liu2018darts} and evaluated on CIFAR-10 via the surrogate method.
+\item TransNAS-Bench-101 Micro \citep{duan2021transnas} (TNB101-Micro), a cell-based search space of 4096 architectures tailored for diverse tasks such as object detection in the Taskonomy task bank \citep{zamir2018taskonomy} or autoencoding tasks \citep{krishnakumar2022bench}.
+\item TransNAS-Bench-101 Macro \citep{duan2021transnas} (TNB101-Macro), a similar space to TNB101-Micro but focused on the macro structure with a stackable cell in 3256 different configurations.
+\end{itemize}
+NB201 and NB301 are designed for image classification and compatible with the common CIFAR-10, CIFAR-100 and ImageNet16-120 tasks \citep{krizhevsky2009learning, deng2009imagenet,chrabaszcz2017downsampled}, the TNB101 benchmark focuses on other paradigms and evaluating the performance of NAS across domains and tasks and outside of the classical cell-based framework.
+\begin{figure}[t]
+\begin{adjustbox}{width=\linewidth}
+    \input{fig/benchmarks/zcp_corr_top1pct.pgf}
+\end{adjustbox}
+\caption{\centering Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space.}
+\label{fig_bench_corr_top}
+\end{figure}
+The metric used for the benchmark is the Spearman rank correlation which is the correlation of the ranks of the ZCP scores $X$ and the ground truth scores $Y$:
+$$
+r_s = \frac{\mathrm{cov}\left(\mathrm{rank}(X), \mathrm{rank}(Y)\right)}{\sigma_{\mathrm{rank}(X)}\sigma_{\mathrm{rank}(Y)}}
+$$
+It indicates the average difference between the true rank of the candidate architecture and the rank given by the proxy. Proxies with high Spearman rank correlation tend to keep candidates ranked close to their true rank, such that a candidate is easily distinguished from others that it outclasses by far.
+
+\subsection{Benchmarking: changing the perspective}
+\label{investigation_pov}
+
+We first reproduce the benchmark proposed by \citet{krishnakumar2022bench} while including several state-of-the-art proxies that have been proposed since the initial benchmark. The results are shown in Fig.~\ref{fig_bench_corr_full}. The NAS-Bench-101 benchmark is omitted due to its large size while not providing significantly more insight than other image classification benchmarks. As we can see, newer proxies, namely \texttt{meco} and \texttt{swap}, reach high correlation on a variety of different tasks.
+
+However, the represented search spaces are very wide and heterogeneous. We observe that on many tasks, the distributions of architecture performance in the TNB101 search spaces form distinct clusters. Therefore, high correlation over the entire search space only indicates that the proxy can eliminate all weak architectures and reach a high-performance cluster. Overall, the benchmark does not answer the central question of Neural Architecture Search: how easily can we reach the top architecture in the space?
+
+In order to obtain deeper understanding of ZCP behavior, we adopt a novel perspective on benchmarking. For each search space, we run the benchmark restricted to only the top 1\% of architectures in the space, in terms of validation accuracy. Assuming that proxies are good enough to guide the search to the top 1\% cluster in the space, we want to assess whether they can also distinguish the performance variations in that group. The results of the benchmark are shown in Fig.~\ref{fig_bench_corr_top}. We notice a significant drop in correlation. On most tasks, none of the proxies have a correlation higher than 0.5, less than half of the correlation over the whole space. Some metrics, such as \texttt{meco} and \texttt{jacov}, show no correlation or negative correlation with the top architectures, despite having positive correlation with the entire space. Moreover, we observe that the ranking of metrics is shuffled around as metrics such as \texttt{zen} seem better suited to the top 1\% benchmark than state-of-the-art proxies for the overall benchmark, such as \texttt{meco} and \texttt{swap}.
+
+This analysis shows that while zero-cost proxies have demonstrated the ability to weed out poorly performing architectures during the search, they cannot properly rank architectures after having reached a sub-space that contains only good candidates. Thus, considering the current state-of-the-art, there is a ceiling to the quality of architectures obtained through ZCP-driven search. We refer to this issue as the \textbf{top rank gap}.
+
+\begin{figure}[t]
+\begin{adjustbox}{width=\linewidth}
+    \input{fig/benchmarks/zcp_corr_w_params.pgf}
+\end{adjustbox}
+\caption{\centering Spearman rank correlations of various ZCPs with \texttt{\#params} on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the entire search space.}
+\label{fig_bench_corr_params}
+\end{figure}
+
+Anterior works~\citep{kadlecova2024surprisingly,krishnakumar2022bench} have pointed out that ZCPs are inherently biased towards easily identifiable characteristics of neural networks, such as the number of convolutions. Similarly, we compute the per-task correlation of all ZCPs against the parameter count of the candidate networks in Figure~\ref{fig_bench_corr_params}. We find that most ZCP rankings display $>0.5$ correlation with parameter counts ranking. It is a well-known result in the literature~\citep{colin2022adeeperlook, javaheripi2022litetransformersearch} that the parameter count of the network is a very strong proxy. Intuitively, more parameters in the network directly translate to enhanced expressivity. However, the complex search spaces of NAS present the additional challenge of connectivity affecting performance in ways that do not reflect in the parameter count. We hypothesize that ZCPs yield valuable information about network connectivity that is hard to exploit due to the overwhelming prior on parameter count. Therefore, including parameter count in the search process is a promising direction to make the most of ZCPs and overcome the performance ceiling.
+
+\section{ParaDis: Parameter Distribution Shifted NAS}
+\label{method}
+
+We introduce \textbf{Para}meter \textbf{Dis}tribution Shift NAS, leveraging the genetic framework to conduct the search with a pair of metrics. For the basic genetic setup, we take inspiration from anterior elitist evolution algorithm proposals for NAS \citep{real2018regularized, peng2024swap}.
+
+Candidate architectures are encoded into a genome in the form of a sequence of numbers, each corresponding to a possible architectural choice in the search space. While the genomes are processed and interpreted differently depending on the definition of the search space, they are processed identically within the genetic algorithm, thus decoupling search space design from the search algorithm. The various genome encodings for each search space are described in Appendix~\ref{apx_encodings}.
+
+We allow pairs of metrics to drive the search by assigning them two distinct roles:
+\begin{itemize}
+\item \textbf{Explorer} metric: directs exploration of the search space by choosing evolutionary winners, which go on to mutation and crossover. This should typically be a metric that can distinguish good architectures. By design, ZCPs are well-suited to search space exploration.
+
+\item \textbf{Discriminator} metric: constrains the space by choosing evolutionary losers, which are removed from the population. This is a broad and reliable metric that identifies architectures to weed out in order to restrict the space to a desirable region. For this role, we define an adaptive parameter count distribution estimator, effectively constraining the space around the most suitable model size.
+\end{itemize}
+
+While we define these roles in relation to the genetic algorithm design, the main intuition --- that some metrics are better suited to choose good architectures, and others to detect bad architectures --- holds across other NAS paradigms. 
+
+Additionally, this framework is easily generalizable to the regular zero-cost setup by assuming the explorer and discriminator to be the same. However, most zero-cost proxies are designed for high-scoring architectures and are therefore more suited for the exploration role. For this reason, the explorer is flexible and can be any zero-cost proxy. This keeps the method fully orthogonal to proxy design. For the discriminator, we instead leverage the power of parameter count and introduce parameter distribution shift.
+
+With the knowledge that in complex conditional NAS spaces, highest parameter count does not directly translate to highest performance, we opt to define a parameter-based discriminator that defines a score around the distribution of parameter counts and targets the right model size~:
+$$
+\Phi_\alpha = e^{-\left(\frac{p(\alpha) - \mu}{\sigma}\right)^2}
+$$
+where $p(\alpha)$ is the parameter count of the considered architecture, $\mu$ and $\sigma$ are hyperparameters for calibration.
+
+In prior work, \citet{peng2024swap} used this score to directly regularize their zero-cost proxy. Due to the complete uncertainty over what kind of distribution parameters accurately represent the space, they chose $\mu$ and $\sigma$ based on knowledge of the parameter count distribution in the search space. However, such knowledge is completely unavailable in real-world NAS scenarios with unknown search spaces, where the approximate statistics of good architectures are not available beforehand. This makes this method of calibration impractical. Instead, we infer $\mu$ and $\sigma$ directly from the population's mean and standard deviation in the genetic algorithm at the current generation, allowing the method to remain completely agnostic to the search space. Unlike \citet{peng2024swap}, who directly summed their parameter count regularizer with the ZCP, we instead give it a standalone role as a discriminator metric.
+
+At the beginning of the search, encouraging the exploration of high-parameter-count architectures promotes population diversity. Toward the end, this bias is gradually reduced to favor architectures with lower parameter counts. To achieve this, the mean of the score distribution is adjusted according to a temperature-controlled schedule. The final score is computed as follows:
+
+$$
+\Phi_{\alpha, \Pi}(\tau) = e^{-\left(\frac{p(\alpha) - (\hat{\mu}(\Pi) + \tau\hat{\sigma}(\Pi))}{\hat{\sigma}(\Pi)}\right)^2}
+$$
+where $\hat{\mu}(\Pi)$ and $\hat{\sigma}(\Pi)$ are the estimated mean and standard deviation over population $\Pi$, and the temperature $\tau$ varies between hyperparameters $\tau_{max}$ and $\tau_{min}$ during the search, both of which are search space-agnostic. The full genetic algorithm with parameter distribution shifted discriminator is detailed in appendix~\ref{apx_algorithm}.
+
+\section{Experiments}
+\label{experiments}
+
+\begin{figure}[h]
+\centering
+\begin{adjustbox}{width=\linewidth}
+    \begin{subfigure}[t]{.51\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/exp_new/p2same_max_acc.pgf}}
+        \caption{\centering Genetic algorithm with a single ZCP}
+        \label{fig_genetic_same}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{.49\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/exp_new/p2regparam_max_acc.pgf}}
+        \caption{\centering Genetic algorithm with ZCP explorer \\
+        and parameter-based discriminator}
+        \label{fig_genetic_regparams}
+    \end{subfigure}%
+\end{adjustbox}
+\caption{Rank of best architecture in genetically evolved populations, on 8 different benchmark tasks and 10 ZCPs. We observe significant gains with a carefully designed discriminator.~\dag~The \texttt{meco} ZCP was found to be incompatible with genetic mutation in the TNB101-MACRO space.}
+\label{fig_genetic}
+\end{figure}
+
+\subsection{Benchmark}
+\label{experiments_nbsz}
+
+We apply our ParaDis method to the benchmarks described in \ref{investigation_context}, specifically 8 tasks from the NB201 and TNB101-Micro search spaces. We use the following hyperparameters for the genetic algorithm: population size 25, sample size of 8, 15 generations with 5 evolutionary steps per generation, totaling 75 evolution steps. For ZCP computations, we use a batch size to 32. On a single NVIDIA A100 GPU, the running time of our method varies between 3 and 40 minutes depending on the task and the paired proxy. We report the ranks of the best architectures in the final populations for each search space and task in Fig.~\ref{fig_genetic_regparams}. For the sake of fair comparison, we run our genetic algorithm as a regular zero-cost method (i.e, the discriminator metric is the same as the explorer's) using the same hyperparameters and report the results in Fig.~\ref{fig_genetic_same}.
+
+We observe a significant boost in the quality of architectures discovered with the ParaDis discriminator compared to the single ZCPs. Specifically, the ranks of discovered architectures is lower on average for every metric. Unsurprisingly, the biggest gains are obtained for ZCPs that struggle to reach a good region of the space on their own. In accordance with our earlier benchmarking analysis, metrics which display high Spearman correlation such as \texttt{swap} do not natively translate to finding a better-ranked architecture. The results of the \texttt{synflow} metric are especially insightful as it is the only data-agnostic method studied (aside from \texttt{\#params}) yet displays the most robust results natively.
+
+\begin{figure}[h]
+\centering
+\begin{adjustbox}{width=\linewidth}
+    \begin{subfigure}[t]{.52\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/exp_new/p2same_avg_acc.pgf}}
+        \caption{\centering Genetic algorithm with a single ZCP}
+        \label{fig_genetic_avg_same}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{.48\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/exp_new/p2regparam_avg_acc.pgf}}
+        \caption{\centering Genetic algorithm with ZCP explorer \\
+        and parameter-based discriminator}
+        \label{fig_genetic_avg_regparams}
+    \end{subfigure}%
+\end{adjustbox}
+\caption{Average validation accuracy in genetically evolved populations, on 8 different benchmark tasks and 10 ZCPs.~\dag~The \texttt{meco} ZCP is incompatible with genetic mutation in the TNB101-MACRO space.}
+\label{fig_genetic_avg}
+\end{figure}
+
+We complete our benchmark analysis by reporting the average accuracy of the final population (Fig.~\ref{fig_genetic_avg}). Strong population accuracy makes it less likely for poorly performing architectures to remain in the population after evolution. Once again, we observe significant boosts to average accuracy for metrics that displayed low average accuracy in the single ZCP setting, bringing them up to the level of better-performing metrics.
+
+Overall, our benchmark experiments demonstrate that our parameter-based discriminator scheme restricts the search space to regions where all ZCPs can thrive, thus bridging the previously identified top rank gap. Notably, the \texttt{\#params} baseline remains a dominant predictor of performance on these benchmarks. In this context, ParaDis proves highly effective at bridging the performance gap, bringing weaker ZCPs up to the level of this strong baseline. The fact that performance converges near the \texttt{\#params} result suggests a saturation of these shallower search spaces, where model size is the primary driver of accuracy. This motivates the need to evaluate ParaDis in more complex environments such as the DARTS space, where structural connectivity plays a larger role than raw parameter count.
+
+\subsection{DARTS space experiments}
+\label{experiments_darts}
+
+\begin{table}[h]
+\centering
+\caption{Overview of CIFAR10 performances of networks found by various NAS methods. \dag~Indicates methods that used the DARTS search space.}
+\begin{adjustbox}{width=\linewidth}
+\begin{tabular}{m{5cm} | m{2.1cm} | m{1cm} | m{1.8cm} | m{2cm} | m{1.5cm} | m{1.5cm}}
+    & Validation Accuracy (\%) & Time (GPU Days) & Search Type & Evaluation Type & Data-Agnostic & Space-Agnostic\\
+    \hline
+
+    ENAS \citep{pham2018efficient} & 97.11 & 0.45 & RL & One-shot & \xmark & \xmark \\
+
+    DARTS-1st~\dag~\citep{liu2018darts} & 97.00 $\pm$ 0.14 & 0.4 & Gradient & One-shot & \xmark & \xmark \\
+
+    DARTS-2nd~\dag~\citep{liu2018darts} & 97.24 $\pm$ 0.09 & 1.0 & Gradient & One-shot & \xmark & \xmark \\
+
+    SNAS \citep{xie2018snas} & 97.15 $\pm$ 0.02 & 1.5 & Gradient & One-shot & \xmark & \xmark \\
+
+    SGAS~\dag~\citep{wang2021rethinking} & 97.44 $\pm$ 0.10 & 0.29 & Gradient & One-shot & \xmark & \xmark \\
+
+    DrNAS \citep{chen2020drnas} & 97.54 $\pm 0.03$ & 0.6 & Gradient & One-shot & \xmark & \xmark \\
+
+    \hline
+
+    TE-NAS~\dag~\citep{chen2021neural} & 97.37 $\pm$ 0.064 & 0.03 & Pruning & Training-free & \xmark & \cmark \\
+
+    Zen-NAS \citep{lin2021zen} & 96.2 & - & Evolution & Training-free & \xmark & \cmark \\
+
+    MeCo~\dag~\citep{jiang2023meco} & 97.31 $\pm$ 0.05 & 0.08 & Pruning & Training-free & \xmark & \cmark \\
+
+    SWAP-NAS~\dag~\citep{peng2024swap} & 97.52 $\pm$ 0.09 & 0.004 & Evolution & Training-free & \xmark & \xmark \\
+
+    \hline
+
+    Baseline + \texttt{synflow}~\dag~ & 97.09 $\pm$ 0.26 & 0.06 & Evolution & Training-free & \cmark & \cmark \\
+    
+    Baseline + \texttt{\#params}~\dag~ & 97.06 $\pm$ 0.04 & 0.04 & Evolution & Training-free & \cmark & \cmark \\
+
+    ParaDis + \texttt{synflow}~\dag~ & \textbf{97.29 $\pm$ 0.07} & 0.09 & Evolution & Training-free & \cmark & \cmark \\
+
+\end{tabular}
+\end{adjustbox}
+\label{table_results}
+\end{table}
+
+In order to assess the quality of our method in a more complex setting, we conduct experiments on the standard DARTS space \citep{liu2018darts}. The DARTS space is comprised of 2 searchable cell types with 14 edges per cell. We group both cell types inside the same genome and generate them both jointly during our evolutionary sampling. The hyperparameters of our search are kept the same except for the number of generations which is raised to 30 for a total of 150 evolutionary steps. Generating the final population takes about 2 hours on a single NVIDIA A100 GPU. Architecture selection among the population is conducted via a simple successive halving scheme.
+
+For the explorer ZCP role, we selected the \texttt{synflow} metric out of all available metric owing to the strong displayed results in the NAS-Bench-Suite-Zero benchmark and its data-agnostic nature which enables the construction of a fully data-agnostic and space-agnostic method inside the ParaDis framework. Our results are reported in Table~\ref{table_results}. We also report the results of our evolutionary setup without the ParaDis discriminator paired with the \texttt{synflow} and \texttt{\#params} metrics. This allows us to verify that the ParaDis coupling outperforms both of its components in the complex DARTS space. When compared with other popular and state-of-the-art NAS methods, ParaDis + \texttt{synflow} is competitive while remaining independant both from the data and the space.
+
+\subsection{Ablation on genetic algorithm design}
+\label{experiments_ablation}
+
+\begin{figure}
+    \begin{tabular}{m{0.52\linewidth} m{0.52\linewidth}}
+        \begin{subfigure}[t]{\linewidth}
+            \resizebox{\textwidth}{!}{\includegraphics{fig/scenario_a}}
+            \caption{Setup 1}
+        \end{subfigure} & 
+        \begin{subfigure}[t]{\linewidth}
+            \resizebox{\textwidth}{!}{\includegraphics{fig/scenario_b}} 
+            \caption{Setup 2}
+        \end{subfigure} \\
+        \begin{subfigure}[t]{\linewidth}
+            \resizebox{\textwidth}{!}{\includegraphics{fig/scenario_c}}
+            \caption{Setup 3 (used for main experimental results)}
+        \end{subfigure} &
+        \begin{subfigure}[t]{\linewidth}
+            \resizebox{\textwidth}{!}{\includegraphics{fig/scenario_d}}
+            \caption{Setup 4}
+        \end{subfigure}
+    \end{tabular}
+    \caption{Various genetic algorithm setups compatible with ZCP-based NAS. Identifying favorable algorithmic design choices allows for fair comparison of ZCPs.}
+    \label{fig_genetic_setups}
+\end{figure}
+
+When designing the genetic search of a zero-cost method, there are many options available. Most prior methods \citep{peng2024swap,lin2021zen,li2023zico} have opted for some form of tournament selection. However, the exact impact of algorithmic design choices within the frame of tournament selection has not been extensively studied.
+
+In this section, we evaluate the performance of state-of-the-art ZCPs under various genetic setups inspired by common design choices encountered in the literature. We identify 4 different scenarii to evaluate which components of the tournament selection framework are integral to a ZCP method's performance. Graphic representations of each setup are also depicted in Fig.~\ref{fig_genetic_setups}:
+\begin{itemize}
+\item Setup 1: no tournament selection. At each evolutionary step, the 2 best architectures in the whole population go on to mutation and crossover while the 3 worst architectures are discarded. Even before running any experiments, the lack of stochasticity of this scenario is questionable and could lead to early collapse in local minima.
+\item Setup 2: full tournament selection. At each evolutionary step, tournament selection is conducted on a subset of the population. The 2 best architectures in the subset go on to mutation and crossover while the 3 worst architectures in the subset are discarded.
+\item Setup 3: partial tournament selection. At each evolutionary step, tournament selection is conducted on a subset of the population. Compared to setup 2, the worst 3 architectures across the whole population are discarded, increasing the likelihood of low quality candidates being removed from the genetic pool in early stages. This is the genetic setup used throughout our main experiments.
+\item Setup 4: partial multi-tournament selection. At each evolutionary step, tournament selection is conducted separately on 2 subsets of the population. Winners of both subsets undergo mutation and crossover with each other. Discarded architectures are selected from both tournaments and the remainder of the population.
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\caption{Maximum accuracy in the population after ZCP evolution in NB201/ImageNet under various genetic setups.}
+\begin{adjustbox}{width=0.7\linewidth}
+\begin{tabular}{m{2cm} | m{2.1cm} | m{2.1cm} | m{2.1cm} | m{2.1cm}}
+    & Setup 1 & Setup 2 & Setup 3 & Setup 4\\
+    \hline
+
+    \texttt{synflow} & 44.94 $\pm$ 0.13 & 45.26 $\pm$ 0.05 & \textbf{46.63 $\pm$ 0.59} & 46.41 $\pm$ 0.69\\
+
+    \texttt{swap} & 44.94 $\pm$ 0.13 & 45.26 $\pm$ 0.05 & 46.14 $\pm$ 0.46 & \textbf{46.24 $\pm$ 0.47}\\
+
+    \texttt{meco} & 44.94 $\pm$ 0.13 & 45.26 $\pm$ 0.05 & 45.20 $\pm$ 1.45 & \textbf{45.97 $\pm$ 0.35}\\
+
+\end{tabular}
+\end{adjustbox}
+\label{table_abla_genetic_max}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Average accuracy in the population after ZCP evolution in NB201/ImageNet under various genetic setups.}
+\begin{adjustbox}{width=0.7\linewidth}
+\begin{tabular}{m{2cm} | m{2.1cm} | m{2.1cm} | m{2.1cm} | m{2.1cm}}
+    & Setup 1 & Setup 2 & Setup 3 & Setup 4\\
+    \hline
+
+    \texttt{synflow} & 41.03 $\pm$ 0.34 & 39.74 $\pm$ 0.92 & \textbf{41.54 $\pm$ 1.42} & 39.70 $\pm$ 1.71\\
+
+    \texttt{swap} & 41.03 $\pm$ 0.34 & 39.74 $\pm$ 0.92 & 42.31 $\pm$ 0.73 & \textbf{43.09 $\pm$ 0.17}\\
+
+    \texttt{meco} & 41.03 $\pm$ 0.34 & 39.74 $\pm$ 0.92 & \textbf{42.48 $\pm$ 0.81} & 39.83 $\pm$ 1.44\\
+
+\end{tabular}
+\end{adjustbox}
+\label{table_abla_genetic_avg}
+\end{table}
+
+We conduct evolution for 50 evolutionary steps on the NB201/ImageNet task over 3 seeds with the \texttt{synflow}, \texttt{swap} and \texttt{meco} metrics as fitness scores and report the results for maximum and average accuracy of the population in Tables~\ref{table_abla_genetic_max} and~\ref{table_abla_genetic_avg}. We observe that setups 1 and 2 produce worse results than setups 3 and 4 overall. More worryingly the evolutions collapse to the exact same populations for a given seed no matter the ZCP, indicating that the design of the genetic algorithm fully overwrites the additional information provided by the metric and leads to a local minimum, thereby creating a performance ceiling. This highlights the importance of proper genetic algorithm design as seemingly small changes (e.g where discarded architectures are selected) can be the difference maker between effective evolution and non-stochastic collapse. Furthermore, setup 4 does not meaningfully improve performance compared to setup 3 based on $1\sigma$ rules, therefore we use setup C in our experiments as it is the least complex of the two.
+
+\section{Conclusion}
+\label{conclusion}
+
+In this work, we introduce ParaDis, a framework to associate zero-cost proxies (ZCPs) with space-agnostic parameter-based constraints. We show that our approach brings several benefits for training-free neural architecture search. Through a novel perspective on benchmarking, we identify the inability of ZCPs to correlate with the ranking of the best architectures in the space as the top rank gap and show that ParaDis improves this ongoing issue of the literature by enabling all proxies to reach suitable regions of the space. Concurrently, we show that ParaDis enables the construction of a fully data- and space- agnostic pipeline which can compete with other state-of-the-art methods on the DARTS search space. Owing to its orthogonality with ZCP design and lack of assumptions on the search space, ParaDis is a robust and versatile framework for zero-shot NAS.
+
+%%%
+%%%\subsubsection*{Acknowledgments}
+%%%Use unnumbered third level headings for the acknowledgments. All
+%%%acknowledgments, including those to funding agencies, go at the end of the paper.
+%%%Only add this information once your submission is accepted and deanonymized.
+%%%
+
+\newpage
+
+\bibliography{bibliography}
+\bibliographystyle{tmlr}
+
+\newpage
+
+\appendix
+
+\section{Full ParaDis algorithm}
+\label{apx_algorithm}
+
+\begin{algorithm}[ht]
+\caption{\underline{\textbf{Para}}meter \underline{\textbf{Dis}}tribution Shift NAS (\textbf{ParaDis})}
+\label{alg_paradis}
+\begin{algorithmic}[1]
+\Require: population size $P$, sample size $p < P/2$, number of generations $N$, evolution steps per generation $S$, zero-cost metric $\mathcal{M}$, temperature schedule $[\tau_0, \tau_1, \dots, \tau_N]$
+\State $population \gets \emptyset$
+\While {$population.size < P$}
+\State Randomly sample $arch$ from the space
+\State $arch.zcp\_score \gets \mathcal{M}(arch)$
+\State $arch.params \gets CountParams(arch)$
+\State Add $arch$ to $population$
+\EndWhile
+\State $\mu$, $\sigma \gets Mean(population.params), STD(population.params)$
+\For {$arch$ in $population$}
+\State $arch.paradis\_score \gets \Phi(arch.params, \mu, \sigma, \tau_0)$ \ref{method}
+\EndFor
+\For {$n=1,2,\dots,N$}
+\State $\tau \gets \tau_n$
+\For {$s=1,2,\dots S$}
+\State Discard 3 worst $archs$ from $population$ by $paradis\_score$
+\State $candidates_A \gets p$ random $archs$ of $population$
+\State $candidates_B \gets$ all remaining $archs$ in $population$
+\State Create children by mutation from best $archs$ in $candidates_A$ and $candidates_B$ by $zcp\_score$
+\State Create child by crossover between best $archs$ in $candidates_A$ and $candidates_B$ by $zcp\_score$
+\State Compute $zcp\_score$ and $params$ for new children
+\State Add children to $population$
+\EndFor
+\State $\mu$, $\sigma \gets Mean(population.params), STD(population.params)$
+\For {$arch$ in $population$}
+\State $arch.paradis\_score \gets \Phi(arch.params, \mu, \sigma, \tau)$ \ref{method}
+\EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\section{Additional ablations}
+
+In the following sections, we extensively study the impact of the various hyperparameters on the outcome of our method. Where applicable, we conduct ablation studies using the \texttt{synflow} metric on the NB201 ImageNet16-120 task. Note that the set of hyperparameters obtained for \texttt{synflow} is not necessarily optimal for all other ZCPs. Therefore, we assume fairness in benchmarking ZCPs with the same evolutionary budget.
+
+\subsubsection{Temperature schedule}
+
+\begin{figure}[h]
+\centering
+\begin{adjustbox}{width=.8\linewidth}
+    \begin{subfigure}[t]{.4\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/ablations/heatmap_tau_popmax.pgf}}
+        \caption{\centering Max population accuracy under various start/end $\tau$ pairs.}
+        \label{fig_abla_tau_max}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{.4\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/ablations/heatmap_tau_popavg.pgf}}
+        \caption{\centering Average population accuracy under various start/end $\tau$ pairs.}
+        \label{fig_abla_tau_avg}
+    \end{subfigure}%
+\end{adjustbox}
+\caption{Maximum and average accuracy of populations searched using discriminator-based search with \texttt{synflow} ZCP on the NB201 ImageNet16-120 task under various temperature schedules.}
+\label{fig_abla_tau}
+\end{figure}
+
+In order to assess the sensitivity of our method to the single additional parameter of temperature scheduling, we conduct grid search over the pairs of start and end $\tau$ for the linear schedule. We report our results as heatmaps for both relevant population metrics~: average and maximum population accuracy (Fig.~\ref{fig_abla_tau}). We find that the accuracy of the best evolved architecture increases with higher values of start $\tau$ and decreases with lower values of end $\tau$. Meanwhile, average population accuracy increases drastically at the mark of start $\tau=1.5$. This ablation highlights the delicate balance at play when augmenting ZCPs with parameter count. While the best architectures have high parameter count, many high parameter count architectures display lesser performance. Therefore, tuning the schedule to favor large architectures hurts population quality. In light of these results, we adopt a linear schedule starting at $\tau=1.5$ and ending at $\tau=0.5$ in our experiments.
+
+\subsubsection{Number of generations}
+
+\begin{figure}[h]
+\centering
+\begin{adjustbox}{width=.8\linewidth}
+    \begin{subfigure}[t]{.4\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/ablations/plot_generations_popmax.pgf}}
+        \caption{\centering Max population accuracy across various numbers of generations.}
+        \label{fig_abla_gen_max}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{.4\textwidth}
+        \resizebox{\textwidth}{!}{\input{fig/ablations/plot_generations_popavg.pgf}}
+        \caption{\centering Average population accuracy across various numbers of generations.}
+        \label{fig_abla_gen_avg}
+    \end{subfigure}%
+\end{adjustbox}
+\caption{Maximum and average accuracy of populations for various numbers of search generations.}
+\label{fig_abla_gen}
+\end{figure}
+
+We conduct ablation studies over the number of generations and observe the trend of average and maximum population accuracy over the generations (Fig.~\ref{fig_abla_gen}). We observe that maximum accuracy plateaus between the 13th and 18th generation. Surprisingly, the average accuracy of the population follows a downward trend when the maximum number of generation increases. We hypothesize that while a sufficient number of iterations is required for top-ranking architectures to be evolved, longer exploration also leads to more architectures with diverse performance, reducing average population accuracy. This highlights a no free lunch tradeoff as regards the highest potential performance versus the difficulty of the search in the end population. Consequently, we adopt a generation count of 15 in our experiments which we find to yield high improvement in our experiments~\ref{experiments_nbsz}.
+
+\section{Search space encodings}
+\label{apx_encodings}
+
+In this section, we detail the encodings of the search spaces used for the experiments, largely based on the implementation from~\citet{krishnakumar2022bench}.
+
+\subsection{NAS-Bench-201}
+
+The genome encoding of architectures from the NB201 space~\citep{dong2020bench} is directly inferred from their graph-like cell structure. The cell is directly copied and stacked to form a complete network, therefore it is sufficient to encode a single cell. Each edge of the cell's graph is assigned to a genome position. The operation choices of the space (5 possible operations) are encoded into each position as a numerical value. With 6 edges in the graph, the resulting genome is a 6 values long string.
+
+\subsection{TransNAS-Bench-101 Micro}
+
+Due to being based directly on the same setting, the genome encoding of architectures for the TNB101-Micro space~\citep{duan2021transnas} is similar to the encoding for the NB201, with 6 edges and 4 operation choices.
+
+\subsection{TransNAS-Bench-101 Macro}
+
+The TNB101-Macro space~\citep{duan2021transnas} consists in a stack of 4 to 6 residual blocks where the locations of up to 4 downsamplings and up to 3 channel doublings can be chosen. It is therefore encoded as a string of 6 values, with each value assigned to one of the possible combinatorial choices: nothing, downsampling, double channels or downsampling+double channels. If the sampled architecture is smaller than the maximum size 6, the genome is padded with 0s to reach 6 values.
+
+\subsection{DARTS}
+
+The DARTS space~\citep{liu2018darts} consists in a stack of 20 cells separated into two types: normal and reduction, both of which are searchable and hold a different genome. Each 3 normal cells in the stack are followed by a reduction cell which includes a downsampling. The cells are constructed from 2 input nodes (corresponding to the outputs of cells $k-1$ and $k-2$, thus introducing long-range skips) and 4 intermediate nodes. The output of the cell is obtained by concatenation of the features in all intermediate nodes. Therefore, there are 14 edges per cell, however the space includes a constraint for 2 input edges per intermediate node to be non-zero, for a total of 8 non-zero edges per cell. Therefore, during sampling, mutation and crossover, we perform additional checks to ensure that the adequate number of zeroed edges is maintained. We then represent the DARTS genome as a concatenation of the normal and reduction cell genomes.
+
+\section{ZCP details}
+\label{apx_zcp}
+
+In this section, we present the definitions of each benchmarked ZCP based on theoretical insights and their implementation.
+
+\subsection{\texttt{\#params}}
+
+\texttt{\#params} is defined simply as the number of trainable parameters in the network. We directly use the network implementation to count its parameters without need for additional data.
+
+\subsection{\texttt{jacov}}
+
+\texttt{jacov} is introduced in~\citet{mellor2021neural} as the standalone method NASWOT then later renamed as \texttt{jacov} in~\citet{abdelfattah2021zero}. It is defined based on the covariance matrix of the Jacobian:
+$$
+C = cov(\nabla_w(\mathcal{L}))
+$$
+where $\mathcal{L}$ is the loss. The Jacobian is obtained by concatenation of the gradients of the model from a backward pass over a single batch of data. Then, \texttt{jacov} is constructed as a measure of the ability of the model to differentiate inputs in the batch:
+$$
+\texttt{jacov} = - \sum_{i=1}^n \left(log(\lambda^i) + \frac{1}{\lambda^i}\right)
+$$
+where $\lambda_1 \dots \lambda_n$ are the eigenvalues of $C$.
+
+\subsection{\texttt{grad\_norm}}
+
+\texttt{grad\_norm} is introduced by~\citet{abdelfattah2021zero} as a naive baseline for ZCPs. When the norm of the gradients of the model is higher, the model intuitively progresses faster in its parameter space, and is therefore easier to train.
+$$
+\texttt{grad\_norm} = \|\nabla_w(\mathcal{L}(m, w)\|_{\mathcal{F}}
+$$
+
+\subsection{\texttt{snip}, \texttt{grasp}, \texttt{synflow}}
+
+\texttt{snip}~\citep{lee2018snip} \texttt{grasp}~\citep{wang2020picking} and \texttt{synflow}~\citep{tanaka2020pruning} are saliency metrics introduced in the pruning literature to determine the importance of specific parameters. They are aggregated over the entire network to provide a measure of the overall saliency of parameters in the model.
+
+$$
+\texttt{snip} = \sum_i^N |\frac{\partial \mathcal{L}}{\partial \theta_i} \odot \theta_i|
+$$
+
+$$
+\texttt{grasp} = \sum_i^N -\left(H\frac{\partial \mathcal{L}}{\partial \theta_i}\right) \odot \theta_i
+$$
+
+$$
+\texttt{synflow} = \sum_i^N |\frac{\partial \mathcal{L}}{\partial \theta_i} \odot \theta_i|
+$$
+
+All 3 metrics are summed over the $N$ layers of the network. $\theta_i$ are the trainable parameters at layer $i$, $\mathcal{L}$ is the loss and $\odot$ is the Hadamard product. In the case of \texttt{grasp}, the Hessian $H$ is computed via the $\mathcal{R}\{\cdot\}$ trick~\citep{pearlmutter1994fast}. \texttt{synflow} is similar to \texttt{snip}, but is data-agnostic as it does not compute over a batch of data, instead using a full matrix of 1 as input to estimate the synaptic flow.
+
+\subsection{\texttt{fisher}}
+
+\texttt{fisher} is introduced as a ZCP by~\citet{abdelfattah2021zero}. It is based on the aggregated sum of layerwise Fisher information~\citep{theis2018faster, turner2019blockswap} over the $N$ layers of the model:
+$$
+\texttt{fisher} = \sum_i^N \left( \frac{\partial \mathcal{L}}{\partial z_i} z_i \right)^2
+$$
+where $z_i$ is the aggregation of post-activations at layer $i$ and $\mathcal{L}$ is the loss.
+
+\subsection{\texttt{ntk}}
+
+\texttt{ntk} is introduced as a ZCP in the TE-NAS method~\citep{chen2021neural} where it is paired with the number of linear regions. It is defined as the condition number of the Neural Tangent Kernel (NTK)~\citep{jacot2018neural, lee2019wide, xiao2019disentangling}. Networks with lower condition number have better convergence property and trainability. We estimate the Neural Tangent Kernel following the TE-NAS estimation scheme:
+$$
+\Theta = \nabla_w(\mathcal{L}^T\nabla_w(\mathcal{L})
+$$
+where $\mathcal{L}$ is the loss and $w$ are the trainable parameters of the model. Considering the eigenvalues $\lambda_0 \dots \lambda_n$ of $\Theta$, we have:
+$$
+\texttt{ntk} =  \lambda_n / \lambda_0
+$$
+
+\subsection{\texttt{zen}}
+
+\texttt{zen} is introduced in~\citet{lin2021zen} as a ZCP based on the noise error of the model and the statistics of the batch normalization layers (BN). Therefore, it is specific to search spaces that contain batch normalizations.
+
+Let $x, \epsilon$ the inputs of \texttt{zen} sampled from a normal distribution $\mathcal{N}(0, 1)$. For model $f$ and hyperparameter $\alpha$, we have:
+$$
+\Delta = \mathbb{E}_{x, \epsilon}\|f(x) - f(x +\alpha\epsilon)\|_F
+$$
+
+And for all BN layer in the model, we define:
+$$
+\bar{\sigma} = \textstyle\sum_i log \left(\sqrt{\textstyle\sum_j^m \sigma_{i, j} ^2/m} \right)
+$$
+which considers the standard deviation $\sigma_{i,j}$ of BN layer $i$ at the $j$th out of $m$ channels.
+
+Both parts of the metric are then summed:
+$$
+\texttt{zen} = log(\Delta) + \bar{\sigma}
+$$
+
+\subsection{\texttt{zico}}
+
+\texttt{zico}~\citep{li2023zico} is introduced to evaluate the generalization capacity of architectures~\citep{keskar2016large, liang2017fisher} based on the statistics of the gradients:
+$$
+\texttt{zico} = \sum_{i=1}^N log \left( \sum_{\omega \in \theta_i} \frac{\mathbb{E\|\nabla_\omega\mathcal{L}\|}}{\sqrt{Var(\nabla_\omega\mathcal{L})}}\right)
+$$
+where $\theta_i$ are the trainable parameters at layer $i$ out of $N$ layers, and $\mathcal{L}$ is the loss.
+
+\subsection{\texttt{meco}}
+
+\texttt{meco}~\citep{jiang2023meco} is introduced based on similar insights as \texttt{zico} by noticing that the Pearson correlation matrix is closely related to the Gram matrix. Let the Pearson correlation matrix over the outputs of mode $f$ with input $X$:
+$$
+[\mathcal{P}(X)]_{i,j} = \frac{\mathbb{E}\|(f(X_i) - \mu_{f(X_i)})(f(X_j) - \mu_{f(X_j)})\|}{\sigma_{f(X_i)}\sigma_{f(X_j)}}
+$$
+where $\mu_x$ and $\sigma_x$ are the mean and standard deviation of $x$, respectively. \texttt{meco} is then computed based on the minimum eigenvalue $\lambda_{min}$ of the Pearson correlation matrix:
+$$
+\texttt{meco} = \textstyle\sum_{i=1}^N \lambda_{min}(\mathcal{P}(X))
+$$
+
+\subsection{\texttt{swap}}
+
+\texttt{swap}~\citep{peng2024swap} is a reframing of the concept of linear regions partition in the latent space of the network to measure the expressivity of the network~\citep{raghu2017expressive, xiong2020number, chen2021neural}.
+
+The set of sample-wise activation patterns of the network is gathered as:
+$$
+\hat{\mathbb{A}}_{\theta} = \left\{ \mathds{1} (p_s^{(v)})_{s=1}^S, v\in\{1, \dots ,V\}\right\}
+$$
+where $p_s^{(v)}$ is the post-activation of sample $s$ at value $v$. $\hat{\mathbb{A}}_{\theta}$ contains the one-hot encodings of all activation patterns obtained in the network for the samples in batch $S$.
+
+\texttt{swap} is then equal to the number of activation patterns, which is the cardinal of the set:
+$$
+\texttt{swap} = |\hat{\mathbb{A}}_{\mathcal{\theta}}|
+$$
+
+\section{More details about the Spearman correlation benchmarks}
+\label{apx_benchmark_details}
+
+In the main paper, confidence intervals for the Spearman correlation benchmarks are omitted to keep the table readable. The displayed value is averaged over 3 seeds. In the following tables we present the Spearman correlation for both the full space setting and the top 1\% with $1\sigma$ error.
+
+\begin{figure}[H]
+\begin{adjustbox}{width=\linewidth}
+    \includegraphics[width=\textwidth]{fig/benchmarks/zcp_corr_std.pdf}
+\end{adjustbox}
+\caption{\centering Spearman rank correlations of various ZCPs on the NAS-Bench-201, NAS-Bench-301 and TransNAS-Bench-101 benchmarks. Spearman was computed over 3 seeds against the entire search space.}
+\label{fig_bench_corr_full_std}
+\end{figure}
+
+\begin{figure}[H]
+\begin{adjustbox}{width=\linewidth}
+    \includegraphics[width=\textwidth]{fig/benchmarks/zcp_corr_top1pct_std.pdf}
+\end{adjustbox}
+\caption{\centering Spearman rank correlations of various ZCPs on the NB201, NB301 and TNB101 benchmarks. Spearman was computed on 3 seeds against the top 1\% architectures in the space.}
+\label{fig_bench_corr_top_std}
+\end{figure}
+
+\end{document}

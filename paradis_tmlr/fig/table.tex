@@ -1,0 +1,45 @@
+\documentclass[]{standalone}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{adjustbox}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{multirow}
+\usepackage{array}
+
+\begin{document}
+
+\begin{adjustbox}{width=1\textwidth}
+
+\begin{tabular}{m{15cm}}
+\\
+\begin{tabular}{m{5cm} | m{2.5cm} | m{1cm} | m{2cm} | m{2cm}}
+    & Validation Accuracy (\%) & Time (GPU Days) & Search Type & Evaluation Type \\
+    \hline
+
+    DARTS & 97.00 $\pm$ 0.14 & 4 & Gradient & One-shot \\
+    TE-NAS & 97.37 $\pm$ 0.064 & 0.03 & Pruning & Training-free \\
+    MeCo & 97.31 $\pm$ 0.05 & 0.08 & Pruning & Training-free \\
+    SWAP-NAS \dag & 97.52 $\pm$ 0.09 & 0.004 & Evolution & Training-free \\
+
+    \hline
+
+    Baseline + \texttt{synflow} & 97.09 $\pm$ 0.26 & 0.12 & Evolution & Training-free\\
+    
+    Baseline + \texttt{\#params} & 97.06 $\pm$ 0.04 & 0.08 & Evolution & Training-free\\
+
+    ParaDis + \texttt{synflow} & \textbf{97.29 $\pm$ 0.07} & 0.09 & Evolution & Training-free\\
+    
+    \hline
+
+\end{tabular}\\
+\\
+\\
+
+\end{tabular}
+
+\end{adjustbox}
+
+\end{document}

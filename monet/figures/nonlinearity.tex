@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+    % Latency chart (left)
+    \begin{scope}[xshift=0cm]
+        \begin{axis}[
+            ybar,
+            bar width=0.7cm,
+            width=9cm,
+            height=6cm,
+            ylabel={Latency},
+            xtick={0.5,0.925,1.325,1.75},
+            xticklabels={AC01, AC10, AC11, AC01 + AC10},
+            ymin=-2.6e6,
+            ymax=3e6,
+            grid=major,
+            grid style={dashed, gray!30},
+            enlarge x limits=0.5,
+        ]
+        \addplot[fill=Paired-2, draw=Paired-1]   coordinates {(0.75, 2716607.33333334)};
+        \addplot[fill=Paired-6, draw=Paired-5]    coordinates {(1, -1832621.66666663)};
+        \addplot[fill=Paired-8, draw=Paired-7]  coordinates {(1.25, 2311836.33333334)};
+        \addplot[fill=Paired-4, draw=Paired-3] coordinates {(1.5, 883985.666666716)};
+        \end{axis}
+    \end{scope}
+
+    % Energy chart (right)
+    \begin{scope}[xshift=10cm] % adjusted to prevent overlap due to wider width
+        \begin{axis}[
+            ybar,
+            bar width=0.7cm,
+            width=9cm,
+            height=6cm,
+            ylabel={Energy},
+            xtick={0.5,0.925,1.325,1.75},
+            xticklabels={AC01, AC10, AC11, AC01 + AC10},
+            ymin=0,
+            ymax=3.7e9,
+            grid=major,
+            grid style={dashed, gray!30},
+            enlarge x limits=0.5,
+        ]
+        \addplot[ybar, fill=Paired-2, draw=Paired-1]   coordinates {(0.75, 2299541203.13922)};
+        \addplot+[ybar, fill=Paired-6, draw=Paired-5] coordinates {(0.75, 1003261192.06412)};
+        \addplot[fill=Paired-8, draw=Paired-7]  coordinates {(1.25, 656826923.123398)};
+        \addplot[fill=Paired-4, draw=Paired-3] coordinates {(1.5, 3302802395.20334)};
+        \end{axis}
+    \end{scope}
+\end{tikzpicture}

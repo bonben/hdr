@@ -1,0 +1,98 @@
+% \documentclass{article}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+% \usetikzlibrary{patterns} % Required for patterns
+% \input{colors}
+\pgfmathsetmacro{\shift}{-8pt}
+% \begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    width=\columnwidth,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.2,
+    symbolic x coords={AC01, AC10, AC2, AC11},
+    xtick=data,
+    xticklabels={},
+    ylabel={Latency (Cycles)},
+    ymin=-2e6, ymax=40e5,
+    axis y line*=left,
+    scaled y ticks=base 10:-6,
+    ytick scale label code/.code={},
+    ylabel={Latency ($\times 10^{6}$ Cycles)},
+    legend style={at={(0.02,0.02)}, anchor=south west, font=\footnotesize},
+    % grid=major,
+    % grid style={dashed, gray!30},
+    legend image code/.code={\draw[fill=Set2-8, draw=Set1-10] (0cm,-0.15cm) rectangle (0.4cm,0.25cm);}
+]
+
+\addplot[fill=Paired-2, draw=Paired-1, ybar, bar shift=-8pt] coordinates {(AC01, 2716606)};
+\node[above, xshift=5pt] at (axis cs:AC01, 2716606) {AC01};
+\addplot[fill=Paired-6, draw=Paired-5, ybar, bar shift=-8pt] coordinates {(AC10, -1832621.66666663)};
+\addplot[fill=Paired-8, draw=Paired-7, ybar, bar shift=-8pt] coordinates {(AC2, 883985.33333334)};
+\addplot[fill=Paired-4, draw=Paired-3, ybar, bar shift=-8pt] coordinates {(AC11, 2311836.33)};
+\node[above, xshift=8pt] at (axis cs:AC11,2311836.33) {AC11};
+\addlegendentry{Latency}
+\end{axis}
+
+
+
+\begin{axis}[
+ybar,
+    width=\columnwidth,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.2,
+    symbolic x coords={AC01, AC10, AC2, AC11},
+    xtick=data,
+    ylabel={Energy (pJ)},
+    ymin=-2e9, ymax=4e9,
+    axis y line*=right,
+    axis x line=none,
+    scaled y ticks=base 10:-9,
+    ytick scale label code/.code={},
+    ylabel={Energy ($\times 10^{9}$ pJ)},
+    legend style={at={(0.98,0.02)}, anchor=south east, font=\footnotesize},
+    legend image code/.code={\draw[fill=Set2-8, draw=Set1-10, postaction={pattern=north west lines}] (0cm,-0.15cm) rectangle (0.4cm,0.25cm);}
+]
+
+% Stripes for Energy AC01
+\addplot[
+    fill=Paired-2,
+    draw=Paired-1,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(AC01, 2299541203.14)};
+% Manually place the node for AC01
+
+% Stripes for Energy AC10
+\addplot[
+    fill=Paired-6,
+    draw=Paired-5,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(AC10, 1003261192.06)};
+% Manually place the node for AC10
+\node[above, xshift=5pt] at (axis cs:AC10, 1003261192.06) {AC10};
+
+% Stripes for Energy AC01+AC10
+\addplot[
+    fill=Paired-8,
+    draw=Paired-7,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(AC2, 3302802395.12)};
+% Manually place the node for AC01+AC10
+\node[above, xshift=5pt] at (axis cs:AC2, 3302802395.12) {AC01+AC10};
+\addlegendentry{Energy}
+% Stripes for Energy AC11
+\addplot[
+    fill=Paired-4,
+    draw=Paired-3,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(AC11, 656826923.12)};
+% Manually place the node for AC11
+\end{axis}
+\end{tikzpicture}
+% \end{document}

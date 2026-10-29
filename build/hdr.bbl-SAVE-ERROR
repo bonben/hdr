@@ -1,0 +1,3163 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{custom/global//global/global}
+    \entry{leonardon:tel-01997553}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Université de Bordeaux (France) ; Polytechnique Montréal (Québec, Canada)}%
+      }
+      \strng{namehash}{216d1481ac72f9f335e9317aaab09c2e}
+      \strng{fullhash}{216d1481ac72f9f335e9317aaab09c2e}
+      \strng{bibnamehash}{216d1481ac72f9f335e9317aaab09c2e}
+      \strng{authorbibnamehash}{216d1481ac72f9f335e9317aaab09c2e}
+      \strng{authornamehash}{216d1481ac72f9f335e9317aaab09c2e}
+      \strng{authorfullhash}{216d1481ac72f9f335e9317aaab09c2e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{number}{2018BORD0399}
+      \field{title}{{Décodage de codes polaires sur des architectures programmables}}
+      \field{type}{Theses}
+      \field{year}{2018}
+      \verb{file}
+      \verb https://theses.hal.science/tel-01997553v1/file/LEONARDON_MATHIEU_2018.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://theses.hal.science/tel-01997553
+      \endverb
+      \verb{url}
+      \verb https://theses.hal.science/tel-01997553
+      \endverb
+      \keyw{MANUSCRIPT}
+    \endentry
+    \entry{tessier:hal-03675138}{article}{}
+      \name{author}{6}{}{%
+        {{hash=f65683131517cad80ec0dc468a3fd3ef}{%
+           family={Tessier},
+           familyi={T\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=30a2de0bd13df4c7d5c65eda37e8eecc}{%
+           family={Gripon},
+           familyi={G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=50b4f568b72bbd2cbb877e14aa7f7fc9}{%
+           family={Arzel},
+           familyi={A\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8402aaab5c7d012f78c37eb2e8765803}{%
+           family={Hannagan},
+           familyi={H\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f58d4242e49ea81122438c7a12f7e52c}{%
+           family={Bertrand},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{20603d848a859747760d25b47a52f2a8}
+      \strng{fullhash}{20603d848a859747760d25b47a52f2a8}
+      \strng{bibnamehash}{20603d848a859747760d25b47a52f2a8}
+      \strng{authorbibnamehash}{20603d848a859747760d25b47a52f2a8}
+      \strng{authornamehash}{20603d848a859747760d25b47a52f2a8}
+      \strng{authorfullhash}{20603d848a859747760d25b47a52f2a8}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Journal of Imaging}}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{{Rethinking Weight Decay for Efficient Neural Network Pruning}}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{64}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/jimaging8030064
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-03675138v1/file/jimaging-08-00064.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03675138
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03675138
+      \endverb
+      \keyw{JOURNAL}
+    \endentry
+    \entry{alhajali:hal-03659297}{article}{}
+      \name{author}{6}{}{%
+        {{hash=8cbd6db62a86359a9fe23180ddbdff58}{%
+           family={Alhaj\bibnamedelima Ali},
+           familyi={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Khaled},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b9d055d8dd3c6b734981b2ee4e1156dc}{%
+           family={Baghdadi},
+           familyi={B\bibinitperiod},
+           given={Amer},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5449c08497c1379ba10196b6a4421c7d}{%
+           family={Dupraz},
+           familyi={D\bibinitperiod},
+           given={Elsa},
+           giveni={E\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7b91ca30e300557bf88d8de4d8ea69f3}{%
+           family={Rizk},
+           familyi={R\bibinitperiod},
+           given={Mostafa},
+           giveni={M\bibinitperiod}}}%
+        {{hash=da604493e3cb8907fe2bf5c106db7a88}{%
+           family={Diguet},
+           familyi={D\bibinitperiod},
+           given={Jean-Philippe},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{87d07304bf3455841884e279f5c8f4f6}
+      \strng{fullhash}{87d07304bf3455841884e279f5c8f4f6}
+      \strng{bibnamehash}{87d07304bf3455841884e279f5c8f4f6}
+      \strng{authorbibnamehash}{87d07304bf3455841884e279f5c8f4f6}
+      \strng{authornamehash}{87d07304bf3455841884e279f5c8f4f6}
+      \strng{authorfullhash}{87d07304bf3455841884e279f5c8f4f6}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE Transactions on Very Large Scale Integration (VLSI) Systems}}
+      \field{month}{7}
+      \field{number}{7}
+      \field{title}{{MOL-based In-Memory Computing of Binary Neural Networks}}
+      \field{volume}{30}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1109/TVLSI.2022.3163233
+      \endverb
+      \verb{file}
+      \verb https://imt-atlantique.hal.science/hal-03659297v1/file/TVLSI_arXiv_version.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://imt-atlantique.hal.science/hal-03659297
+      \endverb
+      \verb{url}
+      \verb https://imt-atlantique.hal.science/hal-03659297
+      \endverb
+      \keyw{JOURNAL}
+    \endentry
+    \entry{leonardon:hal-01987848}{article}{}
+      \name{author}{6}{}{%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=74b4ac29dcdb0e772e587b07a72407b8}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={Adrien},
+           giveni={A\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=efbbad097796e5e35613bc06154cad4d}{%
+           family={Jego},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0e35757ee2dc529cbfa23f6f4a309c82}{%
+           family={Hamelin},
+           familyi={H\bibinitperiod},
+           given={Louis-Philippe},
+           giveni={L\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=6a42d4e9d7ea561406eb0d04e774086f}{%
+           family={Savaria},
+           familyi={S\bibinitperiod},
+           given={Yvon},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e6c286fb947b00f202ebad27c5184a7b}
+      \strng{fullhash}{e6c286fb947b00f202ebad27c5184a7b}
+      \strng{bibnamehash}{e6c286fb947b00f202ebad27c5184a7b}
+      \strng{authorbibnamehash}{e6c286fb947b00f202ebad27c5184a7b}
+      \strng{authornamehash}{e6c286fb947b00f202ebad27c5184a7b}
+      \strng{authorfullhash}{e6c286fb947b00f202ebad27c5184a7b}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{Journal of Signal Processing Systems}}
+      \field{month}{1}
+      \field{title}{{Fast and Flexible Software Polar List Decoders}}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1007/s11265-018-1430-3
+      \endverb
+      \verb{file}
+      \verb https://inria.hal.science/hal-01987848v1/file/Léonardon2017%20-%20Fast%20and%20Flexible%20Software%20Polar%20List%20Decoders.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://inria.hal.science/hal-01987848
+      \endverb
+      \verb{url}
+      \verb https://inria.hal.science/hal-01987848
+      \endverb
+      \keyw{JOURNAL}
+    \endentry
+    \entry{ghaffari:hal-01977885}{article}{}
+      \name{author}{5}{}{%
+        {{hash=21b3acda7e80a9c477e3d6f4c134fa9c}{%
+           family={Ghaffari},
+           familyi={G\bibinitperiod},
+           given={Alireza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=74b4ac29dcdb0e772e587b07a72407b8}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={Adrien},
+           giveni={A\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6a42d4e9d7ea561406eb0d04e774086f}{%
+           family={Savaria},
+           familyi={S\bibinitperiod},
+           given={Yvon},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8fe460b5c07e69fcf39de5b79531c192}
+      \strng{fullhash}{8fe460b5c07e69fcf39de5b79531c192}
+      \strng{bibnamehash}{8fe460b5c07e69fcf39de5b79531c192}
+      \strng{authorbibnamehash}{8fe460b5c07e69fcf39de5b79531c192}
+      \strng{authornamehash}{8fe460b5c07e69fcf39de5b79531c192}
+      \strng{authorfullhash}{8fe460b5c07e69fcf39de5b79531c192}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE Access}}
+      \field{month}{1}
+      \field{title}{{Toward High-Performance Implementation of 5G SCMA Algorithms}}
+      \field{volume}{7}
+      \field{year}{2019}
+      \field{pages}{10402\bibrangedash 10414}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2019.2891597
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-01977885v1/file/Ghaffari2019%20-%20Toward%20High%20Performance%20Implementation%20of%205G%20SCMA%20Algorithms.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-01977885
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-01977885
+      \endverb
+      \keyw{JOURNAL}
+    \endentry
+    \entry{cassagne:hal-02358306}{article}{}
+      \name{author}{12}{}{%
+        {{hash=74b4ac29dcdb0e772e587b07a72407b8}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={Adrien},
+           giveni={A\bibinitperiod}}}%
+        {{hash=31437087ce36b8208b9db6d1f8fe3041}{%
+           family={Hartmann},
+           familyi={H\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a328f63ba0e78525a27b105bb17fe87e}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kun},
+           giveni={K\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=01db4c845a52a725ae43f68b70d2cb9c}{%
+           family={Tajan},
+           familyi={T\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=eaac5911629ef1ebaf06ceb610a6aa74}{%
+           family={Aumage},
+           familyi={A\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=e74724d2e621b2ecc8bde4855fb881be}{%
+           family={Barthou},
+           familyi={B\bibinitperiod},
+           given={Denis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a9fed6c0f4a1ae93854fb83f0cc7ee91}{%
+           family={Tonnellier},
+           familyi={T\bibinitperiod},
+           given={Thibaud},
+           giveni={T\bibinitperiod}}}%
+        {{hash=accb9e7de331dbe05988efdcf8695012}{%
+           family={Pignoly},
+           familyi={P\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=b302d0ceafdd4655b18e25018243626b}{%
+           family={Le\bibnamedelima Gal},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Bertrand},
+           giveni={B\bibinitperiod}}}%
+        {{hash=efbbad097796e5e35613bc06154cad4d}{%
+           family={Jego},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{72586f491b2db595c708707cdb1ada2b}
+      \strng{fullhash}{4c26c41cf4b1779025e057cdfbc071c2}
+      \strng{bibnamehash}{72586f491b2db595c708707cdb1ada2b}
+      \strng{authorbibnamehash}{72586f491b2db595c708707cdb1ada2b}
+      \strng{authornamehash}{72586f491b2db595c708707cdb1ada2b}
+      \strng{authorfullhash}{4c26c41cf4b1779025e057cdfbc071c2}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{SoftwareX}}
+      \field{month}{7}
+      \field{title}{{AFF3CT: A Fast Forward Error Correction Toolbox!}}
+      \field{volume}{10}
+      \field{year}{2019}
+      \field{pages}{100345}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.softx.2019.100345
+      \endverb
+      \verb{file}
+      \verb https://inria.hal.science/hal-02358306v1/file/Cassagne2019a%20-%20AFF3CT%3A%20A%20Fast%20Forward%20Error%20Correction%20Toolbox.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://inria.hal.science/hal-02358306
+      \endverb
+      \verb{url}
+      \verb https://inria.hal.science/hal-02358306
+      \endverb
+      \keyw{JOURNAL}
+    \endentry
+    \entry{kanda:hal-04984381}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=66448d39e11e4dc82fb3bf44e38f2e5c}{%
+           family={Kanda},
+           familyi={K\bibinitperiod},
+           given={Ryosuke},
+           giveni={R\bibinitperiod}}}%
+        {{hash=230803d6531f54c0c7616369e28958c4}{%
+           family={Onizawa},
+           familyi={O\bibinitperiod},
+           given={Naoya},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f72c92dea3b920b556985cb94d3d1c43}{%
+           family={Le\bibnamedelima Blevec},
+           familyi={L\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=30a2de0bd13df4c7d5c65eda37e8eecc}{%
+           family={Gripon},
+           familyi={G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=456fcd32fb9dea4224878024dd5b269d}{%
+           family={Hanyu},
+           familyi={H\bibinitperiod},
+           given={Tetsuya},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London, United Kingdom}%
+      }
+      \strng{namehash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \strng{fullhash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \strng{bibnamehash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \strng{authorbibnamehash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \strng{authornamehash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \strng{authorfullhash}{97aaee8685cc35225d8ae9e87cc1477b}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ISCAS 2025: IEEE International Symposium on Circuits and Systems}}
+      \field{title}{{Bit-Width-Aware Design Environment for Few-Shot Learning on Edge Ai Hardware}}
+      \field{year}{2025}
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{grativol:hal-04559365}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=edf3250172f42437ebc9149f0a6bb6ab}{%
+           family={Grativol},
+           familyi={G\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=231cfe9120d985db2934e7ba19ea2ce9}{%
+           family={Gauthier},
+           familyi={G\bibinitperiod},
+           given={Lubin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=98d6662ec0bd011f73a378c4a9f49a3b}{%
+           family={Morlier},
+           familyi={M\bibinitperiod},
+           given={Jérémy},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cafb2b35ec8933c36a2b756018495113}{%
+           family={Lavrard-Meyer},
+           familyi={L\bibinithyphendelim M\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e0cc1b1e349e5f881894105dc9370936}{%
+           family={Muller},
+           familyi={M\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=5fc9c3501dc19fedabfde987a6548337}{%
+           family={Fresse},
+           familyi={F\bibinitperiod},
+           given={Virginie},
+           giveni={V\bibinitperiod}}}%
+        {{hash=50b4f568b72bbd2cbb877e14aa7f7fc9}{%
+           family={Arzel},
+           familyi={A\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Singapore, Singapore}%
+      }
+      \strng{namehash}{8ed2b9a7d5a11bdaa8a70c24de6f948b}
+      \strng{fullhash}{1b8edd2e01868d34cfee61eb6c29855b}
+      \strng{bibnamehash}{8ed2b9a7d5a11bdaa8a70c24de6f948b}
+      \strng{authorbibnamehash}{8ed2b9a7d5a11bdaa8a70c24de6f948b}
+      \strng{authornamehash}{8ed2b9a7d5a11bdaa8a70c24de6f948b}
+      \strng{authorfullhash}{1b8edd2e01868d34cfee61eb6c29855b}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ISCAS 2024: IEEE International Symposium on Circuits and Systems}}
+      \field{month}{5}
+      \field{title}{{PEFSL: A deployment Pipeline for Embedded Few-Shot Learning on a FPGA SoC}}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1109/ISCAS58744.2024.10557995
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-04559365v1/file/conference_101719.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04559365
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04559365
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{kanda:hal-04984380}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=286360b5b198883ecbb4e892a013d29b}{%
+           family={Kanda},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=3749ac5e4365dc256c8c42eadfe8ea1a}{%
+           family={Onizawa},
+           familyi={O\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=30a2de0bd13df4c7d5c65eda37e8eecc}{%
+           family={Gripon},
+           familyi={G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=bc179dc4d362362055d04740a55daf7e}{%
+           family={Hanyu},
+           familyi={H\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Springfield, France}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{09c2eea7a56952ed8dd9d11072131175}
+      \strng{fullhash}{09c2eea7a56952ed8dd9d11072131175}
+      \strng{bibnamehash}{09c2eea7a56952ed8dd9d11072131175}
+      \strng{authorbibnamehash}{09c2eea7a56952ed8dd9d11072131175}
+      \strng{authornamehash}{09c2eea7a56952ed8dd9d11072131175}
+      \strng{authorfullhash}{09c2eea7a56952ed8dd9d11072131175}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2024 IEEE 67th International Midwest Symposium on Circuits and Systems (MWSCAS)}}
+      \field{month}{8}
+      \field{title}{{Design Environment of Quantization-Aware Edge AI Hardware for Few-Shot Learning}}
+      \field{year}{2024}
+      \field{pages}{928\bibrangedash 931}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/MWSCAS60917.2024.10658789
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04984380
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04984380
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{lymanson:hal-04576139}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=081e322240ef377c1efa7dbe4714b262}{%
+           family={Ly-Manson},
+           familyi={L\bibinithyphendelim M\bibinitperiod},
+           given={Timotée},
+           giveni={T\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=816e6919ec41f5c7e1a202c9b538bc45}{%
+           family={Aissa\bibnamedelimb El\bibnamedelima Bey},
+           familyi={A\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Abdeldjalil},
+           giveni={A\bibinitperiod}}}%
+        {{hash=090d192694773e837a360be846a45a75}{%
+           family={Boukli\bibnamedelima Hacene},
+           familyi={B\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Ghouti},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d1091dbc57d7ebf674be74fb2fa452f6}{%
+           family={Mauch},
+           familyi={M\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \strng{namehash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \strng{fullhash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \strng{bibnamehash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \strng{authorbibnamehash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \strng{authornamehash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \strng{authorfullhash}{8f8fcfc858a2b2e4f2dacc581f2d67fc}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Proceedings of the Third International Conference on Automated Machine Learning, PMLR}}
+      \field{month}{9}
+      \field{title}{{Analyzing Few-Shot Neural Architecture Search in a Metric-Driven Framework}}
+      \field{volume}{256}
+      \field{year}{2024}
+      \field{pages}{1\bibrangedash 33}
+      \range{pages}{33}
+      \verb{file}
+      \verb https://imt-atlantique.hal.science/hal-04576139v2/file/AutoML24_Few_shot_NAS_v1.1.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://imt-atlantique.hal.science/hal-04576139
+      \endverb
+      \verb{url}
+      \verb https://imt-atlantique.hal.science/hal-04576139
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{leblevec:hal-04262138}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=f72c92dea3b920b556985cb94d3d1c43}{%
+           family={Le\bibnamedelima Blevec},
+           familyi={L\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f65683131517cad80ec0dc468a3fd3ef}{%
+           family={Tessier},
+           familyi={T\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=50b4f568b72bbd2cbb877e14aa7f7fc9}{%
+           family={Arzel},
+           familyi={A\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Istanbul, Turkey}%
+      }
+      \strng{namehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{fullhash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{bibnamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authorbibnamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authornamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authorfullhash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ICECS 2023: IEEE 30th International Conference on Electronics, Circuits and Systems}}
+      \field{month}{12}
+      \field{title}{{Pipelined Architecture for a Semantic Segmentation Neural Network on FPGA}}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1109/ICECS58634.2023.10382715
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-04262138v2/file/resnet-unet_new_ack.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04262138
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04262138
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{grativol:hal-04251969}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=edf3250172f42437ebc9149f0a6bb6ab}{%
+           family={Grativol},
+           familyi={G\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e0cc1b1e349e5f881894105dc9370936}{%
+           family={Muller},
+           familyi={M\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=5fc9c3501dc19fedabfde987a6548337}{%
+           family={Fresse},
+           familyi={F\bibinitperiod},
+           given={Virginie},
+           giveni={V\bibinitperiod}}}%
+        {{hash=50b4f568b72bbd2cbb877e14aa7f7fc9}{%
+           family={Arzel},
+           familyi={A\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Istanbul, Turkey}%
+      }
+      \strng{namehash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \strng{fullhash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \strng{bibnamehash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \strng{authorbibnamehash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \strng{authornamehash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \strng{authorfullhash}{36d6c36c7ad9d476ab12b348d4c76617}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ICECS 2023: IEEE 30th International Conference on Electronics, Circuits and Systems}}
+      \field{month}{12}
+      \field{title}{{Federated learning compression designed for lightweight communications}}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1109/ICECS58634.2023.10382717
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-04251969v1/file/kvkztxwdstzqdybrpdyqspfqhjmtrwpt.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04251969
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04251969
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{younes:hal-03850858}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=13df2c69658323db5c35d4839d0e6055}{%
+           family={Younes},
+           familyi={Y\bibinitperiod},
+           given={Hamoud},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f72c92dea3b920b556985cb94d3d1c43}{%
+           family={Le\bibnamedelima Blevec},
+           familyi={L\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=30a2de0bd13df4c7d5c65eda37e8eecc}{%
+           family={Gripon},
+           familyi={G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Genova, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{510f3ee03f159870afa0da6b57ec8648}
+      \strng{fullhash}{510f3ee03f159870afa0da6b57ec8648}
+      \strng{bibnamehash}{510f3ee03f159870afa0da6b57ec8648}
+      \strng{authorbibnamehash}{510f3ee03f159870afa0da6b57ec8648}
+      \strng{authornamehash}{510f3ee03f159870afa0da6b57ec8648}
+      \strng{authorfullhash}{510f3ee03f159870afa0da6b57ec8648}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{Advances in System-Integrated Intelligence}}
+      \field{month}{9}
+      \field{series}{Lecture Notes in Networks and Systems book series (LNNS)}
+      \field{title}{{Inter-Operability of~Compression Techniques for~Efficient Deployment of~CNNs on~Microcontrollers}}
+      \field{volume}{546}
+      \field{year}{2022}
+      \field{pages}{543\bibrangedash 552}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1007/978-3-031-16281-7\_51
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-03850858v1/file/SysInt_IMT.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03850858
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03850858
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{cassagne:hal-03336450}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{hash=74b4ac29dcdb0e772e587b07a72407b8}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={Adrien},
+           giveni={A\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=01db4c845a52a725ae43f68b70d2cb9c}{%
+           family={Tajan},
+           familyi={T\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cc221b5de557c68720ad7d3877fa8ed6}{%
+           family={Jégo},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=eaac5911629ef1ebaf06ceb610a6aa74}{%
+           family={Aumage},
+           familyi={A\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=e74724d2e621b2ecc8bde4855fb881be}{%
+           family={Barthou},
+           familyi={B\bibinitperiod},
+           given={Denis},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Montréal, Canada}%
+      }
+      \strng{namehash}{b947e21bbc3e9d07ed686684c5ae4180}
+      \strng{fullhash}{8ab9b419c5088174fab9d7f886698a56}
+      \strng{bibnamehash}{b947e21bbc3e9d07ed686684c5ae4180}
+      \strng{authorbibnamehash}{b947e21bbc3e9d07ed686684c5ae4180}
+      \strng{authornamehash}{b947e21bbc3e9d07ed686684c5ae4180}
+      \strng{authorfullhash}{8ab9b419c5088174fab9d7f886698a56}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{The 11th IEEE International Symposium on Topics in Coding (ISTC 2021)}}
+      \field{month}{8}
+      \field{title}{{A Flexible and Portable Real-time DVB-S2 Transceiver using Multicore and SIMD CPUs}}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1109/ISTC49272.2021.9594063
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-03336450v2/file/article.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03336450
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03336450
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{leonardon:hal-03291030}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=30a2de0bd13df4c7d5c65eda37e8eecc}{%
+           family={Gripon},
+           familyi={G\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Montréal, Canada}%
+      }
+      \strng{namehash}{5f70c150a939a9fe621be35cebf7f838}
+      \strng{fullhash}{5f70c150a939a9fe621be35cebf7f838}
+      \strng{bibnamehash}{5f70c150a939a9fe621be35cebf7f838}
+      \strng{authorbibnamehash}{5f70c150a939a9fe621be35cebf7f838}
+      \strng{authornamehash}{5f70c150a939a9fe621be35cebf7f838}
+      \strng{authorfullhash}{5f70c150a939a9fe621be35cebf7f838}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ISTC 2021: 11th IEEE International Symposium on Topics in Coding}}
+      \field{month}{8}
+      \field{title}{{Using Deep Neural Networks to Predict and Improve the Performance of Polar Codes}}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1109/ISTC49272.2021.9594059
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-03291030v1/file/Using_Deep_Neural_Networks_to_Predict_and_Improve_the_Performance_of_Polar_Codes.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03291030
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03291030
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{leonardon:hal-03291077}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=686e18a25bb193b070b6795db59285c1}{%
+           family={Jaaskelainen},
+           familyi={J\bibinitperiod},
+           given={Pekka},
+           giveni={P\bibinitperiod}}}%
+        {{hash=efbbad097796e5e35613bc06154cad4d}{%
+           family={Jego},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6a42d4e9d7ea561406eb0d04e774086f}{%
+           family={Savaria},
+           familyi={S\bibinitperiod},
+           given={Yvon},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hong Kong, Hong Kong SAR China}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \strng{fullhash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \strng{bibnamehash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \strng{authorbibnamehash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \strng{authornamehash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \strng{authorfullhash}{d863ba6a23f773e57d7c59c15a7b968c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2018 IEEE 10th International Symposium on Turbo Codes \& Iterative Information Processing (ISTC)}}
+      \field{month}{12}
+      \field{title}{{Transport Triggered Polar Decoders}}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 5}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ISTC.2018.8625310
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-03291077v1/file/main.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03291077
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03291077
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{leonardon:hal-01978830}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8b867337b09053baf69110b1452e77e4}{%
+           family={Binet},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=5b39875d4431e30eae0040878214b23f}{%
+           family={Langlois},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi M\bibnamedelima Pierre},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=efbbad097796e5e35613bc06154cad4d}{%
+           family={Jego},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6a42d4e9d7ea561406eb0d04e774086f}{%
+           family={Savaria},
+           familyi={S\bibinitperiod},
+           given={Yvon},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Florence, Italy}%
+      }
+      \strng{namehash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \strng{fullhash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \strng{bibnamehash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \strng{authorbibnamehash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \strng{authornamehash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \strng{authorfullhash}{fac22dcf2b3fbc743e1a6dd6ca517b9d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2018 IEEE International Symposium on Circuits and Systems (ISCAS)}}
+      \field{month}{5}
+      \field{series}{2018 IEEE International Symposium on Circuits and Systems (ISCAS)}
+      \field{title}{{Custom Low Power Processor for Polar Decoding}}
+      \field{year}{2018}
+      \verb{file}
+      \verb https://hal.science/hal-01978830v1/file/Léonardon2018a%20-%20Custom%20Low%20Power%20Processor%20for%20Polar%20Decoding.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-01978830
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-01978830
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{ghaffari:hal-03762203}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=21b3acda7e80a9c477e3d6f4c134fa9c}{%
+           family={Ghaffari},
+           familyi={G\bibinitperiod},
+           given={Alireza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6a42d4e9d7ea561406eb0d04e774086f}{%
+           family={Savaria},
+           familyi={S\bibinitperiod},
+           given={Yvon},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=efbbad097796e5e35613bc06154cad4d}{%
+           family={Jego},
+           familyi={J\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=291691b60386f17090cb45b7220ab3c8}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={Camille},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Strasbourg, France}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \strng{fullhash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \strng{bibnamehash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \strng{authorbibnamehash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \strng{authornamehash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \strng{authorfullhash}{8c8c82d8605e2bc8f347a1ed3a32ffe0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{2017 15th IEEE International New Circuits and Systems Conference (NEWCAS)}}
+      \field{month}{6}
+      \field{title}{{Improving performance of SCMA MPA decoders using estimation of conditional probabilities}}
+      \field{year}{2017}
+      \field{pages}{21\bibrangedash 24}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/NEWCAS.2017.8010095
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-03762203
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03762203
+      \endverb
+      \keyw{CONFERENCE}
+    \endentry
+    \entry{leblevec:hal-04705594}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=f72c92dea3b920b556985cb94d3d1c43}{%
+           family={Le\bibnamedelima Blevec},
+           familyi={L\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f65683131517cad80ec0dc468a3fd3ef}{%
+           family={Tessier},
+           familyi={T\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=50b4f568b72bbd2cbb877e14aa7f7fc9}{%
+           family={Arzel},
+           familyi={A\bibinitperiod},
+           given={Matthieu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Grenoble, France}%
+      }
+      \list{organization}{1}{%
+        {GRETSI - Groupe de Recherche en Traitement du Signal et des Images}%
+      }
+      \strng{namehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{fullhash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{bibnamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authorbibnamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authornamehash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \strng{authorfullhash}{5f9dd243637797b0fa4678ea24ea0bd5}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{29{°} Colloque sur le traitement du signal et des images}}
+      \field{month}{8}
+      \field{title}{{Co-conception d'un réseau de neurones convolutif de segmentation sémantique et de son architecture matérielle}}
+      \field{year}{2023}
+      \verb{file}
+      \verb https://hal.science/hal-04705594v1/file/2023_leblevec1203.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04705594
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04705594
+      \endverb
+      \keyw{NATIONAL}
+    \endentry
+    \entry{ganji:hal-04082069}{inproceedings}{}
+      \name{author}{9}{}{%
+        {{hash=dcb47a5adf61eec57aaf12302315dcaf}{%
+           family={Ganji},
+           familyi={G\bibinitperiod},
+           given={Darshan\bibnamedelima C},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=43b25b7a2914b963c64052c20db557af}{%
+           family={Ashfaq},
+           familyi={A\bibinitperiod},
+           given={Saad},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cdd74b99255119b36d43fc16aba42e2a}{%
+           family={Saaboori},
+           familyi={S\bibinitperiod},
+           given={Ehsan},
+           giveni={E\bibinitperiod}}}%
+        {{hash=65a2a1f27a12aa40bbe9a760ec597bc9}{%
+           family={Sah},
+           familyi={S\bibinitperiod},
+           given={Sudhakar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0bcba4937957545f281ccedfd6f9f6ef}{%
+           family={Mitra},
+           familyi={M\bibinitperiod},
+           given={Saptarshi},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1d37e0136905fd57f7b422730986d3e8}{%
+           family={Askarihemmat},
+           familyi={A\bibinitperiod},
+           given={Mohammadhossein},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bc44d57bb4d90145414254560f316e20}{%
+           family={Hoffmann},
+           familyi={H\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a839dc1c55d3b64d57c02419fc6fc16b}{%
+           family={Hassanien},
+           familyi={H\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod}}}%
+        {{hash=216d1481ac72f9f335e9317aaab09c2e}{%
+           family={\textbf{Léonardon}},
+           familyi={L\bibinitperiod},
+           given={\textbf{Mathieu}},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vancouver, Canada}%
+      }
+      \strng{namehash}{11c52288344f07d72f86e863092bfb72}
+      \strng{fullhash}{75448d0dc20968295ea397480f1e8849}
+      \strng{bibnamehash}{11c52288344f07d72f86e863092bfb72}
+      \strng{authorbibnamehash}{11c52288344f07d72f86e863092bfb72}
+      \strng{authornamehash}{11c52288344f07d72f86e863092bfb72}
+      \strng{authorfullhash}{75448d0dc20968295ea397480f1e8849}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{CVPRW 2023: IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops}}
+      \field{month}{6}
+      \field{title}{{DeepGEMM: Accelerated Ultra Low-Precision Inference on CPU Architectures using Lookup Tables}}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1109/CVPRW59228.2023.00491
+      \endverb
+      \verb{file}
+      \verb https://hal.science/hal-04082069v1/file/2304.09049.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://hal.science/hal-04082069
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-04082069
+      \endverb
+      \keyw{WORKSHOP}
+    \endentry
+    \entry{Arikan2009}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0bb35aecf860f4e2366f20063ffb0064}{%
+           family={Ar{ı}kan},
+           familyi={A\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bb35aecf860f4e2366f20063ffb0064}
+      \strng{fullhash}{0bb35aecf860f4e2366f20063ffb0064}
+      \strng{bibnamehash}{0bb35aecf860f4e2366f20063ffb0064}
+      \strng{authorbibnamehash}{0bb35aecf860f4e2366f20063ffb0064}
+      \strng{authornamehash}{0bb35aecf860f4e2366f20063ffb0064}
+      \strng{authorfullhash}{0bb35aecf860f4e2366f20063ffb0064}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A method is proposed, called channel polarization, to construct code sequences that achieve the symmetric capacity I(W) of any given binary-input discrete memoryless channel (B-DMC) W. The symmetric capacity is the highest rate achievable subject to using the input letters of the channel with equal probability. Channel polarization refers to the fact that it is possible to synthesize, out of N independent copies of a given B-DMC W, a second set of N binary-input channels {WN(i)1 les i les N} such that, as N becomes large, the fraction of indices i for which I(WN(i)) is near 1 approaches I(W) and the fraction for which I(WN(i)) is near 0 approaches 1-I(W). The polarized channels {WN(i)} are well-conditioned for channel coding: one need only send data at rate 1 through those with capacity near 1 and at rate 0 through the remaining. Codes constructed on the basis of this idea are called polar codes. The paper proves that, given any B-DMC W with I(W) $>$ 0 and any target rate R$<$ I(W) there exists a sequence of polar codes {Cfrn;nges1} such that Cfrn has block-length N=2n , rate ges R, and probability of block error under successive cancellation decoding bounded as Pe(N,R) les O(N-1/4) independently of the code rate. This performance is achievable by encoders and decoders with complexity O(N logN) for each.}
+      \field{issn}{0018-9448}
+      \field{journaltitle}{IEEE Transactions on Information Theory (TIT)}
+      \field{month}{7}
+      \field{number}{7}
+      \field{title}{Channel Polarization: A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels}
+      \field{volume}{55}
+      \field{year}{2009}
+      \field{pages}{3051\bibrangedash 3073}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1109/TIT.2009.2021379
+      \endverb
+      \verb{file}
+      \verb :pdf/Arikan2009 - Channel Polarization A Method for Constructing Capacity-Achieving Codes for Symmetric Binary-Input Memoryless Channels.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Sagitov2025}{article}{}
+      \name{author}{4}{}{%
+        {{hash=9448cead73e01a04bbf783df3b0e7878}{%
+           family={Sagitov},
+           familyi={S\bibinitperiod},
+           given={Ilshat},
+           giveni={I\bibinitperiod}}}%
+        {{hash=476539b205ff024691af67c08bff3a31}{%
+           family={Pillet},
+           familyi={P\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1e8418ec2c47cc80191107c80b40f36e}{%
+           family={Balatsoukas-Stimming},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Alexios},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2974ceeb671e21ef86b14ba0f55d425a}{%
+           family={Giard},
+           familyi={G\bibinitperiod},
+           given={Pascal},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \strng{fullhash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \strng{bibnamehash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \strng{authorbibnamehash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \strng{authornamehash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \strng{authorfullhash}{7bb21a8a35a51b30d93a4969e3ab0ab4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1939-8115}
+      \field{journaltitle}{Journal of Signal Processing Systems}
+      \field{month}{04}
+      \field{title}{Generalized Restart Mechanism for Successive-Cancellation Flip Decoding of Polar Codes}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1007/s11265-025-01949-8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11265-025-01949-8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11265-025-01949-8
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Gong2024}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=08817018ca86174ca7e62cc43362c96a}{%
+           family={Gong},
+           familyi={G\bibinitperiod},
+           given={Anqi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2cae4eb66a124d0864664da95c0c43c4}{%
+           family={Renes},
+           familyi={R\bibinitperiod},
+           given={Joseph\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \strng{fullhash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \strng{bibnamehash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \strng{authorbibnamehash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \strng{authornamehash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \strng{authorfullhash}{6e67c69cf8154f92d99ec39082b2fb61}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE International Symposium on Information Theory (ISIT)}
+      \field{title}{Improved Logical Error Rate via List Decoding of Quantum Polar Codes}
+      \field{year}{2024}
+      \field{pages}{2496\bibrangedash 2501}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ISIT57864.2024.10619465
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{symons2022}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=150d56923fee85f355c8dbfd773853ac}{%
+           family={Symons},
+           familyi={S\bibinitperiod},
+           given={Arne},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f698dad19f55f9bdba0c936f3739b2eb}{%
+           family={Mei},
+           familyi={M\bibinitperiod},
+           given={Linyan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=08f974721c3ed3ebf969b1b31a915727}{%
+           family={Colleman},
+           familyi={C\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d5ed13a21a961dbef1ac9f319eb8d493}{%
+           family={Houshmand},
+           familyi={H\bibinitperiod},
+           given={Pouya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e95a43d018ef8aa2d819862e482ef897}{%
+           family={Karl},
+           familyi={K\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dd1dfd5f70e30002ca40e8291743c16e}{%
+           family={Verhelst},
+           familyi={V\bibinitperiod},
+           given={Marian},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \strng{fullhash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \strng{bibnamehash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \strng{authorbibnamehash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \strng{authornamehash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \strng{authorfullhash}{b4fb1c5733eb585ca80d9f27045e920d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.AR}
+      \field{eprinttype}{arXiv}
+      \field{title}{Towards Heterogeneous Multi-core Accelerators Exploiting Fine-grained Scheduling of Layer-Fused Deep Neural Networks}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2212.10612
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2212.10612
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2212.10612
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{tegon2025}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=577551b0b9af247ec088ac11ec7eb3e0}{%
+           family={Tegon},
+           familyi={T\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f1b51a0baea7e8c6d5412629320bc838}{%
+           family={Ingolfsson},
+           familyi={I\bibinitperiod},
+           given={Thorir\bibnamedelima Mar},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=76789c06d31fbc8996861a99a2a4a422}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaying},
+           giveni={X\bibinitperiod}}}%
+        {{hash=ba31f0daddec3d14ef6a4f5279845d2d}{%
+           family={Benini},
+           familyi={B\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod}}}%
+        {{hash=08662729fa958c632a10ef8553fb7e24}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yawei},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{f8689996301adaab849dac6d45182a80}
+      \strng{fullhash}{f8689996301adaab849dac6d45182a80}
+      \strng{bibnamehash}{f8689996301adaab849dac6d45182a80}
+      \strng{authorbibnamehash}{f8689996301adaab849dac6d45182a80}
+      \strng{authornamehash}{f8689996301adaab849dac6d45182a80}
+      \strng{authorfullhash}{f8689996301adaab849dac6d45182a80}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{FEMBA: Efficient and Scalable EEG Analysis with a Bidirectional Mamba Foundation Model}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2502.06438
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2502.06438
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2502.06438
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Tal2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=335f14b4a9a9dfd2900a97312cfc7297}{%
+           family={Tal},
+           familyi={T\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=42d6e5a2c4f7e3fdb6e8947be034afa8}{%
+           family={Vardy},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{813d04c522500106dbe72a9e65e2b869}
+      \strng{fullhash}{813d04c522500106dbe72a9e65e2b869}
+      \strng{bibnamehash}{813d04c522500106dbe72a9e65e2b869}
+      \strng{authorbibnamehash}{813d04c522500106dbe72a9e65e2b869}
+      \strng{authornamehash}{813d04c522500106dbe72a9e65e2b869}
+      \strng{authorfullhash}{813d04c522500106dbe72a9e65e2b869}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We describe a successive-cancellation list decoder for polar codes, which is a generalization of the classic successive-cancellation decoder of Ar{ı}kan. In the proposed list decoder, L decoding paths are considered concurrently at each decoding stage, where L is an integer parameter. At the end of the decoding process, the most likely among the L paths is selected as the single codeword at the decoder output. Simulations show that the resulting performance is very close to that of maximum-likelihood decoding, even for moderate values of L. Alternatively, if a genie is allowed to pick the transmitted codeword from the list, the results are comparable with the performance of current state-of-the-art LDPC codes. We show that such a genie can be easily implemented using simple CRC precoding. The specific list-decoding algorithm that achieves this performance doubles the number of decoding paths for each information bit, and then uses a pruning procedure to discard all but the L most likely paths. However, straightforward implementation of this algorithm requires {{$\Omega$}}(Ln\textsuperscript{2}) time, which is in stark contrast with the O(n log n) complexity of the original successive-cancellation decoder. In this paper, we utilize the structure of polar codes along with certain algorithmic transformations in order to overcome this problem: we devise an efficient, numerically stable, implementation of the proposed list decoder that takes only O(Ln logn) time and O(Ln) space.}
+      \field{issn}{0018-9448}
+      \field{journaltitle}{IEEE Transactions on Information Theory (TIT)}
+      \field{month}{5}
+      \field{number}{5}
+      \field{title}{List Decoding of Polar Codes}
+      \field{volume}{61}
+      \field{year}{2015}
+      \field{pages}{2213\bibrangedash 2226}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TIT.2015.2410251
+      \endverb
+      \verb{file}
+      \verb :pdf/Tal2015 - List Decoding of Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Li2012}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3cdf5aa30577e71dbbd44bcd3a4a00a0}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c1a6aad2f02eb09deb52c898116b8158}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=41017d0708ca13d81ae12a5fd09248cb}{%
+           family={Tse},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{f86ee39c845fa24b7354a1112d49229f}
+      \strng{fullhash}{f86ee39c845fa24b7354a1112d49229f}
+      \strng{bibnamehash}{f86ee39c845fa24b7354a1112d49229f}
+      \strng{authorbibnamehash}{f86ee39c845fa24b7354a1112d49229f}
+      \strng{authornamehash}{f86ee39c845fa24b7354a1112d49229f}
+      \strng{authorfullhash}{f86ee39c845fa24b7354a1112d49229f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this letter, we propose an adaptive SC (Successive Cancellation)-List decoder for polar codes with CRC. This adaptive SC-List decoder iteratively increases the list size until at least one survival path can pass CRC. Simulation shows that the adaptive SC-List decoder provides significant complexity reduction. We also demonstrate that polar code (2048, 1024) with 24-bit CRC decoded by our proposed adaptive SC-List decoder with very large maximum list size can achieve a frame error rate FER $\leq$ 10\textsuperscript{-3}{-3} at E\textsubscript{b}/N\textsubscript{o} = 1.1dB, which is about 0.25dB from the information theoretic limit at this block length.}
+      \field{issn}{1089-7798}
+      \field{journaltitle}{IEEE Communications Letters (COMML)}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{An Adaptive Successive Cancellation List Decoder for Polar Codes with Cyclic Redundancy Check}
+      \field{volume}{16}
+      \field{year}{2012}
+      \field{pages}{2044\bibrangedash 2047}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/LCOMM.2012.111612.121898
+      \endverb
+      \verb{file}
+      \verb :pdf/Li2012 - An Adaptive Successive Cancellation List Decoder for Polar Codes with Cyclic Redundancy Check.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Sarkis2016}{article}{}
+      \name{author}{5}{}{%
+        {{hash=ffbad48a3b4a4b3a0b70a26600b3a1f7}{%
+           family={Sarkis},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4a74358cae9378e65736d9da7795fb43}{%
+           family={Giard},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=42d6e5a2c4f7e3fdb6e8947be034afa8}{%
+           family={Vardy},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=444fbd1194f36e2397b438335dc4d4df}{%
+           family={Thibeault},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d384fa66615be5b2c99cef76abbedd86}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={W.\bibnamedelimi J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{fullhash}{ffbb4942a718599ee24e00087465d509}
+      \strng{bibnamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authorbibnamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authornamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authorfullhash}{ffbb4942a718599ee24e00087465d509}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Polar codes asymptotically achieve the symmetric capacity of memoryless channels, yet their error-correcting performance under successive-cancellation (SC) decoding for short and moderate length codes is worse than that of other modern codes such as low-density parity-check (LDPC) codes. Of the many methods to improve the error-correction performance of polar codes, list decoding yields the best results, especially when the polar code is concatenated with a cyclic redundancy check (CRC). List decoding involves exploring several decoding paths with SC decoding, and therefore tends to be slower than SC decoding itself, by an order of magnitude in practical implementations. In this paper, we present a new algorithm based on unrolling the decoding tree of the code that improves the speed of list decoding by an order of magnitude when implemented in software. Furthermore, we show that for software-defined radio applications, our proposed algorithm is faster than the fastest software implementations of LDPC decoders in the literature while offering comparable error-correction performance at similar or shorter code lengths.}
+      \field{issn}{0733-8716}
+      \field{journaltitle}{IEEE Journal on Selected Areas in Communications (JSAC)}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Fast List Decoders for Polar Codes}
+      \field{volume}{34}
+      \field{year}{2016}
+      \field{pages}{318\bibrangedash 328}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/JSAC.2015.2504299
+      \endverb
+      \verb{file}
+      \verb :pdf/Sarkis2016 - Fast List Decoders for Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Alamdar-Yazdi2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f22da1e0482e601a57fb2bb741f13507}{%
+           family={Alamdar-Yazdi},
+           familyi={A\bibinithyphendelim Y\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=24383f85ec375eabffb98bb0d1e1ebba}{%
+           family={Kschischang},
+           familyi={K\bibinitperiod},
+           given={F.\bibnamedelimi R.},
+           giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \strng{fullhash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \strng{bibnamehash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \strng{authorbibnamehash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \strng{authornamehash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \strng{authorfullhash}{428875dd8ab9dc1045dc8b6b958fc7c3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A modification is introduced of the successive-cancellation decoder for polar codes, in which local decoders for rate-one constituent codes are simplified. This modification reduces the decoding latency and algorithmic complexity of the conventional decoder, while preserving the bit and block error rate. Significant latency and complexity reductions are achieved over a wide range of code rates.}
+      \field{issn}{1089-7798}
+      \field{journaltitle}{IEEE Communications Letters (COMML)}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{A Simplified Successive-Cancellation Decoder for Polar Codes}
+      \field{volume}{15}
+      \field{year}{2011}
+      \field{pages}{1378\bibrangedash 1380}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/LCOMM.2011.101811.111480
+      \endverb
+      \verb{file}
+      \verb :pdf/Alamdar-Yazdi2011 - A Simplified Successive-Cancellation Decoder for Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Sarkis2014a}{article}{}
+      \name{author}{5}{}{%
+        {{hash=ffbad48a3b4a4b3a0b70a26600b3a1f7}{%
+           family={Sarkis},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4a74358cae9378e65736d9da7795fb43}{%
+           family={Giard},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=42d6e5a2c4f7e3fdb6e8947be034afa8}{%
+           family={Vardy},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=444fbd1194f36e2397b438335dc4d4df}{%
+           family={Thibeault},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d384fa66615be5b2c99cef76abbedd86}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={W.\bibnamedelimi J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{fullhash}{ffbb4942a718599ee24e00087465d509}
+      \strng{bibnamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authorbibnamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authornamehash}{ffbb4942a718599ee24e00087465d509}
+      \strng{authorfullhash}{ffbb4942a718599ee24e00087465d509}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Polar codes provably achieve the symmetric capacity of a memoryless channel while having an explicit construction. The adoption of polar codes however, has been hampered by the low throughput of their decoding algorithm. This work aims to increase the throughput of polar decoding hardware by an order of magnitude relative to successive-cancellation decoders and is more than 8 times faster than the current fastest polar decoder. We present an algorithm, architecture, and FPGA implementation of a flexible, gigabit-per-second polar decoder.}
+      \field{issn}{0733-8716}
+      \field{journaltitle}{IEEE Journal on Selected Areas in Communications (JSAC)}
+      \field{month}{5}
+      \field{number}{5}
+      \field{title}{Fast Polar Decoders: Algorithm and Implementation}
+      \field{volume}{32}
+      \field{year}{2014}
+      \field{pages}{946\bibrangedash 957}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/JSAC.2014.140514
+      \endverb
+      \verb{file}
+      \verb :pdf/Sarkis2014a - Fast Polar Decoders Algorithm and Implementation.pdf:PDF;
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Schreier1932}{article}{}
+      \name{author}{1}{}{%
+        {{hash=c9dd1f5db31a3c57ab9eeb15d24bf58b}{%
+           family={Schreier},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \strng{fullhash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \strng{bibnamehash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \strng{authorbibnamehash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \strng{authornamehash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \strng{authorfullhash}{c9dd1f5db31a3c57ab9eeb15d24bf58b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathesis Polska}
+      \field{title}{On Tournament Elimination Systems}
+      \field{volume}{7}
+      \field{year}{1932}
+      \field{pages}{154\bibrangedash 160}
+      \range{pages}{7}
+      \verb{urlraw}
+      \verb https://ci.nii.ac.jp/naid/10027928626/en/
+      \endverb
+      \verb{url}
+      \verb https://ci.nii.ac.jp/naid/10027928626/en/
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Shen2016}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=c683dca86043405be8fb1d3009bc1604}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=08835018e7f90fcf262517bf88eb4d72}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=51e5fb9f55c5b5d1edb17aea3861c908}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=24007f156eb06261431b2b25b64844f8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=03b50439de8e18824b380b3870190de0}{%
+           family={You},
+           familyi={Y\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{933798c1b75eec513e56dfd6a02450b4}
+      \strng{fullhash}{933798c1b75eec513e56dfd6a02450b4}
+      \strng{bibnamehash}{933798c1b75eec513e56dfd6a02450b4}
+      \strng{authorbibnamehash}{933798c1b75eec513e56dfd6a02450b4}
+      \strng{authornamehash}{933798c1b75eec513e56dfd6a02450b4}
+      \strng{authorfullhash}{933798c1b75eec513e56dfd6a02450b4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Successive cancellation list (SCL) decoding for polar codes is promising in data communication. However, in addition to L times complexity of conventional SC, both path selecting and updating result in extra complexity. In detail, the copy of intermediate values suffers from a long latency, especially when list size L is large. In this paper, a stage-located copy algorithm is proposed to avoid copying the same contents in candidate paths, which significantly reduces the processing latency. Furthermore, the resulting data processing speedup increases with code length. For (2048, 1723) polar codes, experimental results have shown that by employing the proposed stage-located copy, throughput of software-based SCL decoder with L = 32 achieves up to 1.1 Mbps throughput with 45\% increase compared to the state-of-the-art software SCL decoders.}
+      \field{booktitle}{International Conference on Digital Signal Processing (DSP)}
+      \field{month}{10}
+      \field{title}{Low-Latency Software Successive Cancellation List Polar Decoder using Stage-Located Copy}
+      \field{year}{2016}
+      \field{pages}{84\bibrangedash 88}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ICDSP.2016.7868521
+      \endverb
+      \verb{file}
+      \verb :pdf/Shen2016 - Low-Latency Software Successive Cancellation List Polar Decoder using Stage-Located Copy.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Trifonov2012}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a4afc038480d216f0cebc54e96013309}{%
+           family={Trifonov},
+           familyi={T\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a4afc038480d216f0cebc54e96013309}
+      \strng{fullhash}{a4afc038480d216f0cebc54e96013309}
+      \strng{bibnamehash}{a4afc038480d216f0cebc54e96013309}
+      \strng{authorbibnamehash}{a4afc038480d216f0cebc54e96013309}
+      \strng{authornamehash}{a4afc038480d216f0cebc54e96013309}
+      \strng{authorfullhash}{a4afc038480d216f0cebc54e96013309}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Polar codes are shown to be instances of both generalized concatenated codes and multilevel codes. It is shown that the performance of a polar code can be improved by representing it as a multilevel code and applying the multistage decoding algorithm with maximum likelihood decoding of outer codes. Additional performance improvement is obtained by replacing polar outer codes with other ones with better error correction performance. In some cases this also results in complexity reduction. It is shown that Gaussian approximation for density evolution enables one to accurately predict the performance of polar codes and concatenated codes based on them.}
+      \field{issn}{0090-6778}
+      \field{journaltitle}{IEEE Transactions on Communications (TCOM)}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{Efficient Design and Decoding of Polar Codes}
+      \field{volume}{60}
+      \field{year}{2012}
+      \field{pages}{3221\bibrangedash 3227}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/TCOMM.2012.081512.110872
+      \endverb
+      \verb{file}
+      \verb :pdf/Trifonov2012 - Efficient Design and Decoding of Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{ETSI2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d35591bdf12c3515b328845fbce3fac8}{%
+           family={ETSI},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{d35591bdf12c3515b328845fbce3fac8}
+      \strng{fullhash}{d35591bdf12c3515b328845fbce3fac8}
+      \strng{bibnamehash}{d35591bdf12c3515b328845fbce3fac8}
+      \strng{authorbibnamehash}{d35591bdf12c3515b328845fbce3fac8}
+      \strng{authornamehash}{d35591bdf12c3515b328845fbce3fac8}
+      \strng{authorfullhash}{d35591bdf12c3515b328845fbce3fac8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{{3GPP} - {TS} 38.212 - {Multiplexing} and Channel Coding ({R.} 15)}
+      \field{year}{2018}
+      \verb{file}
+      \verb :pdf/ETSI2018 - 3GPP - TS 38.212 - Multiplexing and Channel Coding (R. 15).pdf:PDF
+      \endverb
+      \verb{urlraw}
+      \verb https://www.etsi.org/deliver/etsi_ts/138200_138299/138212/15.02.00_60/ts_138212v150200p.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.etsi.org/deliver/etsi_ts/138200_138299/138212/15.02.00_60/ts_138212v150200p.pdf
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Tonnellier2016}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=a8f5a741d78be2a190ea37cc8856ea5e}{%
+           family={Tonnellier},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d304686f0f50f00a2ca579b17cf9cd8a}{%
+           family={Jégo},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9ffce79c44bcac063cc2712d01a90602}{%
+           family={Gadat},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=af54c63a5660e540f09b21bb40547449}{%
+           family={Wambeke},
+           familyi={W\bibinitperiod},
+           given={N.\bibnamedelimi Van},
+           giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{fullhash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{bibnamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authorbibnamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authornamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authorfullhash}{854a559b4e3089a66b20bce997c08f24}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Turbo codes are well known error-correcting codes used in many communication standards. However, they suffer from error floors. Recently, a method - denoted as the flip and check algorithm - that lowers the error floor of turbo codes was proposed. This method relies on the identification of the least reliable bits during the turbo decoding process. Gains of about one order of magnitude were reached in terms of error rate performance. In this article, the first hardware implementation of the method is presented. The feasibility and hardware complexity are addressed by studying the impact of the algorithmic parameters of the technique. Synthesis results for FPGA implementations are reported and compared to turbo decoders implementations.}
+      \field{booktitle}{Design and Architectures for Signal and Image Processing Conference (DASIP)}
+      \field{month}{10}
+      \field{title}{Hardware Architecture for Lowering the Error Floor of {LTE} Turbo Codes}
+      \field{year}{2016}
+      \field{pages}{107\bibrangedash 112}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/DASIP.2016.7853805
+      \endverb
+      \verb{file}
+      \verb :pdf/Tonnellier2016 - Hardware Architecture for Lowering the Error Floor of LTE Turbo Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Tonnellier2016a}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=a8f5a741d78be2a190ea37cc8856ea5e}{%
+           family={Tonnellier},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d304686f0f50f00a2ca579b17cf9cd8a}{%
+           family={Jégo},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9ffce79c44bcac063cc2712d01a90602}{%
+           family={Gadat},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=af54c63a5660e540f09b21bb40547449}{%
+           family={Wambeke},
+           familyi={W\bibinitperiod},
+           given={N.\bibnamedelimi Van},
+           giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{fullhash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{bibnamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authorbibnamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authornamehash}{854a559b4e3089a66b20bce997c08f24}
+      \strng{authorfullhash}{854a559b4e3089a66b20bce997c08f24}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This article addresses the error floor reduction of double-binary turbo codes. The proposed approach is an extension of a low complexity method originally proposed for decoding binary turbo codes. This method's interest is that it does not need to modify the turbo coding scheme as long as an error detection code is serially concatenated with the turbo code. Simulation results showed that error rate performance gains can reach one order of magnitude in the cases of the DVB-RCS and DVB-RCS2 standards, while keeping a well-handled computational complexity.}
+      \field{booktitle}{International Symposium on Turbo Codes and Iterative Information Processing (ISTC)}
+      \field{month}{9}
+      \field{title}{Lowering the Error Floor of Double-Binary Turbo Codes: The Flip and Check Algorithm}
+      \field{year}{2016}
+      \field{pages}{156\bibrangedash 160}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ISTC.2016.7593096
+      \endverb
+      \verb{file}
+      \verb :pdf/Tonnellier2016a - Lowering the Error Floor of Double-Binary Turbo Codes The Flip and Check Algorithm.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Tonnellier2016b}{article}{}
+      \name{author}{6}{}{%
+        {{hash=a8f5a741d78be2a190ea37cc8856ea5e}{%
+           family={Tonnellier},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9ffce79c44bcac063cc2712d01a90602}{%
+           family={Gadat},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d304686f0f50f00a2ca579b17cf9cd8a}{%
+           family={Jégo},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=af54c63a5660e540f09b21bb40547449}{%
+           family={Wambeke},
+           familyi={W\bibinitperiod},
+           given={N.\bibnamedelimi Van},
+           giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{8335073af613af1e63fa6f7ff2d76064}
+      \strng{fullhash}{8335073af613af1e63fa6f7ff2d76064}
+      \strng{bibnamehash}{8335073af613af1e63fa6f7ff2d76064}
+      \strng{authorbibnamehash}{8335073af613af1e63fa6f7ff2d76064}
+      \strng{authornamehash}{8335073af613af1e63fa6f7ff2d76064}
+      \strng{authorfullhash}{8335073af613af1e63fa6f7ff2d76064}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Decoding performance of turbo codes can flatten at moderately high signal-to-noise ratio. This letter proposes a low complexity method for lowering this error floor. This method rests on the observation of the extrinsic information during the iterative decoding process. A set of q most unreliable bits are identified based on their associated extrinsic information. A total of 2\textsuperscript{q} test patterns are then built by inverting the most unreliable bits. The decoded codeword is identified thanks to a cyclic redundancy check detector. This method keeps the turbo coding scheme unchanged as long as an error detection code is serially concatenated with the turbo code. Simulations were performed on a rate-1/3 Long-Term Evolution turbo code and show an improvement of at least one decade in terms of frame error rate in the error floor region. This low complexity method paves the way for further improvements in lowering the error floor of turbo codes.}
+      \field{issn}{2162-2337}
+      \field{journaltitle}{IEEE Wireless Communications Letters (WCL)}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{Lowering the Error Floor of Turbo Codes With {CRC} Verification}
+      \field{volume}{5}
+      \field{year}{2016}
+      \field{pages}{404\bibrangedash 407}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/LWC.2016.2571283
+      \endverb
+      \verb{file}
+      \verb :pdf/Tonnellier2016b - Lowering the Error Floor of Turbo Codes With CRC Verification.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{LeGal2015a}{article}{}
+      \name{author}{3}{}{%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d304686f0f50f00a2ca579b17cf9cd8a}{%
+           family={Jégo},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{e26200bb02d2ad779474def7aeb34399}
+      \strng{fullhash}{e26200bb02d2ad779474def7aeb34399}
+      \strng{bibnamehash}{e26200bb02d2ad779474def7aeb34399}
+      \strng{authorbibnamehash}{e26200bb02d2ad779474def7aeb34399}
+      \strng{authornamehash}{e26200bb02d2ad779474def7aeb34399}
+      \strng{authorfullhash}{e26200bb02d2ad779474def7aeb34399}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents an optimized software implementation of a Successive Cancellation (SC) decoder for polar codes. Despite the strong data dependencies in SC decoding, a highly parallel software polar decoder is devised for x86 processor target. A high level of performance is achieved by exploiting the parallelism inherent in today's processor architectures (SIMD, multicore, etc.). Some optimizations that were originally thought for hardware implementation (memory reduction techniques and algorithmic simplifications) were also applied to enhance the throughput of the software implementation. Finally, some low level optimizations such as explicit assembly description or data packing are used to improve the throughput even more. The resulting decoder description is implemented on different x86 processor targets. An analysis of the decoder in terms of latency and throughput is proposed. The influence of several parameters on the throughput and the latency is investigated: the selected target, the code rate, the code length, the SIMD mode (SSE/AVX), the multithreading mode, etc. The energy per decoded bit is also estimated. The proposed software decoder compares favorably with state of the art software polar decoders. Extensive experimentations demonstrate that the proposed software polar decoder exceeds 1 Gb/s for code lengths N $\leq$ 2\textsuperscript{17} on a single core and reaches multi-Gb/s throughputs when using four cores in parallel in AVX mode.}
+      \field{issn}{1053-587X}
+      \field{journaltitle}{IEEE Transactions on Signal Processing (TSP)}
+      \field{month}{1}
+      \field{number}{2}
+      \field{title}{Multi-{G}b/s Software Decoding of Polar Codes}
+      \field{volume}{63}
+      \field{year}{2015}
+      \field{pages}{349\bibrangedash 359}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/TSP.2014.2371781
+      \endverb
+      \verb{file}
+      \verb :pdf/LeGal2015a - Multi-Gbps Software Decoding of Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Cassagne2015c}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=cdf78e44aa4a0498f25ea6d3730a981b}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b9d5b0d8cec9c2521d235e3ebcf26ca2}{%
+           family={Aumage},
+           familyi={A\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=4c281310b69afa4b5cacffdde9c4fac0}{%
+           family={Barthou},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \strng{fullhash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \strng{bibnamehash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \strng{authorbibnamehash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \strng{authornamehash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \strng{authorfullhash}{e7ff3956a42e093e7e6e2dca5cefd25a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Error Correction Code decoding algorithms for consumer products such as Internet of Things (IoT) devices are usually implemented as dedicated hardware circuits. As processors are becoming increasingly powerful and energy efficient, there is now a strong desire to perform this processing in software to reduce production costs and time to market. The recently introduced family of Successive Cancellation decoders for Polar codes has been shown in several research works to efficiently leverage the ubiquitous SIMD units in modern CPUs, while offering strong potentials for a wide range of optimizations. The P-EDGE environment introduced in this paper, combines a specialized skeleton generator and a building blocks library routines to provide a generic, extensible Polar code exploration workbench. It enables ECC code designers to easily experiments with combinations of existing and new optimizations, while delivering performance close to state-of-art decoders.}
+      \field{booktitle}{International Workshop on Languages and Compilers for Parallel Computing (LCPC)}
+      \field{day}{1}
+      \field{journaltitle}{Languages and Compilers for Parallel Computing}
+      \field{month}{11}
+      \field{title}{An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-319-29778-1_19
+      \endverb
+      \verb{file}
+      \verb :pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes.pdf:PDF;:pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes [slides].pdf:PDF;:pdf/Cassagne2015c - An Efficient, Portable and Generic Library for Successive Cancellation Decoding of Polar Codes [poster].pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+      \warn{\item Overwriting field 'month' with month value from field 'date' for entry 'Cassagne2015c'}
+    \endentry
+    \entry{Cassagne2016b}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=cdf78e44aa4a0498f25ea6d3730a981b}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b9d5b0d8cec9c2521d235e3ebcf26ca2}{%
+           family={Aumage},
+           familyi={A\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4c281310b69afa4b5cacffdde9c4fac0}{%
+           family={Barthou},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \strng{fullhash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \strng{bibnamehash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \strng{authorbibnamehash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \strng{authornamehash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \strng{authorfullhash}{4a3cda0c6e92ea9e6ecd4eab908777b6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents a new dynamic and fully generic implementation of a Successive Cancellation (SC) decoder (multi-precision support and intra-/inter-frame strategy support). This fully generic SC decoder is used to perform comparisons of the different configurations in terms of throughput, latency and energy consumption. A special emphasis is given on the energy consumption on low power embedded processors for software defined radio (SDR) systems. A N=4096 code length, rate 1/2 software SC decoder consumes only 14 nJ per bit on an ARM Cortex-A57 core, while achieving 65 Mbps. Some design guidelines are given in order to adapt the configuration to the application context.}
+      \field{booktitle}{European Signal Processing Conference (EUSIPCO)}
+      \field{month}{8}
+      \field{title}{Energy Consumption Analysis of Software Polar Decoders on Low Power Processors}
+      \field{year}{2016}
+      \field{pages}{642\bibrangedash 646}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/EUSIPCO.2016.7760327
+      \endverb
+      \verb{file}
+      \verb :pdf/Cassagne2016b - Energy Consumption Analysis of Software Polar Decoders on Low Power Processors.pdf:PDF;:pdf/Cassagne2016b - Energy Consumption Analysis of Software Polar Decoders on Low Power Processors [poster].pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Cassagne2016a}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=cdf78e44aa4a0498f25ea6d3730a981b}{%
+           family={Cassagne},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a8f5a741d78be2a190ea37cc8856ea5e}{%
+           family={Tonnellier},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=69be0658883c797079d89a098315de96}{%
+           family={{Le Gal}},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=b9d5b0d8cec9c2521d235e3ebcf26ca2}{%
+           family={Aumage},
+           familyi={A\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=4c281310b69afa4b5cacffdde9c4fac0}{%
+           family={Barthou},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8e16da2e542b542b6766e27ef32c4614}
+      \strng{fullhash}{8e16da2e542b542b6766e27ef32c4614}
+      \strng{bibnamehash}{8e16da2e542b542b6766e27ef32c4614}
+      \strng{authorbibnamehash}{8e16da2e542b542b6766e27ef32c4614}
+      \strng{authornamehash}{8e16da2e542b542b6766e27ef32c4614}
+      \strng{authorfullhash}{8e16da2e542b542b6766e27ef32c4614}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents a high-throughput implementation of a portable software turbo decoder. The code is optimized for traditional multi-core CPUs (like x86) and it is based on the Enhanced max-log-MAP turbo decoding variant. The code follows the LTE-Advanced specification. The key of the high performance comes from an inter-frame SIMD strategy combined with a fixed-point representation. Our results show that proposed multi-core CPU implementation of turbo-decoders is a challenging alternative to GPU implementation in terms of throughput and energy efficiency. On a high-end processor, our software turbo-decoder exceeds 1 Gbps information throughput for all rate-1/3 LTE codes with K $<$; 4096.}
+      \field{booktitle}{International Symposium on Turbo Codes and Iterative Information Processing (ISTC)}
+      \field{month}{9}
+      \field{title}{Beyond {G}bps Turbo decoder on multi-core {CPUs}}
+      \field{year}{2016}
+      \field{pages}{136\bibrangedash 140}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ISTC.2016.7593092
+      \endverb
+      \verb{file}
+      \verb :pdf/Cassagne2016a - Beyond Gbps Turbo Decoder on Multi-Core CPUs.pdf:PDF;:pdf/Cassagne2016a - Beyond Gbps Turbo Decoder on Multi-Core CPUs [poster].pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Giard2017}{article}{}
+      \name{author}{8}{}{%
+        {{hash=4a74358cae9378e65736d9da7795fb43}{%
+           family={Giard},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=c7adf1abc23bfc897639fd9707f162cc}{%
+           family={Balatsoukas-Stimming},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5b58bbf8e231512215faf2d782c61eb2}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={T.\bibnamedelimi C.},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=cae45a2618981cfaf7e765777e2d0a24}{%
+           family={Bonetti},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=444fbd1194f36e2397b438335dc4d4df}{%
+           family={Thibeault},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d384fa66615be5b2c99cef76abbedd86}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={W.\bibnamedelimi J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=c1bddcfeb92552aee4095bc008b45271}{%
+           family={Flatresse},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9ef3cf3fe70ef99920af9225f7952ecc}{%
+           family={Burg},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{b95b3e605c592fe9a9a6d75aafec93fc}
+      \strng{fullhash}{e581905fc34e3829adf223451c7f863f}
+      \strng{bibnamehash}{b95b3e605c592fe9a9a6d75aafec93fc}
+      \strng{authorbibnamehash}{b95b3e605c592fe9a9a6d75aafec93fc}
+      \strng{authornamehash}{b95b3e605c592fe9a9a6d75aafec93fc}
+      \strng{authorfullhash}{e581905fc34e3829adf223451c7f863f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Polar codes are a recently proposed class of block codes that provably achieve the capacity of various communication channels. They received a lot of attention as they can do so with low-complexity encoding and decoding algorithms, and they have an explicit construction. Their recent inclusion in a 5G communication standard will only spur more research. However, only a couple of ASICs featuring decoders for polar codes were fabricated, and none of them implements a list-based decoding algorithm. In this paper, we present ASIC measurement results for a fabricated 28-nm CMOS chip that implements two different decoders: the first decoder is tailored toward error-correction performance and flexibility. It supports any code rate as well as three different decoding algorithms: successive cancellation (SC), SC flip, and SC list (SCL). The flexible decoder can also decode both non-systematic and systematic polar codes. The second decoder targets speed and energy efficiency. We present measurement results for the first silicon-proven SCL decoder, where its coded throughput is shown to be of 306.8 Mbps with a latency of 3.34 us and an energy per bit of 418.3 pJ/b at a clock frequency of 721 MHz for a supply of 1.3 V. The energy per bit drops down to 178.1 pJ/b with a more modest clock frequency of 308 MHz, lower throughput of 130.9 Mbps and a reduced supply voltage of 0.9 V. For the other two operating modes, the energy per bit is shown to be of approximately 95 pJ/b. The less flexible high-throughput unrolled decoder can achieve a coded throughput of 9.2 Gbps and a latency of 628 ns for a measured energy per bit of 1.15 pJ/b at 451 MHz.}
+      \field{issn}{2156-3357}
+      \field{journaltitle}{Journal on Emerging and Selected Topics in Circuits and Systems}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{PolarBear: A 28-nm {FD-SOI} {ASIC} for Decoding of Polar Codes}
+      \field{volume}{7}
+      \field{year}{2017}
+      \field{pages}{616\bibrangedash 629}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/JETCAS.2017.2745704
+      \endverb
+      \verb{file}
+      \verb :pdf/Giard2017 - PolarBear A 28-nm FD-SOI ASIC for Decoding of Polar Codes.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{corporaal_microprocessor_1997}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2940ce944420a232674e25bcc237b5d0}{%
+           family={Corporaal},
+           familyi={C\bibinitperiod},
+           given={Henk},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, Inc.}%
+      }
+      \strng{namehash}{2940ce944420a232674e25bcc237b5d0}
+      \strng{fullhash}{2940ce944420a232674e25bcc237b5d0}
+      \strng{bibnamehash}{2940ce944420a232674e25bcc237b5d0}
+      \strng{authorbibnamehash}{2940ce944420a232674e25bcc237b5d0}
+      \strng{authornamehash}{2940ce944420a232674e25bcc237b5d0}
+      \strng{authorfullhash}{2940ce944420a232674e25bcc237b5d0}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{From the Publisher:The market for single chip microprocessors is huge and their performance continues to increase, driven by the on-going demand for more powerful applications, particularly in the control and signal processing domains. This work introduces a new type of computer architecture, the transport triggered architecture (TTA), designed to alleviate delay problems in existing instruction-level parallel architectures.}
+      \field{isbn}{978-0-471-97157-3}
+      \field{shorttitle}{Microprocessor {Architectures}}
+      \field{title}{Microprocessor {Architectures}: {From} {VLIW} to {TTA}}
+      \field{year}{1997}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Esko:2010:CED:1933303.1933795}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=4c6480169583b14245ea0b2c11840d3e}{%
+           family={Esko},
+           familyi={E\bibinitperiod},
+           given={Otto},
+           giveni={O\bibinitperiod}}}%
+        {{hash=75ed48bf94c99a2b7bf2481b69fb1766}{%
+           family={Jääskeläinen},
+           familyi={J\bibinitperiod},
+           given={Pekka},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7d45e00284b1ba912e1d9905df7082d6}{%
+           family={Huerta},
+           familyi={H\bibinitperiod},
+           given={Pablo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fdf8eea7de2651a4b5a43fea452bbaca}{%
+           family={La\bibnamedelima Lama},
+           familyi={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Carlos\bibnamedelima S.},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=755680ac7ff271c430f3b35bb120f7b6}{%
+           family={Takala},
+           familyi={T\bibinitperiod},
+           given={Jarmo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e0d30079095670b9a2196e050e23a89f}{%
+           family={Martinez},
+           familyi={M\bibinitperiod},
+           given={Jose\bibnamedelima Ignacio},
+           giveni={J\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{43658645fec3fcaf1b50adcd723418aa}
+      \strng{fullhash}{43658645fec3fcaf1b50adcd723418aa}
+      \strng{bibnamehash}{43658645fec3fcaf1b50adcd723418aa}
+      \strng{authorbibnamehash}{43658645fec3fcaf1b50adcd723418aa}
+      \strng{authornamehash}{43658645fec3fcaf1b50adcd723418aa}
+      \strng{authorfullhash}{43658645fec3fcaf1b50adcd723418aa}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE FPL}
+      \field{title}{{Customized Exposed Datapath Soft-Core Design Flow with Compiler Support}}
+      \field{year}{2010}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{1051344}{article}{}
+      \name{author}{2}{}{%
+        {{hash=96b8f18c48bd3ba586538b5208197d8f}{%
+           family={Tabak},
+           familyi={T\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9b5299a1086a3dda9a5a27736b659314}{%
+           family={Lipovski},
+           familyi={L\bibinitperiod},
+           given={G.\bibnamedelimi J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \strng{fullhash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \strng{bibnamehash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \strng{authorbibnamehash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \strng{authornamehash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \strng{authorfullhash}{847f973985eeb4a17acfb3d5c4df2fa6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+      \field{title}{{MOVE Architecture in Digital Controllers}}
+      \field{year}{1980}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{lattner_llvm:_2004}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=082d304bf1444853e07be11590d172a2}{%
+           family={Lattner},
+           familyi={L\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1bbfd49b96c18edb5a0c84c94c3fa6c4}{%
+           family={Adve},
+           familyi={A\bibinitperiod},
+           given={Vikram},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{0964e8d9ddfb3d949bce90ef30732275}
+      \strng{fullhash}{0964e8d9ddfb3d949bce90ef30732275}
+      \strng{bibnamehash}{0964e8d9ddfb3d949bce90ef30732275}
+      \strng{authorbibnamehash}{0964e8d9ddfb3d949bce90ef30732275}
+      \strng{authornamehash}{0964e8d9ddfb3d949bce90ef30732275}
+      \strng{authorfullhash}{0964e8d9ddfb3d949bce90ef30732275}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{{CGO}}
+      \field{isbn}{978-0-7695-2102-2}
+      \field{shorttitle}{{LLVM}}
+      \field{title}{{{LLVM}: A Compilation Framework for Lifelong Program Analysis \& Transformation}}
+      \field{year}{2004}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{mishra_successive_2012}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=f7f71538d4bb0e9b03ea5dd49bbdf50a}{%
+           family={Mishra},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b217cc7fef5286ab7838bbf29fa1eeb9}{%
+           family={Raymond},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=4c713182a99bbfcaa848c19bf61fd2f5}{%
+           family={Amaru},
+           familyi={A\bibinitperiod},
+           given={L.\bibnamedelimi G.},
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=ffbad48a3b4a4b3a0b70a26600b3a1f7}{%
+           family={Sarkis},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=9b44b45b0b23062285b9c32b568c0f10}{%
+           family={Leroux},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ffd9f71f424b1d07b372ea0bdf03d4c3}{%
+           family={Meinerzhagen},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9ef3cf3fe70ef99920af9225f7952ecc}{%
+           family={Burg},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d384fa66615be5b2c99cef76abbedd86}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={W.\bibnamedelimi J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{cac0092574d33eb44d67c278ee94b181}
+      \strng{fullhash}{5d74423b0adce5156772772de5edd6e6}
+      \strng{bibnamehash}{cac0092574d33eb44d67c278ee94b181}
+      \strng{authorbibnamehash}{cac0092574d33eb44d67c278ee94b181}
+      \strng{authornamehash}{cac0092574d33eb44d67c278ee94b181}
+      \strng{authorfullhash}{5d74423b0adce5156772772de5edd6e6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents the first ASIC implementation of a successive cancellation (SC) decoder for polar codes. The implemented ASIC relies on a semi-parallel architecture where processing resources are reused to achieve good hardware efficiency. A speculative decoding technique is employed to increase the throughput by 25\% at the cost of very limited added complexity. The resulting architecture is implemented in a 180nm technology. The fabricated chip can be clocked at 150 MHz and uses 183k gates. It was verified using an FPGA testing setup and provides reference for the true silicon complexity of SC decoders for polar codes.}
+      \field{booktitle}{{IEEE} {A}-{SSCC}}
+      \field{month}{11}
+      \field{title}{{A Successive Cancellation Decoder {ASIC} for a 1024-bit Polar Code in 180nm {CMOS}}}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1109/IPEC.2012.6522661
+      \endverb
+      \verb{file}
+      \verb IEEE Xplore Abstract Record:/home/bonben/Zotero/storage/5TW36RTD/6522661.html:text/html
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{konevcny2015federated}{article}{}
+      \name{author}{3}{}{%
+        {{hash=77de557ed1f3039e29b00bc26bf41080}{%
+           family={Konečnỳ},
+           familyi={K\bibinitperiod},
+           given={Jakub},
+           giveni={J\bibinitperiod}}}%
+        {{hash=be349ac63090285fa87303a55d511957}{%
+           family={McMahan},
+           familyi={M\bibinitperiod},
+           given={Brendan},
+           giveni={B\bibinitperiod}}}%
+        {{hash=86066638fba5b4dc33bcee0bcba473cf}{%
+           family={Ramage},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a2dea47e0db8662bfdbcca384db0739}
+      \strng{fullhash}{8a2dea47e0db8662bfdbcca384db0739}
+      \strng{bibnamehash}{8a2dea47e0db8662bfdbcca384db0739}
+      \strng{authorbibnamehash}{8a2dea47e0db8662bfdbcca384db0739}
+      \strng{authornamehash}{8a2dea47e0db8662bfdbcca384db0739}
+      \strng{authorfullhash}{8a2dea47e0db8662bfdbcca384db0739}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1511.03575}
+      \field{title}{Federated optimization: Distributed optimization beyond the datacenter}
+      \field{year}{2015}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{kairouz2021advances}{article}{}
+      \name{author}{2}{}{%
+        {{hash=761af8788087acbeff1e33df3d1ff52a}{%
+           family={Kairouz},
+           familyi={K\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Now Publishers, Inc.}%
+      }
+      \strng{namehash}{abeb710c7153f5d2540524cc11c85b0a}
+      \strng{fullhash}{abeb710c7153f5d2540524cc11c85b0a}
+      \strng{bibnamehash}{abeb710c7153f5d2540524cc11c85b0a}
+      \strng{authorbibnamehash}{abeb710c7153f5d2540524cc11c85b0a}
+      \strng{authornamehash}{abeb710c7153f5d2540524cc11c85b0a}
+      \strng{authorfullhash}{abeb710c7153f5d2540524cc11c85b0a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Foundations and Trends{®} in Machine Learning}
+      \field{number}{1--2}
+      \field{title}{Advances and open problems in federated learning}
+      \field{volume}{14}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 210}
+      \range{pages}{210}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{mcmahan2017communication}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=be349ac63090285fa87303a55d511957}{%
+           family={McMahan},
+           familyi={M\bibinitperiod},
+           given={Brendan},
+           giveni={B\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{2ecf74a2b04e967b73717431cb475006}
+      \strng{fullhash}{2ecf74a2b04e967b73717431cb475006}
+      \strng{bibnamehash}{2ecf74a2b04e967b73717431cb475006}
+      \strng{authorbibnamehash}{2ecf74a2b04e967b73717431cb475006}
+      \strng{authornamehash}{2ecf74a2b04e967b73717431cb475006}
+      \strng{authorfullhash}{2ecf74a2b04e967b73717431cb475006}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Artificial intelligence and statistics}
+      \field{title}{Communication-efficient learning of deep networks from decentralized data}
+      \field{year}{2017}
+      \field{pages}{1273\bibrangedash 1282}
+      \range{pages}{10}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{qiu2023first}{article}{}
+      \name{author}{9}{}{%
+        {{hash=2f1ad1aba74450f81e00f8a377c6e082}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Xinchi},
+           giveni={X\bibinitperiod}}}%
+        {{hash=349c6249e40230069088b98c40bdf16f}{%
+           family={Parcollet},
+           familyi={P\bibinitperiod},
+           given={Titouan},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bbb5dfb352a9cbbab5255e431223ac2a}{%
+           family={Fernandez-Marques},
+           familyi={F\bibinithyphendelim M\bibinitperiod},
+           given={Javier},
+           giveni={J\bibinitperiod}}}%
+        {{hash=051dd6ebe2e8a7d9449a407231dad7d7}{%
+           family={Gusmao},
+           familyi={G\bibinitperiod},
+           given={Pedro\bibnamedelima PB},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=5646e437c80bcf3ca39765bb227debe8}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7bf2d912026dfd8e881264db28949c3b}{%
+           family={Beutel},
+           familyi={B\bibinitperiod},
+           given={Daniel\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=608177426325ccad5b56907cf6b57beb}{%
+           family={Topal},
+           familyi={T\bibinitperiod},
+           given={Taner},
+           giveni={T\bibinitperiod}}}%
+        {{hash=457cd19c088f0576b2d4d9823277fe38}{%
+           family={Mathur},
+           familyi={M\bibinitperiod},
+           given={Akhil},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0178a10937afeee8b3947b80841a4c65}{%
+           family={Lane},
+           familyi={L\bibinitperiod},
+           given={Nicholas\bibnamedelima D},
+           giveni={N\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{7480916ff446b2bd06415da1e84f7728}
+      \strng{fullhash}{2b8b8aac053101c92bd99973356e93fb}
+      \strng{bibnamehash}{7480916ff446b2bd06415da1e84f7728}
+      \strng{authorbibnamehash}{7480916ff446b2bd06415da1e84f7728}
+      \strng{authornamehash}{7480916ff446b2bd06415da1e84f7728}
+      \strng{authorfullhash}{2b8b8aac053101c92bd99973356e93fb}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{129}
+      \field{title}{A first look into the carbon footprint of federated learning}
+      \field{volume}{24}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 23}
+      \range{pages}{23}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{qiu2022zerofl}{article}{}
+      \name{author}{6}{}{%
+        {{hash=2f1ad1aba74450f81e00f8a377c6e082}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Xinchi},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bbb5dfb352a9cbbab5255e431223ac2a}{%
+           family={Fernandez-Marques},
+           familyi={F\bibinithyphendelim M\bibinitperiod},
+           given={Javier},
+           giveni={J\bibinitperiod}}}%
+        {{hash=051dd6ebe2e8a7d9449a407231dad7d7}{%
+           family={Gusmao},
+           familyi={G\bibinitperiod},
+           given={Pedro\bibnamedelima PB},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=5646e437c80bcf3ca39765bb227debe8}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=349c6249e40230069088b98c40bdf16f}{%
+           family={Parcollet},
+           familyi={P\bibinitperiod},
+           given={Titouan},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fc74602275b8be60ff9e099d17d2e951}{%
+           family={Lane},
+           familyi={L\bibinitperiod},
+           given={Nicholas\bibnamedelima Donald},
+           giveni={N\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \strng{fullhash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \strng{bibnamehash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \strng{authorbibnamehash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \strng{authornamehash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \strng{authorfullhash}{65f2f4d01ba529b39a5cb36147a389b2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2208.02507}
+      \field{title}{Zerofl: Efficient on-device training for federated learning with local sparsity}
+      \field{year}{2022}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Nikopour2013}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=158a0da15aa6c560440700663c049333}{%
+           family={{Nikopour}},
+           familyi={N\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ce3d86721897a2429628f1d9440d99b6}{%
+           family={{Baligh}},
+           familyi={B\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \strng{fullhash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \strng{bibnamehash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \strng{authorbibnamehash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \strng{authornamehash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \strng{authorfullhash}{7fda47ec74e5661fdf5abc68c89a5bf2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Multicarrier CDMA is a multiplexing approach in which modulated QAM symbols are spread over multiple OFDMA tones by using a generally complex spreading sequence. Effectively, a QAM symbol is repeated over multiple tones. Low density signature (LDS) is a version of CDMA with low density spreading sequence allowing us to take advantage of a near optimal ML receiver with practically feasible complexity. In this paper, we propose a new multiple access scheme so called sparse code multiple access (SCMA) which still enjoys the low complexity reception technique but with better performance compared to LDS. In SCMA, the procedure of bit to QAM symbol mapping and spreading are combined together and incoming bits are directly mapped to a multidimensional codeword of an SCMA codebook set. Each layer or user has its dedicated codebook. Shaping gain of a multidimensional constellation is the main source of the performance improvement in comparison to the simple repetition of QAM symbols in LDS. In general, SCMA codebook design is an optimization problem. A systematic sub-optimal approach is proposed here for SCMA codebook design.}
+      \field{booktitle}{International Symposium on Personal, Indoor, and Mobile Radio Communications (PIMRC)}
+      \field{issn}{2166-9589}
+      \field{month}{9}
+      \field{title}{Sparse Code Multiple Access}
+      \field{year}{2013}
+      \field{pages}{332\bibrangedash 336}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/PIMRC.2013.6666156
+      \endverb
+      \verb{file}
+      \verb :pdf/Nikopour2013 - Sparse Code Multiple Access.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Aulin1981a}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3ad6361b4be871f2b731e25747b8704e}{%
+           family={Aulin},
+           familyi={A\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=1287c599f39c65475eecec02bc731de2}{%
+           family={Sundberg},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{154f0748417f09e0ac22e5cafcd73103}
+      \strng{fullhash}{154f0748417f09e0ac22e5cafcd73103}
+      \strng{bibnamehash}{154f0748417f09e0ac22e5cafcd73103}
+      \strng{authorbibnamehash}{154f0748417f09e0ac22e5cafcd73103}
+      \strng{authornamehash}{154f0748417f09e0ac22e5cafcd73103}
+      \strng{authorfullhash}{154f0748417f09e0ac22e5cafcd73103}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The continuous phase modulation (CPM) signaling scheme has gained interest in recent years because of its attractive spectral properties. Data symbol pulse shaping has previously been studied with regard to spectra, for binary data and modulation index 0.5. In this paper these results have been extended to the<tex>M</tex>-ary case, where the pulse shaping is over a one symbol interval, the so-called full response systems. Results are given for modulation indexes of practical interest, concerning both performance and spectrum. Comparisons are made with minimum shift keying (MSK) and systems have been found which are significantly better in<tex>E_{b}/N_{0}</tex>for a large signal-to-noise ratio (SNR) without expanded bandwidth. Schemes with the same bit error probability as MSK but with considerably smaller bandwidth have also been found. Significant improvement in both power and bandwidth are obtained by increasing the number of levels<tex>M</tex>from 2 to 4.}
+      \field{issn}{0090-6778}
+      \field{journaltitle}{IEEE Transactions on Communications (TCOM)}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Continuous Phase Modulation - Part I: Full Response Signaling}
+      \field{volume}{29}
+      \field{year}{1981}
+      \field{pages}{196\bibrangedash 209}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TCOM.1981.1095001
+      \endverb
+      \verb{file}
+      \verb :pdf/Aulin1981a - Continuous Phase Modulation - Part I Full Response Signaling.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{Aulin1981b}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3ad6361b4be871f2b731e25747b8704e}{%
+           family={Aulin},
+           familyi={A\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=763765140b19af62c4f5190f3a985f2f}{%
+           family={Rydbeck},
+           familyi={R\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1287c599f39c65475eecec02bc731de2}{%
+           family={Sundberg},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \strng{fullhash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \strng{bibnamehash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \strng{authorbibnamehash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \strng{authornamehash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \strng{authorfullhash}{9a6c6746ac1f6323c6e65a9f4bf98c55}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An analysis of constant envelope digital partial response continuous Phase modulation (CPM) systems is reported. Coherent detection is assumed and the channel is Gaussian. The receiver observes the received signal over more than one symbol interval to make use of the correlative properties of the transmitted signal. The Systems are<tex>M</tex>-ary, and baseband pulse shaping over several symbol intervals is considered. An optimum receiver based on the Viterbi algorithm is presented. Constant envelope digital modulation schemes with excellent spectral tail properties are given. The spectra have extremely low sidelobes. It is concluded that partial response CPM systems have spectrum compaction properties. Furthermore, at equal or even smaller bandwidth than minimum shift keying (MSK), a considerable gain in transmitter power can be obtained. This gain increases with<tex>M</tex>. Receiver and transmitter configurations are presented.}
+      \field{issn}{0090-6778}
+      \field{journaltitle}{IEEE Transactions on Communications (TCOM)}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Continuous Phase Modulation - Part II: Partial Response Signaling}
+      \field{volume}{29}
+      \field{year}{1981}
+      \field{pages}{210\bibrangedash 225}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1109/TCOM.1981.1094985
+      \endverb
+      \verb{file}
+      \verb :pdf/Aulin1981b - Continuous Phase Modulation - Part II Partial Response Signaling.pdf:PDF
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{murray2010algorithm}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0eab8a33e5cad3091b54747598cf77f9}{%
+           family={Murray},
+           familyi={M\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod}}}%
+        {{hash=634f3ff8f1918379abd11517bf732069}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Kien-Ming},
+           giveni={K\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \strng{fullhash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \strng{bibnamehash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \strng{authorbibnamehash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \strng{authornamehash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \strng{authorfullhash}{d9ce53a090b0ac031749a93e4843f9ba}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational optimization and applications}
+      \field{number}{2}
+      \field{title}{An algorithm for nonlinear optimization problems with binary variables}
+      \field{volume}{47}
+      \field{year}{2010}
+      \field{pages}{257\bibrangedash 288}
+      \range{pages}{32}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{tessier:tel-04064137}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=f65683131517cad80ec0dc468a3fd3ef}{%
+           family={Tessier},
+           familyi={T\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Ecole nationale supérieure Mines-Télécom Atlantique}%
+      }
+      \strng{namehash}{f65683131517cad80ec0dc468a3fd3ef}
+      \strng{fullhash}{f65683131517cad80ec0dc468a3fd3ef}
+      \strng{bibnamehash}{f65683131517cad80ec0dc468a3fd3ef}
+      \strng{authorbibnamehash}{f65683131517cad80ec0dc468a3fd3ef}
+      \strng{authornamehash}{f65683131517cad80ec0dc468a3fd3ef}
+      \strng{authorfullhash}{f65683131517cad80ec0dc468a3fd3ef}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{2}
+      \field{number}{2023IMTA0350}
+      \field{title}{{Convolutional neural networks pruning and its application to embedded vision systems}}
+      \field{type}{Theses}
+      \field{year}{2023}
+      \verb{file}
+      \verb https://theses.hal.science/tel-04064137v1/file/2023IMTA0350_Hugo-Tessier.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://theses.hal.science/tel-04064137
+      \endverb
+      \verb{url}
+      \verb https://theses.hal.science/tel-04064137
+      \endverb
+      \keyw{REFERENCE}
+    \endentry
+    \entry{han2015learning}{article}{}
+      \name{author}{4}{}{%
+        {{hash=873e4e07ff73d563d2651d20ffaf99e0}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Song},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f1e61530c8d771a37b8b13c165706035}{%
+           family={Pool},
+           familyi={P\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d6d4c0e514b570e5795955f653db50db}{%
+           family={Tran},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f352f442da245469318ee7648224df0f}{%
+           family={Dally},
+           familyi={D\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b489f4d5c196aa730a2022685e378c0}
+      \strng{fullhash}{6b489f4d5c196aa730a2022685e378c0}
+      \strng{bibnamehash}{6b489f4d5c196aa730a2022685e378c0}
+      \strng{authorbibnamehash}{6b489f4d5c196aa730a2022685e378c0}
+      \strng{authornamehash}{6b489f4d5c196aa730a2022685e378c0}
+      \strng{authorfullhash}{6b489f4d5c196aa730a2022685e378c0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Learning both weights and connections for efficient neural network}
+      \field{volume}{28}
+      \field{year}{2015}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{liu2017learning}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=f7eda249dc15ce9f452344ec95bbcc67}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zhuang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=fc40cef5ef949b4d1fa96d1360af8f9c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianguo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=656a003a053913c84310e52854968608}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Zhiqiang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0d12f90a1d1945cb1b98f583c9dc9572}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Gao},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3125dffbe6a3cff75f960316ea122703}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Shoumeng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1cdb46d901af9706e5eedcaab5d6222e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Changshui},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \strng{fullhash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \strng{bibnamehash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \strng{authorbibnamehash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \strng{authornamehash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \strng{authorfullhash}{0a121b842b0f375c1697b2f6e3b9309d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE international conference on computer vision}
+      \field{title}{Learning efficient convolutional networks through network slimming}
+      \field{year}{2017}
+      \field{pages}{2736\bibrangedash 2744}
+      \range{pages}{9}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{tanaka2020pruning}{article}{}
+      \name{author}{4}{}{%
+        {{hash=006b59e43c2f4245319074258dfc4c82}{%
+           family={Tanaka},
+           familyi={T\bibinitperiod},
+           given={Hidenori},
+           giveni={H\bibinitperiod}}}%
+        {{hash=db9a81fc862fb57450e0557b4de33054}{%
+           family={Kunin},
+           familyi={K\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=96ac1f446c3e608818c6cf59c732035d}{%
+           family={Yamins},
+           familyi={Y\bibinitperiod},
+           given={Daniel\bibnamedelima L},
+           giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=05b3e391388084df874ede60f2210c12}{%
+           family={Ganguli},
+           familyi={G\bibinitperiod},
+           given={Surya},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c1be24f684ca77a79f035baf7e7b6939}
+      \strng{fullhash}{c1be24f684ca77a79f035baf7e7b6939}
+      \strng{bibnamehash}{c1be24f684ca77a79f035baf7e7b6939}
+      \strng{authorbibnamehash}{c1be24f684ca77a79f035baf7e7b6939}
+      \strng{authornamehash}{c1be24f684ca77a79f035baf7e7b6939}
+      \strng{authorfullhash}{c1be24f684ca77a79f035baf7e7b6939}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Pruning neural networks without any data by iteratively conserving synaptic flow}
+      \field{volume}{33}
+      \field{year}{2020}
+      \field{pages}{6377\bibrangedash 6389}
+      \range{pages}{13}
+      \keyw{REFERENCE}
+    \endentry
+    \entry{renda2020comparing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d39078c3e529d5b48fcbd07d2779c33a}{%
+           family={Renda},
+           familyi={R\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8f891d6f89678d7c987fed1e7090426b}{%
+           family={Frankle},
+           familyi={F\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7cc7d0487fdba682edd06e917656b031}{%
+           family={Carbin},
+           familyi={C\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{71218340d52cdd15c62a18fbdd28d61d}
+      \strng{fullhash}{71218340d52cdd15c62a18fbdd28d61d}
+      \strng{bibnamehash}{71218340d52cdd15c62a18fbdd28d61d}
+      \strng{authorbibnamehash}{71218340d52cdd15c62a18fbdd28d61d}
+      \strng{authornamehash}{71218340d52cdd15c62a18fbdd28d61d}
+      \strng{authorfullhash}{71218340d52cdd15c62a18fbdd28d61d}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2003.02389}
+      \field{title}{Comparing rewinding and fine-tuning in neural network pruning}
+      \field{year}{2020}
+      \keyw{REFERENCE}
+    \endentry
+  \enddatalist
+  \missing{blalock2020state}
+  \missing{tessier2022leveraging}
+\endrefsection
+\endinput
+

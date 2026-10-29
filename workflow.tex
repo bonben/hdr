@@ -1,0 +1,117 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{helvet}
+\usepackage{xcolor}
+\renewcommand{\familydefault}{\sfdefault} % Use sans-serif font
+
+% Load required TikZ libraries
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta, calc, shadows}
+\input{colors}
+\begin{document}
+
+\begin{tikzpicture}[
+    % Define consistent styles for the diagram
+    base/.style={align=center, font=\large, drop shadow={opacity=0.15, shadow xshift=1mm, shadow yshift=-1mm}, thick},
+    % Input nodes (Left)
+    % Input nodes (Left) - was ellipse -> rectangle
+    input/.style={
+        base,
+        rectangle,
+        rounded corners=2mm,
+        draw=black!70,
+        fill=white,
+        text width=2.8cm,
+        minimum height=1.3cm
+    },
+    % Process nodes (Green, Blue, Orange)
+    processG/.style={base, rectangle, rounded corners=2mm, draw=Paired-3, fill=Paired-4, text width=2.4cm, minimum height=2.2cm},
+    processB/.style={base, rectangle, rounded corners=2mm, draw=Paired-1, fill=Paired-2, text width=2.6cm, minimum height=2.2cm},
+    processO/.style={base, rectangle, rounded corners=2mm, draw=Paired-7, fill=Paired-8, text width=2.4cm, minimum height=2.2cm},
+    % Top Configuration nodes - was ellipse/circle -> rectangle
+    topInputE/.style={
+        base,
+        rectangle,
+        rounded corners=2mm,
+        draw=black!70,
+        fill=white,
+        text width=2.8cm,
+        minimum height=1cm
+    },
+    topInputC/.style={
+        base,
+        rectangle,
+        rounded corners=2mm,
+        draw=black!70,
+        fill=white,
+        text width=3cm,
+        minimum height=1.2cm
+    },
+    % Output nodes (Right & Bottom) - was ellipse -> rectangle
+    output/.style={
+        base,
+        rectangle,
+        rounded corners=2mm,
+        draw=Paired-5,
+        fill=Paired-6,
+        text width=3cm,
+        minimum height=1.2cm
+    },
+    % Connecting Arrows
+    arrow/.style={-{Stealth[length=2.5mm, width=2mm]}, thick, draw=black!70}
+]
+
+    % --- Place main horizontal processing spine ---
+    \node[processG] (export) {ONNX\\Export};
+    \node[processB, right=0.8cm of export] (backward) {Backward\\ONNX\\Generation};
+    \node[processB, right=0.8cm of backward] (check) {ONNX Check\\Stream Pre-processing};
+    \node[processB, right=0.8cm of check] (opt) {Optimizer\\Pass};
+    \node[processO, right=1.8cm of opt] (stream) {Stream}; % Extra space for the branch
+
+    % --- Place left initial inputs ---
+    \node[input, left=1cm of export, yshift=1.1cm] (nn) {Neural Network\\(CNN,\\Transformers)};
+    \node[input, left=1cm of export, yshift=-1.1cm] (batch) {Batch Size,\\Input Size};
+
+    % --- Place top configuration inputs ---
+    \node[topInputE, above=1cm of backward] (loss) {Loss, Frozen\\Weights};
+    \node[topInputC, above=1cm of opt] (opt_cfg) {Optimizer\\configuration\\(Adam, SGD...)};
+    \node[topInputC, above=1cm of stream] (accel_cfg) {Accelerator\\Mapping\\Layer-Fused\\Configurations};
+
+    % --- Place bottom/right outputs ---
+    % Calculate midpoint for the branching output
+    \coordinate (branch_pt) at ($(opt.east)!0.45!(stream.west)$);
+    \node[output, below=1.5cm of branch_pt] (train) {Training\\ONNX};
+
+    \node[output, right=1.2cm of stream, yshift=1.1cm] (latency) {Latency,\\Energy,\\Memory};
+    \node[output, right=1.2cm of stream, yshift=-1.1cm] (schedule) {Schedule};
+
+    % --- Draw Connections ---
+    % Left Inputs to ONNX Export
+    \draw[arrow] (nn.east) -- ([yshift=0.5cm]export.west);
+    \draw[arrow] (batch.east) -- ([yshift=-0.5cm]export.west);
+
+    % Main horizontal spine
+    \draw[arrow] (export.east) -- (backward.west);
+    \draw[arrow] (backward.east) -- (check.west);
+    \draw[arrow] (check.east) -- (opt.west);
+
+    % Draw arrow from Optimizer to Stream, and create a branch point
+    \draw[arrow] (opt.east) -- (stream.west);
+
+    % Top inputs downwards
+    \draw[arrow] (loss.south) -- (backward.north);
+    \draw[arrow] (opt_cfg.south) -- (opt.north);
+    \draw[arrow] (accel_cfg.south) -- (stream.north);
+
+    % Branching to Training ONNX
+    % Draws a line from the calculated branch point straight down to the node
+    \draw[arrow] (branch_pt) -- (train.north);
+    % To make the T-junction look solid, draw a small line segment
+    \filldraw[black!70] (branch_pt) circle (1.5pt);
+
+    % Right Outputs
+    \draw[arrow] (stream.east) -- (latency.west);
+    \draw[arrow] (stream.east) -- (schedule.west);
+
+\end{tikzpicture}
+
+\end{document}

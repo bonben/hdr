@@ -1,0 +1,115 @@
+% \documentclass{article}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+% \usetikzlibrary{patterns} % Required for patterns
+% \input{colors}
+\pgfmathsetmacro{\shift}{-8pt}
+% \begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    width=\columnwidth,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.2,
+    symbolic x coords={Base, Manual, Limit8, Limit6, Limit4},
+    xtick={Base,Manual,Limit8, Limit6, Limit4},        % <-- IMPORTANT
+    ylabel={Latency (Cycles)},
+    axis y line*=left,
+    ymin=0,
+    scaled y ticks=base 10:-7,
+    ytick scale label code/.code={},
+    ylabel={Latency ($\times 10^{7}$ Cycles)},
+    % legend style={at={(0.02,0.02)}, anchor=south west, font=\footnotesize},
+    grid=major,
+    grid style={dashed, gray!30},
+]
+
+\addplot[fill=Paired-2, draw=Paired-1, ybar, bar shift=-8pt]
+    coordinates {(Base, 19966170.0)};
+\addplot[fill=Paired-6, draw=Paired-5, ybar, bar shift=-8pt]
+    coordinates {(Manual, 18246096.0)};
+\addplot[fill=Paired-4, draw=Paired-3, ybar, bar shift=-8pt]
+    coordinates {(Limit8, 19200693.0)};
+\addplot[fill=Paired-8, draw=Paired-7, ybar, bar shift=-8pt]
+    coordinates {(Limit6,  17894203.0)};
+\addplot[fill=Paired-10, draw=Paired-9, ybar, bar shift=-8pt]
+    coordinates {(Limit4, 17899628)};
+% \addlegendentry{Latency}
+\end{axis}
+
+\begin{axis}[
+ybar,
+    width=\columnwidth,
+    height=7cm,
+    bar width=15pt,
+    enlarge x limits=0.2,
+    symbolic x coords={Base, Manual, Limit8, Limit6, Limit4},
+    xtick={Base,Manual,Limit8, Limit6, Limit4},        % <-- IMPORTANT
+    ylabel={Energy (pJ)},
+    xticklabels = {},
+    ymin=0,
+    scaled y ticks=base 10:-9,
+    ytick scale label code/.code={},
+    ylabel={Energy ($\times 10^{9}$ pJ)},
+    % ymin=-2e9, ymax=4e9,
+    % ymin = 15,
+    axis y line*=right,
+    legend columns=2,
+    legend style={
+        at={(0.98,0.98)},
+        anchor=north east,
+        font=\footnotesize,
+    },
+    % legend image code/.code={\draw[fill=Set2-8, draw=Set1-10, postaction={pattern=north west lines}] (0cm,0cm) rectangle (0.4cm,0.4cm);}
+]
+\addlegendimage{
+    legend image code/.code={
+        \draw[fill=Set2-8, draw=Set1-10]
+            (0cm,-0.15cm) rectangle (0.4cm,0.25cm);
+    }
+}
+\addlegendentry{Latency}
+
+% ---- Energy legend (patterned square)
+\addlegendimage{
+    legend image code/.code={
+        \draw[fill=Set2-8, draw=Set1-10, postaction={pattern=north west lines}]
+            (0cm,-0.15cm) rectangle (0.4cm,0.25cm);
+    }
+}
+\addlegendentry{Energy}
+\addplot[
+    fill=Paired-2,
+    draw=Paired-1,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(Base, 4522230546.616)};
+
+\addplot[
+    fill=Paired-6,
+    draw=Paired-5,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(Manual, 3418727585.01598)};
+\addplot[
+    fill=Paired-4,
+    draw=Paired-3,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(Limit8, 3128449313.3809853)};
+\addplot[
+    fill=Paired-8,
+    draw=Paired-7,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(Limit6, 3119411313.380985)};
+\addplot[
+    fill=Paired-10,
+    draw=Paired-9,
+    bar shift=17pt + \shift, ybar,
+    postaction={pattern=north west lines}
+] coordinates {(Limit4, 3176560031.7559857)};
+\end{axis}
+\end{tikzpicture}
+% \end{document}
+

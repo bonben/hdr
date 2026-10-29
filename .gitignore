@@ -1,1 +1,15 @@
-build/
+build/*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.maf
+*.mtc*
+*.out
+*.run.xml
+*.toc
+hdr.zip
+main.pdf
+.agent/

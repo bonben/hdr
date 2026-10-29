@@ -1,0 +1,67 @@
+\def\colormap{viridis}
+\def\colorData{buffer_bandwidth_bpc}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=1 by 2, vertical sep=1.5cm},
+    width=0.8\linewidth,
+    height=0.5\linewidth,
+    tick align=outside,
+    tick pos=left,
+    x grid style={darkgray176},
+    y grid style={darkgray176},
+    xmajorgrids,
+    grid=major,
+    grid style={dashed, gray!30},
+    xtick style={color=black},
+    scaled x ticks=base 10:-9,
+    xtick scale label code/.code={},
+    xlabel={Energy ($\times 10^{9}$ pJ)},
+    ytick style={color=black},
+    ylabel near ticks,
+    scaled y ticks=base 10:-7,
+    ytick scale label code/.code={},
+    ylabel={Latency ($\times 10^{7}$ Cycles)},
+    colormap/\colormap,
+    point meta=explicit,
+    legend cell align={left},
+    legend style={
+      fill opacity=0.8,
+      draw=black,
+      draw opacity=1,
+      text opacity=1,
+      at={(0.01,0.98)},
+      anchor=north west,
+      draw=lightgray204
+    },
+]
+
+% --- Top: Inference (NO colorbar) ---
+\nextgroupplot[
+    title=\it{Inference},
+    colorbar,
+    xlabel={},
+    % xmin=2e9, xmax=4e9,
+    % ymin=0, ymax=0.8e8,
+    colorbar style={
+        ytick style={draw=none},
+        title=\shortstack{Buffer\\Bandwidth},
+        title style={align=center},
+        height=0.7\linewidth + 1cm,
+        scaled y ticks=false, % <- do not apply scaled y ticks to colorbar
+        ytick scale label code/.code={} % <- no "×10^k" scale label on the colorbar
+    },
+]
+
+\addplot [thick, only marks, mark=*, mark size=1.2, scatter]
+table [y=f_latency, x=f_energy, meta=\colorData,col sep=comma] {figures/SA_GPT/resultSA.csv};
+
+% --- Bottom: Training (the ONLY one with colorbar) ---
+\nextgroupplot[
+    title=\it{Training},
+]
+\addplot [thick, only marks, mark=*, mark size=1.2, scatter]
+table [y=fb_latency, x=fb_energy, meta=\colorData,col sep=comma] {figures/SA_GPT/resultSA.csv};
+
+\end{groupplot}
+\end{tikzpicture}

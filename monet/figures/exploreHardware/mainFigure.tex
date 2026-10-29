@@ -1,0 +1,84 @@
+\def\colormap{viridis}
+\def\colorData{totalCompln}
+\def\colorName{\shortstack{Total\\Computational\\Capacity}}
+
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=1 by 2, vertical sep=1.5cm},
+    width=0.85\linewidth,
+    height=0.5\linewidth,
+    tick align=outside,
+    tick pos=left,
+    x grid style={darkgray176!60},
+    y grid style={darkgray176!60},
+    x grid style={},
+    y grid style={},
+    xmajorgrids,
+    grid=major,
+    grid style={dashed},
+    xtick style={color=black},
+    scaled x ticks=base 10:-9,
+    xtick scale label code/.code={},
+    xlabel={Energy ($\times 10^{9}$ pJ)},
+    ytick style={color=black},
+    ylabel near ticks,
+    ylabel={Latency (Cycles)},
+    scaled y ticks=base 10:-7,
+    ytick scale label code/.code={},
+    ylabel={Latency ($\times 10^{7}$ Cycles)},
+    colormap/\colormap,
+    point meta=explicit,
+    legend cell align={left},
+    legend style={
+      fill opacity=0.8,
+      draw=black,
+      draw opacity=1,
+      text opacity=1,
+      at={(0.01,0.98)},
+      anchor=north west,
+      draw=lightgray204
+    },
+]
+
+% --- Top: Inference (NO colorbar) ---
+\nextgroupplot[
+    title=\it{Inference},
+    colorbar,
+    xlabel={},
+    % xmin=2e9, xmax=4e9,
+    % ymin=0, ymax=0.8e8,
+    ytick={ 6.62, 7.01, 7.39, 7.77, 8.15 },
+    yticklabels={ 0, 1, 2, 6, 14 },
+    xtick={ 9.38, 9.45, 9.53, 9.61, 9.69 },
+    xticklabels={ 2, 3, 3, 4, 5 },
+    colorbar style={
+        ytick style={draw=none},
+        title=\shortstack{Total\\Computational\\Capacity},
+        title style={align=center},
+        height=0.7\linewidth + 1cm,
+        scaled y ticks=false, % <- do not apply scaled y ticks to colorbar
+        ytick scale label code/.code={}, % <- no "×10^k" scale label on the colorbar
+        ytick= {1.20411998265592, 1.901604224927816, 2.599088467199712, 3.296572709471608, 3.994056951743504, 4.6915411940154},
+        yticklabels={16, 80, 397, 1980, 9864, 49152},
+    },
+]
+
+\addplot [thick, only marks, mark=*, mark size=1.5, scatter]
+table [y=f_log_latency, x=f_log_energy, meta=\colorData, col sep=comma]
+{figures/exploreHardware/result.csv};
+
+% --- Bottom: Training (the ONLY one with colorbar) ---
+\nextgroupplot[
+    title=\it{Training},
+    ytick={ 7.40, 7.71, 8.02, 8.33, 8.64 },
+    yticklabels={ 3, 5, 11, 21, 43 },
+    xtick={ 10.42, 10.55, 10.67, 10.79, 10.91 },
+    xticklabels={ 26, 35, 47, 62, 82 },
+]
+\addplot [thick, only marks, mark=*, mark size=1.5, scatter]
+table [y=fb_log_latency, x=fb_log_energy, meta=\colorData, col sep=comma]
+{figures/exploreHardware/result.csv};
+
+\end{groupplot}
+\end{tikzpicture}
